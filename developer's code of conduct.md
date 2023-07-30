@@ -8,11 +8,12 @@ To improve review quality, in PR about new feature/feature change/balance change
 
 ## Content creation
 <div align="justify">
-    <p>1. You should avoid touching areas of the pack you have never reached personally as a player, unless you have feedback from other devs/players who are experienced in those areas.</p>
-    <p>2. You should avoid adding new content below IV tier, the game is already dense enough as it is (especially the chemlines!). However, bug fixes and QoL changes are always appreciated. If you have a good reason to add it, discuss with the team in #meta-dev, and if general consensus is reached, then you can start working on it. This is important! We don’t want anyone to waste dev time on PRs that will get rejected.</p>
-    <p>3. Don't make PRs with new stuff if it hasn't been discussed with the team before. We had enough occurrences of that in the pack, where it is merged without anyone but the one who coded the PR knowing precisely what the changes are about, resulting in awful discoveries once it's shipped to the players.</p>
-    <p>4. Respect the vision. If something you want to add is not in the vision document then discuss it in #meta-dev and if there is agreement the document can be updated.</p>
-    <p>5. Be open to criticism. Sometimes the stuff you made and that you are proud of might not be popular in its current form. That's ok and it's a part of the process.</p>
-    <p>6. Include a flowchart if it involves adding a new recipe chain. Any new PR without it will be rejected no matter how good it can be. If you don’t know how, try [draw.io](https://draw.io).</p>
+
+1) You should avoid touching areas of the pack you have never reached personally as a player, unless you have feedback from other devs/players who are experienced in those areas.
+2) You should avoid adding new content below IV tier, the game is already dense enough as it is (especially the chemlines!). However, bug fixes and QoL changes are always appreciated. If you have a good reason to add it, discuss with the team in #meta-dev, and if general consensus is reached, then you can start working on it. This is important! We don’t want anyone to waste dev time on PRs that will get rejected.
+3) Don't make PRs with new stuff if it hasn't been discussed with the team before. We had enough occurrences of that in the pack, where it is merged without anyone but the one who coded the PR knowing precisely what the changes are about, resulting in awful discoveries once it's shipped to the players.
+4) Respect the vision. If something you want to add is not in the vision document then discuss it in #meta-dev and if there is agreement the document can be updated.
+5) Be open to criticism. Sometimes the stuff you made and that you are proud of might not be popular in its current form. That's ok and it's a part of the process.
+6) Include a flowchart if it involves adding a new recipe chain. Any new PR without it will be rejected no matter how good it can be. If you don’t know how, try [draw.io](https://draw.io).
 </div>
 
