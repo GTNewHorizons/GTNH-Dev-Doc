@@ -44,7 +44,7 @@ From the GitHub and for discussion:
 
 You are looking at a big progressive kitchensink pack for Minecraft 1.7.10 balanced around the mod GregTech.
 
-Over 6 years of development (and still going) GT:NH has formed a balance and refinement that only a handful of packs can keep up with. We are talking about thousands of recipe tweaks, a massive questbook with a custom reward system, unique world generation, custom mods coded for the pack, custom Thaumonomicon pages, and many more.
+Over 8 years of development (and still going) GT:NH has formed a balance and refinement that only a handful of packs can keep up with. We are talking about thousands of recipe tweaks, a massive questbook with a custom reward system, unique world generation, custom mods coded for the pack, custom Thaumonomicon pages, and many more.
 
 The main intentions of the pack are a long-lasting experience and tying mods together in a progressive fashion, making it feel more like a single game than a compilation of mods thrown together.
 
@@ -313,6 +313,8 @@ With the introduction of conveyor and pump covers, automation complexes are fina
 
 Major milestone:
 - Set of metal working machines
+- Reach the Twilight Forest
+- First EBF
 - MV circuits
 
 Major challenges:
@@ -321,13 +323,14 @@ Major challenges:
 Optional challenges:
 - Conquer overworld dungeons
 - 4x or more BBF
+- First Oil pumping and processing
 
 End of tier: built first MV machine
 
 Main material: Steel
 Secondary material: Wrought Iron
-Cable materials: Tin, Copper
-Pipe materials: Bronze, Tin
+Cable materials: Tin
+Pipe materials: Bronze, Potin, Tin
 
 </div>
 
