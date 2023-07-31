@@ -406,12 +406,12 @@ Rocket tier 2, unlocked bodies:
 <div align="justify">
 Major milestone:
 
+- Fully centralized power with the LSC
 - Full automations with AE2 and processing multiblocks
 - Building the Assembly Line
 
 Major challenges:
 
-- Lack of power
 - Extra difficulty in building multiblocks to keep up with needed processing speed
 - Automating the entire platline
 - Automating PBI and other plastics that are still missing.
@@ -496,6 +496,7 @@ Pipe material: Enderium
 Rocket tier 6, unlocked bodies:
 - Oberon
 - Triton
+
 </div>
 
 ## 2.x. UV Age
