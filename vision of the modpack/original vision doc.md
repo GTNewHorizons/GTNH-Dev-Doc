@@ -319,6 +319,7 @@ Major milestone:
 
 Major challenges:
 - Lack of steel
+- Setting up a non-steam power source or scaling up steam power sufficiently.
 
 Optional challenges:
 - Conquer overworld dungeons
@@ -344,7 +345,7 @@ Major milestone:
 - HV Circuits
 
 Major challenges:
-- Setting up a non-steam power source or scaling up steam power sufficiently.
+- running your EBF for longer times and upgrading it to Kanthal
 
 Main material: Aluminium
 Secondary material: Wrought Iron
