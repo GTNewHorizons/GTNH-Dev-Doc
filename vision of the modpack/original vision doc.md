@@ -251,3 +251,467 @@ This wouldn’t apply to unintentional recipes/exploits
 ## 1.xi. General Principles
 - Avoid small/tiny dusts if possible - percentage chance of full dusts instead
 - Avoid making new features that encourage spamming laggy setup.
+
+# 2. Tech Tree
+## 2.i. Stone Age
+<div align="justify">
+This is the player’s first exposure to the pack and its philosophies, so it is important to ensure that any information is as clear as it can be.
+
+In this tier, the player is introduced to tool progression and how it applies to mining. Also present is the player’s first exposure to GT ore veins.
+
+It is worth noting that the player will find themselves almost 100% relying on the Quest Book to figure out what to do next for the early survival portions of this tier.
+
+New players who know modded Minecraft should be strongly reminded that the QB has all the changes in gameplay.
+
+Major milestone:
+- Getting a tool material
+- Cook some bronze
+
+Major challenges:
+- Surviving the night
+- Basic food source
+- Get basic tools
+- A residence
+
+Optional challenges:
+- Conquer overworld dungeons
+
+Main materials: Flint, later Iron (both mainly for tools)
+</div>
+
+## 2.ii. Steam Age
+<div align="justify">
+This gives the player insight into the method in which GT operates for tiering and material processing, which is also applicable for all tiers after. This makes it an important tier to ensure the player understands such information properly.
+
+The major milestones for this tier include:
+- Building the Bricked Blast Furnace
+- Reaching the Nether
+- First circuits
+
+Major challenges:
+- Stable steam production
+
+Optional challenges:
+- Conquer overworld dungeons
+- Establish a steady charcoal supply
+
+End of tier: built first electric machine
+
+Main materials: Bronze (machines), later Steel (advanced TiCon tools)
+</div>
+
+## 2.iii. LV Age
+<div align="justify">
+By this point the player should mostly be able to free themselves of the additional survival difficulty of the pack, at least as far as the overworld goes.
+
+Players will need to craft the first set of metal working machines and greatly improve their manufacturing efficiency. They will mostly rely on a huge steam buffer to power everything, since they won’t be required to build any high power consumption setup running 24/7. However, setting up a proper power gen like oil distillery, would greatly help them proceed.
+
+With the introduction of conveyor and pump covers, automation complexes are finally possible to be built with relative ease, while it’s not really required to do so, given they are not required to make a steady power supply, players should be rewarded accordingly if they do so.
+
+
+Major milestone:
+- Set of metal working machines
+- MV circuits
+
+Major challenges:
+- Lack of steel
+
+Optional challenges:
+- Conquer overworld dungeons
+- 4x or more BBF
+
+End of tier: built first MV machine
+
+Main material: Steel
+Secondary material: Wrought Iron
+Cable materials: Tin, Copper
+Pipe materials: Bronze, Tin
+
+</div>
+
+## 2.iv. MV Age
+<div align="justify">
+This is when the first multi is introduced (GT++ steam multi not considered). 
+The sudden bump in power requirement calls for some real power infra. Oil, benzene or charcoal steam are viable, while oil/benzene being the one preferred.
+With a proper power setup, running automation for a considerable timespan is now possible. Classic setups like water electrolysis, redstone centrifuge, automated ore proc, etc are still not required, but would help greatly regardless.
+
+
+Main material: Aluminium
+Secondary material: Wrought Iron
+Cable materials: Copper, Cupronickel
+Pipe material: Steel
+</div>
+
+## 2.v. HV Age
+<div align="justify">
+Main material: Stainless Steel
+Secondary material: Polyethylene
+Cable materials: Gold, Silver, Electrum
+Pipe material: Stainless Steel
+
+Rocket tier 1, unlocked bodies:
+- Moon
+</div>
+
+## 2.vi. EV Age
+<div align="justify">
+EV is the age in which AE2 is unlocked, which is a vital point in any modpack with progression, especially GTNH when it can easily be considered the biggest modpack there is. There are many new automations that are unlocked in EV, which can now be done with AE2, but this tier is usually seen as lacking content because these automations are instead done in IV.
+This happens because the gate to IV is getting enough Tungstensteel, and the way there is through the tier 2 rocket, which is not a very difficult craft. Any player can choose to set up AE2 automation in EV, with the main issues being Titanium and power costs, but they can also choose to go to tier 2 planets quickly to automate things in IV instead.
+These are some of the automations that are unlocked in EV, but generally delayed to IV:
+
+- Epoxy Resin - it’s required to make the circuits used in EV, but batch crafting is enough to get you through the tier. In IV, however, the new circuit line also uses Epoxy and an ungodly amount of 90 ZPM circuits are used to make a complete Assembly Line, required for LuV, so automation for this happens there. The LuV circuits from EV are never actually needed in EV, and the only 2 that are necessary are used in the IV Circuit Assembler, which needs some IV progression anyways;
+- Indium - This isn’t even used in EV, it is simply an IV material that is unlocked a tier earlier for no necessary reason;
+- Platinum - Processing this is required because it is used in cables and some other things in IV, but the first main wall for it is, again, the ZPM Circuits for the Assembly Line. There isn’t much of a need to fully automate Platinum processing in EV, but it is absolutely required in IV.
+- Polyphenylene Sulfide - Used to make all IV and beyond cables, this can also be batch crafted. It’s okay to automate it EV, but the main 2 cables used in EV are Platinum and Tungsten, which are usually two IV automations.
+- Tungstensteel Coils - When you have enough Tungstensteel for this, you’re essentially IV. Then, in IV, there are two more coil tiers, HSS-G and HSS-S, which I think is just a weird progression.
+
+Additionally, the Titanium processing is no longer required with a Multiblock Miner in a tier 2 planet, because Titanium Small Ore exists there. In the search for Tungstate, Scheelite and other ores, the player will just get enough Titanium to no longer need to process Rutile.
+To make EV a proper tier with some length, I believe that the mainframes of this tier should be required in some way while still in EV (the tier 2 rocket, for example), Platinum should also be needed in large amounts before IV is achieved, and the coil progression should also be changed so that EV has more coil types and IV has less.
+
+Main material: Titanium
+Secondary material: Polyethylene
+Cable materials: Aluminium, Black Steel
+Pipe material: Titanium
+
+Rocket tier 2, unlocked bodies:
+- Mars
+- Deimos
+- Phobos
+
+Rocket tier 3, unlocked bodies:
+- Ceres
+- Asteroids
+- Europa
+- Ganymede
+- Callisto
+- Ross128b
+
+</div>
+
+## 2.vii. IV Age
+<div align="justify">
+Major milestone:
+
+- Full automation with AE2 and processing multiblocks
+- Building the Assembly Line
+
+Major challenges:
+
+- Lack of power
+- Extra difficulty in building multiblocks to keep up with needed processing speed
+- Automating the entire platline
+- Getting thousands of Platinum for ZPM Circuits
+- Automating Epoxy Resin and the other board materials for ZPM Circuits
+- Progressing through up to 3 coil tiers to process new materials
+- Big jump in EBF processing time with both Tungsten and Tungstensteel
+- Large amount of Graphene needed, which require many stacks of processed Silicon
+- Obtaining Indium in significant amounts for this tier and the next
+- Radon loop from Uranium ores found in t2 planets, if not done in EV
+
+Optional challenges:
+- Automating many LuV inputs to be ready in advance
+- Investing in powergen to prepare for the gap until fusion
+- Getting Naquadah from the EBF recipe for the new wafers
+- Lanthanide line?
+- Super Glue line
+
+Main material: Tungstensteel
+Secondary material: PTFE
+Cable materials: Tungsten, Graphene, Platinum
+Pipe material: Tungstensteel
+
+Rocket tier 4, unlocked bodies:
+- Io
+- Mercury
+- Venus
+
+</div>
+
+## 2.viii. LuV Age
+<div align="justify">
+Main material: Rhodium-Plated Palladium
+Secondary material: PTFE
+Cable materials: Vanadium-Gallium, Yttrium Barium Cuprate
+Pipe material: Niobium-Titanium
+
+Rocket tier 5, unlocked bodies:
+- Enceladus
+- Titan
+- Miranda
+- Oberon
+- Ross128ba
+
+</div>
+
+## 2.ix. ZPM Age
+<div align="justify">
+Main material: Iridium
+Secondary material: PBI
+Cable materials: Naquadah, Vanadium-Gallium, Europium
+Pipe material: Enderium
+
+Rocket tier 6, unlocked bodies:
+- Oberon
+- Triton
+</div>
+
+## 2.x. UV Age
+<div align="justify">
+Main material: Osmium
+Secondary material: PBI
+Cable materials: Naquadah Alloy, Americium, Fluxed Electrum
+Pipe material: Naquadah
+
+Rocket tier 7, unlocked bodies:
+- Pluto
+- Kuiper Belt
+- Haumea
+- Makemake
+
+</div>
+
+## 2.xi. UHV Age
+<div align="justify">
+GT++ Cyclotron unlocked here, rejig some of the lower tier usages of the items and then we have access to particles for higher tier circuits, machines etc. Also bump % chances of particles as they are stupidly low currently and encourage spamming.
+
+Main material: Neutronium
+Secondary material: PBI
+Cable materials: Superconductor UV, Neutronium, Bedrockium
+Pipe material: Neutronium
+
+Rocket tier 8, unlocked bodies:
+- T Ceti E
+- Vega B
+- α Centauri Bb
+- Barnarda C
+- Barnarda E
+- Barnarda F
+
+Unlocks the Space Elevator multiblock to be built, which allows the player to mine in space from asteroids. At first only allowing resources from tier 7 planets and below. It also allows the player to pump fluids from distant planets. The elevator can have a module installed, which allows the making of projects in space, like an asteroid outpost or the start of a dyson swarm.
+
+</div>
+
+## 2.xii. UEV Age
+<div align="justify">
+Other than bio circuits what really unlocks here? Honestly, I don't know.
+
+The player is challenged to build a Mothership (needs AmunRa to be integrated into the pack, see https://github.com/GTNewHorizons/amunra), a multiblock spaceship which can be accessed by launching a Shuttle Rocket. It is used to reach the farest system, the Ra-System
+
+Main material: Bedrockium
+Secondary material: PBI
+Cable materials: Draconium, Cosmic Neutronium
+Pipe material: Nether Star
+
+Rocket tier 9 (Mothership), unlocked bodies:
+- Neper
+- Maahes
+- Anubis
+- Horus
+- Seth
+- Mehen Belt
+
+</div>
+
+## 2.xiii. UIV Age
+<div align="justify">
+Optical circuit line, compulsory usage of xSMDs and mandatory living soldering alloy replacement for soldering alloy at this tier.
+
+Dimensionally Transcendent Plasma Forge unlocks.
+
+Living soldering alloy + xSMDs.
+
+Main material: Black Plutonium
+Secondary material: PBI
+Cable materials: Nether Star, ?
+Pipe material: ?
+
+</div>
+
+## 2.xiv. UMV Age
+<div align="justify">
+New assembly line-type multiblock possibly.
+
+Space Elevator
+The Space Elevator is a tall multiblock structure that allows the user to construct large scale space projects.
+Use Cases:
+- Crafting of the Matrioshka Brain
+- Maybe integration with the Dyson Swarm?
+- A theoretical space station used for crafting items that need low gravity (ZBLAN) (to make this have a bigger use, we could 1. Introduce more recipes that need low gravity and 2. Blacklist machines from applying that effect when not in a low gravity environment)
+- Integration with space ship building?
+- Let players travel to other planets?
+- Space Mining?
+Other ideas:
+- The Space Elevator has some kind of project hatch. In this hatch you can insert a data stick for the project you want to start. In the hatch you will also see needed materials and progress. Once the project is finished it will be saved in the controller (like the imprint of a CAL) to allow the user to do recipes on the project. A simple example could be that a user builds a virtual space station inside the elevator. Now the user can input items for recipes that need a space station and the elevator will process them.
+
+Main material: Spacetime
+Secondary material: PBI?
+Cable materials: Quantium, ?
+Pipe material: ?
+
+</div>
+
+## 2.xv. UXV Age
+<div align="justify">
+(Former) Black Hole Generator
+A multiblock used for both energy and resource generation. The idea is to create different types of stellar objects to achieve this. Different types of stellar objects can be unlocked by using the Dyson Swarm to research stars. Dyson Swarm could have two modes, first being normal power generation, second being research mode. Both modes could have different drone types? Would need to decide on the maths behind this.
+Name ideas:
+
+- Hammerspace Containment Device
+- Star Forge
+- 
+Tiered casings of the multi are:
+- Hammerspace Containment Units (Determine input volume)
+- “Time Acceleration Device” (Determine process time)
+- Maybe tiered casings of the multi itself, that have different heat values they can withstand (Determine max. processable star type). The original structure had a glass-dome version. Maybe we could use different tiers of containment glass. (Honestly I think the glass should be removed, it looks way better without it imo).
+
+Possible use cases: 
+- Create a star from “Gas Giant Composite Gas” that is harvested on gas giants and other resources. 
+- Stars can then be processed further to die. When dying the star creates a supernova, which creates a black hole and generates a lot of plasma/energy in the process. Black holes can be processed further (possibly in another machine) to generate more energy.
+
+Open questions: 
+- How could a star be transported (item form would be possible but maybe there is a more fitting way of transporting a star). 
+- Which amounts of plasma/energy should the stars give to fit into the balancing.
+- Could take in continuous amounts of mass each second from a hatch.
+
+Other ideas:
+- If the stars are created under intense time acceleration, maybe they shouldn’t just be processed and be done. Instead Let them age over time and the player is to decide when the star is done. At each different age the outcomes of processing the star further may vary.
+- The generator could need computation to work.
+- Can craft Neutron stars, Magnetars, main sequence, red dwarfs, blue giants, hyper giants, brown dwarfs, black hole, white dwarf (multi-step process to get some of these as they are only formed after a supernova has occurred).
+- Crafting process: 
+    - Fill the machine with a lot of gas (Gas Giant Composite Gas was suggested but maybe Hydrogen and Helium?), maybe dust/mass and apply a huge amount of energy (internal buffer perhaps, like fusion) to create an interstellar cloud as a first step.
+    - To actually now get to the star little energy is required for the upkeep of the machine. This process will take some time. 
+    - From what I understand a star needs no further input to evolve into other star-classes except time. So maybe just consume energy. We could also add some stuff here to increase the challenge (maybe something like the uncertainty resolver but for stars)
+
+
+
+Main material: ?
+Secondary material: ?
+Cable materials: ?
+Pipe material: ?
+
+</div>
+
+## 2.xvi. MAX Age
+<div align="justify">
+Black Hole Generator Mk2 (?)
+This machine follows the same principles as the normal Black Hole Generator, discussed above. However instead of dealing with single stars you create a whole microverse.
+Ideas:
+
+- You need to find a balance in your microverse in terms of black holes, stars and whatnot (Entropy as measure?).
+- Need wormhole multi to connect to basement universes for resource harvesting? Perhaps the multi itself makes an item which can “connect” to this universe through the wormhole generator, then users can harvest multiple universes in parallel with different wormhole multis. This multi already exists in TT with no implemented logic.
+- Crafting empty basement universes and inserting computational equipment and using this in MAX tier circuits (Perhaps even a multi to assemble matrioshka brains in “orbit” and insert them into basement universes). See tipler oracles.
+- Space elevator multiblock? 
+- Allow multiple dyson swarms spanning multiple star systems.
+
+Main material: ?
+Secondary material: ?
+Cable materials: ?
+Pipe material: ?
+
+</div>
+
+# 3. Magic Tree
+
+# 4. Global Changes
+**All Ages and Tiers**:
+
+Make coins more useful
+- Add a lot of uses to coins like a big market place
+
+Add GT Materials for Botania stuff
+- like Mana Steel etc
+
+Change how you can get Elements out of Ore Products
+- Electrolyzing/Centrifuge is very boring. Let’s add a bit of real-life chemistry.
+
+
+**Stone Age**:
+
+change how ingots are made
+- Remove ingots out of vanilla furnace
+- Nuggets can be smelted with no ingot form
+- Use Tico smelter for ingots
+- Add some stone/brick furnace with two slots one for ingredient one for mold form
+
+Tico Book
+- Change the book to show up gtnh changes
+
+
+**Bronze Age**:
+
+Add tico mold forms to the alloy smelter
+- make ingots, nuggets early on in alloy smelter
+
+Add more dust to make Bronze
+- Cassiterite
+- Cassiterite Sand
+- Chalcopyrite
+- Tetrahedrite
+- Malachite
+
+
+**LV Tier**:
+
+Add mold forms to the EBF
+- If a mold form is present ingots etc will be processed
+- if not stuff will be available as molten material like ABS(gt++)
+- We can add more than ingots (plates, nuggets etc)
+
+Add more dust to make Steel (EBF)
+- Pyrite
+- Magnetite
+- Banded Iron
+- Yellow Limonite
+- Brown Limonite
+- Basaltic Mineral Sand
+- Granitic Mineral Sand
+
+
+**MV Age**:
+
+Change how Silicon is made
+- Add a process Line like this (less detailed) [Silicon Wafer Production by MicroChemicals](https://www.youtube.com/watch?v=2qLI-NYdLy8)
+- Remove Silicon ingots
+- Use Quartzite as a main resource for Silicon like in RL
+- Need some new machines for heating Silicon
+- Chemical bath can used for cleaning wafers
+- Cutting machines maybe need new slots for slice item
+
+Update Tainted Magic to version 8+
+- Adjust mt script to new version or add stuff in code
+
+Change Kanthal to HV
+- Change recipe use HV but make process time a bit shorter
+
+Change/Adjust Aluminum process
+- Check the aluminum recipes (remove oxygen)
+
+
+
+**HV Age**:
+
+Rockets should use Rocket Fuels
+- Remove fuel usage from Rockets in T1 and T2
+- Make fuels(gt++ ones)  in gt LCR as well
+
+Change loot chest from Moon Boss
+- Add some nice loot instead of this crap is in the chest
+
+Change Moon Boss to make the fight more challenging
+- Boss can have more HP
+- Maybe some unique Effect or Aura Debuff (ideas are welcome)
+
+Add more content to Moon
+- Moon dungeons like roguelike stuff
+- Maybe deeper crater to make moon surface looks better
+- Add a better ratio to solar panels generate power
+
+
+
+
+**LUV Age**:
+
+Rework Fusion
+- Change automation and power gen
+- Make Fusion recipes not skip tiers
+
