@@ -1,39 +1,41 @@
 # Vision for GregTech : New Horizons
 
 1) # [Definitions](#1-definitions)
-   1) ## What is GT:NH?
-   2) ## What is a tier?
-   3) ## What is Pollution?
-      1) ### Current Pollution
-      2) ### Pollution 2.0
-   4) ## What is Tedium?
-   5) ## What is QoL?
-   6) ## What should be space exploration?
-      1) ### Yannick's suggestion: Leapfrogging
-   7) ## What is the place of combat in the pack?
-   8) ## What's our policy to add new mods?
-   9) ## What is the deprecation policy on removed or "nerfed" recipes?
-   10) ## General Principles
+   1) ## [What is GT:NH?](#1i-what-is-gtnh)
+   2) ## [What is a tier?](#1ii-what-is-a-tier)
+   3) ## [What is Pollution?](#1iii-what-is-pollution)
+      1) ### [Current Pollution](#1iiia-current-pollution)
+      2) ### [Pollution 2.0](#1iiib-pollution-20)
+   4) ## [What is Tedium?](#1iv-what-is-tedium)
+   5) ## [What is QoL?](#1v-what-is-qol)
+   6) ## [What should be Magic](#1vi-what-should-be-magic)
+   7) ## [What should be space exploration?](#1vii-what-should-be-space-exploration)
+      1) ### [Yannick's suggestion: Leapfrogging](#1viia-yannick-suggestion-leapfrogging)
+   8) ## [What is the place of combat in the pack?](#1viii-what-is-the-place-of-combat-in-the-pack)
+   9) ## [What's our policy to add new mods?](#1vix-whats-our-policy-to-add-new-mods)
+   10) ## [What is the deprecation policy on removed or "nerfed" recipes?](#1x-what-is-the-deprecation-policy-on-removed-or-nerfed-recipes)
+   11) ## [General Principles](#1xi-general-principles)
 
-2) # Tech Tree
-   1) ## Stone Age
-   2) ## Steam Age
-   3) ## LV Ager
-   4) ## MV Age
-   5) ## HV Age
-   6) ## EV Age
-   7) ## IV Age
-   8) ## LuV Age
-   9) ## ZPM Age
-   10) ## UV Age
-   11) ## UHV Age
-   12) ## UEV Age
-   13) ## UIV Age
-   14) ## UMV Age
-   15) ## UXV Age
-   16) ## MAX Age
+2) # [Tech Tree](#2-tech-tree)
+   1) ## [Stone Age](#2i-stone-age)
+   2) ## [Steam Age](#2ii-steam-age)
+   3) ## [LV Age](#2iii-lv-age)
+   4) ## [MV Age](#2iv-mv-age)
+   5) ## [HV Age](#2v-hv-age)
+   6) ## [EV Age](#2vi-ev-age)
+   7) ## [IV Age](#2vii-iv-age)
+   8) ## [LuV Age](#2viii-luv-age)
+   9) ## [ZPM Age](#2ix-zpm-age)
+   10) ## [UV Age](#2x-uv-age)
+   11) ## [UHV Age](#2xi-uhv-age)
+   12) ## [UEV Age](#2xii-uev-age)
+   13) ## [UIV Age](#2xiii-uiv-age)
+   14) ## [UMV Age](#2xiv-umv-age)
+   15) ## [UXV Age](#2xv-uxv-age)
+   16) ## [MAX Age](#2xvi-max-age)
    
-3) # Magic Tree
+3) # [Magic Tree](#3-magic-tree)
+4) # [Global Changes](#4-global-changes)
 
 # 1. Definitions
 ## 1.i. What is GT:NH?
