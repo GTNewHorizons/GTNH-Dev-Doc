@@ -1,41 +1,41 @@
-Vision for GregTech : New Horizons
+# Vision for GregTech : New Horizons
 
-1) Definitions
-   1) What is GT:NH?
-   2) What is a tier?
-   3) What is Pollution?
-      1) Current Pollution
-      2) Pollution 2.0
-   4) What is Tedium?
-   5) What is QoL?
-   6) What should be space exploration?
-      1) Yannick's suggestion: Leapfrogging
-   7) What is the place of combat in the pack?
-   8) What's our policy to add new mods?
-   9) What is the deprecation policy on removed or "nerfed" recipes?
-   10) General Principles
+1) ## [Definitions](#definitions)
+   1) ### What is GT:NH?
+   2) ### What is a tier?
+   3) ### What is Pollution?
+      1) #### Current Pollution
+      2) #### Pollution 2.0
+   4) ### What is Tedium?
+   5) ### What is QoL?
+   6) ### What should be space exploration?
+      1) #### Yannick's suggestion: Leapfrogging
+   7) ### What is the place of combat in the pack?
+   8) ### What's our policy to add new mods?
+   9) ### What is the deprecation policy on removed or "nerfed" recipes?
+   10) ### General Principles
 
-2) Tech Tree
-   1) Stone Age
-   2) Steam Age
-   3) LV Ager
-   4) MV Age
-   5) HV Age
-   6) EV Age
-   7) IV Age
-   8) LuV Age
-   9) ZPM Age
-   10) UV Age
-   11) UHV Age
-   12) UEV Age
-   13) UIV Age
-   14) UMV Age
-   15) UXV Age
-   16) MAX Age
+2) ## Tech Tree
+   1) ### Stone Age
+   2) ### Steam Age
+   3) ### LV Ager
+   4) ### MV Age
+   5) ### HV Age
+   6) ### EV Age
+   7) ### IV Age
+   8) ### LuV Age
+   9) ### ZPM Age
+   10) ### UV Age
+   11) ### UHV Age
+   12) ### UEV Age
+   13) ### UIV Age
+   14) ### UMV Age
+   15) ### UXV Age
+   16) ### MAX Age
    
-3) Magic Tree
+3) ## Magic Tree
 
-# 1. Definitions
+# 1. <a name=definitions></a>Definitions
 ## 1.i. What is GT:NH?
 <div align="justify">
 From the GitHub and for discussion:
