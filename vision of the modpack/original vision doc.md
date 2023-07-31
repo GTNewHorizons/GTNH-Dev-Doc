@@ -329,8 +329,8 @@ End of tier: built first MV machine
 
 Main material: Steel
 Secondary material: Wrought Iron
-Cable materials: Tin
-Pipe materials: Bronze, Potin, Tin
+Cable materials: Tin, Copper
+Pipe materials: Bronze, Tin (Potin for high throughput usage)
 
 </div>
 
@@ -350,7 +350,7 @@ Major challenges:
 Main material: Aluminium
 Secondary material: Wrought Iron
 Cable materials: Copper, Cupronickel
-Pipe material: Steel, Brass
+Pipe material: Steel (Potin/Dark Steel for high throughput usage)
 </div>
 
 ## 2.v. HV Age
@@ -369,7 +369,7 @@ Major challenges:
 Main material: Stainless Steel
 Secondary material: Polyethylene
 Cable materials: Gold, Silver, Electrum
-Pipe material: Dark Steel
+Pipe material: Stainless Steel (Dark Steel for high throughput usage)
 
 Rocket tier 1, unlocked bodies:
 - Moon
