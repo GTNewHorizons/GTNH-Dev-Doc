@@ -336,7 +336,6 @@ Pipe materials: Bronze, Tin (Potin for high throughput usage)
 
 ## 2.iv. MV Age
 <div align="justify">
-This is when the first multi is introduced (GT++ steam multis not considered). 
 The sudden bump in power requirement calls for some real power infra. Oil, benzene or charcoal steam are viable, while oil/benzene being the one preferred.
 With a proper power setup, running automation for a considerable timespan is now possible. Classic setups like water electrolysis, redstone centrifuge, automated ore proc, etc are still not required, but would help greatly regardless.
 The tier has the first required (mini) chemical line with Solar Grade Silicon.
@@ -387,7 +386,7 @@ Any player can choose to set up AE2 automation in EV, with the main issues being
 
 The Titanium processing is not strictly required anymore once on has a Multiblock Miner in a tier 2 planet, because Titanium Small Ore exists there. In the search for Tungstate, Scheelite and other ores, the player might fine they have enough Titanium to no longer need to process Rutile. However, the processing lines for Bauxite and Ilmenite are also very useful for Gallium and Tantalum.
 
-A further challenge in EV is to switch from singleblock generators to multiblock generators and in the process most likely from decentralized power to centralized power.
+A further challenge in EV is to switch from singleblock generators to multiblock generators and in the process most likely from decentralized power to centralized power. For that the LSC (Lapotronic Supercapacitor) becomes available at the end of EV as well.
 
 
 Main material: Titanium
@@ -406,7 +405,6 @@ Rocket tier 2, unlocked bodies:
 <div align="justify">
 Major milestone:
 
-- Fully centralized power with the LSC
 - Full automations with AE2 and processing multiblocks
 - Building the Assembly Line
 
