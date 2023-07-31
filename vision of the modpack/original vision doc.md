@@ -336,23 +336,39 @@ Pipe materials: Bronze, Potin, Tin
 
 ## 2.iv. MV Age
 <div align="justify">
-This is when the first multi is introduced (GT++ steam multi not considered). 
+This is when the first multi is introduced (GT++ steam multis not considered). 
 The sudden bump in power requirement calls for some real power infra. Oil, benzene or charcoal steam are viable, while oil/benzene being the one preferred.
 With a proper power setup, running automation for a considerable timespan is now possible. Classic setups like water electrolysis, redstone centrifuge, automated ore proc, etc are still not required, but would help greatly regardless.
+The tier has the first required (mini) chemical line with Solar Grade Silicon.
 
+Major milestone:
+- HV Circuits
+
+Major challenges:
+- Setting up a non-steam power source or scaling up steam power sufficiently.
 
 Main material: Aluminium
 Secondary material: Wrought Iron
 Cable materials: Copper, Cupronickel
-Pipe material: Steel
+Pipe material: Steel, Brass
 </div>
 
 ## 2.v. HV Age
 <div align="justify">
+The main goal of this tier is to reach the Moon. Many parts lead up to that including IV circuits, the Cleanroom, and the implosion compressor.
+The Distillation Tower and Oil Cracker also lead to more advanced oil (or benzene) setups.
+
+Major milestone:
+- IV Circuits
+- Reaching the Moon
+
+Major challenges:
+- Working with the Cleanroom
+
 Main material: Stainless Steel
 Secondary material: Polyethylene
 Cable materials: Gold, Silver, Electrum
-Pipe material: Stainless Steel
+Pipe material: Dark Steel
 
 Rocket tier 1, unlocked bodies:
 - Moon
