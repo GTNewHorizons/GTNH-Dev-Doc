@@ -44,7 +44,7 @@ From the GitHub and for discussion:
 
 You are looking at a big progressive kitchensink pack for Minecraft 1.7.10 balanced around the mod GregTech.
 
-Over 6 years of development (and still going) GT:NH has formed a balance and refinement that only a handful of packs can keep up with. We are talking about thousands of recipe tweaks, a massive questbook with a custom reward system, unique world generation, custom mods coded for the pack, custom Thaumonomicon pages, and many more.
+Over 8 years of development (and still going) GT:NH has formed a balance and refinement that only a handful of packs can keep up with. We are talking about thousands of recipe tweaks, a massive questbook with a custom reward system, unique world generation, custom mods coded for the pack, custom Thaumonomicon pages, and many more.
 
 The main intentions of the pack are a long-lasting experience and tying mods together in a progressive fashion, making it feel more like a single game than a compilation of mods thrown together.
 
@@ -313,43 +313,63 @@ With the introduction of conveyor and pump covers, automation complexes are fina
 
 Major milestone:
 - Set of metal working machines
+- Reach the Twilight Forest
+- First EBF
 - MV circuits
 
 Major challenges:
 - Lack of steel
+- Setting up a non-steam power source or scaling up steam power sufficiently.
 
 Optional challenges:
 - Conquer overworld dungeons
 - 4x or more BBF
+- First Oil pumping and processing
 
 End of tier: built first MV machine
 
 Main material: Steel
 Secondary material: Wrought Iron
 Cable materials: Tin, Copper
-Pipe materials: Bronze, Tin
+Pipe materials: Bronze, Tin, Potin
 
 </div>
 
 ## 2.iv. MV Age
 <div align="justify">
-This is when the first multi is introduced (GT++ steam multi not considered). 
 The sudden bump in power requirement calls for some real power infra. Oil, benzene or charcoal steam are viable, while oil/benzene being the one preferred.
 With a proper power setup, running automation for a considerable timespan is now possible. Classic setups like water electrolysis, redstone centrifuge, automated ore proc, etc are still not required, but would help greatly regardless.
+The tier has the first required (mini) chemical line with Solar Grade Silicon.
 
+Major milestone:
+- HV Circuits
+
+Major challenges:
+- running your EBF for longer times and upgrading it to Kanthal
 
 Main material: Aluminium
 Secondary material: Wrought Iron
 Cable materials: Copper, Cupronickel
-Pipe material: Steel
+Pipe material: Steel, Potin, Dark Steel
 </div>
 
 ## 2.v. HV Age
 <div align="justify">
+The main goal of this tier is to reach the Moon. Many parts lead up to that including IV circuits, the Cleanroom, and the implosion compressor.
+The Distillation Tower and Oil Cracker also lead to more advanced oil (or benzene) setups.
+
+Major milestone:
+- PTFE and Large Chemical Reactors
+- IV Circuits
+- Reaching the Moon
+
+Major challenges:
+- Working with the Cleanroom
+
 Main material: Stainless Steel
 Secondary material: Polyethylene
 Cable materials: Gold, Silver, Electrum
-Pipe material: Stainless Steel
+Pipe material: Stainless Steel, Dark Steel
 
 Rocket tier 1, unlocked bodies:
 - Moon
@@ -357,18 +377,18 @@ Rocket tier 1, unlocked bodies:
 
 ## 2.vi. EV Age
 <div align="justify">
-EV is the age in which AE2 is unlocked, which is a vital point in any modpack with progression, especially GTNH when it can easily be considered the biggest modpack there is. There are many new automations that are unlocked in EV, which can now be done with AE2, but this tier is usually seen as lacking content because these automations are instead done in IV.
-This happens because the gate to IV is getting enough Tungstensteel, and the way there is through the tier 2 rocket, which is not a very difficult craft. Any player can choose to set up AE2 automation in EV, with the main issues being Titanium and power costs, but they can also choose to go to tier 2 planets quickly to automate things in IV instead.
-These are some of the automations that are unlocked in EV, but generally delayed to IV:
+EV is the age in which AE2 is unlocked, which is a vital point in any modpack with progression, especially GTNH when it can easily be considered the biggest modpack there is. There are many new automations that are unlocked in EV, which can now be done with AE2. While some of these are often delayed to IV, there is now quite a bit the player can or has to setup in EV.
 
-- Epoxy Resin - it’s required to make the circuits used in EV, but batch crafting is enough to get you through the tier. In IV, however, the new circuit line also uses Epoxy and an ungodly amount of 90 ZPM circuits are used to make a complete Assembly Line, required for LuV, so automation for this happens there. The LuV circuits from EV are never actually needed in EV, and the only 2 that are necessary are used in the IV Circuit Assembler, which needs some IV progression anyways;
-- Indium - This isn’t even used in EV, it is simply an IV material that is unlocked a tier earlier for no necessary reason;
-- Platinum - Processing this is required because it is used in cables and some other things in IV, but the first main wall for it is, again, the ZPM Circuits for the Assembly Line. There isn’t much of a need to fully automate Platinum processing in EV, but it is absolutely required in IV.
-- Polyphenylene Sulfide - Used to make all IV and beyond cables, this can also be batch crafted. It’s okay to automate it EV, but the main 2 cables used in EV are Platinum and Tungsten, which are usually two IV automations.
-- Tungstensteel Coils - When you have enough Tungstensteel for this, you’re essentially IV. Then, in IV, there are two more coil tiers, HSS-G and HSS-S, which I think is just a weird progression.
+Required are Platinum, Radon (from Thorium), and a small amount of Tungstensteel, to be able to make the T2 rocket. Also required in the EV progression are Epoxid, Polyphenylene Sulfide, and Graphene.
 
-Additionally, the Titanium processing is no longer required with a Multiblock Miner in a tier 2 planet, because Titanium Small Ore exists there. In the search for Tungstate, Scheelite and other ores, the player will just get enough Titanium to no longer need to process Rutile.
-To make EV a proper tier with some length, I believe that the mainframes of this tier should be required in some way while still in EV (the tier 2 rocket, for example), Platinum should also be needed in large amounts before IV is achieved, and the coil progression should also be changed so that EV has more coil types and IV has less.
+There are further setups that optional but can be quite useful: IC2 nukes, Ore Processing with multiblocks, and general crafting automations.
+
+Any player can choose to set up AE2 automation in EV, with the main issues being Titanium and power costs, but they can also choose to go to tier 2 planets quickly to automate things in IV instead.
+
+The Titanium processing is not strictly required anymore once on has a Multiblock Miner in a tier 2 planet, because Titanium Small Ore exists there. In the search for Tungstate, Scheelite and other ores, the player might fine they have enough Titanium to no longer need to process Rutile. However, the processing lines for Bauxite and Ilmenite are also very useful for Gallium and Tantalum.
+
+A further challenge in EV is to switch from singleblock generators to multiblock generators and in the process most likely from decentralized power to centralized power. For that the LSC (Lapotronic Supercapacitor) becomes available at the end of EV as well.
+
 
 Main material: Titanium
 Secondary material: Polyethylene
@@ -380,6 +400,39 @@ Rocket tier 2, unlocked bodies:
 - Deimos
 - Phobos
 
+</div>
+
+## 2.vii. IV Age
+<div align="justify">
+Major milestone:
+
+- Full automations with AE2 and processing multiblocks
+- Building the Assembly Line
+
+Major challenges:
+
+- Extra difficulty in building multiblocks to keep up with needed processing speed
+- Automating the entire platline
+- Automating PBI and other plastics that are still missing.
+- Sourcing required fluids for plastics and platline.
+- Progressing through 2 coil tiers to process new materials
+- Big jump in EBF processing time with both Tungsten and Tungstensteel
+- Large amount of Graphene needed, which require many stacks of processed Silicon
+- Obtaining Indium in significant amounts for this tier and the next
+- Radon loop from Uranium ores found in t2 planets, if not fully set up in EV
+
+Optional challenges:
+- Automating many LuV inputs to be ready in advance
+- Investing in powergen to prepare for the gap until fusion
+- Getting Naquadah from the EBF recipe for the new wafers
+- Monazite line
+- Bastnasite line
+
+Main material: Tungstensteel
+Secondary material: PTFE
+Cable materials: Tungsten, Graphene, Platinum
+Pipe material: Tungstensteel
+
 Rocket tier 3, unlocked bodies:
 - Ceres
 - Asteroids
@@ -388,41 +441,7 @@ Rocket tier 3, unlocked bodies:
 - Callisto
 - Ross128b
 
-</div>
-
-## 2.vii. IV Age
-<div align="justify">
-Major milestone:
-
-- Full automation with AE2 and processing multiblocks
-- Building the Assembly Line
-
-Major challenges:
-
-- Lack of power
-- Extra difficulty in building multiblocks to keep up with needed processing speed
-- Automating the entire platline
-- Getting thousands of Platinum for ZPM Circuits
-- Automating Epoxy Resin and the other board materials for ZPM Circuits
-- Progressing through up to 3 coil tiers to process new materials
-- Big jump in EBF processing time with both Tungsten and Tungstensteel
-- Large amount of Graphene needed, which require many stacks of processed Silicon
-- Obtaining Indium in significant amounts for this tier and the next
-- Radon loop from Uranium ores found in t2 planets, if not done in EV
-
-Optional challenges:
-- Automating many LuV inputs to be ready in advance
-- Investing in powergen to prepare for the gap until fusion
-- Getting Naquadah from the EBF recipe for the new wafers
-- Lanthanide line?
-- Super Glue line
-
-Main material: Tungstensteel
-Secondary material: PTFE
-Cable materials: Tungsten, Graphene, Platinum
-Pipe material: Tungstensteel
-
-Rocket tier 4, unlocked bodies:
+Rocket tier 4 (right at the cusp to LuV, could also be seen as LuV), unlocked bodies:
 - Io
 - Mercury
 - Venus
@@ -431,6 +450,19 @@ Rocket tier 4, unlocked bodies:
 
 ## 2.viii. LuV Age
 <div align="justify">
+
+LuV and ZPM blend into each other a bid as they only have one combined circuit line and are both relatively short. There is probably space here for some additional content.
+
+LuV has the start of the Naquadah line and the first fusion reactor. And after the fusion reactor, CALs and the Crystal circuits.
+
+Major challenges:
+- Naquadah line
+- high smelting and thus power requirements to craft first fusion reactor
+- fully automating the Assembly Line.
+
+Optional challenges:
+- Super Glue line
+
 Main material: Rhodium-Plated Palladium
 Secondary material: PTFE
 Cable materials: Vanadium-Gallium, Yttrium Barium Cuprate
@@ -447,6 +479,14 @@ Rocket tier 5, unlocked bodies:
 
 ## 2.ix. ZPM Age
 <div align="justify">
+
+LuV and ZPM blend into each other a bid as they only have one combined circuit line and are both relatively short.
+
+Current ZPM content is mainly to finish the Naquadah line and to make a Mk II Fusion reactor. There is certainly space here for some additional content.
+
+Major challenges:
+- one needs to ramp up sufficient power and smelting capabilities for Neutronium.
+
 Main material: Iridium
 Secondary material: PBI
 Cable materials: Naquadah, Vanadium-Gallium, Europium
@@ -455,10 +495,18 @@ Pipe material: Enderium
 Rocket tier 6, unlocked bodies:
 - Oberon
 - Triton
+
 </div>
 
 ## 2.x. UV Age
 <div align="justify">
+
+In UV players delve into Bioprocesses, figure out TecTech Computing and Research, and make mk III fusion.
+
+Optional goals are the PCB Factory (very worthwhile), the Space Elevator (at the end, probably more UHV), and Compact Fusion (probably often UHV).
+
+As fusion power from Helium Plasma does not scale in XL turbines, the player also has to look into power options (Nq fuels, advanced fusion fuels).
+
 Main material: Osmium
 Secondary material: PBI
 Cable materials: Naquadah Alloy, Americium, Fluxed Electrum
@@ -474,7 +522,17 @@ Rocket tier 7, unlocked bodies:
 
 ## 2.xi. UHV Age
 <div align="justify">
-GT++ Cyclotron unlocked here, rejig some of the lower tier usages of the items and then we have access to particles for higher tier circuits, machines etc. Also bump % chances of particles as they are stupidly low currently and encourage spamming.
+GT++ Cyclotron required here, rejig some of the lower tier usages of the items and then we have access to particles for higher tier circuits, machines etc.
+
+Other content here are Bio-circuits, Infinity, a Botmium Chemplant for Living Solder, 2 rocket tiers, and the first creative tier items.
+
+The player is challenged to build a Mothership, a multiblock spaceship which can be accessed by launching a Shuttle Rocket. It is used to reach the farest system, the Ra-System.
+
+In the process the player also requires Kevlar (which is not in an interesting/satisfying state currently, just spam of basic low tier multis). Another plastic to look at the same time is Radox polymer based on Xenoxene.
+
+Furthermore the Space Elevator multiblock can be built, which allows the player to mine in space from asteroids from the comfort of their base. At first only allowing resources from tier 7 planets and below. It also allows the player to pump fluids from distant planets. The elevator can have a module installed, which allows the making of projects in space, like an asteroid outpost or the start of a dyson swarm.
+
+The tier usually also includes a drastic up-scaling of power and processing capabilities to keep up with demand which is a current part of all tiers after UHV as well.
 
 Main material: Neutronium
 Secondary material: PBI
@@ -489,15 +547,20 @@ Rocket tier 8, unlocked bodies:
 - Barnarda E
 - Barnarda F
 
-Unlocks the Space Elevator multiblock to be built, which allows the player to mine in space from asteroids. At first only allowing resources from tier 7 planets and below. It also allows the player to pump fluids from distant planets. The elevator can have a module installed, which allows the making of projects in space, like an asteroid outpost or the start of a dyson swarm.
+Rocket tier 9 (mothership), unlocked bodies:
+- Horus
+- Neper
+- Mehen Belt
+- Maahes
+- Seth
+- Anubis
 
 </div>
 
 ## 2.xii. UEV Age
 <div align="justify">
-Other than bio circuits what really unlocks here? Honestly, I don't know.
+UEV includes the optical circuit line. Compulsory usage of xSMDs and mandatory living soldering alloy replacement for soldering alloy at this tier. The end goal of the tier is the DTPF.
 
-The player is challenged to build a Mothership (needs AmunRa to be integrated into the pack, see https://github.com/GTNewHorizons/amunra), a multiblock spaceship which can be accessed by launching a Shuttle Rocket. It is used to reach the farest system, the Ra-System
 
 Main material: Bedrockium
 Secondary material: PBI
@@ -516,11 +579,9 @@ Rocket tier 9 (Mothership), unlocked bodies:
 
 ## 2.xiii. UIV Age
 <div align="justify">
-Optical circuit line, compulsory usage of xSMDs and mandatory living soldering alloy replacement for soldering alloy at this tier.
+Optical circuit line, .
 
 Dimensionally Transcendent Plasma Forge unlocks.
-
-Living soldering alloy + xSMDs.
 
 Main material: Black Plutonium
 Secondary material: PBI
