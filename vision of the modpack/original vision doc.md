@@ -306,9 +306,11 @@ Main materials: Bronze (machines), later Steel (advanced TiCon tools)
 <div align="justify">
 By this point the player should mostly be able to free themselves of the additional survival difficulty of the pack, at least as far as the overworld goes.
 
-Players will need to craft the first set of metal working machines and greatly improve their manufacturing efficiency. They will mostly rely on a huge steam buffer to power everything, since they won’t be required to build any high power consumption setup running 24/7. However, setting up a proper power gen like oil distillery, would greatly help them proceed.
+Players will need to craft the first set of metal working machines and greatly improve their manufacturing efficiency. Many of the new machines improve the crafts that were already done before, like the Wiremill, Lathe, Bending Machine and others. At the same time as LV players unlock new crafts, they have to understand how to make older crafts easier, one of the biggest examples being the LV circuit, which goes through several stages of crafting ease as more LV machines are available.
 
-With the introduction of conveyor and pump covers, automation complexes are finally possible to be built with relative ease, while it’s not really required to do so, given they are not required to make a steady power supply, players should be rewarded accordingly if they do so.
+They will mostly rely on a huge steam buffer to power everything, since they won’t be required to build any high power consumption setup running 24/7. However, setting up a proper power gen like oil distillery, would greatly help them proceed. The EBF is a soft wall to Steam power, because of the lower efficiency of Steam Turbines, which can force the EBF to shut down due to not having enough power and voiding precious materials. New players at this stage are generally advised to move away from Steam, to make their first EBF setup more manageable.
+
+With the introduction of conveyor and pump covers, automation complexes are finally possible to be built with relative ease, while it’s not really required to do so, given they are not required to make a steady power supply, players should be rewarded accordingly if they do so. In this tier, however, these covers are necessary for machines, and they are often too expensive to be used in large numbers.
 
 
 Major milestone:
@@ -337,9 +339,11 @@ Pipe materials: Bronze, Tin, Potin
 
 ## 2.iv. MV Age
 <div align="justify">
-The sudden bump in power requirement calls for some real power infra. Oil, benzene or charcoal steam are viable, while oil/benzene being the one preferred.
-With a proper power setup, running automation for a considerable timespan is now possible. Classic setups like water electrolysis, redstone centrifuge, automated ore proc, etc are still not required, but would help greatly regardless.
-The tier has the first required (mini) chemical line with Solar Grade Silicon.
+This tier unlocks two important machines at the start: the MV Electrolyzer can produce large amounts of Alumina Dust, which is much harder to get in LV; the MV Extruder, which unlocks all the useful extruding recipes that make processing even cheaper and easier, particularly with pipes, gears and other materials. 
+
+The sudden bump in power requirement calls for some real power infrastructure. Oil, Benzene or Charcoal to Steam are viable, while Oil/Benzene being the preferred ones. With a proper power setup, running automation for a considerable timespan is now possible, and this is the first tier for most players where many machines are chained into fully automated setups. Classic setups like Water electrolysis, Redstone centrifuge, automated ore processing, etc. are still not required, but would help greatly regardless.
+
+The tier has the first required (mini) chemical line with Solar Grade Silicon, alongside other optional chemical lines which give more and more use to the Chemical Reactor, which is later replaced by the LCR in the next tier.
 
 Major milestone:
 - HV Circuits
@@ -355,8 +359,9 @@ Pipe material: Steel, Potin, Dark Steel
 
 ## 2.v. HV Age
 <div align="justify">
-The main goal of this tier is to reach the Moon. Many parts lead up to that including IV circuits, the Cleanroom, and the implosion compressor.
-The Distillation Tower and Oil Cracker also lead to more advanced oil (or benzene) setups.
+The main goal of this tier is to reach the Moon. Many parts lead up to that including IV circuits, the Cleanroom, Vacuum Freezer and Implosion Compressor. This tier used to be considerably longer than both MV and EV, but changes to those tiers have made the difference less significant. The Cleanroom is forced into progression before any of the new circuits can be crafted, a structure that is significantly bigger than what is required before it. However, the biggest craft in the tier is the combination of the NASA Workbench and the T1 Rocket, which are arguably the most difficult task of all up to this point, and also the most complicated recipes to go through before AE2 automation is available.
+
+The Distillation Tower and Oil Cracker also lead to more advanced Oil or Benzene setups. The DT is especially powerful, as it unlocks many useful fluids that would previously be voided by the Distillery, but at a great cost in Stainless Steel, which means it's not feasible in early HV and requires both the materials, and the EBF processing type to build. The other big upgrade is the Large Chemical Reactor, much cheaper to craft after obtaining the first PTFE and extremely powerful for chemical automations.
 
 Major milestone:
 - PTFE and Large Chemical Reactors
