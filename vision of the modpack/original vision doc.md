@@ -205,7 +205,7 @@ Magic can assist in progressing through the tiers, but it should not be the prim
 
 Advancement in Tech should assist in the development of magic, e.g. a ZPM player should receive some kind of boost to speed up/catch up development in magic if he wanted to. Do note these boosts should not eventually give birth to the meme of Hold off doing magic until UHV when you get to one click unlock everything.
 
-Magic Mods should be kept relatively distinct, with optional cross-over instead of treating everything as a Thaumcraft Addon and requiring Infusion (as an example).
+Magic Mods should be kept relatively distinct, with optional cross-over instead of treating everything as a Thaumcraft Addon and requiring Infusion (as an example). (When will this ever happen, however? We need to talk about this.)
 </div>
 
 ## 1.vii. What should be space exploration?
@@ -251,8 +251,10 @@ This wouldn’t apply to unintentional recipes/exploits
 </div>
 
 ## 1.xi. General Principles
-- Avoid small/tiny dusts if possible - percentage chance of full dusts instead
-- Avoid making new features that encourage spamming laggy setup.
+- Avoid small/tiny dusts if possible - percentage chance of full dusts instead;
+- Avoid making new features that encourage spamming laggy setup;
+- Avoid adding new content to IV and below tiers without discussing the reason for it with the other devs (see: code of conduct);
+- Use RA2 when adding new recipes, instead of the older recipe definition of RA1.
 
 # 2. Tech Tree
 ## 2.i. Stone Age
@@ -418,6 +420,14 @@ Rocket tier 2, unlocked bodies:
 ## 2.vii. IV Age
 <div align="justify">
 The longest tier up to this point, even after the EV changes. IV is a true test of the player's infrastructure, due to the big craft needed to advance to the next tier: the Assembly Line. It's the equivalent of the T1 Rocket, but this time with full AE2 automation available, so the complexity of the craft is many times higher than before. Dozens of multis will be necessary at this point to reach LuV in a reasonable amount of time, and power demands will spike up greatly from all the multis running at the same time.
+
+Many processing lines need to be automated in this tier to achieve the Assembly Line. To help with this, alongside the previous multis, many new GT++ multis are unlocked in this tier, alongside easier-to-craft PAs when Tungstensteel is more widely available. Singleblocks are too slow for important lines by this point, and players with the Assembly Line are likely to have a dozen or more different GT++ multis built, to keep up with the bigger crafts.
+
+On top of the previous point, IV has multiple big chemical lines, the most important of which being the platline. Parts of it can be automated beforehand, but there are some IV recipes for materials such as Osmium, and the 6 main outputs of the platline are all necessary for progression: Rhodium and Palladium form the main LuV tier material, Osmium and Iridium form Osmiridium, Ruthenium and Iridium form Ruridit, and Platinum is used in many places. Some important IV items, just as the Energy Hatch, actually require platline materials, putting even more pressure into the player.
+
+Other chemical lines automated in this tier include the PBI line, Indium line, monaline, bastline and others. Not all of these have to be built in IV, but the questbook dedicated a large amount of space in the IV tab to these lines, making the tier appear more bloated than it has to be.
+
+Power options are more varied than ever before, arguably the highest number in the entire pack. Alongside the Oil/Benzene setups that players might have started in early tiers, there are also 3 types of IC2 nukes, Fluid and Vacuum being strong and popular, alongside many other options such as kinetics, Rocketdyne, LFTR, etc. Power needs grow exponentially, especially since LuV offers almost no other options, so powergen has to increase in order to sustain the rush to fusion power.
 
 Major milestone:
 
