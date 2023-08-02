@@ -345,6 +345,7 @@ The sudden bump in power requirement calls for some real power infrastructure. O
 
 The tier has the first required (mini) chemical line with Solar Grade Silicon, alongside other optional chemical lines which give more and more use to the Chemical Reactor, which is later replaced by the LCR in the next tier.
 
+
 Major milestone:
 - HV Circuits
 
@@ -361,7 +362,10 @@ Pipe material: Steel, Potin, Dark Steel
 <div align="justify">
 The main goal of this tier is to reach the Moon. Many parts lead up to that including IV circuits, the Cleanroom, Vacuum Freezer and Implosion Compressor. This tier used to be considerably longer than both MV and EV, but changes to those tiers have made the difference less significant. The Cleanroom is forced into progression before any of the new circuits can be crafted, a structure that is significantly bigger than what is required before it. However, the biggest craft in the tier is the combination of the NASA Workbench and the T1 Rocket, which are arguably the most difficult task of all up to this point, and also the most complicated recipes to go through before AE2 automation is available.
 
+The other required multi in this tier is the Vacuum Freezer, gated behind EV circuits and little else. It's one of the oldest multis in the pack, and also one of the simplest that is required for progression. The casings are mostly Aluminium, which is the main tier material of the tier before, and the multi itself only turns hot ingots into normal ones at the cost of EU. It's a necessary step, but a boring one, and it runs much faster than the multi it pairs with, the EBF. Because of this, double and quad EBFs are usually paired with only one VF. 
+
 The Distillation Tower and Oil Cracker also lead to more advanced Oil or Benzene setups. The DT is especially powerful, as it unlocks many useful fluids that would previously be voided by the Distillery, but at a great cost in Stainless Steel, which means it's not feasible in early HV and requires both the materials, and the EBF processing type to build. The other big upgrade is the Large Chemical Reactor, much cheaper to craft after obtaining the first PTFE and extremely powerful for chemical automations.
+
 
 Major milestone:
 - PTFE and Large Chemical Reactors
@@ -370,6 +374,10 @@ Major milestone:
 
 Major challenges:
 - Working with the Cleanroom
+
+Optional challenges:
+- Sifter multiblock
+- Early Platinum from EBF nugget recipe
 
 Main material: Stainless Steel
 Secondary material: Polyethylene
@@ -409,6 +417,8 @@ Rocket tier 2, unlocked bodies:
 
 ## 2.vii. IV Age
 <div align="justify">
+The longest tier up to this point, even after the EV changes. IV is a true test of the player's infrastructure, due to the big craft needed to advance to the next tier: the Assembly Line. It's the equivalent of the T1 Rocket, but this time with full AE2 automation available, so the complexity of the craft is many times higher than before. Dozens of multis will be necessary at this point to reach LuV in a reasonable amount of time, and power demands will spike up greatly from all the multis running at the same time.
+
 Major milestone:
 
 - Full automations with AE2 and processing multiblocks
