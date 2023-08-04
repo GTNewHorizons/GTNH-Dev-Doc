@@ -205,7 +205,7 @@ Magic can assist in progressing through the tiers, but it should not be the prim
 
 Advancement in Tech should assist in the development of magic, e.g. a ZPM player should receive some kind of boost to speed up/catch up development in magic if he wanted to. Do note these boosts should not eventually give birth to the meme of Hold off doing magic until UHV when you get to one click unlock everything.
 
-Magic Mods should be kept relatively distinct, with optional cross-over instead of treating everything as a Thaumcraft Addon and requiring Infusion (as an example).
+Magic Mods should be kept relatively distinct, with optional cross-over instead of treating everything as a Thaumcraft Addon and requiring Infusion (as an example). (When will this ever happen, however? We need to talk about this.)
 </div>
 
 ## 1.vii. What should be space exploration?
@@ -251,8 +251,10 @@ This wouldn’t apply to unintentional recipes/exploits
 </div>
 
 ## 1.xi. General Principles
-- Avoid small/tiny dusts if possible - percentage chance of full dusts instead
-- Avoid making new features that encourage spamming laggy setup.
+- Avoid small/tiny dusts if possible - percentage chance of full dusts instead;
+- Avoid making new features that encourage spamming laggy setup;
+- Avoid adding new content to IV and below tiers without discussing the reason for it with the other devs (see: code of conduct);
+- Use RA2 when adding new recipes, instead of the older recipe definition of RA1.
 
 # 2. Tech Tree
 ## 2.i. Stone Age
@@ -306,9 +308,11 @@ Main materials: Bronze (machines), later Steel (advanced TiCon tools)
 <div align="justify">
 By this point the player should mostly be able to free themselves of the additional survival difficulty of the pack, at least as far as the overworld goes.
 
-Players will need to craft the first set of metal working machines and greatly improve their manufacturing efficiency. They will mostly rely on a huge steam buffer to power everything, since they won’t be required to build any high power consumption setup running 24/7. However, setting up a proper power gen like oil distillery, would greatly help them proceed.
+Players will need to craft the first set of metal working machines and greatly improve their manufacturing efficiency. Many of the new machines improve the crafts that were already done before, like the Wiremill, Lathe, Bending Machine and others. At the same time as LV players unlock new crafts, they have to understand how to make older crafts easier, one of the biggest examples being the LV circuit, which goes through several stages of crafting ease as more LV machines are available.
 
-With the introduction of conveyor and pump covers, automation complexes are finally possible to be built with relative ease, while it’s not really required to do so, given they are not required to make a steady power supply, players should be rewarded accordingly if they do so.
+They will mostly rely on a huge steam buffer to power everything, since they won’t be required to build any high power consumption setup running 24/7. However, setting up a proper power gen like oil distillery, would greatly help them proceed. The EBF is a soft wall to Steam power, because of the lower efficiency of Steam Turbines, which can force the EBF to shut down due to not having enough power and voiding precious materials. New players at this stage are generally advised to move away from Steam, to make their first EBF setup more manageable.
+
+With the introduction of conveyor and pump covers, automation complexes are finally possible to be built with relative ease, while it’s not really required to do so, given they are not required to make a steady power supply, players should be rewarded accordingly if they do so. In this tier, however, these covers are necessary for machines, and they are often too expensive to be used in large numbers.
 
 
 Major milestone:
@@ -337,9 +341,12 @@ Pipe materials: Bronze, Tin, Potin
 
 ## 2.iv. MV Age
 <div align="justify">
-The sudden bump in power requirement calls for some real power infra. Oil, benzene or charcoal steam are viable, while oil/benzene being the one preferred.
-With a proper power setup, running automation for a considerable timespan is now possible. Classic setups like water electrolysis, redstone centrifuge, automated ore proc, etc are still not required, but would help greatly regardless.
-The tier has the first required (mini) chemical line with Solar Grade Silicon.
+This tier unlocks two important machines at the start: the MV Electrolyzer can produce large amounts of Alumina Dust, which is much harder to get in LV; the MV Extruder, which unlocks all the useful extruding recipes that make processing even cheaper and easier, particularly with pipes, gears and other materials. 
+
+The sudden bump in power requirement calls for some real power infrastructure. Oil, Benzene or Charcoal to Steam are viable, while Oil/Benzene being the preferred ones. With a proper power setup, running automation for a considerable timespan is now possible, and this is the first tier for most players where many machines are chained into fully automated setups. Classic setups like Water electrolysis, Redstone centrifuge, automated ore processing, etc. are still not required, but would help greatly regardless.
+
+The tier has the first required (mini) chemical line with Solar Grade Silicon, alongside other optional chemical lines which give more and more use to the Chemical Reactor, which is later replaced by the LCR in the next tier.
+
 
 Major milestone:
 - HV Circuits
@@ -355,8 +362,12 @@ Pipe material: Steel, Potin, Dark Steel
 
 ## 2.v. HV Age
 <div align="justify">
-The main goal of this tier is to reach the Moon. Many parts lead up to that including IV circuits, the Cleanroom, and the implosion compressor.
-The Distillation Tower and Oil Cracker also lead to more advanced oil (or benzene) setups.
+The main goal of this tier is to reach the Moon. Many parts lead up to that including IV circuits, the Cleanroom, Vacuum Freezer and Implosion Compressor. This tier used to be considerably longer than both MV and EV, but changes to those tiers have made the difference less significant. The Cleanroom is forced into progression before any of the new circuits can be crafted, a structure that is significantly bigger than what is required before it. However, the biggest craft in the tier is the combination of the NASA Workbench and the T1 Rocket, which are arguably the most difficult task of all up to this point, and also the most complicated recipes to go through before AE2 automation is available.
+
+The other required multi in this tier is the Vacuum Freezer, gated behind EV circuits and little else. It's one of the oldest multis in the pack, and also one of the simplest that is required for progression. The casings are mostly Aluminium, which is the main tier material of the tier before, and the multi itself only turns hot ingots into normal ones at the cost of EU. It's a necessary step, but a boring one, and it runs much faster than the multi it pairs with, the EBF. Because of this, double and quad EBFs are usually paired with only one VF. 
+
+The Distillation Tower and Oil Cracker also lead to more advanced Oil or Benzene setups. The DT is especially powerful, as it unlocks many useful fluids that would previously be voided by the Distillery, but at a great cost in Stainless Steel, which means it's not feasible in early HV and requires both the materials, and the EBF processing type to build. The other big upgrade is the Large Chemical Reactor, much cheaper to craft after obtaining the first PTFE and extremely powerful for chemical automations.
+
 
 Major milestone:
 - PTFE and Large Chemical Reactors
@@ -365,6 +376,10 @@ Major milestone:
 
 Major challenges:
 - Working with the Cleanroom
+
+Optional challenges:
+- Sifter multiblock
+- Early Platinum from EBF nugget recipe
 
 Main material: Stainless Steel
 Secondary material: Polyethylene
@@ -404,6 +419,16 @@ Rocket tier 2, unlocked bodies:
 
 ## 2.vii. IV Age
 <div align="justify">
+The longest tier up to this point, even after the EV changes. IV is a true test of the player's infrastructure, due to the big craft needed to advance to the next tier: the Assembly Line. It's the equivalent of the T1 Rocket, but this time with full AE2 automation available, so the complexity of the craft is many times higher than before. Dozens of multis will be necessary at this point to reach LuV in a reasonable amount of time, and power demands will spike up greatly from all the multis running at the same time.
+
+Many processing lines need to be automated in this tier to achieve the Assembly Line. To help with this, alongside the previous multis, many new GT++ multis are unlocked in this tier, alongside easier-to-craft PAs when Tungstensteel is more widely available. Singleblocks are too slow for important lines by this point, and players with the Assembly Line are likely to have a dozen or more different GT++ multis built, to keep up with the bigger crafts.
+
+On top of the previous point, IV has multiple big chemical lines, the most important of which being the platline. Parts of it can be automated beforehand, but there are some IV recipes for materials such as Osmium, and the 6 main outputs of the platline are all necessary for progression: Rhodium and Palladium form the main LuV tier material, Osmium and Iridium form Osmiridium, Ruthenium and Iridium form Ruridit, and Platinum is used in many places. Some important IV items, just as the Energy Hatch, actually require platline materials, putting even more pressure into the player.
+
+Other chemical lines automated in this tier include the PBI line, Indium line, monaline, bastline and others. Not all of these have to be built in IV, but the questbook dedicated a large amount of space in the IV tab to these lines, making the tier appear more bloated than it has to be.
+
+Power options are more varied than ever before, arguably the highest number in the entire pack. Alongside the Oil/Benzene setups that players might have started in early tiers, there are also 3 types of IC2 nukes, Fluid and Vacuum being strong and popular, alongside many other options such as kinetics, Rocketdyne, LFTR, etc. Power needs grow exponentially, especially since LuV offers almost no other options, so powergen has to increase in order to sustain the rush to fusion power.
+
 Major milestone:
 
 - Full automations with AE2 and processing multiblocks
