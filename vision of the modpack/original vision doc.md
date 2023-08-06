@@ -547,154 +547,33 @@ Rocket tier 7, unlocked bodies:
 
 ## 2.xi. UHV Age
 <div align="justify">
-GT++ Cyclotron required here, rejig some of the lower tier usages of the items and then we have access to particles for higher tier circuits, machines etc.
 
-Other content here are Bio-circuits, Infinity, a Botmium Chemplant for Living Solder, 2 rocket tiers, and the first creative tier items.
-
-The player is challenged to build a Mothership, a multiblock spaceship which can be accessed by launching a Shuttle Rocket. It is used to reach the farest system, the Ra-System.
-
-In the process the player also requires Kevlar (which is not in an interesting/satisfying state currently, just spam of basic low tier multis). Another plastic to look at the same time is Radox polymer based on Xenoxene.
-
-Furthermore the Space Elevator multiblock can be built, which allows the player to mine in space from asteroids from the comfort of their base. At first only allowing resources from tier 7 planets and below. It also allows the player to pump fluids from distant planets. The elevator can have a module installed, which allows the making of projects in space, like an asteroid outpost or the start of a dyson swarm.
-
-The tier usually also includes a drastic up-scaling of power and processing capabilities to keep up with demand which is a current part of all tiers after UHV as well.
-
-Main material: Neutronium
-Secondary material: PBI
-Cable materials: Superconductor UV, Neutronium, Bedrockium
-Pipe material: Neutronium
-
-Rocket tier 8, unlocked bodies:
-- T Ceti E
-- Vega B
-- α Centauri Bb
-- Barnarda C
-- Barnarda E
-- Barnarda F
-
-Rocket tier 9 (mothership), unlocked bodies:
-- Horus
-- Neper
-- Mehen Belt
-- Maahes
-- Seth
-- Anubis
 
 </div>
 
 ## 2.xii. UEV Age
 <div align="justify">
-UEV includes the optical circuit line. Compulsory usage of xSMDs and mandatory living soldering alloy replacement for soldering alloy at this tier. The end goal of the tier is the DTPF.
-
-
-Main material: Bedrockium
-Secondary material: PBI
-Cable materials: Draconium, Cosmic Neutronium
-Pipe material: Nether Star
-
-Rocket tier 9 (Mothership), unlocked bodies:
-- Neper
-- Maahes
-- Anubis
-- Horus
-- Seth
-- Mehen Belt
 
 </div>
 
 ## 2.xiii. UIV Age
 <div align="justify">
-Optical circuit line, .
-
-Dimensionally Transcendent Plasma Forge unlocks.
-
-Main material: Black Plutonium
-Secondary material: PBI
-Cable materials: Nether Star, ?
-Pipe material: ?
 
 </div>
 
 ## 2.xiv. UMV Age
 <div align="justify">
-New assembly line-type multiblock possibly.
 
-Space Elevator
-The Space Elevator is a tall multiblock structure that allows the user to construct large scale space projects.
-Use Cases:
-- Crafting of the Matrioshka Brain
-- Maybe integration with the Dyson Swarm?
-- A theoretical space station used for crafting items that need low gravity (ZBLAN) (to make this have a bigger use, we could 1. Introduce more recipes that need low gravity and 2. Blacklist machines from applying that effect when not in a low gravity environment)
-- Integration with space ship building?
-- Let players travel to other planets?
-- Space Mining?
-Other ideas:
-- The Space Elevator has some kind of project hatch. In this hatch you can insert a data stick for the project you want to start. In the hatch you will also see needed materials and progress. Once the project is finished it will be saved in the controller (like the imprint of a CAL) to allow the user to do recipes on the project. A simple example could be that a user builds a virtual space station inside the elevator. Now the user can input items for recipes that need a space station and the elevator will process them.
-
-Main material: Spacetime
-Secondary material: PBI?
-Cable materials: Quantium, ?
-Pipe material: ?
 
 </div>
 
 ## 2.xv. UXV Age
 <div align="justify">
-(Former) Black Hole Generator
-A multiblock used for both energy and resource generation. The idea is to create different types of stellar objects to achieve this. Different types of stellar objects can be unlocked by using the Dyson Swarm to research stars. Dyson Swarm could have two modes, first being normal power generation, second being research mode. Both modes could have different drone types? Would need to decide on the maths behind this.
-Name ideas:
-
-- Hammerspace Containment Device
-- Star Forge
-- 
-Tiered casings of the multi are:
-- Hammerspace Containment Units (Determine input volume)
-- “Time Acceleration Device” (Determine process time)
-- Maybe tiered casings of the multi itself, that have different heat values they can withstand (Determine max. processable star type). The original structure had a glass-dome version. Maybe we could use different tiers of containment glass. (Honestly I think the glass should be removed, it looks way better without it imo).
-
-Possible use cases: 
-- Create a star from “Gas Giant Composite Gas” that is harvested on gas giants and other resources. 
-- Stars can then be processed further to die. When dying the star creates a supernova, which creates a black hole and generates a lot of plasma/energy in the process. Black holes can be processed further (possibly in another machine) to generate more energy.
-
-Open questions: 
-- How could a star be transported (item form would be possible but maybe there is a more fitting way of transporting a star). 
-- Which amounts of plasma/energy should the stars give to fit into the balancing.
-- Could take in continuous amounts of mass each second from a hatch.
-
-Other ideas:
-- If the stars are created under intense time acceleration, maybe they shouldn’t just be processed and be done. Instead Let them age over time and the player is to decide when the star is done. At each different age the outcomes of processing the star further may vary.
-- The generator could need computation to work.
-- Can craft Neutron stars, Magnetars, main sequence, red dwarfs, blue giants, hyper giants, brown dwarfs, black hole, white dwarf (multi-step process to get some of these as they are only formed after a supernova has occurred).
-- Crafting process: 
-    - Fill the machine with a lot of gas (Gas Giant Composite Gas was suggested but maybe Hydrogen and Helium?), maybe dust/mass and apply a huge amount of energy (internal buffer perhaps, like fusion) to create an interstellar cloud as a first step.
-    - To actually now get to the star little energy is required for the upkeep of the machine. This process will take some time. 
-    - From what I understand a star needs no further input to evolve into other star-classes except time. So maybe just consume energy. We could also add some stuff here to increase the challenge (maybe something like the uncertainty resolver but for stars)
-
-
-
-Main material: ?
-Secondary material: ?
-Cable materials: ?
-Pipe material: ?
 
 </div>
 
 ## 2.xvi. MAX Age
 <div align="justify">
-Black Hole Generator Mk2 (?)
-This machine follows the same principles as the normal Black Hole Generator, discussed above. However instead of dealing with single stars you create a whole microverse.
-Ideas:
-
-- You need to find a balance in your microverse in terms of black holes, stars and whatnot (Entropy as measure?).
-- Need wormhole multi to connect to basement universes for resource harvesting? Perhaps the multi itself makes an item which can “connect” to this universe through the wormhole generator, then users can harvest multiple universes in parallel with different wormhole multis. This multi already exists in TT with no implemented logic.
-- Crafting empty basement universes and inserting computational equipment and using this in MAX tier circuits (Perhaps even a multi to assemble matrioshka brains in “orbit” and insert them into basement universes). See tipler oracles.
-- Space elevator multiblock? 
-- Allow multiple dyson swarms spanning multiple star systems.
-
-Main material: ?
-Secondary material: ?
-Cable materials: ?
-Pipe material: ?
 
 </div>
 

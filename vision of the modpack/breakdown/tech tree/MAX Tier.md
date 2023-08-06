@@ -2,7 +2,15 @@
 <div align="justify">
 
 **vision on the tier**:
-...
+Black Hole Generator Mk2 (?)
+This machine follows the same principles as the normal Black Hole Generator, discussed above. However instead of dealing with single stars you create a whole microverse.
+Ideas:
+
+- You need to find a balance in your microverse in terms of black holes, stars and whatnot (Entropy as measure?).
+- Need wormhole multi to connect to basement universes for resource harvesting? Perhaps the multi itself makes an item which can “connect” to this universe through the wormhole generator, then users can harvest multiple universes in parallel with different wormhole multis. This multi already exists in TT with no implemented logic.
+- Crafting empty basement universes and inserting computational equipment and using this in MAX tier circuits (Perhaps even a multi to assemble matrioshka brains in “orbit” and insert them into basement universes). See tipler oracles.
+- Space elevator multiblock?
+- Allow multiple dyson swarms spanning multiple star systems.
 
 **Major unlocks/rewards**:
 - ...
@@ -40,4 +48,5 @@
 **Unlocked bodies**:
 - ...
 - ...
+
 </div>
