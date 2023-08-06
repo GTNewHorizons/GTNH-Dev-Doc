@@ -1,5 +1,7 @@
 ## 2.vii. IV Age
 <div align="justify">
+
+**vision on the tier**:
 The longest tier up to this point, even after the EV changes. IV is a true test of the player's infrastructure, due to the big craft needed to advance to the next tier: the Assembly Line. It's the equivalent of the T1 Rocket, but this time with full AE2 automation available, so the complexity of the craft is many times higher than before. Dozens of multis will be necessary at this point to reach LuV in a reasonable amount of time, and power demands will spike up greatly from all the multis running at the same time.
 
 Many processing lines need to be automated in this tier to achieve the Assembly Line. To help with this, alongside the previous multis, many new GT++ multis are unlocked in this tier, alongside easier-to-craft PAs when Tungstensteel is more widely available. Singleblocks are too slow for important lines by this point, and players with the Assembly Line are likely to have a dozen or more different GT++ multis built, to keep up with the bigger crafts.
@@ -10,13 +12,15 @@ Other chemical lines automated in this tier include the PBI line, Indium line, m
 
 Power options are more varied than ever before, arguably the highest number in the entire pack. Alongside the Oil/Benzene setups that players might have started in early tiers, there are also 3 types of IC2 nukes, Fluid and Vacuum being strong and popular, alongside many other options such as kinetics, Rocketdyne, LFTR, etc. Power needs grow exponentially, especially since LuV offers almost no other options, so powergen has to increase in order to sustain the rush to fusion power.
 
-Major milestone:
 
+**Major unlocks/rewards**:
+- ...
+
+**Major milestone(s)**:
 - Full automations with AE2 and processing multiblocks
 - Building the Assembly Line
 
-Major challenges:
-
+**Major challenge(s)**:
 - Extra difficulty in building multiblocks to keep up with needed processing speed
 - Automating the entire platline
 - Automating PBI and other plastics that are still missing.
@@ -27,19 +31,31 @@ Major challenges:
 - Obtaining Indium in significant amounts for this tier and the next
 - Radon loop from Uranium ores found in t2 planets, if not fully set up in EV
 
-Optional challenges:
+**Optional challenge(s)**:
 - Automating many LuV inputs to be ready in advance
 - Investing in powergen to prepare for the gap until fusion
 - Getting Naquadah from the EBF recipe for the new wafers
 - Monazite line
 - Bastnasite line
 
-Main material: Tungstensteel
-Secondary material: PTFE
-Cable materials: Tungsten, Graphene, Platinum
-Pipe material: Tungstensteel
+**End of tier**: ...
 
-Rocket tier 3, unlocked bodies:
+**Main material**: Tungstensteel
+
+**Secondary material(s)**:
+- PTFE
+
+**Cable materials**:
+- Tungsten
+- Graphene
+- Platinum
+
+**Pipe materials**:
+- Tungstensteel
+
+**Rocket tier unlocked**:3
+
+**Unlocked bodies**:
 - Ceres
 - Asteroids
 - Europa
@@ -47,7 +63,9 @@ Rocket tier 3, unlocked bodies:
 - Callisto
 - Ross128b
 
-Rocket tier 4 (right at the cusp to LuV, could also be seen as LuV), unlocked bodies:
+**Rocket tier unlocked**:4 (right at the cusp to LuV, could also be seen as LuV)
+
+**Unlocked bodies**:
 - Io
 - Mercury
 - Venus

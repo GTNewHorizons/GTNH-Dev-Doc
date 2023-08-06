@@ -1,5 +1,7 @@
 ## 2.vi. EV Age
 <div align="justify">
+
+**vision on the tier**:
 EV is the age in which AE2 is unlocked, which is a vital point in any modpack with progression, especially GTNH when it can easily be considered the biggest modpack there is. There are many new automations that are unlocked in EV, which can now be done with AE2. While some of these are often delayed to IV, there is now quite a bit the player can or has to setup in EV.
 
 Required are Platinum, Radon (from Thorium), and a small amount of Tungstensteel, to be able to make the T2 rocket. Also required in the EV progression are Epoxid, Polyphenylene Sulfide, and Graphene.
@@ -13,12 +15,38 @@ The Titanium processing is not strictly required anymore once on has a Multibloc
 A further challenge in EV is to switch from singleblock generators to multiblock generators and in the process most likely from decentralized power to centralized power. For that the LSC (Lapotronic Supercapacitor) becomes available at the end of EV as well.
 
 
-Main material: Titanium
-Secondary material: Polyethylene
-Cable materials: Aluminium, Black Steel
-Pipe material: Titanium
+**Major unlocks/rewards**:
+- ...
 
-Rocket tier 2, unlocked bodies:
+**Major milestone(s)**:
+- ...
+- ...
+
+**Major challenge(s)**:
+- ...
+- ...
+
+**Optional challenge(s)**:
+- ...
+- ...
+
+**End of tier**: ...
+
+**Main material**: Titanium
+
+**Secondary material(s)**:
+- Polyethylene
+
+**Cable materials**:
+- Aluminium
+- Black Steel
+
+**Pipe materials**:
+- Titanium
+
+**Rocket tier unlocked**: 2
+
+**Unlocked bodies**:
 - Mars
 - Deimos
 - Phobos
