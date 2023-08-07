@@ -6,7 +6,11 @@ This gives the player insight into the method in which GT operates for tiering a
 
 
 **Major unlocks/rewards**:
-- ...
+- Ore doubling with Macerator and then even faster with Steam Grinder
+- Forestry worktable for easier mass crafting
+- Hazmat suit againt Pollution
+- Tinkers Hammer, Lumber Axe, and Crossbow
+- Hang Glider
 
 **Major milestone(s)**:
 - Building the Bricked Blast Furnace
