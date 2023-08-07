@@ -14,7 +14,13 @@ Power options are more varied than ever before, arguably the highest number in t
 
 
 **Major unlocks/rewards**:
-- ...
+- more GT++ Multiblocks for autocrafting.
+- Advanced NanoChestplate early on
+- QuantumSuit later on.
+- Vajra
+- AE: Oredictionary Filter card, Linked Input Busses
+- Ender Chest and Ender Tank
+
 
 **Major milestone(s)**:
 - Full automations with AE2 and processing multiblocks
