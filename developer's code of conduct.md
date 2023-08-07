@@ -17,6 +17,6 @@ To improve review quality, in PR about new feature/feature change/balance change
 6) Include a flowchart if it involves adding a new recipe chain. Any new PR without it will be rejected no matter how good it can be. If you don’t know how, try [draw.io](https://draw.io).
 
 ## Balancing PRs
-They must follow the vision we have, and follow #4 of the Content Section. A PR about balancing should always be labeled as such, and only contain balancing changes. for IV and below, follow #2 of the Content creation section. For LuV and above, it must at least have 2 approvals, and one of them must be a member of the github's admin team (list of them [here](https://github.com/orgs/GTNewHorizons/teams/admin)).
+They must follow the vision we have, and follow #4 of the Content Section. A PR affecting balancing should always be labeled as such, and not be mixed in with other unrelated changes in the same PR. For IV and below, follow #2 of the Content creation section. For LuV and above, it must at least have 2 approvals, and one of them must be a member of the github's admin team (list of them [here](https://github.com/orgs/GTNewHorizons/teams/admin)).
 </div>
 
