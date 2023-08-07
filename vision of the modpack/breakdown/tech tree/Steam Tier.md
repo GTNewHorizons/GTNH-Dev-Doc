@@ -9,8 +9,9 @@ This gives the player insight into the method in which GT operates for tiering a
 - Ore doubling with Macerator and then even faster with Steam Grinder
 - Forestry worktable for easier mass crafting
 - Hazmat suit againt Pollution
-- Tinkers Hammer, Lumber Axe, and Crossbow
+- Tinkers Hammer, Lumber Axe, and Crossbow. With upgrades in materials in following tiers.
 - Hang Glider
+- Regular backpacks
 
 **Major milestone(s)**:
 - Building the Bricked Blast Furnace

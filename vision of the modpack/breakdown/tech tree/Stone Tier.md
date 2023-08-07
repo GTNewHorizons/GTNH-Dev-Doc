@@ -16,6 +16,7 @@ New players who know modded Minecraft should be strongly reminded that the QB ha
 - Sleeping bag and saddle to easier get around.
 - Better storage options with drawers, barrels, and iron chests.
 - Ore Finder Wand for easier prospecting.
+- Forestry Backpacks
 
 **Major milestone(s)**:
 - Getting a tool material

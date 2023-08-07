@@ -10,8 +10,8 @@ The tier has the first required (mini) chemical line with Solar Grade Silicon, a
 
 
 **Major unlocks/rewards**:
-- First the Coal Jetpack, then the copterpack.
-- Enderio conduit can help with automations.
+- First the Coal Jetpack, then the Copterpack.
+- Enderio conduits can help with automations.
 - First super tank with large storage, optional overflow voiding, etc.
 - Alveary
 - Random utility: sprinkler, printing press, soul vials, Wither proof blocks
