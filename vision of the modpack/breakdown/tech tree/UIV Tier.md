@@ -1,8 +1,10 @@
-## xxx Tier
+## UV Tier
 <div align="justify">
 
 **vision on the tier**:
-...
+Optical circuit line, .
+
+Dimensionally Transcendent Plasma Forge unlocks.
 
 **Major unlocks/rewards**:
 - ...
@@ -21,23 +23,16 @@
 
 **End of tier**: ...
 
-**Main material**: ...
+**Main material**: Black Plutonium
 
 **Secondary material(s)**:
-- ...
-- ...
+- PBI
 
 **Cable materials**:
+- Nether Star
+
+**Pipe materials**:
 - ...
 - ...
 
-**Pipe materials**: 
-- ...
-- ...
-
-**Rocket tier unlocked**:x
-
-**Unlocked bodies**:
-- ...
-- ...
 </div>
