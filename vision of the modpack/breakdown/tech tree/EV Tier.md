@@ -16,7 +16,14 @@ A further challenge in EV is to switch from singleblock generators to multiblock
 
 
 **Major unlocks/rewards**:
-- ...
+- some GT++ Multiblocks including Ore Processing.
+- AE2 storage and automation at the start of the tier.
+- Fluid patterns towards the end of the tier.
+- LV SoC (with more in the following tiers)
+- Ore Drilling Plant at the end of the tier.
+- LSC for large scale energy storage at the end of the tier
+- Processing Array at the end of the tier to bypass the cleanroom fully.
+
 
 **Major milestone(s)**:
 - ...

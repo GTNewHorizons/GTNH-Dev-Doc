@@ -12,7 +12,11 @@ It is worth noting that the player will find themselves almost 100% relying on t
 New players who know modded Minecraft should be strongly reminded that the QB has all the changes in gameplay.
 
 **Major unlocks/rewards**:
-- ...
+- First Lunch Bag, later Lunch Box to make dealing with food easier.
+- Sleeping bag and saddle to easier get around.
+- Better storage options with drawers, barrels, and iron chests.
+- Ore Finder Wand for easier prospecting.
+- Forestry Backpacks
 
 **Major milestone(s)**:
 - Getting a tool material

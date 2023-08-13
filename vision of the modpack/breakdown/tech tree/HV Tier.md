@@ -10,7 +10,17 @@ The Distillation Tower and Oil Cracker also lead to more advanced Oil or Benzene
 
 
 **Major unlocks/rewards**:
-- ...
+- Compressed Chest
+- IC2 canned food
+- LCR for cell-free chemical processes.
+- Drawer Controller
+- Industrial Apiary
+- Nano Armor
+- Second hotbar with travellers belt
+- Multiblock sifter to drastically speed up sifting.
+- Powerful EIO machinery: Farming Station, Experience Obelisk, Powered Spawner, Killer Joe, etc.
+- Personal Dimension (special reward for reaching the Moon at the end of the tier)
+
 
 **Major milestone(s)**:
 - PTFE and Large Chemical Reactors

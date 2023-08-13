@@ -11,7 +11,11 @@ They will mostly rely on a huge steam buffer to power everything, since they won
 With the introduction of conveyor and pump covers, automation complexes are finally possible to be built with relative ease, while it’s not really required to do so, given they are not required to make a steady power supply, players should be rewarded accordingly if they do so. In this tier, however, these covers are necessary for machines, and they are often too expensive to be used in large numbers.
 
 **Major unlocks/rewards**:
-- ...
+- Many tools for early automation: conveyors, pumps, LV machine auto-output
+- Much, much better processing ratios (wires, plates, rubber, circuit parts, circuits)
+- First (weak) autominer and prospector scanner. With upgrades in following tiers.
+- Adventure Backpack towards the end of the tier
+- Random utility: magnet, golden lasso, chandelier, nature's compass
 
 **Major milestone(s)**:
 - Set of metal working machines
