@@ -1,4 +1,4 @@
-## xxx Tier
+## EV Tier
 <div align="justify">
 
 **vision on the tier**:

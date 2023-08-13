@@ -1,8 +1,8 @@
-## xxx Tier
+## IV Tier
 <div align="justify">
 
 **vision on the tier**:
-HV is the magic grandmaster tier. Almost all magic related things are unlocked.
+IV is the magic grandmaster tier. Almost all magic related things are unlocked.
 
 **Wand tier unlocked**: Ichor Wand.
 
