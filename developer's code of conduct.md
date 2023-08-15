@@ -17,6 +17,14 @@ To improve review quality, in PR about new feature/feature change/balance change
 6) Include a flowchart if it involves adding a new recipe chain. Any new PR without it will be rejected no matter how good it can be. If you don’t know how, try [draw.io](https://draw.io).
 
 ## Balancing PRs
-They must follow the vision we have, and follow #4 of the Content Section. A PR affecting balancing should always be labeled as such, and not be mixed in with other unrelated changes in the same PR. For IV and below, follow #2 of the Content creation section. For LuV and above, it must at least have 2 approvals, and one of them must be a member of the github's admin team (list of them [here](https://github.com/orgs/GTNewHorizons/teams/admin)).
+They must follow the vision we have, and follow 4. of the Content Section. A PR affecting balancing should always be labeled as such, and not be mixed in with other unrelated changes in the same PR. For IV and below, follow 2. of the Content creation section. For LuV and above, it must at least have 2 approvals, and one of them must be a member of the github's admin team (list of them [here](https://github.com/orgs/GTNewHorizons/teams/admin)).
+
+When a PR is tagged as a balance affecting PR (currently "Affects Balance"), devs are required to answer the following questions to clarify their viewpoint and make discussion easier, as well as document discussions that may have happened in Discord (hard to search). Similar to recipe chains, any new balance PR made without answering the questions will be rejected no matter how good it is. Devs are not required to have perfect answers for all questions (eg some meta changes are difficult to know), but an attempt should be made at answering each:
+1. What goal is this change trying to achieve? What tier is it targeting?
+2. What side effects does this have on other lines/systems? How does it change the game meta?
+3. If relevant, do you have any metrics or a spreadsheet/visualization explaining your change? If it is a new multiblock, could you provide a picture of it and/or a practical setup? This may help us understand it better.
+4. Is this change made in expectation or in tandem with another unwritten or unmerged change coming later?
+
+The question requirement may be bypassed in reasonable scenarios, such as emergency reverts.
 </div>
 

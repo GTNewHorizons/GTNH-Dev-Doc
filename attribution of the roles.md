@@ -35,7 +35,7 @@ The GT:NH devs are those who are responsible for pack's development. To become a
 The GT:NH dev on Hiatus is just a role devs can ask for if they want to indicate they won't be active for an undefined period for whatever reason they want. But they can still contribute to pack dev even on hiatus if they want.
 
 ## GT:NH Texture Creator
-This role is made for those who are willing to make new textures for NH. You get access to a channel where the devs ask for textures. ou are under no obligation to provide a texture, but if you want to contribute artistically this is a great way to help!
+This role is made for those who are willing to make new textures for NH. You get access to a channel where the devs ask for textures. You are under no obligation to provide a texture, but if you want to contribute artistically this is a great way to help!
 
 ## Official Quest Editor
 If you are very active into quest proofreading/editing or into the creation of quests, this role is made for you. You'll get this role only if you get recommanded by a GT:NH dev or higher.
