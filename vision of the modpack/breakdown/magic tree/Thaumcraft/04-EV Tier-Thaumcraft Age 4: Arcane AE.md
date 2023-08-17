@@ -1,4 +1,4 @@
-## Thaumcraft Age 4: Arcane AE (EV)
+## Thaumcraft Age 4: Arcane AE
 - (EV+)
 
 ### Vision on the tier:
