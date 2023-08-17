@@ -1,5 +1,6 @@
 ## Blood Magic Age 1: HV Tier
 
+
 ### Vision for the tier:
 In HV the player can start to dabble in Blood Magic. This is just the start and the initial payoffs are weak. But the player can start progressing through the first tiers of BM.
 
@@ -17,6 +18,7 @@ In HV the player can start to dabble in Blood Magic. This is just the start and 
 - ???
 
 ### Major challenge(s):
+- Figuring out a good way for early blood generation. E.g., investing in extra hearts and/or some strong form of regeneration if one is pursuing the self-sacrifice path.
 - Warp Management. At this point the player might start to be interested in various warp research to progress in BM and its addons so they need to either deal with the consequences or invest in some mitigation.
 
 ### Optional challenge(s):

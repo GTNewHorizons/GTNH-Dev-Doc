@@ -10,15 +10,13 @@
 ### Major milestone(s):
 - Ichorium
 
-
 ### Major unlocks/rewards:
-- Pure Tear and Purification Talisman to trivialize warp.
-- Celestial Gateway
-- Ichor/Ichorcloth armor and tool set.
 - Ender Tank/Chest
 
 ### Content of Thaumcraft Addons:
-- ???
+- Pure Tear and Purification Talisman to trivialize warp.
+- Celestial Gateway
+- Ichor/Ichorcloth armor and tool set.
 
 ### Major challenge(s):
 - ???
