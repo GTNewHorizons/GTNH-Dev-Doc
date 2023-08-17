@@ -1,4 +1,4 @@
-## [ModName] Age [X]: ???
+## [TierID]-[Tier Name]-[ModName] Age [X]: ???
 - ([Starting-GT-Tier] / [Ending-GT-Tier])
 
 ### Vision on the tier:
