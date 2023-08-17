@@ -1,7 +1,7 @@
 ## LV Tier
 <div align="justify">
 
-**vision on the tier**:
+**Vision for the tier**:
 The basic novice tier. A first dive into magic becomes possible in the later parts of LV once the player reaches the Twilight Forest and obtains some Aluminum from their first EBF.
 LV and MV are pretty small introductory sections but even a smaller dive into magic already yields useful rewards.
 
@@ -11,11 +11,8 @@ LV and MV are pretty small introductory sections but even a smaller dive into ma
 - Arcane Worktable crafting
 - Manual Crucible crafting
 
-**Main Botania content**: ...
-
-**Main Bloodmagic content**: none.
-
-**Main Witchery content**: ...
+**Content of Thaumcraft Addons**:
+-...
 
 **Major unlocks/rewards**:
 - Brewing Stand
