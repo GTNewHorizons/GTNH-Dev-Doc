@@ -23,6 +23,7 @@
 - Magical Wood (e.g., for tinker tools)
 - Primal Shrooms
 - Thaumic Bases plants like Rainbow Cactus or Glieonia.
+- Mantle of the Raven
 
 ### Content of Thaumcraft Addons:
 - ???

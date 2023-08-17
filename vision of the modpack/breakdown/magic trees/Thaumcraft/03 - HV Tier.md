@@ -43,8 +43,6 @@
 - Void Metal
 - Essentia Reservoir for easier essentia pipe usage
 - Red Heart Canisters
-- Mantle of the Raven
-- Red Heart Canisters
 - Boots of the Traveller with upgraded variants like Nano Boots of the Traveller.
 - Silky Jewel and Ball of Moss
 - Beacon
