@@ -1,26 +1,29 @@
-## IV Tier
-<div align="justify">
+## Blood Magic Age 3: IV Tier
 
-**vision on the tier**:
-In IV the player can fully master BM.
 
-**Main Bloodmagic content**:
+### Vision for the tier:
+- In IV the player can fully master BM.
 
+
+### Major milestone(s):
 - Tier 6 Altar
 - Archmage Orb and Transcendent Orb
 - Eldritch Blood Orb with sufficient Thaumcraft progression
 
-**Main Witchery content**: ...
-
-**Major unlocks/rewards**:
+### Major unlocks/rewards:
+- Archmage Orb and Transcendent Orb
+- Eldritch Blood Orb with sufficient Thaumcraft progression
 - more BM meteors
 
-**Major challenge(s)**:
-- ...
-- ...
+### Content of Blood Magic Addons:
+- ???
 
-**Optional challenge(s)**:
-- ...
-- ...
+### Major challenge(s):
+- ???
 
-</div>
+### Optional challenge(s):
+- ???
+
+### Main materials:
+- ???
+

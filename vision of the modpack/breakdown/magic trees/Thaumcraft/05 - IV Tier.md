@@ -1,28 +1,35 @@
-## IV Tier
-<div align="justify">
+## Thaumcraft Age 4: IV Tier
 
-**Vision for the tier**:
-IV is the magic grandmaster tier. Almost all magic related things are unlocked.
 
-**Wand tier unlocked**: Ichor Wand.
+### Vision for the tier:
+- IV is the magic grandmaster tier. Almost all magic related things are unlocked.
 
-**Main Thaumcraft content**:
+### Wand tier unlocked:
+- Ichor Wand.
+
+### Major milestone(s):
 - Ichorium
 
-**Content of Thaumcraft Addons**: ...
 
-**Major unlocks/rewards**:
+### Major unlocks/rewards:
 - Pure Tear and Purification Talisman to trivialize warp.
 - Celestial Gateway
 - Ichor/Ichorcloth armor and tool set.
 - Ender Tank/Chest
 
-**Major challenge(s)**:
-- ...
-- ...
+### Content of Thaumcraft Addons:
+- ???
 
-**Optional challenge(s)**:
-- ...
-- ...
+### Major challenge(s):
+- ???
 
-</div>
+### Major limitations(s):
+- ???
+
+### Optional challenge(s):
+- ???
+
+### Main materials:
+- ???
+
+
