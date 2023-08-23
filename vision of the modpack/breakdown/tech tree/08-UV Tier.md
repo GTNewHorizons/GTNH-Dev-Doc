@@ -10,21 +10,24 @@ As fusion power from Helium Plasma does not scale in XL turbines, the player als
 
 
 **Major unlocks/rewards**:
-- ...
+- Lasers and active Transformer
+- PCB Factory
 
 **Major milestone(s)**:
-- ...
-- ...
+- Research Station
+- Wetware Circuits
 
 **Major challenge(s)**:
-- ...
-- ...
+- Dealing with the Biolab.
+- Automating the Biovat
+- Setting up the Quantum Computer and Research Station
 
 **Optional challenge(s)**:
-- ...
-- ...
+- Optimizing the Quantum Computer
+- Potentially make a Space Elevator or a Compact Fusion reactor towards the end of the tier.
+- Kevlar Line. (not in a great state, needs a rework or improvements)
 
-**End of tier**: ...
+**End of tier**: Obtain Cosmic Neutronium and Bedrockium, make a UHV circuit, and make your first UHV parts.
 
 **Main material**: Osmium
 

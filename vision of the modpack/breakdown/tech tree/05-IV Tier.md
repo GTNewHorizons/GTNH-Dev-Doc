@@ -24,6 +24,9 @@ Power options are more varied than ever before, arguably the highest number in t
 
 **Major milestone(s)**:
 - Full automations with AE2 and processing multiblocks
+- Platinum Line (Palladium, Iridium, Osmium, Rhodium, Ruthenium)
+- Polybenzimidazole
+- Quantumcircuits
 - Building the Assembly Line
 
 **Major challenge(s)**:
@@ -38,13 +41,13 @@ Power options are more varied than ever before, arguably the highest number in t
 - Radon loop from Uranium ores found in t2 planets, if not fully set up in EV
 
 **Optional challenge(s)**:
-- Automating many LuV inputs to be ready in advance
 - Investing in powergen to prepare for the gap until fusion
 - Getting Naquadah from the EBF recipe for the new wafers
 - Monazite line
 - Bastnasite line
+- Batchcrafting or fully automating Thorium 232
 
-**End of tier**: ...
+**End of tier**: Make an Assembling Line and build your first LuV machine.
 
 **Main material**: Tungstensteel
 

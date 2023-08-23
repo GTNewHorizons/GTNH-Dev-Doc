@@ -26,18 +26,21 @@ A further challenge in EV is to switch from singleblock generators to multiblock
 
 
 **Major milestone(s)**:
-- ...
-- ...
+- Basic AE2 setup
+- Nanocircuits
+- Platinum Line
+- Tier 2 Rocket
 
 **Major challenge(s)**:
-- ...
-- ...
+- Platinum Line Automation
+- Obtaining some Tungsten
+- Handling Multiblock Turbines or the IC2 Nuclear Reactor
 
 **Optional challenge(s)**:
-- ...
-- ...
+- Power centralization
+- Sunnarium from the Nuclear Reactor
 
-**End of tier**: ...
+**End of tier**: Obtain a stack of Tungstensteel.
 
 **Main material**: Titanium
 

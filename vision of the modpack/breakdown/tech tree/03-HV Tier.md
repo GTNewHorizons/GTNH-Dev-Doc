@@ -34,7 +34,7 @@ The Distillation Tower and Oil Cracker also lead to more advanced Oil or Benzene
 - Sifter multiblock
 - Early Platinum from EBF nugget recipe
 
-**End of tier**: ...
+**End of tier**: Obtain a decent amount of Titanium.
 
 **Main material**: Stainless Steel
 

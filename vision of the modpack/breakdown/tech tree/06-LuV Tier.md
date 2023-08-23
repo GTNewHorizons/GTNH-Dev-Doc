@@ -8,22 +8,28 @@ LuV has the start of the Naquadah line and the first fusion reactor. And after t
 
 
 **Major unlocks/rewards**:
-- ...
+- Precise Assembler to drastically speed up assembler crafting
+- Circuit Assembly Line to drastically speed up circuit crafting
+- Electric Prospector Scanner
+- Crafting Input Bus
+- Auto Maintenance Hatch
+- Ender Fluid Link Cover
 
 **Major milestone(s)**:
-- ...
-- ...
+- Naquadah Line (Naquadah)
+- Fusion reactor
+- Circuit Assembly Lines
+- Crystalcircuits
 
 **Major challenge(s)**:
-- Naquadah line
-- high smelting and thus power requirements to craft first fusion reactor
-- fully automating the Assembly Line.
+- Automating the Naquadah Line
+- High smelting and thus power requirements to craft first fusion reactor
+- Fully automating the Assembly Line.
 
 **Optional challenge(s)**:
 - Super Glue line
-- ...
 
-**End of tier**: ...
+**End of tier**: Obtain Europium and build your first ZPM machine.
 
 **Main material**: Rhodium-Plated Palladium
 
