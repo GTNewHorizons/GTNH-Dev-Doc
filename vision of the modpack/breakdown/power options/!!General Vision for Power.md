@@ -10,7 +10,7 @@ We want the player to use multiple different power options as they progress from
 
 ## Having Alternatives
 
-We want the player to have multiple alternative options for power generation at each stage of the game. All with their own advantages and disadvantages.
+We want the player to have multiple alternative options for power generation at each stage of the game. All with their own advantages. For now options are however more limited in the later tiers of the pack.
 
 ## Against Repetitive Spam
 
