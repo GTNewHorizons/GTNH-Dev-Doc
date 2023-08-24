@@ -10,7 +10,7 @@ We want the player to use multiple different power options as they progress from
 
 ## Having Alternatives
 
-We want the player to have multiple alternative options for power generation at each stage of the game. All with their own advantages. For now options are however more limited in the later tiers of the pack.
+We want the player to have multiple alternative options for power generation at each stage of the game. Each with their own advantages if possible. However that does not mean that every option has to be competitive, some can be more niche. For now options are more limited in the later tiers of the pack.
 
 ## Against Repetitive Spam
 
@@ -18,7 +18,7 @@ Power generation should not just be repetitive spam of the same setup over and o
 
 ## Power Metrics
 
-Precise power metrics to compare various power sources are difficult. Broadly speaking the most important number to compare power options at a given tier is the quotient of the effective power divided by the cost of the setup. The effective power of a setup is usually easy to compute as the output eu/t subtracted by the eu/t needed to run the setup. The cost of the setup however is much harder to quantify, it consists mainly of the amount of machines and their individual cost.
+Precise power metrics to compare various power sources are difficult but not impossible. Broadly speaking the most important number to compare power options at a given tier is the quotient of the effective power divided by the cost of the setup. The effective power of a setup is usually easy to compute as the output eu/t subtracted by the eu/t needed to run the setup. The cost of the setup however is much harder to quantify, it consists mainly of the amount of machines and their individual cost.
 
 ## Beyond power metrics: Rewarding Complexity and Challenge
 
@@ -28,5 +28,9 @@ Simpler Power Setups should always be less powerful than more complex ones, see 
 
 Another point to look at when considering the strength of a power source, are byproducts and other synergies. The production of a fuel can yield valuable byproducts that are useful for the rest of the base or the fuel might be useful for more than just power. Other synergies to consider could be the ease to upgrade the setup to future tiers or from past tiers, or how well the power source works with very uneven energy demand (pre UHV capacitor or even pre LSC).
 
+## Beyond power metrics: Renewability
+
+Many players are very keen to have their power setup fully renewable even if non-renewable parts in other setups are relatively easy to obtain. This makes them set-and-forget and typically easier to scale.
+For power balancing it therefore makes sense that a setup that is not renewable (or not easily renewable) makes more power than a similar one that is fully renewable, everything else being equal.
 
 </div>
