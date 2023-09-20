@@ -8,20 +8,23 @@ Current ZPM content is mainly to finish the Naquadah line and to make a Mk II Fu
 
 
 **Major unlocks/rewards**:
-- ...
+- First Void Miner
+- Data Bank
+- Ores from the Toxic Everglades
+- Gravichestplate
 
 **Major milestone(s)**:
-- ...
-- ...
+- Naquadah Line (Enriched Naquadah, Naquadria)
+- Fusion reactor mkII
 
 **Major challenge(s)**:
-- one needs to ramp up sufficient power and smelting capabilities for Neutronium.
+- One needs to ramp up sufficient power and smelting capabilities for Neutronium.
 
 **Optional challenge(s)**:
-- ...
-- ...
+- Do the ZPM riddle based questline.
+- Go to the Toxic Everglades
 
-**End of tier**: ...
+**End of tier**: Obtain Americium and Naquadria and make your first UV parts.
 
 **Main material**: Iridium
 

@@ -26,20 +26,17 @@ This gives the player insight into the method in which GT operates for tiering a
 - Conquer overworld dungeons
 - Establish a steady charcoal supply
 
-**End of tier**: build the first electric machine
+**End of tier**: Make LV circuits and build your the first electric machine.
 
 **Main material**: Bronze (machines), later Steel (advanced TiCon tools)
 
 **Secondary material(s)**:
-- ...
-- ...
+- Wrought Iron
 
-**Cable materials**:
-- ...
-- ...
+**Cable materials**: none
 
 **Pipe materials**:
-- ...
-- ...
+- Bronze
+- Tin
 
 </div>

@@ -31,7 +31,7 @@ New players who know modded Minecraft should be strongly reminded that the QB ha
 **Optional challenge(s)**:
 - Conquer overworld dungeons
 
-**End of tier**: ...
+**End of tier**: Make a Small Coal Boiler.
 
 
 **Main materials**: 

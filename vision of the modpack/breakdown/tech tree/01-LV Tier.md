@@ -32,7 +32,7 @@ With the introduction of conveyor and pump covers, automation complexes are fina
 - 4x or more BBF
 - First Oil pumping and processing
 
-**End of tier**: build the first MV machine
+**End of tier**: Make MV circuits and build your first MV machine.
 
 **Main material**: Steel
 
