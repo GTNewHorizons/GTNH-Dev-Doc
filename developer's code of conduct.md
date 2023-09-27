@@ -26,5 +26,26 @@ When a PR is tagged as a balance affecting PR (currently "Affects Balance"), dev
 4. Is this change made in expectation or in tandem with another unwritten or unmerged change coming later?
 
 The question requirement may be bypassed in reasonable scenarios, such as emergency reverts.
+
+## Reviewing a PR
+This will try to explain a few guidelines on how to review a PR. This it not to be followed 100%, but just a general guideline on how a review should go.
+
+### 1. Know your limits and expand them
+People have a limit to the amount of things they currently know, but not really to the ones they can know in the future. It is recommended to not try and jump many steps at once and instead slowly climb the ladder to understand how to do things. Don't try to review a PR in an area you don't know, but take a look at it and see if you can notice some things that don't make sense and ask about them to learn what they do. Expand your knowledge as you look through a PR and don't go to a complex one right away when you don't know your limit. It is valuable for even a new dev to look at what another does. They can find pieces of code which are missing or not making sense (Another term for this being "code smells"). One shouldn't approve a PR if they don't know a lot in detail, but can review it to get their questions answered and make sure the author thinks again why he did that.
+
+### 2. If there is something not understandable after a few glances. Ask the author what it means.
+If something is only understood by the author then it can go down to lost knowledge as the author could have just implemented this one thing and then disappear. If you want to understand it ask the author to explain it in a comment or something similar. That way it can be preserved to time for longer. If something continues to be unexplainable with a comment, the author should document it in code. 
+
+### 3. Don't nitpick too much.
+Nitpicks get annoying after some time. If one did a cleanup with automatic tools then that is to be expected, as even automated tools don't catch everything. Don't try to coach on variable names too much. Indents and star imports should now be fixed by spotless so the PR will be unable to be merged if they are there. Try to make it so that the major issues are addressed first and then nitpick, still not recommended as it doesn't make you seen in a great way by some, the author after all made the code and they are human too.
+
+### 4. Look at the description of the PR.
+The best way to see what was changed in a quick notice is through the description of the PR, if its empty it should be filled out by the author. This also allows for those looking through the changelog and seeing the title of the PR to also see the changes with a bit more detail. The description of the PR also allows for one to determine whether one could review it or should be left for someone else. 
+
+### 5. Contribute Positively
+It's essential to understand that behind every pull request, there's a person who has invested time and effort. Your comments reflect on the entire GTNH organization and can profoundly impact someone's motivation. A singular negative or rude comment might dissuade a developer from contributing in future, potentially leading to a loss of valuable input and innovation for the project. Remember, today's novice contributor can be tomorrow's project lead. We all started here.
+
+Encourage growth by ensuring that feedback is constructive, actionable, and respectful. Highlight what's done well just as much as what needs improvement. You might be surprised how much some kind words mean to others. If something is unclear, frame your queries as genuine questions rather than implicit criticisms. A community thrives when its members feel valued and respected.
+
 </div>
 
