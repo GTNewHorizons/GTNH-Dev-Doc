@@ -26,5 +26,28 @@ When a PR is tagged as a balance affecting PR (currently "Affects Balance"), dev
 4. Is this change made in expectation or in tandem with another unwritten or unmerged change coming later?
 
 The question requirement may be bypassed in reasonable scenarios, such as emergency reverts.
+
+## Reviewing a PR
+This will try to explain a few guidelines on how to review a PR. This it not to be followed 100%, but just a general guideline on how a review should go.
+
+### Important
+You should avoid reviewing a balancing PR if you aren't very familiar with what will be the implications of the changes proposed in the PR. Especially if it's about balancing PRs, as this can affect the whole community in a bad way.
+
+## 1. Know your limits and expand them
+Everyone has a limit to what they know, but there's no limit to what they can learn. Rather than trying to review a PR in an unfamiliar area, examine it to identify any potential issues. As you familiarize yourself with various PRs, gradually increase the complexity of what you review. Even new developers can identify potential problems or inconsistencies, often referred to as "code smells". Although one shouldn't approve a PR without thorough knowledge, it's beneficial to review it, ask questions, and prompt the author to reconsider their approach.
+
+## 2. If something is unclear, ask the author.
+If a piece of code or logic is understood only by the author, it can lead to knowledge gaps. To prevent this, request the author to clarify it in a comment or documentation. This ensures that the knowledge persists over time. If a concept remains hard to explain even after commenting, the author should document it directly in the code.
+
+## 3. Read the PR description.
+A PR's description offers a quick overview of the changes. If it's empty, request the author to complete it. The description not only benefits those going through the changelog but also helps reviewers understand the scope and decide if they're the right person to review it.
+
+## 4. Contribute Positively
+It's essential to understand that behind every pull request, there's a person who has invested time and effort. Your comments reflect on the entire GTNH organization and can profoundly impact someone's motivation. A singular negative or rude comment might dissuade a developer from contributing in future, potentially leading to a loss of valuable input and innovation for the project. Remember, today's novice contributor can be tomorrow's project lead. We all started here.
+
+Encourage growth by ensuring that feedback is constructive, actionable, and respectful. Highlight what's done well just as much as what needs improvement. You might be surprised how much some kind words mean to others. If something is unclear, frame your queries as genuine questions rather than implicit criticisms. A community thrives when its members feel valued and respected.
+
+## Ensuring Smooth Workflow: Handling Developer Breaks in GT:NH
+Understanding our active developer count helps redistribute tasks more efficiently. Life events might cause some to temporarily step back from the GT:NH project, which is completely understandable. If you foresee a break in your contributions, consider setting your status to inactive to avoid being approached about GTNH related activities. This isn't a demotion; you can always request to be reactivated after your break. Sometimes, unanticipated events may cause unplanned breaks. Therefore, after a month of inactivity (defined as no code contribution or PR reviewing), you'll be marked as on hiatus.
 </div>
 
