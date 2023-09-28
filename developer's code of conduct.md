@@ -27,27 +27,27 @@ When a PR is tagged as a balance affecting PR (currently "Affects Balance"), dev
 
 The question requirement may be bypassed in reasonable scenarios, such as emergency reverts.
 
-## Reviewing a PR
-This will try to explain a few guidelines on how to review a PR. This it not to be followed 100%, but just a general guideline on how a review should go.
+## Important
+Avoid reviewing a balancing PR if you're not intimately familiar with the potential implications of the proposed changes. This is especially true for balancing PRs, as they can have widespread effects on the entire community.
 
 ### Important
 You should avoid reviewing a balancing PR if you aren't very familiar with what will be the implications of the changes proposed in the PR. Especially if it's about balancing PRs, as this can affect the whole community in a bad way.
 
-### 1. Know your limits and expand them
-People have a limit to the amount of things they currently know, but not really to the ones they can know in the future. It is recommended to not try and jump many steps at once and instead slowly climb the ladder to understand how to do things. Don't try to review a PR in an area you don't know, but take a look at it and see if you can notice some things that don't make sense and ask about them to learn what they do. Expand your knowledge as you look through a PR and don't go to a complex one right away when you don't know your limit. It is valuable for even a new dev to look at what another does. They can find pieces of code which are missing or not making sense (Another term for this being "code smells"). One shouldn't approve a PR if they don't know a lot in detail, but can review it to get their questions answered and make sure the author thinks again why he did that.
+## 1. Know your limits and expand them
+Everyone has a limit to what they know, but there's no limit to what they can learn. Rather than trying to review a PR in an unfamiliar area, examine it to identify any potential issues. As you familiarize yourself with various PRs, gradually increase the complexity of what you review. Even new developers can identify potential problems or inconsistencies, often referred to as "code smells". Although one shouldn't approve a PR without thorough knowledge, it's beneficial to review it, ask questions, and prompt the author to reconsider their approach.
 
-### 2. If there is something not understandable after a few glances. Ask the author what it means.
-If something is only understood by the author then it can go down to lost knowledge as the author could have just implemented this one thing and then disappear. If you want to understand it ask the author to explain it in a comment or something similar. That way it can be preserved to time for longer. If something continues to be unexplainable with a comment, the author should document it in code. 
+## 2. If something is unclear, ask the author.
+If a piece of code or logic is understood only by the author, it can lead to knowledge gaps. To prevent this, request the author to clarify it in a comment or documentation. This ensures that the knowledge persists over time. If a concept remains hard to explain even after commenting, the author should document it directly in the code.
 
-### 3. Look at the description of the PR.
-The best way to see what was changed in a quick notice is through the description of the PR, if its empty it should be filled out by the author. This also allows for those looking through the changelog and seeing the title of the PR to also see the changes with a bit more detail. The description of the PR also allows for one to determine whether one could review it or should be left for someone else. 
+## 3. Read the PR description.
+A PR's description offers a quick overview of the changes. If it's empty, request the author to complete it. The description not only benefits those going through the changelog but also helps reviewers understand the scope and decide if they're the right person to review it.
 
-### 4. Contribute Positively
+## 4. Contribute Positively
 It's essential to understand that behind every pull request, there's a person who has invested time and effort. Your comments reflect on the entire GTNH organization and can profoundly impact someone's motivation. A singular negative or rude comment might dissuade a developer from contributing in future, potentially leading to a loss of valuable input and innovation for the project. Remember, today's novice contributor can be tomorrow's project lead. We all started here.
 
 Encourage growth by ensuring that feedback is constructive, actionable, and respectful. Highlight what's done well just as much as what needs improvement. You might be surprised how much some kind words mean to others. If something is unclear, frame your queries as genuine questions rather than implicit criticisms. A community thrives when its members feel valued and respected.
 
-## Inactivity
-Knowing how many active developers we have on the project is helping us to better redistribute the workload. Sometimes one can have real life matter causing them to be unable to contribute to the GT:NH project, and that is fine. If you can predict when you'll be away for a while, you can ask to put yourself inactive, so you don't get asked about coding stuff. This is by no means a demotion, as you'll always be able to ask to be set as active again once you dealt with your hiatus. Also, it can happen that you need to be away without having the time to tell us about it. So this is why a timeout period is introduced: after a month of inactivity, you'll be labeled as being on hiatus. By inactivity we mean no code contribution or PR reviewing during the last month.
+## Ensuring Smooth Workflow: Handling Developer Breaks in GT:NH
+Understanding our active developer count helps redistribute tasks more efficiently. Life events might cause some to temporarily step back from the GT:NH project, which is completely understandable. If you foresee a break in your contributions, consider setting your status to inactive to avoid being approached about GTNH related activities. This isn't a demotion; you can always request to be reactivated after your break. Sometimes, unanticipated events may cause unplanned breaks. Therefore, after a month of inactivity (defined as no code contribution or PR reviewing), you'll be marked as on hiatus.
 </div>
 
