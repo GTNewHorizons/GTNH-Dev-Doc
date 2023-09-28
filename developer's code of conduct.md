@@ -30,6 +30,9 @@ The question requirement may be bypassed in reasonable scenarios, such as emerge
 ## Reviewing a PR
 This will try to explain a few guidelines on how to review a PR. This it not to be followed 100%, but just a general guideline on how a review should go.
 
+### Important
+You should avoid reviewing a balancing PR if you aren't very familiar with what will be the implications of the changes proposed in the PR. Especially if it's about balancing PRs, as this can affect the whole community in a bad way.
+
 ### 1. Know your limits and expand them
 People have a limit to the amount of things they currently know, but not really to the ones they can know in the future. It is recommended to not try and jump many steps at once and instead slowly climb the ladder to understand how to do things. Don't try to review a PR in an area you don't know, but take a look at it and see if you can notice some things that don't make sense and ask about them to learn what they do. Expand your knowledge as you look through a PR and don't go to a complex one right away when you don't know your limit. It is valuable for even a new dev to look at what another does. They can find pieces of code which are missing or not making sense (Another term for this being "code smells"). One shouldn't approve a PR if they don't know a lot in detail, but can review it to get their questions answered and make sure the author thinks again why he did that.
 
