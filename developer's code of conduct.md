@@ -27,8 +27,8 @@ When a PR is tagged as a balance affecting PR (currently "Affects Balance"), dev
 
 The question requirement may be bypassed in reasonable scenarios, such as emergency reverts.
 
-## Important
-Avoid reviewing a balancing PR if you're not intimately familiar with the potential implications of the proposed changes. This is especially true for balancing PRs, as they can have widespread effects on the entire community.
+## Reviewing a PR
+This will try to explain a few guidelines on how to review a PR. This it not to be followed 100%, but just a general guideline on how a review should go.
 
 ### Important
 You should avoid reviewing a balancing PR if you aren't very familiar with what will be the implications of the changes proposed in the PR. Especially if it's about balancing PRs, as this can affect the whole community in a bad way.
