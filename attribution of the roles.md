@@ -14,10 +14,10 @@ Here is the list of roles covered by this document:
 - Content Creator
 - Wiki Editor
 - Unofficial GT:NH Servers
-- Beta tester
+- Beta Tester
 - Donator
 
-For the others, either they are self attribuable, or they are delivered at team members' discretion.
+For the others, either they are self attributable, or they are delivered at team members' discretion.
 
 ## Admins
 They are 3 of them:
@@ -38,16 +38,16 @@ The GT:NH dev on Hiatus is just a role devs can ask for if they want to indicate
 This role is made for those who are willing to make new textures for NH. You get access to a channel where the devs ask for textures. You are under no obligation to provide a texture, but if you want to contribute artistically this is a great way to help!
 
 ## Official Quest Editor
-If you are very active into quest proofreading/editing or into the creation of quests, this role is made for you. You'll get this role only if you get recommanded by a GT:NH dev or higher.
+If you are very active into quest proofreading/editing or into the creation of quests, this role is made for you. You'll get this role only if you get recommended by a GT:NH dev or higher.
 
 ## MC Dev
 If you are a known dev of a mod (used or not in NH), you can ask to get this role.
 
 ## GT:NH Contributor
-If you are interested in such role that is the GT:NH Contributor role, you must at least perform 3 pull requests on any repository under the GT:NH organisation on github. **A contributor must abide by the Developper's code of conduct, or their contributions will be rejected!**
+If you are interested in such role that is the GT:NH Contributor role, you must at least perform 3 pull requests on any repository under the GT:NH organisation on GitHub. **A contributor must abide by the Developer's code of conduct, or their contributions will be rejected!**
 
 ## Content Creator
-Content Creator role is deserved to those who are regularly making content about the GT:NH modpack (series or streams for instance). Ask a team member to get the role if you posted content but don't have the role already. 
+Content Creator role is deserved to those who are regularly making content about the GT:NH modpack (series or streams for instance). Ask a team member to get the role if you posted content but don't have the role already.
 
 ## Wiki Editor
 Wiki Editors are people actively invested in wiki contributions. It's a role given to reward the efforts made. Wiki Editors have also a stronger weight in decisions concerning the wiki, like shaping, etc. If you think someone deserves the role, don't hesitate to recommend it to team members. Boubou_19 is the Bureaucrat of the GT:NH wiki. For deep changes to the wiki, make a request to him.
@@ -55,8 +55,8 @@ Wiki Editors are people actively invested in wiki contributions. It's a role giv
 ## Unofficial GT:NH Servers
 You automatically have this role if you are in the admin team of one of the servers listed in multiplayer by default. If you are part of the admin team of such server but you don't have the role, tell someone in your team which has it to DM a team member, we will fix this. When you have this role, you automatically gain access to channels to discuss about exploits or sysadmin stuff.
 
-## Beta tester
-Beta tester role is a role handed out by team members to those who are willing to play on experimental versions of the pack and report bugs. Just ask for the role and you'll have it. But keep in mind that we periodically purge people from this role every few monthes, because we want active testers. Also, please, pretty please, don't ask it just to have a fancy color on the discord. This unlocks a new channel made for beta testing.
+## Beta Tester
+Beta tester role is a role handed out by team members to those who are willing to play on experimental versions of the pack and report bugs. Just ask for the role and you'll have it. But keep in mind that we periodically purge people from this role every few months, because we want active testers. Also, please, pretty please, don't ask it just to have a fancy color on the discord. This unlocks a new channel made for beta testing.
 
 ## Donator
 Donator is a role handed out after someone has made a donation to the NH Project. They unlock some cosmetic perks on the official servers if they play there, as well as a cape anyone playing NH will see if they are in multiplayer. For now, the donations are closed, sorry for the inconvenience.
