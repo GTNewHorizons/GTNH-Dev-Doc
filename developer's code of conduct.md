@@ -15,9 +15,11 @@ To improve review quality, in PR about new feature/feature change/balance change
 4) Respect the vision. If something you want to add is not in the vision document then discuss it in #meta-dev and if there is agreement the document can be updated.
 5) Be open to criticism. Sometimes the stuff you made and that you are proud of might not be popular in its current form. That's ok and it's a part of the process.
 6) Include a flowchart if it involves adding a new recipe chain. Any new PR without it will be rejected no matter how good it can be. If you don’t know how, try [draw.io](https://draw.io).
-7-1) Regarding old textures: if you don't like a texture, use a texture pack.
-7-2) Regarding new textures: try to keep textures consistent with the mod/mod group they're being added to.
-7-3) Regarding tooltips: reduction is fine when needed, but if there is a specific consistency, try to stay within that.
+7) Regarding textures within GTNH
+   1) Regarding magic textures: within the vision of the modpack, magic is meant to feel, look, and be different than GregTech, any form of GUI update for the sake of (or that would inadvertently bring) consistency with GT GUIs should be rejected.
+   2) Regarding new textures: try to keep textures consistent with the mod/mod group they're being added to.
+   3) Regarding tooltips: reduction is fine when needed, but if there is a specific consistency, try to stay within that.
+   4) Regarding inventory changing: GUIs that shift the colour of the player's internal inventory is allowed as long as its usage is consistent. Examples being: Steam Machines, the Magic Apiary, etc.
 
 ## Balancing PRs
 They must follow the vision we have, and follow 4. of the Content Section. A PR affecting balancing should always be labeled as such, and not be mixed in with other unrelated changes in the same PR. For IV and below, follow 2. of the Content creation section. For LuV and above, it must at least have 2 approvals, and one of them must be a member of the github's admin team (list of them [here](https://github.com/orgs/GTNewHorizons/teams/admin)).
