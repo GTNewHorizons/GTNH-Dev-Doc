@@ -42,32 +42,21 @@ Tier materials are used to gate content, by requiring a titanium plate, for exam
 
 # 3. What should be Magic?
 <div align="justify">
-Magic is concepts and mechanisms tailored under a magic theme. Instead of the “tech” they focus more on utility than progressing through the tiers. Examples are armor, tools, survival, teleport and whatnot.
+Magic is concepts and mechanisms tailored under a magic theme. Independent of how the code works in the background, these mods should have a magic feel and look. Instead of the “tech” they focus more on utility than progressing through the tiers. Examples are armor, tools, survival, teleport and whatnot.
 
-Magic can assist in progressing through the tiers, but it should not be the primary gating mechanism of any tier (unless this tier is solely for more advanced magic). In simpler terms, one should be able to reach the end of the tech tree without doing any magic.
+Magic can assist in progressing through the tiers, but it should not be the primary gating mechanism of any tier. In simpler terms, one should be able to reach the end of the tech tree without doing any magic.
 
-Advancement in Tech should assist in the development of magic, e.g. a ZPM player should receive some kind of boost to speed up/catch up development in magic if he wanted to. Do note these boosts should not eventually give birth to the meme of Hold off doing magic until UHV when you get to one click unlock everything.
+Advancement in Tech should assist in the development of magic, e.g. a ZPM player should receive some kind of boost to speed up/catch up development in magic if he wanted to. But the boost in this direction should be somewhat limitted. It should not eventually give birth to the meme of "Hold off doing magic until UHV when you get to one click unlock everything".
 
-Magic Mods should be kept relatively distinct, with optional cross-over instead of treating everything as a Thaumcraft Addon and requiring Infusion (as an example).
+Magic Mods should be kept relatively distinct, with optional cross-over instead of treating everything as a Thaumcraft Addon and requiring Infusion (as an example). However it is nice to have everything integrated into the Thaumcraft research mechanisms. 
 </div>
 
 # 4. What should be space exploration?
 <div align="justify">
-From GitHub: “Later on, you will have to visit other planets and dimensions to gather important resources and fight mighty bosses to channel their magical power.”
 
-Currently you go to space to get plans for the next rocket and to get minerals (no-rocket-runs to the side).
+Currently you mainly go to space to get plans for the next rocket, to get ores and to pump certain fluids and gases. Only a few planets have additional interesting mechanics, like obtaining certain extraterrestial plants.
 
-Question: Are no-rocket-runs an intended path for the pack?
-</div>
-
-## 4.i. Yannick suggestion: Leapfrogging
-
-<div align="justify">
-In order to reach ever further into space, you need to build a network of space stations and ground stations with launch and refueling facilities. Basically encourage having to build some kind of a presence on those worlds. Those outposts could be thought of as a level of complexity above multis because they need to be mini-bases, and each tier should have new requirements to keep the challenge fresh.
-
-You could also gate more mod content behind those planets. Could portals to certain dimensions only be openable from the right planets? Could certain aspects of magic mods also only exist in other worlds? Getting players to play longer on each planet gives you an opportunity to do stuff like having tougher mobs on every tier, to give a use to your ever more powerful offensive capabilities.
-.
-MandatoryI’vebenveractuallybeentospacedisclaimer.
+Playing through the pack without space exploration is not an officially supported game mode. But we do not stand in the way of contributions to the pack to make it doable as long as they don't shift the progression of the pack. That means such alternatives need to be clearly more difficult/expensive than the main rocket progression.
 </div>
 
 # 5. What is the place of combat in the pack?
