@@ -17,11 +17,9 @@
 
 # 1. What is GT:NH?
 <div align="justify">
-From the GitHub and for discussion:
+You are looking at a big progressive highly integrated expert mode pack for Minecraft 1.7.10 centered around the mod GregTech.
 
-You are looking at a big progressive kitchensink pack for Minecraft 1.7.10 balanced around the mod GregTech.
-
-Over 6 years of development (and still going) GT:NH has formed a balance and refinement that only a handful of packs can keep up with. We are talking about thousands of recipe tweaks, a massive questbook with a custom reward system, unique world generation, custom mods coded for the pack, custom Thaumonomicon pages, and many more.
+With over 8 years of development (and still going) GT:NH has formed a balance and refinement that only a handful of packs can keep up with. We are talking about thousands of recipe tweaks, a massive questbook with a custom reward system, unique world generation, custom mods coded for the pack, custom Thaumonomicon pages, and many more.
 
 The main intentions of the pack are a long-lasting experience and tying mods together in a progressive fashion, making it feel more like a single game than a compilation of mods thrown together.
 
