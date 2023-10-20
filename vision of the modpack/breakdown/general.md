@@ -2,9 +2,8 @@
 
 1) # [What is GT:NH?](#1-what-is-gtnh)
 2) # [What is a tier?](#2-what-is-a-tier)
-3) # [What should be space exploration?](#3-what-should-be-space-exploration)
-    1) ## [Yannick's suggestion: Leapfrogging](#3i-yannick-suggestion-leapfrogging)
-4) # [What should be Magic](#4-what-should-be-magic)
+3) # [What should be Magic](#3-what-should-be-magic)
+4) # [What should be space exploration?](#4-what-should-be-space-exploration)
 5) # [What is the place of combat in the pack?](#5-what-is-the-place-of-combat-in-the-pack)
 6) # [What is Tedium?](#6-what-is-tedium)
 7) # [What is QoL?](#7-what-is-qol)
