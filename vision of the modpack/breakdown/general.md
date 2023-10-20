@@ -94,7 +94,9 @@ Tools like NEI are an important part of QoL as it helps you find what you need.
 
 Additional QoL items include the questbook which lets you know about new things that can help your playthrough, along with UI improvements that reveal functionality.
 
-QoL should usually not be gated behind some certain tier. Trying to do so must have a strong rationale behind it to justify it, e.g. the QoL completely eliminates a previous mechanism (though at that point it’d be worth considering if this existing mechanism needs tweaking)
+Some QoL should be available immediately at all times (Questbook, NEI, Journeymap, nice and functional GUIs, etc.).
+
+But there are other types of improvements and items sometimes labelled 'QoL' that simplify gameplay and bypass game mechanics (hatches and busses that integrate AE with GregTech, advanced ore scanners, automatic mining, mobility like flight/teleportation, etc.). Usually these should not be available immediately but should be seen as progressive upgrades to simplify things after the player has already done something dozens of times. These then also can be placed in the progression as nice rewards for unlocking a tier or making a complicated new machine (First EBF/Assembling Line/DTPF) or even promote the use of a otherwise optional mod.
 </div>
 
 # 8. What's our policy to add new mods?
