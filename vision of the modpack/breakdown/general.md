@@ -10,13 +10,13 @@
 7) # [What is QoL?](#7-what-is-qol)
 8) # [What's our policy to add new mods?](#8-whats-our-policy-to-add-new-mods)
 9) # [What is the deprecation policy on removed or "nerfed" recipes?](#9-what-is-the-deprecation-policy-on-removed-or-nerfed-recipes)
-10) # [General Principles](#10-general-principles)
+10) # [Miscellaneous Development Principles](#10-miscellaneous-development-principles)
 
 # 1. What is GT:NH?
 <div align="justify">
-You are looking at a big progressive highly integrated expert mode pack for Minecraft 1.7.10 centered around the mod GregTech.
+You are looking at a large, progressive, highly integrated expert mode pack for Minecraft 1.7.10 centered around the mod GregTech.
 
-With over 8 years of development (and still going) GT:NH has formed a balance and refinement that only a handful of packs can keep up with. We are talking about thousands of recipe tweaks, a massive questbook with a custom reward system, unique world generation, custom mods coded for the pack, custom Thaumonomicon pages, and many more.
+With over 8 years of development (and still going) GT:NH has formed a balance and refinement that only a handful of packs can keep up with. We are talking about many thousands custom recipes, a massive questbook with a custom reward system, unique world generation, custom mods coded for the pack, custom Thaumonomicon pages, and many more.
 
 The main intentions of the pack are a long-lasting experience and tying mods together in a progressive fashion, making it feel more like a single game than a compilation of mods thrown together.
 
@@ -106,17 +106,17 @@ Large mods must not only be “thematically appropriate” but also have a champ
 Unless (and perhaps even) if actively under development, a fork shall be created in our repo.
 </div>
 
-# 9. What is the deprecation policy on removed or "nerfed" recipes?
+# 9. What is the deprecation policy on removed or changed machines and recipes?
 <div align="justify">
-Many if not most players don’t follow GitHub development closely, and can be surprised by changes such as new lines (Aluminum, eg). This can result in already existing lines having to be revisited, which can be tedious. 
+Many if not most players don’t follow GitHub development closely, and can be surprised by changes such as new lines or removed machines. This can result in already existing lines having to be revisited, which can be tedious.
 
-Perhaps there should be a two step process:
-New line is added with additional steps vs current setup (but also advantages of some kind). Previous recipes are hidden in NEI but remain functional. QB is updated (perhaps there should be an in-game QB chapter for major changes?)
-Next release the recipes are removed
+For removal of machines the process should be to first only remove the recipe and add a deprecation warning to the tooltip. And to only fully remove them at least one stable release after that.
 
-This wouldn’t apply to unintentional recipes/exploits
+For recipe changes or removals, something like that is not feasible.
+
+However, in both cases the changes should be listed on the Breaking Changes page on the wiki (https://gtnh.miraheze.org/wiki/Upcoming_Features#Breaking_Changes). One should also check if there is an associated quest and change that as needed.
 </div>
 
-# 10. General Principles
+# 10. Miscellaneous Development Principles
 - Avoid small/tiny dusts if possible - percentage chance of full dusts instead
 - Avoid making new features that encourage spamming laggy setup.
