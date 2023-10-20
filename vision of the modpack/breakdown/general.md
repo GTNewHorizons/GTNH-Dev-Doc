@@ -8,7 +8,7 @@
 6) # [What is Tedium?](#6-what-is-tedium)
 7) # [What is QoL?](#7-what-is-qol)
 8) # [What's our policy to add new mods?](#8-whats-our-policy-to-add-new-mods)
-9) # [What is the deprecation policy on removed or "nerfed" recipes?](#9-what-is-the-deprecation-policy-on-removed-or-nerfed-recipes)
+9) # [What is the deprecation policy on removed or changed machines and recipes?](#9-what-is-the-deprecation-policy-on-removed-or-changed-machines-and-recipes)
 10) # [Miscellaneous Development Principles](#10-miscellaneous-development-principles)
 
 # 1. What is GT:NH?
@@ -60,9 +60,9 @@ Playing through the pack without space exploration is not an officially supporte
 
 # 5. What is the place of combat in the pack?
 <div align=justify>
-The main focus of combat in the pack is in the early game. The world is harsh and dangerous and you need to defend yourself and work on becoming strong yourself. There many defensive and offensive options for the player to invest to and, if you do so, after a few tiers regular mobs should no longer be a concern.
+The main focus of combat in the pack is in the early game. The world is harsh and dangerous and you need to defend yourself and work on becoming strong yourself. There many defensive and offensive options for the player to invest into and, if you do so, after a few tiers regular mobs should no longer be a concern.
 
-Later on, the main combat are specific boss fights. 
+Later on, the main combat aspects are specific boss fights. 
 </div>
 
 
@@ -117,5 +117,5 @@ However, in both cases the changes should be listed on the Breaking Changes page
 </div>
 
 # 10. Miscellaneous Development Principles
-- Avoid small/tiny dusts if possible - percentage chance of full dusts instead. (See https://colab.research.google.com/drive/1hItspIDUBAAnNW4zJ1rMesAEiRytNWLh for some maths on how to do that)
+- Avoid small/tiny dusts if possible - percentage chance of full dusts instead. (See https://colab.research.google.com/drive/1hItspIDUBAAnNW4zJ1rMesAEiRytNWLh for some math on how to do that)
 - Avoid making new features that encourage spamming laggy setup.
