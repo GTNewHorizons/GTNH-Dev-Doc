@@ -36,7 +36,7 @@ Circuit tiers are relatively well defined but don’t really correspond to volta
 
 Another common theme is materials that are hard to get in one tier (for example, only available as small ore, need strange processing, etc) become easier to obtain in a later tier. Tungsten for example. However, it is likely that  the “easier” path needs an appropriate line - you can get small amounts of platinum but you’re going to need a platline eventually.
 
-Tier materials are used to gate content, by requiring a titanium plate, for example, a thaumcraft item can be restricted until you can obtain at least some titanium.
+Tier materials are used to gate content, by requiring a titanium plate, for example, a Thaumcraft item can be restricted until you can obtain at least some titanium.
 </div>
 
 # 3. What should be Magic?
@@ -45,7 +45,7 @@ Magic is concepts and mechanisms tailored under a magic theme. Independent of ho
 
 Magic can assist in progressing through the tiers, but it should not be the primary gating mechanism of any tier. In simpler terms, one should be able to reach the end of the tech tree without doing any magic.
 
-Advancement in Tech should assist in the development of magic, e.g. a ZPM player should receive some kind of boost to speed up/catch up development in magic if he wanted to. But the boost in this direction should be somewhat limitted. It should not eventually give birth to the meme of "Hold off doing magic until UHV when you get to one click unlock everything".
+Advancement in Tech should assist in the development of magic, e.g. a ZPM player should receive some kind of boost to speed up/catch up development in magic if he wanted to. But the boost in this direction should be somewhat limited. It should not eventually give birth to the meme of "Hold off doing magic until UHV when you get to one click unlock everything".
 
 Magic Mods should be kept relatively distinct, with optional cross-over instead of treating everything as a Thaumcraft Addon and requiring Infusion (as an example). However it is nice to have everything integrated into the Thaumcraft research mechanisms. 
 </div>
@@ -53,7 +53,7 @@ Magic Mods should be kept relatively distinct, with optional cross-over instead 
 # 4. What should be space exploration?
 <div align="justify">
 
-Currently you mainly go to space to get plans for the next rocket, to get ores and to pump certain fluids and gases. Only a few planets have additional interesting mechanics, like obtaining certain extraterrestial plants.
+Currently you mainly go to space to get plans for the next rocket, to get ores and to pump certain fluids and gases. Only a few planets have additional interesting mechanics, like obtaining certain extraterrestrial plants.
 
 Playing through the pack without space exploration is not an officially supported game mode. But we do not stand in the way of contributions to the pack to make it doable as long as they don't shift the progression of the pack. That means such alternatives need to be clearly more difficult/expensive than the main rocket progression.
 </div>
@@ -95,7 +95,7 @@ Additional QoL items include the questbook which lets you know about new things 
 
 Some QoL should be available immediately at all times (Questbook, NEI, Journeymap, nice and functional GUIs, etc.).
 
-But there are other types of improvements and items sometimes labelled 'QoL' that simplify gameplay and bypass game mechanics (hatches and busses that integrate AE with GregTech, advanced ore scanners, automatic mining, mobility like flight/teleportation, etc.). Usually these should not be available immediately but should be seen as progressive upgrades to simplify things after the player has already done something dozens of times. These then also can be placed in the progression as nice rewards for unlocking a tier or making a complicated new machine (First EBF/Assembling Line/DTPF) or even promote the use of a otherwise optional mod.
+But there are other types of improvements and items sometimes labeled 'QoL' that simplify gameplay and bypass game mechanics (hatches and busses that integrate AE with GregTech, advanced ore scanners, automatic mining, mobility like flight/teleportation, etc.). Usually these should not be available immediately but should be seen as progressive upgrades to simplify things after the player has already done something dozens of times. These then also can be placed in the progression as nice rewards for unlocking a tier or making a complicated new machine (First EBF/Assembling Line/DTPF) or even promote the use of a otherwise optional mod.
 </div>
 
 # 8. What's our policy to add new mods?
