@@ -61,7 +61,7 @@ Possible sources of environment:
     - How to get this environment:
     - What are the advantages of it:
         - Might be required for certain magical rituals
-        - Essentia Discount for infusion
+        - Essentia Discount for infusion (comment: this likely will not be possible within the current thaumcraft code without breaking too many things)
     - What are the downsides of it:
         - Taint?
         - Wisps?
