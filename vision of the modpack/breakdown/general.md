@@ -32,11 +32,13 @@ If you are a fan of expert mode packs and want to take it to the next level this
 
 # 2. What is a tier?
 <div align="justify">
-Currently the QB “opens the next tier” usually when you can build the machine hull for that tier (MV opens with an MV Machine Hull). It appears to progress through machines and new processes of that tier, culminating in (often) a new dimension/planet you visit to get new materials to build the requirements for the next tier.
+Large parts of the content in GT:NH is structured around the voltage tiers of GregTech. The questbook also has separate tabs following these tiers. They represent the main progression in the pack.
 
-Circuit tiers are relatively well defined but don’t really correspond to “QB” tiers (a machine may have an  LV hull and take an MV circuit, and in HV you build LuV circuits).
+When you reach a new tier, you often unlock new machines and new processes, and maybe new blocks and items that can help you with automation, exploration, or survival. The tiers then (often) culminate in a new dimension/planet you visit or a new complicated machine or process that allows you to get new materials to build the requirements for the next tier.
 
-Another common theme is materials that are hard to get in one tier (for example, only available as small ore, need strange processing, etc) become easier to obtain in a later tier. Titanium for example. However, it is likely that  the “easier” path needs an appropriate line - you can get small amounts of platinum but you’re going to need a platline eventually.
+Circuit tiers are relatively well defined but don’t really correspond to voltage tiers in a one-to-one way (a machine may have an LV hull and take an MV circuit, and in HV you build IV circuits).
+
+Another common theme is materials that are hard to get in one tier (for example, only available as small ore, need strange processing, etc) become easier to obtain in a later tier. Tungsten for example. However, it is likely that  the “easier” path needs an appropriate line - you can get small amounts of platinum but you’re going to need a platline eventually.
 
 Tier materials are used to gate content, by requiring a titanium plate, for example, a thaumcraft item can be restricted until you can obtain at least some titanium.
 </div>
