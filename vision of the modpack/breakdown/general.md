@@ -76,7 +76,7 @@ A process that is long and RNG filled. Crops for example are generally considere
 
 A process that only prevents a negative aspect. Warp, for example, is balanced by the good things you’re getting (and can be avoided by avoiding those things or by using the mitigation/reduction options), but pollution scrubbing has “no advantage” except reduction of negative effects, so it is not currently considered to be in a good state.
 
-A process that encourages extensive AFK or large machine spam so that things can be crafted. In fact these two go hand in hand as you could either build little and wait or build a lot and suffer from bad performance and the tedium of repetitive building. This part doesn't not mean that the player should expect to just have a single machine of any type, but things should not get too extreme.
+A process that encourages extensive AFK or large machine spam so that things can be crafted. In fact these two go hand in hand as you could either build little and wait or build a lot and suffer from bad performance and the tedium of repetitive building. This part doesn't mean that the player should expect to just have a single machine of any type, but things should not get too extreme.
 
 A repetitive process the user has to do to get the best gameplay, but isn’t directly part of the game. For example, marking waypoints for ores, nodes, etc.
 
@@ -118,4 +118,4 @@ However, in both cases the changes should be listed on the Breaking Changes page
 
 # 10. Miscellaneous Development Principles
 - Avoid small/tiny dusts if possible - percentage chance of full dusts instead. (See https://colab.research.google.com/drive/1hItspIDUBAAnNW4zJ1rMesAEiRytNWLh for some math on how to do that)
-- Avoid making new features that encourage spamming laggy setup.
+- Avoid making new features that encourage spamming laggy setups.
