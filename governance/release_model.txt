@@ -40,7 +40,7 @@ example PR that should not be cherrypicked
 * for versions from backport branch (__stable patch release__), it will be 2.4.1, 2.4.2, etc. every release @ everyone and (probably) will be on curse.
 * for versions from dev branch (__dev release__), it will be 2.5.0-xxxxx.1, where xxxxx can be alpha, beta, or RC.
   * alpha is first stage. 2.5.0-alpha.1, 2.5.0-alpha.2 etc. alpha version mentions nerf nerds and zeta test group only. this is the old "dev build", and should be the build we release for the 90% of the time.
-  * we bump it to 2.54.0-beta.1 when we feels next stable should be made. first beta should @ everyone to encourage people to upgrade and test. later beta will @ nerf nerds and zeta test group only. beta stage usually last 2 weeks.
+  * we bump it to 2.5.0-beta.1 when we feels next stable should be made. first beta should @ everyone to encourage people to upgrade and test. later beta will @ nerf nerds and zeta test group only. beta stage usually last 2 weeks.
   * a week or so before final stable release we bump it to 2.5.0-rc.1 (*release candidate*). every rc should @ everyone. I don't expect a lot of rc anyway...
   * release 2.5.0 (__initial stable release__) by relabeling the last one of 2.5.0-rc.XXX to 2.5.0.
   * nightly builds uses the last tag version, but with .DATE appended to it, so we'd have 2.5.0-alpha.4.20230906.
