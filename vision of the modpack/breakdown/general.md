@@ -101,8 +101,8 @@ But there are other types of improvements and items sometimes labelled 'QoL' tha
 
 # 8. What's our policy to add new mods?
 <div align="justify">
-All new mods must be Open Source with few-to-no exceptions.
-Large mods must not only be “thematically appropriate” but also have a champion willing to work with the team both on development and balance.
+All new mods must be FOSS (Free and Open Source Software) with no exceptions.
+Large mods must not only be “thematically appropriate” but also have a champion willing to work with the team both on development and balance, to fix issues and integrate the mod into the pack.
 Unless (and perhaps even) if actively under development, a fork shall be created in our repo.
 </div>
 
