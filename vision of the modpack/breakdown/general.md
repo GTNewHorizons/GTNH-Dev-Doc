@@ -61,21 +61,25 @@ Playing through the pack without space exploration is not an officially supporte
 
 # 5. What is the place of combat in the pack?
 <div align=justify>
+The main focus of combat in the pack is in the early game. The world is harsh and dangerous and you need to defend yourself and work on becoming strong yourself. There many defensive and offensive options for the player to invest to and, if you do so, after a few tiers regular mobs should no longer be a concern.
 
+Later on, the main combat are specific boss fights. 
 </div>
 
 
 # 6. What is Tedium?
 <div>
-A process that is required but is not fun. Something may be fun to figure out the first time (redstone anti-void for a multiblock) but soon becomes tedious the fifty-seventh time you have to set it up on an LCR. This can be solved by tiering (for example, maintenance hatches go from manual to duct tape to toolboxes to automated to fully automated).
+In short, a process that is required but is not fun. Something can be a lot of fun to figure out the first time (redstone anti-void for a multiblock) but soon becomes tedious the fifty-seventh time you have to set it up on an LCR. This can be solved by tiering (for example, maintenance hatches go from manual to duct tape to toolboxes to automated to fully automated).
+
+Crucially, "not fun" is not about any one individuals opinion, but about more objective aspects. A big example are very repetitive manual task without any option for automation.
 
 A process that is long and RNG filled. Crops for example are generally considered more tedious than bees, because you have to babysit them and wait for RNG. Splitting up the steps necessary may help (many people don’t do anything crop or bee until they NEED something) - so making it desirable to do some of the basics earlier could reduce that load.
 
-A process that only prevents a negative aspect. Warp, for example, is balanced by the good things you’re getting (and can be avoided by avoiding those things), but pollution solution has “no advantage” except reduction of negative effects, and so many disable it.
+A process that only prevents a negative aspect. Warp, for example, is balanced by the good things you’re getting (and can be avoided by avoiding those things or by using the mitigation/reduction options), but pollution scrubbing has “no advantage” except reduction of negative effects, so it is not currently considered to be in a good state.
 
-A process that encourages extensive AFK so machines can run. You could survive on a single BBF, but it should be encouraged to instead build more. This can be at odds with other tedium as often you can avoid certain tedium by just setting something up and letting it run AFK.
+A process that encourages extensive AFK or large machine spam so that things can be crafted. In fact these two go hand in hand as you could either build little and wait or build a lot and suffer from bad performance and the tedium of repetitive building. This part doesn't not mean that the player should expect to just have a single machine of any type, but things should not get too extreme.
 
-A process the user has to do to get the best gameplay, but isn’t directly part of the game. For example, marking waypoints for ores, nodes, etc.
+A repetitive process the user has to do to get the best gameplay, but isn’t directly part of the game. For example, marking waypoints for ores, nodes, etc.
 
 A boss fight that is extremely long but without any skill, damaging them for three points a hit for five hours.
 
