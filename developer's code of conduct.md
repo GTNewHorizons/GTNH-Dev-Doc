@@ -32,10 +32,9 @@ To improve review quality, in PR about new feature/feature change/balance change
    3) Blood Magic
       1) 
    4) Botania
-      1) Botania is a tech mod masquerading as a magic mod, within this, there are many explicit design choices made by Vazkii, such as a policy on "no mana -> energy unit/redstone flux conversion." (despite this being violated by him later on due to pressure.)
-      2) However, the most vital design of Botania is an active avoidance of hard numbers, while the player may have a soft idea of how much mana they currently have, they should never have an exact answer. For example, if Botanic Energistics is ever finished, the terminal should never tell the player the exact int of mana currently contained, specific shades of blue and vague estimates such as "x mana pools of mana" are strongly preferred. 
+      1) 
    5) Witchery
-      1) Don't, if you want to add Witchery content, please add it to Forbidden Magic instead. Witchery  exists as a singular ARR island compared to the archipelagos that make up the other magic mods, no vast fields of addons like Thaumcraft, no open sourced code like Botania and Blood Magic, if you'd like to see new Witchery content, please help us recreate the vital portions in new, untethered, code.
+       1) Don't, if you want to add Witchery content, please add it to Forbidden Magic instead. Witchery  exists as a singular ARR island compared to the archipelagos that make up the other magic mods, no vast fields of addons like Thaumcraft, no open sourced code like Botania and Blood Magic, if you'd like to see new Witchery content, please help us recreate the vital portions in new, untethered, code.
 
 ## Balancing PRs
 They must follow the vision we have, and follow 4. of the Content Section. A PR affecting balancing should always be labeled as such, and not be mixed in with other unrelated changes in the same PR. For IV and below, follow 2. of the Content creation section. For LuV and above, it must at least have 2 approvals, and one of them must be a member of the github's admin team (list of them [here](https://github.com/orgs/GTNewHorizons/teams/admin)).
