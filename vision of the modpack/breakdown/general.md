@@ -1,4 +1,4 @@
-# Definitions
+# General Overview
 
 1) # [What is GT:NH?](#1-what-is-gtnh)
 2) # [What is a tier?](#2-what-is-a-tier)
@@ -60,14 +60,14 @@ Playing through the pack without space exploration is not an officially supporte
 
 # 5. What is the place of combat in the pack?
 <div align=justify>
-The main focus of combat in the pack is in the early game. The world is harsh and dangerous and you need to defend yourself and work on becoming strong yourself. There many defensive and offensive options for the player to invest into and, if you do so, after a few tiers regular mobs should no longer be a concern.
+The main focus of combat in the pack is in the early game. The world is harsh and dangerous and you need to defend yourself and work on becoming strong. There are many defensive and offensive options to invest in and, if you do so, after a few tiers regular mobs should no longer be a concern.
 
 Later on, the main combat aspects are specific boss fights. 
 </div>
 
 
 # 6. What is Tedium?
-<div>
+<div align="justify">
 In short, a process that is required but is not fun. Something can be a lot of fun to figure out the first time (redstone anti-void for a multiblock) but soon becomes tedious the fifty-seventh time you have to set it up on an LCR. This can be solved by tiering (for example, maintenance hatches go from manual to duct tape to toolboxes to automated to fully automated).
 
 Crucially, "not fun" is not about any one individuals opinion, but about more objective aspects. A big example are very repetitive manual task without any option for automation.
@@ -113,9 +113,11 @@ For removal of machines the process should be to first only remove the recipe an
 
 For recipe changes or removals, something like that is not feasible.
 
-However, in both cases the changes should be listed on the Breaking Changes page on the wiki (https://gtnh.miraheze.org/wiki/Upcoming_Features#Breaking_Changes). One should also check if there is an associated quest and change that as needed.
+However, in both cases the changes should be listed on the [Breaking Changes page on the wiki](https://gtnh.miraheze.org/wiki/Upcoming_Features#Breaking_Changes). One should also check if there is an associated quest and change that as needed.
 </div>
 
 # 10. Miscellaneous Development Principles
-- Avoid small/tiny dusts if possible - percentage chance of full dusts instead. (See https://colab.research.google.com/drive/1hItspIDUBAAnNW4zJ1rMesAEiRytNWLh for some math on how to do that)
+<div align="justify">
+- Avoid small/tiny dusts if possible - percentage chance of full dusts instead. See [this page](https://colab.research.google.com/drive/1hItspIDUBAAnNW4zJ1rMesAEiRytNWLh) for some math on how to do that.
 - Avoid making new features that encourage spamming laggy setups.
+</div>
