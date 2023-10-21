@@ -117,7 +117,5 @@ However, in both cases the changes should be listed on the [Breaking Changes pag
 </div>
 
 # 10. Miscellaneous Development Principles
-<div align="justify">
-- Avoid small/tiny dusts if possible - percentage chance of full dusts instead. See [this page](https://colab.research.google.com/drive/1hItspIDUBAAnNW4zJ1rMesAEiRytNWLh) for some math on how to do that.
+- Avoid small/tiny dusts if possible. Use a percentage chance of a full dust instead. See [this page](https://colab.research.google.com/drive/1hItspIDUBAAnNW4zJ1rMesAEiRytNWLh) for some math on how to do that.
 - Avoid making new features that encourage spamming laggy setups.
-</div>
