@@ -16,10 +16,21 @@ To improve review quality, in PR about new feature/feature change/balance change
 5) Be open to criticism. Sometimes the stuff you made and that you are proud of might not be popular in its current form. That's ok and it's a part of the process.
 6) Include a flowchart if it involves adding a new recipe chain. Any new PR without it will be rejected no matter how good it can be. If you don’t know how, try [draw.io](https://draw.io).
 7) Regarding textures within GTNH
-   1) Regarding magic textures: within the vision of the modpack, magic is meant to feel, look, and be different than GregTech, any form of GUI update for the sake of (or that would inadvertently bring) consistency with GT GUIs should be rejected.
+   1) Regarding magic textures: within the vision of the modpack, magic is meant to feel, look, and be different from GregTech, any form of GUI update for the sake of (or that would inadvertently bring) consistency with GT GUIs should be rejected.
    2) Regarding new textures: try to keep textures consistent with the mod/mod group they're being added to.
    3) Regarding tooltips: reduction is fine when needed, but if there is a specific consistency, try to stay within that.
    4) Regarding inventory changing: GUIs that shift the colour of the player's internal inventory are allowed as long as its usage is consistent. Examples being: GT's Steam Machines, Magic Bee's Magic Apiary, Railcraft's Coke Oven, etc.
+8) The design focus of Magic
+   1) As mentioned above, magic within GregTech: New Horizons is meant to have a strong, distinct look, feel, and execution to the typical tech mod in the pack. Thusly, it is of upmost importance that both the artistic and mechanical designs of each mod be treated with the upmost respect and taken into consideration in the creation of new magic content.
+   2) Thaumcraft
+      1) Thaumcraft is a lore mod, while yes, it is a magic mod, above all else it is trying to tell a distinct story, with both limitations and specific paths. As such, when designing and balancing for Thaumcraft, one must take the lore into consideration, one example being: "Essentia types cannot mix otherwise an explosion would occur." Meaning in no circumstance are essentias allowed to touch to maintain canon. (i.e. a single jar can't store multiple essentia but a reservoir can.) However, a designer could take advantage of this and create an essentia explosive, for example writing lore of a mechanism that works similar to a bombardier beetle.
+   3) Blood Magic
+      1) ***??? (Please Piky or someone fill this in for me, I don't have a proper grasp of Blood Magic's design focus.)***
+   4) Botania
+      1) Botania is a tech mod masquerading as a magic mod, within this, there are many explicit design choices made by Vazkii, such as a policy on "no mana -> energy unit/redstone flux conversion." (despite this being violated by him later on due to pressure.)
+      2) However, the most vital design of Botania is an active avoidance of hard numbers, while the player may have a soft idea of how much mana they currently have, they should never have an exact answer. For example, if Botanic Energistics is ever finished, the terminal should never tell the player the exact int of mana currently contained, specific shades of blue and vague estimates such as "x mana pools of mana" are strongly preferred. 
+   5) Witchery
+      1) Don't, if you want to add Witchery content, please add it to Forbidden Magic instead. Witchery  exists as a singular ARR island compared to the archipelagos that make up the other magic mods, no vast fields of addons like Thaumcraft, no open sourced code like Botania and Blood Magic, if you'd like to see new Witchery content, please help us recreate the vital portions in new, untethered, code.
 
 ## Balancing PRs
 They must follow the vision we have, and follow 4. of the Content Section. A PR affecting balancing should always be labeled as such, and not be mixed in with other unrelated changes in the same PR. For IV and below, follow 2. of the Content creation section. For LuV and above, it must at least have 2 approvals, and one of them must be a member of the github's admin team (list of them [here](https://github.com/orgs/GTNewHorizons/teams/admin)).
