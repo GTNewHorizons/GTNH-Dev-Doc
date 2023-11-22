@@ -35,6 +35,11 @@ To improve review quality, in PR about new feature/feature change/balance change
       1) 
    5) Witchery
        1) Don't, if you want to add Witchery content, please add it to Forbidden Magic instead. Witchery  exists as a singular ARR island compared to the archipelagos that make up the other magic mods, no vast fields of addons like Thaumcraft, no open sourced code like Botania and Blood Magic, if you'd like to see new Witchery content, please help us recreate the vital portions in new, untethered, code.
+9) Expedition on deprecation
+   1) There are some allowances on the expedition of deprecation of certain pack content, i.e. not having to wait a full development cycle (typically half a year) under these specific circumstances.
+      1) At least 1/4th of the GregTech New Horizons development team agree to the deprecation. 
+      2) The content, in its current form (ignoring any past functionality) is currently unfunctional in any meaningful way.
+      3) Alternatively, if there already exists a replacement multi, that has already existed (with conversion recipes if need be) for at least a single stable release, instant termination is likewise applicable. 
 
 ## Balancing PRs
 They must follow the vision we have, and follow 4. of the Content Section. A PR affecting balancing should always be labeled as such, and not be mixed in with other unrelated changes in the same PR. For IV and below, follow 2. of the Content creation section. For LuV and above, it must at least have 2 approvals, and one of them must be a member of the github's admin team (list of them [here](https://github.com/orgs/GTNewHorizons/teams/admin)).
