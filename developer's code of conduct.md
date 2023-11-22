@@ -24,20 +24,20 @@ To improve review quality, in PR about new feature/feature change/balance change
    1) As mentioned above, magic within GregTech: New Horizons is meant to have a strong, distinct look, feel, and execution to the typical tech mod in the pack. Thusly, it is of upmost importance that both the artistic and mechanical designs of each mod be treated with the upmost respect and taken into consideration in the creation of new magic content.
    2) Thaumcraft
       1) Thaumcraft is a lore mod, while yes, it is a magic mod, above all else it is trying to tell a distinct story, with both limitations and specific paths. As such, when designing and balancing for Thaumcraft, one must take the lore into consideration, one example being: "Essentia types cannot mix otherwise an explosion would occur." Meaning in no circumstance are essentias allowed to touch to maintain canon. (i.e. a single jar can't store multiple essentia but a reservoir can.) However, a designer could take advantage of this and create an essentia explosive, for example writing lore of a mechanism that works similar to a bombardier beetle.
-      2) Thaumcraft lives and dies on the quality of the lore, while there are some allowances for data here and there, hard numbers are meant for the questbook, not the thaumonomicon. 
+      2) Thaumcraft lives and dies on the quality of the lore, while there are some allowances for data here and there, hard numbers are meant for the questbook, not the thaumonomicon.
       3) Create lore entries with the upmost seriousness, joke entries ***are*** allowed, however, this is meant for singular isolated items and chains, please do not create an entire research tab for trivial things or jokes.
       4) Intentionally misleading data is explicitly forbidden, for example, please do not add in a mention of "[one low low price of [2000 warp]](https://github.com/GTNewHorizons/thaumicinsurgence/commit/8e941936a5fe3fa0bee05a3f498f571859da3136)" within the text of a research entry that actually does contain warp, users will absolutely panic.
       5) Please refrain from adding any content directly to the vanilla Thaumcraft tabs, not only is this a direct request by Azanor in the terms of Thaumcraft addon creation, but likewise, it just causes issues with unlocking Kami. ([SuperTiC + Kami bug](https://github.com/GTNewHorizons/Super-TiC/pull/3))
       6) Please don't swear within research or tooltips, there are some allowances, such as certain usages of "damn/damned" but in general it comes off [crass and childish](https://github.com/GTNewHorizons/thaumicinsurgence/commit/8e941936a5fe3fa0bee05a3f498f571859da3136).
    3) Blood Magic
-      1) 
+      1)
    4) Botania
-      1) 
+      1)
    5) Witchery
        1) Don't, if you want to add Witchery content, please add it to Forbidden Magic instead. Witchery  exists as a singular ARR island compared to the archipelagos that make up the other magic mods, no vast fields of addons like Thaumcraft, no open sourced code like Botania and Blood Magic, if you'd like to see new Witchery content, please help us recreate the vital portions in new, untethered, code.
-9) Expedition on deprecation
-   1) There are some allowances on the expedition of deprecation of certain pack content, i.e. not having to wait a full development cycle (typically half a year) under these specific circumstances.
-      1) At least 1/4th of the GregTech New Horizons development team agree to the deprecation. 
+9) Expedition on termination
+   1) There are some allowances on the expedition of termination of certain pack content, i.e. not having to wait a full development cycle (typically half a year) under these specific circumstances.
+      1) At least 1/4th of the GregTech New Horizons development team agree to the instataneous termination.
       2) The content, in its current form (ignoring any past functionality) is currently unfunctional in any meaningful way.
       3) Alternatively, if there already exists a replacement multi, that has already existed (with conversion recipes if need be) for at least a single stable release, instant termination is likewise applicable. 
 
