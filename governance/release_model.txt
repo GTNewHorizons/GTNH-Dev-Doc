@@ -1,0 +1,120 @@
+so I have been revisiting our release model recently. I strongly feels the need for a two branched model. Here I propose this model.
+
+from 2.4.0 onwards, we will be having two primary branch: __backport__ and __master__ branch. the primary goal of this separation is to allow we backport important fixes to last stable and keep it up to date somewhat. the spirit of this is to ensure people (me particularly) to play on a reasonably stable version without having to tolerate bugs or lag. There are a lot of people wanting these fixes and optimizations but do not want to also have the other buggy stuff or critical changes in dev branch.
+
+master branch will be the primary branch we develop on. pretty much this branch will be whatever the dev work we do now.
+
+backport branch will start off in the state of last minor version bump (e.g. 2.4.0, 2.5.0, 2.6.0) release (called __initial stable release__). they will be created **shortly after each on every stable**.
+any commit since thereof matching any of these classification will be added to this branch.
+* bugfixing
+* tps/fps optimization
+* select QoL features, discussed on a case by case basis
+* minor refactor to support these changes
+
+backport branch will **not** contain
+* any recipe change, unless it leads to trivial recipe loops for tier main material (or its ingredient) duplication
+* new multi
+* any other commits that changes the gameplay by default
+* significant code refactor, and any PR that depend on this. chance for bug is extra high for PRs like this, so no.
+
+each backport branch is maintained up to the backport of next minor version bump, and then archived. this branch will be called something like  `release/2.4.x` (assume 2.4.0 is the last minor version bump) in git repo. such a branch will not exist if there has not been any patching since this modpack version (to reduce #github-issues spam and tedious work of admins)
+
+--- 
+
+example PR that can be cherrypicked
+* https://github.com/GTNewHorizons/GT5-Unofficial/pull/1409
+* https://github.com/GTNewHorizons/GT5-Unofficial/pull/1454
+
+example PR that is sort of in a grey area. whether to cherrypick should be discussed on a case by case basis.
+* https://github.com/GTNewHorizons/GT5-Unofficial/pull/1384
+
+example PR that should not be cherrypicked
+* https://github.com/GTNewHorizons/GT5-Unofficial/pull/1381
+* https://github.com/GTNewHorizons/GT5-Unofficial/pull/1446
+* https://github.com/GTNewHorizons/GT5-Unofficial/pull/1627
+
+---
+
+**Modpack Release Model**
+
+* for versions from backport branch (__stable patch release__), it will be 2.4.1, 2.4.2, etc. every release @ everyone and (probably) will be on curse.
+* for versions from dev branch (__dev release__), it will be 2.5.0-xxxxx.1, where xxxxx can be alpha, beta, or RC.
+  * alpha is first stage. 2.5.0-alpha.1, 2.5.0-alpha.2 etc. alpha version mentions nerf nerds and zeta test group only. this is the old "dev build", and should be the build we release for the 90% of the time.
+  * we bump it to 2.5.0-beta.1 when we feels next stable should be made. first beta should @ everyone to encourage people to upgrade and test. later beta will @ nerf nerds and zeta test group only. beta stage usually last 2 weeks.
+  * a week or so before final stable release we bump it to 2.5.0-rc.1 (*release candidate*). every rc should @ everyone. I don't expect a lot of rc anyway...
+  * release 2.5.0 (__initial stable release__) by relabeling the last one of 2.5.0-rc.XXX to 2.5.0.
+  * nightly builds uses the last tag version, but with .DATE appended to it, so we'd have 2.5.0-alpha.4.20230906.
+
+if we are in a rush (e.g. for xmas) rc phase can be skiped. beta phase really should not be skipped to not release a utterly broken version (e.g. with a broken NEI).
+
+---
+
+**Mod versioning**
+
+for usually dev release (or just for the sake of getting new code changes in dependent mods). 
+
+if the mod never got updated since last initial stable release, 
+* for standard semver, the mod should bump its minor field and reset patch field, as usual
+* for versions with more than 3 fields, e.g. GT5, bump the second to last field, e.g. 5.09.41.109 -> 5.09.42.0
+* for versions with less than 2 fields, e.g. Avaritia or AE2, add 10 to last field. e.g. 1.53 -> 1.63, rv3-beta-130-GTNH -> rv3-beta-140-GTNH. For constantly changed mods add more, to leave more space for patch release.
+  * if we are about to run out of version numbers (highly unlikely) for backport releases, add .1 1 versions before that happens.
+    e.g. if 3.10 is the version in last initial stable release and 3.20 is the first dev release since then, and we are about to make a tag called 3.19, release 3.19.1 instead, so we are still somewhat in compliance with semver, so daxxl doesn't just break
+
+otherwise just add 1 to the last field , e.g. 5.09.42.0 -> 5.09.42.1, rv3-beta-140-GTNH -> rv3-beta-141-GTNH.
+
+for stable patch release, mods with cherrypicked changes should add 1 to last field, e.g 5.09.41.109 -> 5.09.41.110. such a version bump should not happen until a new stable patch release or to get new code from addon.
+
+since this can get a bit convoluted, we will probably need a simple tool to help us find out which tag to use.
+
+---
+
+**New development workflow**
+
+1. developer submit PR **against master branch** (as usual). 
+2. PR review, address reviews.
+3. Merge or close.
+**(Below is the addition)**
+4. any GTNH dev or original developer put a special label on the same PR to propose a cherrypick to a specific release version.
+5. A github actions bot kick in to attempt an automatic cherrypick to that branch in a new PR (like the automatic spotless apply PR). This new PR will automatically put @GTNewHorizons/core on reviewer list and add a label of "cherrypick" (for easy filtering).
+  5.1 probably need to make the bot auto apply spotless after cherrypick too
+6. @core team review. merge or close.
+  6.1 review if merging is done correctly.
+  6.2 check if the PR is indeed suitable for backport branch. if there is a dispute, #meta-dev as usual. 
+7. every one to four week make a new stable release of modpack. 
+  7.1 This will bump the patch version of **modpack**, e.g. 2.4.0 -> 2.4.1. 
+  7.2 This will goes to curse and get a @ everyone in #annoucements. 
+  7.3 The exact period depends on Dream's availability and number of cherrypicks we did
+  7.4 If dream is too busy/tired or just not in the mood of doing these, then the patch release will not go to curse (since iirc dream is the only one capable of uploading to curse)
+
+
+---
+
+**New stable release workflow**
+
+1. use a script similiar to build-system-updater to auto create branches from tags in DAXXL
+2. proceed as usual, e.g. DAXXL update assemble then upload.
+
+---
+
+**Code Changes Needed**
+
+1. __New Github Action scripts__
+
+the mentioned github actions are all just my proposal yet. I'll happily go implement it once we have settled on all the details (any help still appreciated!), in this order (item is the index of the above listing):
+
+5&5.2  implement basic features for auto cherrypick first (seems like github did this for us, but still need adapting to match our needs)
+5.1    apply spotless in a separate PR
+
+mods with exotic versioning scheme (e.g. ae2) will most likely need a small script in .github directory on git to tell the bot how to bump versions though.
+
+2. __DAXXL__
+
+DAXXL will need to be updated to add a release branch equivalent of "update nightly" to make creating a patch stable release not a nightmare. 
+
+
+---
+
+**Maybe useful resources**
+
+1. action to create branch from tag: https://github.com/lablnet/create-branch-from-tag we will probably need to adapt this to python as we will be creating a tad too many branches at once, and calling that many actions might not be good
+2. action to do auto cherrypick https://github.com/marketplace/actions/github-cherry-pick-action will probably need to figure out a way to auto apply spotless, maybe add another step after cherry-pick-action?
