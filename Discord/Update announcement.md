@@ -6,11 +6,11 @@ You can download the archives here:
 ### Client archives
 - zip archive for Java 8: [downloads.gtnewhorizons.com](<>) or [Dropbox](<>)
 - MMC archive for Java 8: [downloads.gtnewhorizons.com](<>) or [Dropbox](<>)
-- MMC archive for Java 17-20: [downloads.gtnewhorizons.com](<>) or [Dropbox](<>)
+- MMC archive for Java 17-21: [downloads.gtnewhorizons.com](<>) or [Dropbox](<>)
 
 ### Server archives
 - Server archive for Java 8: [downloads.gtnewhorizons.com](<>) or [Dropbox](<>)
-- Server archive for Java 17-20: [downloads.gtnewhorizons.com](<>) or [Dropbox](<>)
+- Server archive for Java 17-21: [downloads.gtnewhorizons.com](<>) or [Dropbox](<>)
 
 You can find the changelog [here](<>).
 To run the archives with higher Java version on MMC, you need some Java arguments. More informations can be found [here](<https://github.com/GTNewHorizons/lwjgl3ify#client>). Prism is the only launcher supporting the client version with higher Java versions out of the box.
