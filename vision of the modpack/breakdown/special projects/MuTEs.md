@@ -97,6 +97,7 @@ MultiTileEntityContainer - This will hold the original TE for caching reasons, b
 
 Other:
 - Other things that need to be taken care of syncing. One will want to send the decoded packet to the MuTE for it to process that itself instead of processing it somewhere else.
+- Keep in check to add Sub-Controller parts for multiblocks spanning multiple chunks.
 - Don't put too many methods/variables exposed. Only expose what is needed. Overexposing will make future maintainability harder if something needs to be improved or added/removed.
 - Don't create too big of an interface interconnection, only connect interfaces with one another if it absolutely needed. InventoryLogicHost doesn't need to care that something is actually a MuTE.
 - Don't give the class and instead use an interface if possible.
