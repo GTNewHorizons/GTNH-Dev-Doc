@@ -5,14 +5,14 @@
 1. [Inspiration](#inspiration)
 2. [Reason](#reason)
 3. [Goal](#goal)
-    3.1 [Sub goals](#subgoals)
+    1. [Sub goals](#subgoals)
 4. [Plan of action](#planofaction)
-    4.1 [Assessment of current situation](#assessmentofcurrentsituation)
-    4.2 [Step 1](#step1)
-    4.3 [Step 2](#step2)
-    4.3 [Step 3](#step3)
-    4.3 [Step 4](#step4)
-    4.3 [Step 5](#step5)
+   1. [Assessment of current situation](#assessmentofcurrentsituation)
+   2. [Step 1](#step1)
+   3. [Step 2](#step2)
+   4. [Step 3](#step3)
+   5. [Step 4](#step4)
+   6. [Step 5](#step5)
 
 ## Inspiration
 The mods which have inspired MuTEs are many which have been created in newer versions, but not quite what we want.
