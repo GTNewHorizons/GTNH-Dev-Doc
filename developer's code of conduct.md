@@ -35,7 +35,7 @@ To improve review quality, in PR about new feature/feature change/balance change
    5) Witchery
        1) Don't, if you want to add Witchery content, please add it to Forbidden Magic instead. Witchery exists as a singular ARR island compared to the archipelagos that make up the other magic mods, no vast fields of addons like Thaumcraft, no open sourced code like Botania and Blood Magic, if you'd like to see new Witchery content, please help us recreate the vital portions in new, untethered, code.
 9) Use of profanity
-   1) The use of swearwords is not acceptable in the pack in any form, regardles of whether they are partially/fully censored or not. If something is supposed to be funny/witty there are other ways to do so.
+   1) The use of swearwords is not acceptable in the pack in any form, regardless of whether they are partially/fully censored or not. If something is supposed to be funny/witty there are other ways to do so.
    2) Insulting the player or a group of players is not acceptable either. You _may_ tease the player if you can be 100% sure that it will perceived as a joke.
    3) i. and ii. apply to both the pack's content and its code.
    4) If you edit existing content or code and find something that violates this rule, please remove or replace it to improve the quality of the pack and its codebase.
