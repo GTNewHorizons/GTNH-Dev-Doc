@@ -28,13 +28,18 @@ To improve review quality, in PR about new feature/feature change/balance change
       3) Create lore entries with the upmost seriousness, joke entries ***are*** allowed, however, this is meant for singular isolated items and chains, please do not create an entire research tab for trivial things or jokes.
       4) Intentionally misleading data is explicitly forbidden, for example, please do not add in a mention of "[one low low price of [2000 warp]](https://github.com/GTNewHorizons/thaumicinsurgence/commit/8e941936a5fe3fa0bee05a3f498f571859da3136)" within the text of a research entry that actually does contain warp, users will absolutely panic.
       5) Please refrain from adding any content directly to the vanilla Thaumcraft tabs, not only is this a direct request by Azanor in the terms of Thaumcraft addon creation, but likewise, it just causes issues with unlocking Kami. ([SuperTiC + Kami bug](https://github.com/GTNewHorizons/Super-TiC/pull/3))
-      6) Please don't swear within research or tooltips, there are some allowances, such as certain usages of "damn/damned" but in general it comes off [crass and childish](https://github.com/GTNewHorizons/thaumicinsurgence/commit/8e941936a5fe3fa0bee05a3f498f571859da3136).
    3) Blood Magic
       1) 
    4) Botania
       1) 
    5) Witchery
-       1) Don't, if you want to add Witchery content, please add it to Forbidden Magic instead. Witchery  exists as a singular ARR island compared to the archipelagos that make up the other magic mods, no vast fields of addons like Thaumcraft, no open sourced code like Botania and Blood Magic, if you'd like to see new Witchery content, please help us recreate the vital portions in new, untethered, code.
+       1) Don't, if you want to add Witchery content, please add it to Forbidden Magic instead. Witchery exists as a singular ARR island compared to the archipelagos that make up the other magic mods, no vast fields of addons like Thaumcraft, no open sourced code like Botania and Blood Magic, if you'd like to see new Witchery content, please help us recreate the vital portions in new, untethered, code.
+9) Use of profanity
+   1) The use of swearwords is not acceptable in the pack in any form, regardles of whether they are partially/fully censored or not. If something is supposed to be funny/witty there are other ways to do so.
+   2) Insulting the player or a group of players is not acceptable either. You _may_ tease the player if you can be 100% sure that it will perceived as a joke.
+   3) i. and ii. apply to both the pack's content and its code.
+   4) If you edit existing content or code and find something that violates this rule, please remove or replace it to improve the quality of the pack and its codebase.
+   5) If you are unsure about a phrase, consider asking other for feedback. They likely approach the phrase with a different perspective and might come up with something you haven't thought about.
 
 ## Balancing PRs
 They must follow the vision we have, and follow 4. of the Content Section. A PR affecting balancing should always be labeled as such, and not be mixed in with other unrelated changes in the same PR. For IV and below, follow 2. of the Content creation section. For LuV and above, it must at least have 2 approvals, and one of them must be a member of the github's admin team (list of them [here](https://github.com/orgs/GTNewHorizons/teams/admin)).
