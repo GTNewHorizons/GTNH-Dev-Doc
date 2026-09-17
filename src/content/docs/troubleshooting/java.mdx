@@ -1,0 +1,25 @@
+---
+title: Java problems
+description: Diagnose JDK, toolchain, and class-file version failures.
+sidebar:
+  order: 1
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+:::note[Signs]
+Gradle refuses to start, reports an unsupported class-file version, cannot find a toolchain, or IntelliJ and the terminal behave differently.
+:::
+
+<Steps>
+
+1. Read `.java-version`, `gradle.properties`, build scripts, and CI workflow in
+   the current checkout.
+2. Run `java -version` in the same terminal that starts Gradle.
+3. Check the Gradle JVM selected in IntelliJ separately; it can differ from your
+   shell.
+4. Point both environments at the repository-required JDK, then reload Gradle.
+
+</Steps>
+
+Use the target repository's checked-in JDK configuration.

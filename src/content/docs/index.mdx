@@ -1,0 +1,82 @@
+---
+title: GTNH Developer Documentation
+description: Shared practices, workflows, and technical knowledge for GTNH development
+template: splash
+hero:
+  title: GTNH Developer Documentation
+  tagline: Shared practices, workflows, and technical knowledge for GTNH development
+  image:
+    file: ../../assets/gtnh-logo.png
+    alt: GT New Horizons logo
+  actions:
+    - text: Start developing
+      link: /GTNH-Dev-Doc/start-here/prerequisites/
+      icon: right-arrow
+    - text: Browse practices
+      link: /GTNH-Dev-Doc/development-practices/
+      icon: open-book
+      variant: secondary
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+:::caution[Early documentation]
+This documentation is still under active development and may contain incomplete or inaccurate information. Verify important details against the relevant repository and its current instructions.
+:::
+
+This documentation is for developers, maintainers, reviewers, and contributors changing GTNH repositories. Player documentation belongs on the [official GTNH wiki](https://wiki.gtnewhorizons.com/).
+
+Technical pages link to current repository files or upstream documentation for details that may change.
+
+## Explore the documentation
+
+<CardGrid>
+  <LinkCard
+    title="Start Here"
+    href="./start-here/prerequisites/"
+    description="Choose a repository, prepare its toolchain, and make a first pull request."
+  />
+  <LinkCard
+    title="Contributing"
+    href="./contributing/before-you-code/"
+    description="Check GTNH expectations before investing time in a change."
+  />
+  <LinkCard
+    title="Development Practices"
+    href="./development-practices/"
+    description="Apply shared GTNH conventions and compatibility practices."
+  />
+  <LinkCard
+    title="Minecraft & Forge Internals"
+    href="./minecraft-forge-internals/client-server-boundaries/"
+    description="Understand the Minecraft 1.7.10 and Forge behavior that matters to GTNH development."
+  />
+  <LinkCard
+    title="How-to Guides"
+    href="./how-to/find-change-location/"
+    description="Complete a specific development or diagnostic task."
+  />
+  <LinkCard
+    title="Concepts"
+    href="./concepts/repository-map/"
+    description="Understand repository ownership, build tooling, and the release pipeline."
+  />
+  <LinkCard
+    title="Maintainer Procedures"
+    href="./maintainers/run-daily-build/"
+    description="Perform authorized tagging and modpack build operations."
+  />
+  <LinkCard
+    title="Troubleshooting"
+    href="./troubleshooting/java/"
+    description="Diagnose Java, Gradle, client, IntelliJ, CI, and transformer symptoms."
+  />
+  <LinkCard
+    title="Reference"
+    href="./reference/glossary/"
+    description="Look up GTNH development terms and authoritative resources."
+  />
+</CardGrid>
+
+Use the [GTNewHorizons GitHub organization](https://github.com/GTNewHorizons)
+for code, issues, and repository-specific instructions.

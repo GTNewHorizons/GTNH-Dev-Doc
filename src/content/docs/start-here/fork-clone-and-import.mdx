@@ -1,0 +1,85 @@
+---
+title: Fork, clone, and import
+description: Create your working copy and let IntelliJ import the Gradle model.
+sidebar:
+  order: 3
+---
+
+import { FileTree, Steps } from '@astrojs/starlight/components';
+
+<Steps>
+
+1. **Fork the repository.**
+
+   Use GitHub's **Fork** button. GitHub's
+   [forking guide](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
+   describes the UI and upstream setup.
+
+   When GitHub offers **Copy the master branch only**, leave it unchecked. The
+   GTNH build derives mod versions from Git tags; a fork without tags may fall
+   back to a commit hash and fail another mod's minimum-version check.
+
+2. **Clone your fork.**
+
+   Copy the HTTPS URL from your fork's **Code** menu, then run:
+
+   ```console
+   git clone https://github.com/YOUR-USER/REPOSITORY.git
+   cd REPOSITORY
+   ```
+
+   For large repositories such as GT5-Unofficial, use
+   `git clone --filter=blob:none URL` to fetch old contents on demand.
+
+   **Expected result:** tracked files are present and `git status` is clean.
+
+3. **Confirm the remotes.**
+
+   ```console
+   git remote -v
+   ```
+
+   `origin` should point to your fork. Add the original GTNewHorizons repository
+   as `upstream` when its contribution instructions require it.
+
+4. **Import the Gradle project in IntelliJ IDEA.**
+
+   Open the cloned directory. Choose the checked-in wrapper and the repository's
+   JDK. Do not replace or regenerate the wrapper to fix import. See
+   JetBrains' current [Gradle project guide](https://www.jetbrains.com/help/idea/gradle.html)
+   for the UI.
+
+5. **Wait for synchronization to finish.**
+
+   **Expected result:** the Gradle tool window lists tasks with no project-model
+   error. Source indexing may continue afterward.
+
+</Steps>
+
+## Recognize the important files
+
+A GTNH mod repository may contain:
+
+<FileTree>
+
+- `.github/`
+  - `workflows/` CI defines the authoritative remote checks
+- `gradle/`
+  - `wrapper/` checked-in Gradle version
+- `src/` production and test sources
+- `.java-version` repository JDK hint
+- `build.gradle.kts` or `build.gradle`
+- `gradle.properties`
+- `gradlew` Linux/macOS wrapper
+- `gradlew.bat` Windows wrapper
+- `README.md`
+- `settings.gradle.kts` or `settings.gradle`
+
+</FileTree>
+
+The current [ExampleMod file list](https://github.com/GTNewHorizons/ExampleMod1.7.10)
+shows this layout; individual repositories vary.
+
+If synchronization fails, use the
+[Gradle troubleshooting guide](/GTNH-Dev-Doc/troubleshooting/gradle/).
+Otherwise, continue to [build and run the project](/GTNH-Dev-Doc/start-here/build-and-run/).

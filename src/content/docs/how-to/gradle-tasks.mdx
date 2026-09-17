@@ -1,0 +1,78 @@
+---
+title: Work with Gradle tasks
+description: Discover and inspect the tasks exposed by the current repository.
+sidebar:
+  order: 2
+---
+
+import { TabItem, Tabs } from '@astrojs/starlight/components';
+
+## List what this checkout provides
+
+:::note[Repository-specific]
+Task sets vary by repository. Use the checked-in wrapper and inspect the current
+project.
+:::
+
+<Tabs syncKey="operating-system">
+  <TabItem label="Linux or macOS">
+
+```console
+./gradlew tasks --all
+```
+
+  </TabItem>
+  <TabItem label="Windows">
+
+```console
+gradlew.bat tasks --all
+```
+
+  </TabItem>
+</Tabs>
+
+**Expected result:** a grouped task list. The wrapper downloads the configured
+Gradle distribution on first use. The
+current [ExampleMod wrapper configuration](https://github.com/GTNewHorizons/ExampleMod1.7.10/blob/master/gradle/wrapper/gradle-wrapper.properties)
+shows why you should not substitute a globally installed Gradle.
+
+## Inspect one task
+
+After copying a task name from the list, ask Gradle for its details:
+
+```console
+./gradlew help --task TASK-NAME
+```
+
+On Windows, replace `./gradlew` with `gradlew.bat`.
+
+**Expected result:** Gradle prints the task path, type, options, and available
+description. If absent, check the spelling and repository root.
+
+## Choose the right task
+
+- Prefer the task named in the repository README or current CI workflow.
+- Use `build` only when it is present and relevant to the project.
+- Use `runClient` or `runServer` only when the task list contains it.
+- A multi-project build may require a qualified task such as `:module:task`;
+  copy that path from the task output.
+- GTNHGradle projects may expose `propertiesHelp`; the current
+  [GTNHGradle README](https://github.com/GTNewHorizons/GTNHGradle#disabling-modules)
+  documents it as the property reference.
+
+## Use local overrides
+
+Prefer a `propertiesHelp` property to editing build logic. Some GTNHGradle
+projects also support ignored `addon.local.gradle` and
+`addon.late.local.gradle` files for machine-specific configuration; confirm the
+mechanism in that repository or the
+[ExampleMod advanced guidance](https://github.com/GTNewHorizons/ExampleMod1.7.10#advanced).
+Keep personal run arguments and paths out of committed build files.
+
+For more diagnostic output, rerun the known task with `--stacktrace`. Add
+`--info` only when the normal output does not identify the failing step; it can
+be noisy. Gradle documents both in its
+[logging reference](https://docs.gradle.org/current/userguide/logging.html).
+
+If Gradle cannot reach the task list, continue with
+[Gradle troubleshooting](/GTNH-Dev-Doc/troubleshooting/gradle/).
