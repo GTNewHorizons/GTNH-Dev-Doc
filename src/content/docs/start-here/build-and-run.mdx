@@ -1,0 +1,48 @@
+---
+title: Build and run
+description: Discover repository tasks, build the project, and run a development client.
+sidebar:
+  order: 4
+---
+
+## Discover tasks before running them
+
+```console
+./gradlew tasks --all
+```
+
+On Windows, use `gradlew.bat tasks --all`. Follow the repository README and CI
+workflow because task names vary. See
+[Work with Gradle tasks](/GTNH-Dev-Doc/how-to/gradle-tasks/) before
+using an unfamiliar task.
+
+## Build and run
+
+Run `build` through the wrapper when the task exists and the README or CI uses
+it. [GT5-Unofficial](https://github.com/GTNewHorizons/GT5-Unofficial#contribution),
+for example, recommends building before IDE import.
+
+`runClient` is the usual client entry point in GTNHGradle mod repositories. Its
+registration is visible in
+[GTNHGradle IDE integration source](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/IdeIntegrationModule.java).
+It may be absent from pack, tooling, or older repositories.
+
+If IntelliJ provides a **Hotswap** client configuration, use it in debug mode
+for quick iteration. After recompiling, choose **Run → Debugging Actions →
+Reload Changed Classes** to apply supported changes without restarting the game.
+Select the run configuration matching the JDK you need to test.
+
+**Expected result:** a build ends with `BUILD SUCCESSFUL`; a run starts a
+development client. For failures, see
+[Locate logs](/GTNH-Dev-Doc/how-to/locate-logs/).
+
+## Test integration-sensitive changes in the full pack
+
+After isolated testing, build the mod and select the unclassified jar from
+`build/libs`; `-dirty` may appear for uncommitted changes. Import the latest
+[GTNH development build](https://wiki.gtnewhorizons.com/wiki/Dev_Builds) into a
+separate instance, replace the packaged mod, and repeat the test. This catches
+interactions absent from an isolated development run.
+
+When the project builds and the relevant behavior works, continue to
+[your first pull request](/GTNH-Dev-Doc/start-here/first-pull-request/).

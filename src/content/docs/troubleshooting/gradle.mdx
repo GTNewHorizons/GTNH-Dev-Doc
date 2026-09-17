@@ -1,0 +1,27 @@
+---
+title: Gradle problems
+description: Diagnose Gradle import, wrapper, and dependency-resolution failures.
+sidebar:
+  order: 2
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+:::note[Signs]
+IntelliJ cannot load the Gradle model, artifacts time out, or tasks cannot be listed.
+:::
+
+<Steps>
+
+1. Confirm you opened the repository root and selected the checked-in wrapper.
+2. Run the wrapper's `tasks --all` in a terminal to separate IDE and build
+   failures.
+3. Read the first failed repository URL or dependency coordinate. Check network,
+   proxy, certificate, and credential errors without deleting all caches first.
+4. Compare repository and dependency declarations with the current checkout.
+5. Retry transient service failures. Delete caches only for an identified
+   corrupt artifact.
+
+</Steps>
+
+Capture evidence with [Locate logs](/GTNH-Dev-Doc/how-to/locate-logs/).

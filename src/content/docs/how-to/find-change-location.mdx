@@ -1,0 +1,52 @@
+---
+title: Find where a change belongs
+description: Trace a requested change to the repository and source that own it.
+sidebar:
+  order: 1
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## Start from evidence
+
+Collect a visible name, log message, configuration key, class name, or
+stack-trace frame. Search that exact text in GitHub and the checkout first.
+
+Pack issues may belong to an individual mod; dependency and build failures may
+belong to [GTNHGradle](https://github.com/GTNewHorizons/GTNHGradle),
+[RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle), or a
+shared workflow.
+
+## Narrow the location
+
+<Steps>
+
+1. Search the exact user-visible string or error text.
+2. Find the code that constructs or consumes it.
+3. Follow imports and calls outward until you reach the behavior to change.
+4. Check `dependencies.gradle`, `repositories.gradle`, and settings files when
+   the implementation comes from another repository.
+5. Use blame and recent pull requests to understand why the code is present;
+   do not treat age alone as evidence that it is wrong.
+6. Confirm that the repository is active and read its README, issue templates,
+   and contribution files.
+
+</Steps>
+
+:::tip[Keep the first pull request narrow]
+If the fix needs coordinated changes in two repositories, describe that
+dependency explicitly. Do not bundle drive-by cleanup from either repository.
+:::
+
+## Know when you are done searching
+
+You should be able to name:
+
+- the repository that owns the behavior;
+- the source or configuration file involved;
+- the task that verifies the change; and
+- an issue, code path, or maintainer confirmation supporting that choice.
+
+Otherwise, bring the partial findings to the
+[official GTNH Discord](https://discord.gg/EXshrPV) or the relevant issue. For build
+behavior, [inspect Gradle tasks](/GTNH-Dev-Doc/how-to/gradle-tasks/) before assuming the task name.

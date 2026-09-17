@@ -1,0 +1,34 @@
+---
+title: Run an experimental modpack build
+description: Start and verify the DreamAssemblerXXL experimental build workflow.
+sidebar:
+  order: 2
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+:::caution[Maintainer operation]
+The experimental workflow publishes build artifacts and commits its generated
+manifest, asset data, and changelog to DreamAssemblerXXL's `master` branch. Run
+it only when authorized and when a new experimental build is intended.
+:::
+
+<Steps>
+
+1. Open the
+   [DreamAssemblerXXL Actions page](https://github.com/GTNewHorizons/DreamAssemblerXXL/actions).
+2. Select **Experimental modpack build**.
+3. Select **Run workflow**, choose `master`, and confirm the run.
+4. Open the queued run and monitor its build, pack-test, and upload jobs.
+
+</Steps>
+
+The workflow selects the latest mod versions, assembles Java 8 and modern-Java
+client/server packages, runs modpack tests, uploads artifacts, and commits the
+generated metadata to `master`.
+
+Verify the uploaded packages and generated commit. On failure, preserve the
+first failed job's log and check for partial publication or commits before
+rerunning. The
+[workflow file](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/master/.github/workflows/experimental-modpack-build.yml)
+is authoritative.

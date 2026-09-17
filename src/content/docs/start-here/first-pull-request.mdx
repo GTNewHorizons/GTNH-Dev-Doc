@@ -1,0 +1,41 @@
+---
+title: Make your first pull request
+description: Commit, push, and submit one focused GTNH change.
+sidebar:
+  order: 5
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+<Steps>
+
+1. Read the repository's contribution instructions and the developer documentation's
+   [pull request expectations](/GTNH-Dev-Doc/contributing/pull-request-expectations/).
+2. Create a short, descriptive branch:
+
+   ```console
+   git switch -c describe-the-change
+   ```
+
+3. Make one coherent change. Keep generated run directories, IDE state, build
+   output, and secrets out of the commit.
+4. Review `git diff` and run the relevant checks from the README and CI workflow.
+5. Commit and push only the paths you reviewed:
+
+   ```console
+   git add PATHS-YOU-REVIEWED
+   git commit -m "Describe the change"
+   git push -u origin describe-the-change
+   ```
+
+6. Open a pull request against the branch requested by that repository. Explain
+   the problem, the change, and how you tested it; link the relevant issue. Use
+   a draft pull request when the change is incomplete or needs early feedback.
+7. Follow the review. Reply when feedback is unclear, push revisions to the same
+   branch, rerun the relevant checks, and re-request review when ready.
+
+</Steps>
+
+GitHub's [pull request guide](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
+covers the fork-to-PR interface. If local and Actions results differ, use the
+[CI troubleshooting guide](/GTNH-Dev-Doc/troubleshooting/ci/).

@@ -1,0 +1,50 @@
+---
+title: Repair Maven repository metadata
+description: Rebuild a damaged maven-metadata.xml for a scoped GTNH Nexus path.
+sidebar:
+  order: 4
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+:::caution[Privileged recovery operation]
+This procedure changes metadata in the GTNH Nexus repository. Continue only
+with Nexus administration access, a confirmed damaged `maven-metadata.xml`, and
+the exact affected repository path.
+:::
+
+Nexus's **Repair - Rebuild Maven repository metadata (maven-metadata.xml)** task
+rebuilds a selected hosted-repository scope and its checksums.
+
+## Use an existing repair task
+
+Three manual tasks already cover the known GTNH convention artifacts:
+
+- `gtnhgradle`
+- `gtnhconvention`
+- `gtnhsettingsconvention`
+
+Use an existing task only when its repository and filters exactly cover the
+damaged path. Do not widen its scope.
+
+## Create a missing scoped task
+
+<Steps>
+
+1. In Nexus, open **Settings → Tasks** and select **Create task**.
+2. Choose **Repair - Rebuild Maven repository metadata
+   (maven-metadata.xml)**.
+3. Give the task a specific name, select the affected hosted Maven repository,
+   and fill in the group/artifact scope for only the damaged portion.
+4. Set the schedule to **Manual** and save the task.
+5. Recheck the scope, run it once, and monitor its task log.
+6. Fetch the affected `maven-metadata.xml` and verify its versions and checksum
+   before declaring the incident resolved.
+
+</Steps>
+
+Keep repair tasks manual. Recurring corruption requires investigation of the
+publishing or storage cause.
+See Sonatype's
+[task reference](https://help.sonatype.com/en/tasks.html#types-of-tasks)
+for the current task behavior and log locations.

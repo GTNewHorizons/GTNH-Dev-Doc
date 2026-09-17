@@ -1,0 +1,34 @@
+---
+title: Official resources
+description: Authoritative starting points for GTNH development facts and support.
+sidebar:
+  order: 2
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## GTNH entry points
+
+<CardGrid>
+  <LinkCard title="GTNewHorizons GitHub organization" href="https://github.com/GTNewHorizons" description="Source, issues, pull requests, and maintained links." />
+  <LinkCard title="Official GTNH wiki" href="https://wiki.gtnewhorizons.com/" description="General and player-facing documentation. The developer documentation does not replace it." />
+  <LinkCard title="Official development wiki page" href="https://wiki.gtnewhorizons.com/wiki/Development" description="Official development entry point; verify instructions against the target repository." />
+  <LinkCard title="Official GTNH Discord" href="https://discord.gg/EXshrPV" description="Community and developer discussion; include repository links, logs, and attempted steps." />
+  <LinkCard title="Central modpack issue tracker" href="https://github.com/GTNewHorizons/GT-New-Horizons-Modpack/issues" description="Pack-level reports and coordination." />
+  <LinkCard title="Developer's Code of Conduct" href="https://github.com/GTNewHorizons/.github/blob/master/CODE_OF_CONDUCT.md" description="Read the current file before submitting changes." />
+  <LinkCard title="Contribution guidelines" href="https://github.com/GTNewHorizons/.github/blob/master/CONTRIBUTING.md" description="Read the current file before submitting changes." />
+</CardGrid>
+
+For project ownership, build tooling, and mod support, use the
+[repository map](/GTNH-Dev-Doc/concepts/repository-map/).
+
+## External tool documentation
+
+<CardGrid>
+  <LinkCard title="GitHub: contributing with forks" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks" />
+  <LinkCard title="Gradle user manual" href="https://docs.gradle.org/current/userguide/userguide.html" />
+  <LinkCard title="IntelliJ IDEA Gradle guide" href="https://www.jetbrains.com/help/idea/gradle.html" />
+</CardGrid>
+
+When sources disagree, prefer the current target repository and commit. Ask its
+maintainers before treating a local convention as a general rule.

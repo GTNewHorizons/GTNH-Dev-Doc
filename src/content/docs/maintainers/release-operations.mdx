@@ -1,0 +1,84 @@
+---
+title: Release operations
+description: Decide between automatic and manual mod releases, tag safely, and verify publication.
+sidebar:
+  order: 3
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+:::caution[Maintainer operation]
+Pushing a tag can publish releases and Maven artifacts consumed by other mods
+and DreamAssembler. Continue only when you are authorized for the target
+repository and release.
+:::
+
+## Decide whether the tag is automatic
+
+Some repositories receive end-of-day MergeMasterXXL tags; others are tagged
+manually. A moved branch alone is not a reason to tag.
+
+The public
+[MergeMasterXXL tagging implementation](https://github.com/GTNewHorizons/MergeMasterXXL/blob/master/src/tag_dev.ts)
+derives its normal repository set from the current DreamAssemblerXXL
+experimental manifest. It skips a branch already pointing at an exact tag,
+orders inter-repository dependencies, and creates `-pre` tags for its development
+branches. Its
+[tag helper](https://github.com/GTNewHorizons/MergeMasterXXL/blob/master/src/requests/tags.ts)
+increments the last numeric part of the recent tag format.
+
+The public repository does not declare the production schedule or all current
+exceptions. Before tagging manually:
+
+<Steps>
+
+1. Check the target repository's recent tags, releases, and Actions runs.
+2. Check whether the target commit is already tagged.
+3. Confirm with the current release coordinator whether automation is expected
+   to handle this repository.
+
+</Steps>
+
+`.github/workflows/release-tags.yml` defines behavior after a tag is pushed, not
+who should create it.
+
+## Choose and verify the tag
+
+Use the repository's existing tag pattern. Do not infer a universal GTNH version
+scheme or reuse the next version from another mod.
+
+```console
+git fetch origin --tags
+git show --no-patch --oneline TARGET-COMMIT
+git tag --points-at TARGET-COMMIT
+```
+
+**Expected result:** tags are refreshed, the target commit is identified, and
+existing tags on that commit are listed.
+
+Use `-pre` only where the repository process requires it. The shared workflow
+withholds these builds from Modrinth and CurseForge but does not mark their
+GitHub release as a prerelease because that breaks DreamAssemblerXXL. The GitHub
+release remains public.
+
+## Push a manual tag
+
+After another maintainer check or the repository's required approval:
+
+```console
+git tag TAG TARGET-COMMIT
+git push --dry-run origin refs/tags/TAG
+git push origin refs/tags/TAG
+```
+
+**Expected result:** the dry run reports the tag without changing the remote;
+the final command pushes it. Never force-move a published tag.
+
+## Verify publication
+
+For the standard tag workflow, follow **Release tagged build** in Actions. Check
+the GitHub release and every configured publishing destination; a tag does not
+prove that publication succeeded.
+
+Finally, confirm the intended version appears in the relevant DreamAssemblerXXL
+manifest before expecting it in an assembled modpack build.
