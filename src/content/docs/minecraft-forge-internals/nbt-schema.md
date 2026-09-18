@@ -12,11 +12,6 @@ Released NBT keys form a persistent schema that newer code must still read.
 For a new key, distinguish an absent key from a stored zero. Check for the key
 and assign the old behavior explicitly when it is absent.
 
-This mattered when a new inherited `mode` field made existing wireless covers
-load as `AND` instead of their former single-source behavior. The review called
-for a missing-key migration
-([PR #6294](https://github.com/GTNewHorizons/GT5-Unofficial/pull/6294#discussion_r3455426686)).
-
 Add a data-version key for multi-step migrations. Use a local missing-key check
 when it completely describes the old format.
 
@@ -26,11 +21,7 @@ Call superclass read and write methods in the expected order. Review every
 subclass when a parent adds serialization. Do not reuse a parent's key.
 
 NBT can load before neighbors, external networks, or players are ready. Read
-raw values first and initialize external objects in their lifecycle callback. A
-review in
-[PR #6999](https://github.com/GTNewHorizons/GT5-Unofficial/pull/6999#discussion_r3522830937)
-describes an Applied Energistics node that retains its tag until its later
-`onReady` initialization.
+raw values first and initialize external objects in their lifecycle callback.
 
 ## Validate after reading
 

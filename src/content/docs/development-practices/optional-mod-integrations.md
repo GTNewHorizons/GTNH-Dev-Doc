@@ -25,11 +25,6 @@ For version-dependent APIs, check the version or probe for the required class or
 method at the compatibility boundary. Keep reflection there. Disable the
 integration or report a clear startup error for unsupported combinations.
 
-A GT5 review found a renderer directly referencing an Angelica class that was
-not present in older versions. It recommended moving the reference into a
-compatibility class and checking the version or class availability
-([PR #7430](https://github.com/GTNewHorizons/GT5-Unofficial/pull/7430#discussion_r3722907654)).
-
 `ClassNotFoundException` inside a method cannot protect an optional type in the
 containing class's signature; that class may fail before the method runs.
 

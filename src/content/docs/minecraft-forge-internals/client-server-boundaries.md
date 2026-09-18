@@ -78,16 +78,23 @@ and synchronize through packets or existing update mechanisms.
 Static fields do not synchronize logical sides. They fail across a network and
 can race between integrated client and server threads.
 
-## Do not use `@SideOnly` as a general guard
+## Treat `@SideOnly` as a declaration, not a guard
 
 `@SideOnly` causes FML's transformer to remove annotated members or reject an
 annotated class on the opposite physical side. It does not perform a runtime
 side check, and annotating a field does not protect code in its initializer.
 
-Its
+It is reasonable to annotate code that is inherently client-only and would fail
+on a dedicated server anyway, such as a method that calls another client-only
+method. The annotation makes that restriction explicit. It is also appropriate
+when required by the surrounding API, such as an already annotated vanilla
+override.
+
+Code loaded on both physical sides must still guard calls to annotated members
+with the appropriate side check, or route them through a sided proxy. The
+annotation does not make an unguarded call safe. Its
 [1.7.10 documentation](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/relauncher/SideOnly.java)
-says it is primarily for Forge and FML internals. Use it only when required by
-the surrounding API, such as an already annotated vanilla override.
+also notes that it is primarily intended for Forge and FML internals.
 
 ## Verify both environments
 

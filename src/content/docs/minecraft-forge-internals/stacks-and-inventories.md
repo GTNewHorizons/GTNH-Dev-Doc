@@ -25,10 +25,6 @@ exposes mutable `amount`, copy, NBT, and fluid-equality operations.
 Transfers may be simulated or partial. Update accounting from the returned
 accepted, rejected, extracted, or drained amount.
 
-A GT5 fluid-handling review changed accumulation to use the amount returned by
-`drain` after limiting the request to the available fluid
-([PR #7792](https://github.com/GTNewHorizons/GT5-Unofficial/pull/7792#discussion_r3805084895)).
-
 Simulation must not mutate state. Test full, partial, and rejected transfers,
 including a state change between simulation and execution.
 
@@ -40,13 +36,6 @@ Query the inventory instead of inferring its slots or limits from machine tier:
 - Respect both the inventory limit and the item's own maximum stack size.
 - Apply sided insertion and extraction rules for the requested face.
 - Preserve reserved, circuit, phantom, and output-slot semantics.
-
-Reviews caught buses whose actual slot count did not match the tier-derived
-count
-([PR #7546](https://github.com/GTNewHorizons/GT5-Unofficial/pull/7546#discussion_r3683257234))
-and a dispenser path that confused the inventory limit with the item's maximum
-stack size
-([PR #6908](https://github.com/GTNewHorizons/GT5-Unofficial/pull/6908#discussion_r3783366913)).
 
 ## Test every automation surface
 

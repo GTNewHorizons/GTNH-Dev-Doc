@@ -21,13 +21,6 @@ Typical shared state includes:
 - lighting, culling, alpha, depth, and light-map state; and
 - the current color.
 
-A GT5 rendering review retained a final bounds reset because a cache hit could
-otherwise leave state that polluted the next renderer
-([PR #7883](https://github.com/GTNewHorizons/GT5-Unofficial/pull/7883#discussion_r3884166050)).
-Another review asked whether a replacement drone renderer had preserved the old
-lighting, blend, cull, and light-map setup
-([PR #6954](https://github.com/GTNewHorizons/GT5-Unofficial/pull/6954#discussion_r3439209353)).
-
 ## Make caches preserve the full contract
 
 A cached path must leave the same state as an uncached path. Prefer caching
@@ -42,10 +35,6 @@ lifecycle event.
 Avoid per-frame helper allocation, static-geometry rebuilding, unchanged
 resource lookups, and duplicate opaque draws. Their cost scales with visible
 instances and render passes.
-
-An industrial-apiary review found the same power overlay supplied by two widget
-layers, causing it to be drawn twice per frame
-([PR #7218](https://github.com/GTNewHorizons/GT5-Unofficial/pull/7218#discussion_r3455127079)).
 
 Profile the actual heavy view, such as a large NEI page or many visible
 machines, and include cache construction and resource reloads.

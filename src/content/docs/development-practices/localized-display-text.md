@@ -14,10 +14,7 @@ player's configuration.
 
 :::caution[Do not parse display text]
 Never parse a localized result back into a number. Grouping and decimal
-separators differ by locale. A Large Boiler change failed for German values
-using a comma decimal separator and for English values containing a thousands
-separator
-([PR #7614](https://github.com/GTNewHorizons/GT5-Unofficial/pull/7614#discussion_r3692494002)).
+separators differ by locale.
 
 Calculate with the original number. For a machine-readable text format, use the
 locale-independent representation required by its protocol.

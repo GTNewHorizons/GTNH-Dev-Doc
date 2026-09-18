@@ -31,8 +31,7 @@ separates saving, dirty marking, and the available synchronization paths.
 
 Machine NBT makes a value shared by every user and tied to that machine. Store
 player-specific accessibility and display choices in client configuration or
-player data. A color-vision option initially used machine NBT in
-[GT5-Unofficial PR #8062](https://github.com/GTNewHorizons/GT5-Unofficial/pull/8062#discussion_r4008286904).
+player data.
 
 ## Synchronize what the client actually needs
 
@@ -48,8 +47,7 @@ mechanism:
   mechanisms.
 
 Removing an update call can leave the client stale even when the server field
-still changes. Removing `issueTileUpdate()` stopped a pipe texture from updating
-([PR #7682](https://github.com/GTNewHorizons/GT5-Unofficial/pull/7682#discussion_r3886775539)).
+still changes.
 
 ## Verify the complete lifecycle
 
