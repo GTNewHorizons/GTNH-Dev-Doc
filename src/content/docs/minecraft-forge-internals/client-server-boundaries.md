@@ -78,6 +78,17 @@ and synchronize through packets or existing update mechanisms.
 Static fields do not synchronize logical sides. They fail across a network and
 can race between integrated client and server threads.
 
+## Validate packets while decoding
+
+In SimpleImpl, the shared codec constructs a message and calls `fromBytes`
+before a side-specific handler receives it
+([1.7.10 codec source](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/network/FMLIndexedMessageToMessageCodec.java)).
+Registering a handler for one side therefore does not make decoding trusted.
+
+In `fromBytes`, check readable bytes, validate identifiers, and cap lengths
+before loops or allocations. In the handler, separately validate permissions,
+coordinates, loaded state, and current world state before acting.
+
 ## Treat `@SideOnly` as a declaration, not a guard
 
 `@SideOnly` causes FML's transformer to remove annotated members or reject an

@@ -25,7 +25,9 @@ raw values first and initialize external objects in their lifecycle callback.
 
 ## Validate after reading
 
-Treat saved input as old and potentially inconsistent:
+Treat NBT from worlds, items, commands, and packets as potentially malformed or
+from an older schema. Reject it or load a defined fallback instead of crashing
+or leaving partially initialized state:
 
 - Clamp values to the range the current implementation accepts.
 - Reconcile fields that are now mutually exclusive.
