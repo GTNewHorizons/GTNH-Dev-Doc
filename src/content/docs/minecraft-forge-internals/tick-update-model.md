@@ -18,6 +18,18 @@ Choose whether work runs once per server, world, or player tick. Registering it
 at multiple levels multiplies its executions. Keep authoritative work on the
 logical server and rendering or input on the logical client.
 
+## Distinguish notification from completion
+
+Read the contract of each Forge event. A cancelable pre-event describes an
+attempt, not a completed action, and a later-priority handler can still change
+its canceled state. The event bus reports the final state only after all
+eligible handlers have run
+([1.7.10 `EventBus` source](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/eventhandler/EventBus.java)).
+
+Do not commit an irreversible reaction to an attempted action unless that
+event's contract makes the outcome final. Use a corresponding post-event or
+inspect the resulting state when either is available.
+
 ## Prefer invalidation over constant polling
 
 Use inventory changes, block updates, configuration changes, or a dirty flag to

@@ -20,6 +20,16 @@ Forge's
 [`FluidStack` implementation](https://github.com/MinecraftForge/MinecraftForge/blob/1.7.10/src/main/java/net/minecraftforge/fluids/FluidStack.java)
 exposes mutable `amount`, copy, NBT, and fluid-equality operations.
 
+## Respect entity lifecycle
+
+Before taking a stack from an `EntityItem`, especially one retained across
+ticks, require `!entity.isDead` and a positive stack size. A dead item entity may
+still expose its old stack data after pickup or merging; that data no longer
+represents items available for transfer.
+
+Perform the transfer on the logical server and update the source and destination
+as one operation.
+
 ## Use the amount the operation performed
 
 Transfers may be simulated or partial. Update accounting from the returned
@@ -37,11 +47,12 @@ Query the inventory instead of inferring its slots or limits from machine tier:
 - Apply sided insertion and extraction rules for the requested face.
 - Preserve reserved, circuit, phantom, and output-slot semantics.
 
-## Test every automation surface
+## Test affected automation surfaces
 
 GTNH machines expose vanilla inventories, sided inventories, fluid handlers,
-covers, pipes, and storage-network integrations. Apply restrictions to every
-supported path.
+covers, pipes, and storage-network integrations. Identify which paths reach the
+changed logic and apply the same restrictions to them.
 
-Test each path with empty, partial, full, filtered, tagged, and limited stacks.
-Assert that transfers conserve the combined amount.
+Test each changed path and one representative unchanged path that shares the
+logic. Exercise the relevant full, partial, rejected, filtered, or tagged cases,
+and assert that every transfer conserves the combined amount.

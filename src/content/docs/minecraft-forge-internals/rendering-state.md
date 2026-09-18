@@ -1,6 +1,6 @@
 ---
-title: Treat rendering state as shared state
-description: Keep Minecraft 1.7.10 renderers isolated, balanced, and inexpensive per frame.
+title: Treat rendering and block bounds as shared state
+description: Keep Minecraft 1.7.10 renderers and block bounds isolated, balanced, and predictable.
 ---
 
 :::caution[Render state is shared]
@@ -20,6 +20,19 @@ Typical shared state includes:
 - blend enablement and blend functions;
 - lighting, culling, alpha, depth, and light-map state; and
 - the current color.
+
+## Treat block bounds as scratch state
+
+A registered `Block` instance is shared by every position using that block. Its
+six bounds fields are mutable fields on that shared instance, not per-position
+state. Set all six bounds on every path before calling inherited collision,
+selection, or ray-tracing behavior, and do not expect them to retain a meaning
+after the call. Prefer local `AxisAlignedBB` values where the API permits them.
+
+A zero-volume `AxisAlignedBB` is not the same as no collision: 1.7.10's
+intersection test does not reject equal minimum and maximum coordinates. Return
+`null` when a block has no collision box; otherwise use correctly ordered bounds
+with the intended positive extent.
 
 ## Make caches preserve the full contract
 
