@@ -10,16 +10,9 @@ object is still valid.
 
 ## Check before reading
 
-Some world lookups load or generate an unavailable chunk; others return an
-absence-like result. An unavailable result does not prove that the block is air.
-
-Before reading a block or tile entity, use the repository's non-loading check,
-commonly `blockExists` or `chunkExists` in 1.7.10. Do not load a chunk merely to
-check whether a remote endpoint exists.
-
-A GT5 review caught a line-of-sight check interpreting an unloaded chunk as air
-and asked for the removed `chunkExists` guard to be restored
-([PR #7022](https://github.com/GTNewHorizons/GT5-Unofficial/pull/7022#discussion_r3478348307)).
+In Minecraft 1.7.10, `World#getBlock` and `World#getTileEntity` load the target
+chunk if necessary. Before calling them, use the repository's non-loading check,
+commonly `blockExists` or `chunkExists`, when loading the chunk is not intended.
 
 Unchecked packet coordinates can generate arbitrary chunks. Validate that the
 target is loaded before accessing it
@@ -35,15 +28,12 @@ Before using a cached instance, check its validity and confirm that the expected
 block or tile still occupies the location. Clear the cache when an endpoint
 unloads or is destroyed.
 
-## Design for missed notifications
+## Account for neighbor updates loading chunks
 
-Neighbor and block updates are not queued for unloaded chunks. A connected
-structure can therefore miss a change at another endpoint.
-
-Use notifications for fast response and a bounded recheck when an endpoint
-loads or becomes active. A laser-pipe review found that avoiding chunk loads
-also allows unloaded segments to miss state changes
-([PR #7682](https://github.com/GTNewHorizons/GT5-Unofficial/pull/7682#discussion_r3886688814)).
+In Minecraft 1.7.10, a neighbor update loads the neighboring chunk when
+necessary, and the neighbor receives the update. Do not add recovery polling on
+the assumption that the notification is discarded at an unloaded chunk
+boundary; account for the chunk-loading cost instead.
 
 ## Test partial loading
 
@@ -55,4 +45,6 @@ Build the feature across a chunk border, then test these states separately:
 - unload followed by reload;
 - removal or replacement while the other endpoint is unloaded.
 
-Confirm that no case generates a chunk or reuses an invalid object.
+Confirm that non-loading paths do not generate a chunk or reuse an invalid
+object. Separately verify that a neighbor update reaches a neighbor whose chunk
+was initially unloaded.
