@@ -40,6 +40,7 @@ export default defineConfig({
     starlight({
       title: 'GTNH Developer Documentation',
       description: 'Shared practices, workflows, and technical knowledge for GTNH development',
+      lastUpdated: true,
       plugins: [starlightThemeNova()],
       editLink: {
         baseUrl: 'https://github.com/GTNewHorizons/GTNH-Dev-Doc/edit/master/',
