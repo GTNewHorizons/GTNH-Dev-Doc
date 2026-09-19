@@ -12,7 +12,7 @@ boundary separately.
 
 1. A change is merged into the owning repository.
 2. A version tag selects a commit. Some repositories are handled by coordinated
-   tagging automation; others require an authorized maintainer to tag them.
+   tagging automation. Others require an authorized maintainer to tag them.
 3. Repositories with the current
    [release-tags workflow](https://github.com/GTNewHorizons/GTNH-Actions-Workflows/blob/master/templates/release-tags.yml)
    start a release build when the tag is pushed.
@@ -52,11 +52,11 @@ The current naming history is visible in the
 
 For a change expected in a daily build, record:
 
-- the merged commit and target branch;
-- the tag that contains that commit;
-- the corresponding release workflow result;
-- the version selected by the current DreamAssemblerXXL manifest; and
-- the daily build run and release.
+- The merged commit and target branch.
+- The tag that contains that commit.
+- The corresponding release workflow result.
+- The version selected by the current DreamAssemblerXXL manifest.
+- The daily build run and release.
 
 A green mod CI run proves only that the commit passed mod CI. Check the tag,
 published release, manifest selection, and assembled build separately.

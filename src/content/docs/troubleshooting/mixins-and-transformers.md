@@ -18,6 +18,8 @@ capturing the failure:
 - `-Dmixin.debug=true` enables Mixin diagnostics.
 - `-Dmixin.debug.verbose=true` raises verbose Mixin messages to the visible log.
 - `-Dmixin.debug.export=true` exports classes after mixins are applied.
+- `-Dmixin.debug.export.filter=com.example.**` limits that export to matching class
+  names.
 - `-Dmixin.debug.countInjections=true` turns an unexpected injection count into
   an error.
 - `-Dfml.debugAccessTransformer=true` logs access-transformer application.
@@ -25,5 +27,8 @@ capturing the failure:
 - `-Dhodgepodge.dumpClass=true` dumps classes transformed by Hodgepodge.
 
 Start with the flag matching the symptom; class dumps can be large.
-See the [Development wiki's JVM flag reference](https://wiki.gtnewhorizons.com/wiki/Development#JVM_flags)
-for advanced flags and their code references.
+The current option definitions live in
+[UniMix's `MixinEnvironment`](https://github.com/LegacyModdingMC/UniMix/blob/main/src/main/java/org/spongepowered/asm/mixin/MixinEnvironment.java),
+[Forge/FML](https://github.com/MinecraftForge/FML/tree/1.7.10/src/main/java/cpw/mods/fml),
+and GTNH's
+[`LegacyLauncher`](https://github.com/GTNewHorizons/LegacyLauncher/blob/master/src/main/java/net/minecraft/launchwrapper/LaunchClassLoader.java).

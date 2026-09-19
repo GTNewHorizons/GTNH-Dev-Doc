@@ -15,11 +15,11 @@ dependency or task-selection details.
 
 Capture:
 
-- the command and working directory;
-- the first failing task;
-- the first meaningful exception and nested cause;
-- the JDK and Gradle versions printed by the build; and
-- the relevant repository commit.
+- The command and working directory.
+- The first failing task.
+- The first meaningful exception and nested cause.
+- The JDK and Gradle versions printed by the build.
+- The relevant repository commit.
 
 ### Development client or server
 
@@ -36,7 +36,7 @@ Separate an IDE-model failure from a code failure:
 - Gradle synchronization errors appear in the Build or Sync output.
 - Compiler errors appear under the task or IDE build that produced them.
 - IDE internal failures belong in IntelliJ's own log, available through its Help
-  menu; JetBrains documents the current location in
+  menu. JetBrains documents the current location in
   [Locating IDE log files](https://www.jetbrains.com/help/idea/locating-ide-log-file.html).
 
 ## Share a useful report

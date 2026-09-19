@@ -15,11 +15,11 @@ Restore every changed value on normal returns, cache hits, and exceptions. Use
 
 Typical shared state includes:
 
-- `RenderBlocks` bounds and override textures;
-- matrix-stack pushes and transformations;
-- blend enablement and blend functions;
-- lighting, culling, alpha, depth, and light-map state; and
-- the current color.
+- `RenderBlocks` bounds and override textures.
+- Matrix-stack pushes and transformations.
+- Blend enablement and blend functions.
+- Lighting, culling, alpha, depth, and light-map state.
+- The current color.
 
 ## Treat block bounds as scratch state
 

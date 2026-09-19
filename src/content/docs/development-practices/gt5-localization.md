@@ -41,10 +41,10 @@ Use this shape:
 gt.<category>.<subcategory>.<identifier>
 ```
 
-- use lowercase names;
-- separate segments with `.`;
-- use `snake_case` within a segment; and
-- put suffixes such as `.name`, `.tooltip`, `.title`, `.structure_error`,
+- Use lowercase names.
+- Separate segments with `.`.
+- Use `snake_case` within a segment.
+- Put suffixes such as `.name`, `.tooltip`, `.title`, `.structure_error`,
   `.shutdown_reason`, or `.recipe_result` last.
 
 Creative-tab keys are generated as `itemGroup.<registryName>.<tabName>` and do
@@ -102,11 +102,11 @@ request so another locale does not silently keep the old meaning.
 
 Check that:
 
-1. the selected API translates on the client that displays the text;
-2. the key follows the prefix, category, scope, and suffix rules;
-3. every placeholder is supported by the selected API;
-4. the key is under the correct functional heading; and
-5. server-originated chat works on a dedicated server with a non-English client.
+1. The selected API translates on the client that displays the text.
+2. The key follows the prefix, category, scope, and suffix rules.
+3. Every placeholder is supported by the selected API.
+4. The key is under the correct functional heading.
+5. Server-originated chat works on a dedicated server with a non-English client.
 
 ## References and editor tooling
 
@@ -122,11 +122,11 @@ optional VS Code extension for GTNH `.lang` files. Install its `.vsix` from the
 [releases page](https://github.com/GTNewHorizons/GTNH-Lang-utils/releases). It
 provides:
 
-- Minecraft, Angelica, gradient, rainbow, and formatting-code highlighting;
-- color swatches for inline colors and GTNHLib `ColorResource` values;
-- navigation between Java translation calls and language keys;
-- reference counts and translated-value hover information; and
-- section folding and sticky headings based on `#` comment depth.
+- Minecraft, Angelica, gradient, rainbow, and formatting-code highlighting.
+- Color swatches for inline colors and GTNHLib `ColorResource` values.
+- Navigation between Java translation calls and language keys.
+- Reference counts and translated-value hover information.
+- Section folding and sticky headings based on `#` comment depth.
 
 :::note[AI-generated tool]
 The extension is fully AI-generated. Treat its results as editor assistance and verify keys, formatting, and references against the source files and the GT5 localization guide.

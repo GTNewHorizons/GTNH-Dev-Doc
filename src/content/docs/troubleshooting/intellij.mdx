@@ -22,8 +22,7 @@ Code compiles in Gradle but appears unresolved in the editor, generated sources 
 
 </Steps>
 
-For older repositories that expose `setupDecompWorkspace`, the
-[Development wiki](https://wiki.gtnewhorizons.com/wiki/Development#Common_Issues)
-suggests deleting the generated `build` directory, running
-`./gradlew setupDecompWorkspace`, and reloading Gradle. Do this only when that
-task exists.
+For an older repository that exposes `setupDecompWorkspace`, delete its
+generated `build` directory, run `./gradlew setupDecompWorkspace`, and reload
+Gradle. Do this only when that task exists; current GTNHGradle projects should
+use their existing build and IDE-generation tasks instead.
