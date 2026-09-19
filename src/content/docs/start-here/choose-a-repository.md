@@ -23,11 +23,11 @@ Use its starter archive rather than forking the example repository.
 
 Inspect these files when present:
 
-- `README.md` and contribution files for repository-specific workflow;
-- `.java-version` and Gradle toolchains for the expected JDK;
-- `gradle/wrapper/gradle-wrapper.properties` for the Gradle version;
-- `.github/workflows/` for the tasks and environment used by CI; and
-- `gradle.properties` and dependency files for project settings.
+- The `README.md` and contribution files for the repository-specific workflow.
+- The `.java-version` file and Gradle toolchains for the expected JDK.
+- The `gradle/wrapper/gradle-wrapper.properties` file for the Gradle version.
+- The `.github/workflows/` directory for the tasks and environment used by CI.
+- The `gradle.properties` and dependency files for project settings.
 
 Treat checked-in files as repository facts, not universal GTNH policy.
 Next, [fork, clone, and import it](/GTNH-Dev-Doc/start-here/fork-clone-and-import/).

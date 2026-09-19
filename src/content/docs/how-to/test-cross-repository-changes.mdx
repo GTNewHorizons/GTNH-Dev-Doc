@@ -8,8 +8,9 @@ sidebar:
 import { Steps, TabItem, Tabs } from '@astrojs/starlight/components';
 
 Use this when one mod must build against an unpublished change from another.
-This workflow follows the official
-[GTNH Maven Local Repository instructions](https://wiki.gtnewhorizons.com/wiki/Development#Maven_Local_Repository).
+GTNHGradle's
+[version module](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/GitVersionModule.java)
+supports the temporary `VERSION` override used below.
 
 <Steps>
 
@@ -51,7 +52,7 @@ This workflow follows the official
 
 2. **Enable Maven Local in the dependent mod.**
 
-   Check `repositories.gradle` first; some repositories already declare it. If
+   Check `repositories.gradle` first. Some repositories already declare it. If
    it is missing, add `mavenLocal()` to the existing `repositories` block:
 
    ```groovy

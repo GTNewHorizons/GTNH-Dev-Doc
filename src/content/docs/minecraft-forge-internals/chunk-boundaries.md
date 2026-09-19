@@ -39,11 +39,11 @@ boundary; account for the chunk-loading cost instead.
 
 Build the feature across a chunk border, then test these states separately:
 
-- both ends and the connecting chunks loaded;
-- only one endpoint loaded;
-- endpoints loaded while a middle chunk is absent;
-- unload followed by reload;
-- removal or replacement while the other endpoint is unloaded.
+- Both ends and the connecting chunks loaded.
+- Only one endpoint loaded.
+- Endpoints loaded while a middle chunk is absent.
+- Unload followed by reload.
+- Removal or replacement while the other endpoint is unloaded.
 
 Confirm that non-loading paths do not generate a chunk or reuse an invalid
 object. Separately verify that a neighbor update reaches a neighbor whose chunk

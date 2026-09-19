@@ -16,7 +16,7 @@ The same commit passes locally and fails on GitHub Actions, or the reverse.
 1. Open the exact workflow run and note the failing job, JDK, operating system,
    command, and arguments.
 2. Compare those with your local command and `java -version`.
-3. Test the committed diff from a clean checkout; untracked files and warm caches
+3. Test the committed diff from a clean checkout. Untracked files and warm caches
    can hide missing inputs.
 4. Check case-sensitive paths, line endings, executable bits, locale, and tests
    that depend on time or ordering.
