@@ -16,7 +16,7 @@ please make changes to those documents there.
 Requires Node.js 22.12 or newer and npm 10.8.2 or newer.
 
 ```sh
-npm install
+npm ci
 npm run dev
 ```
 
