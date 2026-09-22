@@ -38,11 +38,13 @@ supports the temporary `VERSION` override used below.
      </TabItem>
    </Tabs>
 
-   :::caution[The folder name becomes the package name]
-   The published package is named after the project's local folder, not its
-   repository. For example, if you clone the `NotEnoughItems` repository into
-   a folder named `nei`, the package is published as `nei`, not
-   `NotEnoughItems`.
+   :::caution[Check the published coordinates]
+   GTNHGradle uses `ARTIFACT_ID` when set, otherwise the Gradle project name.
+   That name defaults to the local folder name but can be set in the project's
+   settings. Renaming a checkout can therefore change its artifact ID.
+   `ARTIFACT_GROUP_ID` and `RELEASE_VERSION` can also override publication
+   coordinates; check your environment before publishing. See the
+   [publishing module](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/PublishingModule.java).
    :::
 
    **Expected result:** GTNHGradle reports the override and
@@ -50,9 +52,14 @@ supports the temporary `VERSION` override used below.
    [GTNHGradle version module](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/GitVersionModule.java)
    reads the uppercase `VERSION` environment variable.
 
+   Inspect the new POM in `~/.m2/repository/GROUP/PATH/ARTIFACT/99.99.99/`
+   (`$HOME/.m2/repository/` in PowerShell). Group dots become directory
+   separators. Confirm its `groupId`, `artifactId`, and `version`, and that the
+   jar with the classifier required by the consumer, often `dev`, exists.
+
 2. **Enable Maven Local in the dependent mod.**
 
-   Check `repositories.gradle` first. Some repositories already declare it. If
+   Check `repositories.gradle` or `repositories.gradle.kts` first. Some repositories already declare it. If
    it is missing, add `mavenLocal()` to the existing `repositories` block:
 
    ```groovy
@@ -63,20 +70,45 @@ supports the temporary `VERSION` override used below.
 
 3. **Use the local version in the dependent mod.**
 
-   In `dependencies.gradle`, preserve the existing group, artifact,
+   In `dependencies.gradle` or `dependencies.gradle.kts`, preserve the existing group, artifact,
    configuration, and classifier. Set its version to `99.99.99`. Do not add a
    `resolutionStrategy.force` rule.
 
+   If the POM has a different artifact ID, correct the producer's project name
+   or temporary `ARTIFACT_ID` override and republish before continuing.
+
 4. **Refresh and test the dependent mod.**
 
-   Refresh Gradle and run the repository's normal build or development-client
-   task. Republish after every dependency change.
+   Inspect the resolved dependency before running the build or client:
+
+   ```console
+   ./gradlew dependencyInsight --dependency GROUP:ARTIFACT --configuration runtimeClasspath
+   ```
+
+   Replace `GROUP:ARTIFACT` with the POM coordinates. Use the relevant resolvable
+   configuration if the repository customizes its runtime classpath; inspect
+   `compileClasspath` too when testing an API change. On Windows, use
+   `.\gradlew.bat`.
+
+   **Expected result:** the selected version is `99.99.99`, with no conflict
+   selecting a different version. Confirm the modified behavior in the
+   consumer's normal build or development run.
+
+   Republish after each producer change. If reusing the same version, resolve
+   again with `--refresh-dependencies`; use a new temporary version when you
+   need to distinguish iterations. Restart the consumer so it loads the new jar.
+
+5. **Replace temporary settings before submission.**
+
+   Once an online pre-release exists, replace `99.99.99` with that version in
+   the consumer. Remove a `mavenLocal()` entry added only for this test and any
+   temporary publication overrides. Review `git diff`, then repeat dependency
+   inspection and the build from a clean checkout without the local artifact.
 
 </Steps>
 
 :::caution[Local means local]
-GitHub Actions cannot access artifacts from your machine. If `mavenLocal()` was
-added only for this test, remove that addition before opening a pull request.
-CI requires an online pre-release. Ask a GTNH team member if you cannot publish
-one.
+GitHub Actions cannot access artifacts from your machine. CI requires an online
+pre-release. Ask a GTNH team member if you cannot publish one, and link the
+producer and consumer pull requests so reviewers can follow their dependency.
 :::

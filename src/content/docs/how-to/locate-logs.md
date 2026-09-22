@@ -37,7 +37,7 @@ Separate an IDE-model failure from a code failure:
 - Compiler errors appear under the task or IDE build that produced them.
 - IDE internal failures belong in IntelliJ's own log, available through its Help
   menu. JetBrains documents the current location in
-  [Locating IDE log files](https://www.jetbrains.com/help/idea/locating-ide-log-file.html).
+  [Locating IDE log files](https://www.jetbrains.com/help/idea/troubleshooting-materials.html#locate-log-files).
 
 ## Share a useful report
 

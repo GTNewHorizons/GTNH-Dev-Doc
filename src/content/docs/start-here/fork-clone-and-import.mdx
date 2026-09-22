@@ -28,9 +28,6 @@ import { FileTree, Steps } from '@astrojs/starlight/components';
    cd REPOSITORY
    ```
 
-   For large repositories such as GT5-Unofficial, use
-   `git clone --filter=blob:none URL` to fetch old contents on demand.
-
    **Expected result:** tracked files are present and `git status` is clean.
 
 3. **Confirm the remotes.**
@@ -39,22 +36,90 @@ import { FileTree, Steps } from '@astrojs/starlight/components';
    git remote -v
    ```
 
-   `origin` should point to your fork. Add the original GTNewHorizons repository
-   as `upstream` when its contribution instructions require it.
+   `origin` should point to your fork. Add the original repository as `upstream`
+   if that remote does not already exist, then fetch its tags:
 
-4. **Import the Gradle project in IntelliJ IDEA.**
+   ```console
+   git remote add upstream https://github.com/GTNewHorizons/REPOSITORY.git
+   git fetch upstream --tags
+   git describe --tags --always
+   ```
+
+   **Expected result:** the version description includes a reachable tag.
+   A bare commit hash means this checkout still has no reachable tag; inspect
+   its branch and history before troubleshooting a mod-version error.
+
+4. **Check Java and perform the repository's initial build.**
+
+   Read `.java-version` when present, `gradle/gradle-daemon-jvm.properties`,
+   and the README. Run `java -version` and `./gradlew --version` to distinguish
+   the launcher JDK from the Gradle daemon. On Windows use `.\gradlew.bat`.
+   Perform any pre-import build required by the README. GT5 recommends
+   `./gradlew build` before import; see the complete example below.
+
+5. **Import the Gradle project in IntelliJ IDEA.**
 
    Open the cloned directory. Choose the checked-in wrapper and the repository's
    JDK. Do not replace or regenerate the wrapper to fix import. See
    JetBrains' current [Gradle project guide](https://www.jetbrains.com/help/idea/gradle.html)
    for the UI.
 
-5. **Wait for synchronization to finish.**
+6. **Wait for synchronization to finish.**
 
    **Expected result:** the Gradle tool window lists tasks with no project-model
    error. Source indexing may continue afterward.
 
 </Steps>
+
+## Worked example: GT5-Unofficial
+
+This example was checked against GT5 source on September 22, 2026, at
+[`6688182f506b`](https://github.com/GTNewHorizons/GT5-Unofficial/tree/6688182f506be2fa524fb75969b0673887355013).
+It is source-checked guidance, not a record of a successful game launch on every
+platform. Follow the current checkout if its settings have changed.
+
+1. Install a **JDK 25** and select it for your shell and IntelliJ Gradle JVM.
+   This revision's
+   [daemon configuration](https://github.com/GTNewHorizons/GT5-Unofficial/blob/6688182f506be2fa524fb75969b0673887355013/gradle/gradle-daemon-jvm.properties)
+   selects Java 25. Game runtimes and compilation toolchains are separate;
+   let Gradle resolve the toolchains declared by the project.
+2. Fork `GTNewHorizons/GT5-Unofficial`, then run the following, replacing
+   `YOUR-USER` with your GitHub username:
+
+   ```console
+   git clone https://github.com/YOUR-USER/GT5-Unofficial.git
+   cd GT5-Unofficial
+   git remote add upstream https://github.com/GTNewHorizons/GT5-Unofficial.git
+   git fetch upstream --tags
+   git switch -c describe-the-change upstream/master
+   git describe --tags --always
+   java -version
+   ./gradlew --version
+   ./gradlew build
+   ```
+
+   In PowerShell, replace each `./gradlew` with `.\gradlew.bat`.
+   **Expected result:** a tag-based version, a Java 25 Gradle daemon, and
+   `BUILD SUCCESSFUL`. Preserve the first failing task's output if it fails.
+3. Open this directory in IntelliJ, choose the checked-in Gradle wrapper and
+   JDK 25, and wait for synchronization and indexing. The Gradle tool window
+   should list the project's tasks without import errors.
+4. Run `./gradlew tasks --all`, then `./gradlew runClient`. The development
+   client should reach the main menu; create a disposable test world and check
+   that GregTech is loaded. Close the client before the next step.
+5. Run `./gradlew runServer`. If startup stops for the Minecraft EULA, read it
+   and, if you agree, set `eula=true` in the `eula.txt` in the server's printed
+   working directory, then rerun. **Expected result:** the server logs `Done`
+   and accepts connections. Keep it running and start `./gradlew runClient`
+   in another terminal. Join `localhost` (or the configured server port) and
+   verify the changed behavior. Enter `stop` in the server console afterward.
+
+Use generated Java-specific run configurations when testing another supported
+game runtime; selecting JDK 25 for Gradle does not select the game's runtime.
+For failures, follow [Locate logs](/GTNH-Dev-Doc/how-to/locate-logs/).
+Keep test worlds and generated files out of the commit. Continue with
+[full-pack testing](/GTNH-Dev-Doc/start-here/build-and-run/#test-integration-sensitive-changes-in-the-full-pack)
+for cross-mod changes, then [your first pull request](/GTNH-Dev-Doc/start-here/first-pull-request/).
 
 ## Recognize the important files
 
