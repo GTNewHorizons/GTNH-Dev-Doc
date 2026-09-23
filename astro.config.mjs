@@ -41,6 +41,8 @@ export default defineConfig({
       title: 'GTNH Developer Documentation',
       description: 'Shared practices, workflows, and technical knowledge for GTNH development',
       lastUpdated: true,
+      // src/pages/404.astro owns this route; avoid duplicate content routes.
+      disable404Route: true,
       plugins: [starlightThemeNova()],
       editLink: {
         baseUrl: 'https://github.com/GTNewHorizons/GTNH-Dev-Doc/edit/master/',

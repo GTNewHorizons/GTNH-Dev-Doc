@@ -25,6 +25,7 @@ Inspect these files when present:
 
 - The `README.md` and contribution files for the repository-specific workflow.
 - The `.java-version` file and Gradle toolchains for the expected JDK.
+- The `gradle/gradle-daemon-jvm.properties` file for a pinned Gradle daemon JDK.
 - The `gradle/wrapper/gradle-wrapper.properties` file for the Gradle version.
 - The `.github/workflows/` directory for the tasks and environment used by CI.
 - The `gradle.properties` and dependency files for project settings.

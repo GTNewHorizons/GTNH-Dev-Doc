@@ -96,7 +96,7 @@ Use **Edit page**, or edit `src/content/docs/` locally. Register new pages in
 Before opening a pull request, run:
 
 ```sh
-npm install
+npm ci
 npm run build
 ```
 

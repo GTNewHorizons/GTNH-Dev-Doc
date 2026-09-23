@@ -1,0 +1,15 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import en from '../content/i18n/en.json';
+---
+
+<StarlightPage
+  frontmatter={{
+    title: '404',
+    description: 'The requested documentation page was not found.',
+    template: 'splash',
+    editUrl: false,
+    lastUpdated: false,
+    hero: { title: '404', tagline: en['404.text'] },
+  }}
+/>
