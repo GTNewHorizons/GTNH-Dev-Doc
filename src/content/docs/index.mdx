@@ -2,6 +2,10 @@
 title: GTNH Developer Documentation
 description: Shared practices, workflows, and technical knowledge for GTNH development
 template: splash
+head:
+  - tag: base
+    attrs:
+      href: /GTNH-Dev-Doc/
 hero:
   title: GTNH Developer Documentation
   tagline: Shared practices, workflows, and technical knowledge for GTNH development
@@ -10,10 +14,10 @@ hero:
     alt: GT New Horizons logo
   actions:
     - text: Start developing
-      link: /GTNH-Dev-Doc/start-here/prerequisites/
+      link: ./start-here/prerequisites/
       icon: right-arrow
     - text: Browse practices
-      link: /GTNH-Dev-Doc/development-practices/
+      link: ./development-practices/
       icon: open-book
       variant: secondary
 ---
@@ -29,47 +33,47 @@ Technical pages link to current repository files or upstream documentation for d
 <CardGrid>
   <LinkCard
     title="Start Here"
-    href="/GTNH-Dev-Doc/start-here/prerequisites/"
+    href="./start-here/prerequisites/"
     description="Choose a repository, prepare its toolchain, and make a first pull request."
   />
   <LinkCard
     title="Contributing"
-    href="/GTNH-Dev-Doc/contributing/before-you-code/"
+    href="./contributing/before-you-code/"
     description="Check GTNH expectations before investing time in a change."
   />
   <LinkCard
     title="Development Practices"
-    href="/GTNH-Dev-Doc/development-practices/"
+    href="./development-practices/"
     description="Apply shared GTNH conventions and compatibility practices."
   />
   <LinkCard
     title="Minecraft & Forge Internals"
-    href="/GTNH-Dev-Doc/minecraft-forge-internals/client-server-boundaries/"
+    href="./minecraft-forge-internals/client-server-boundaries/"
     description="Understand the Minecraft 1.7.10 and Forge behavior that matters to GTNH development."
   />
   <LinkCard
     title="How-to Guides"
-    href="/GTNH-Dev-Doc/how-to/find-change-location/"
+    href="./how-to/find-change-location/"
     description="Complete a specific development or diagnostic task."
   />
   <LinkCard
     title="Concepts"
-    href="/GTNH-Dev-Doc/concepts/repository-map/"
+    href="./concepts/repository-map/"
     description="Understand repository ownership, build tooling, and the release pipeline."
   />
   <LinkCard
     title="Maintainer Procedures"
-    href="/GTNH-Dev-Doc/maintainers/run-daily-build/"
+    href="./maintainers/run-daily-build/"
     description="Perform authorized tagging and modpack build operations."
   />
   <LinkCard
     title="Troubleshooting"
-    href="/GTNH-Dev-Doc/troubleshooting/java/"
+    href="./troubleshooting/java/"
     description="Diagnose Java, Gradle, client, IntelliJ, CI, and transformer symptoms."
   />
   <LinkCard
     title="Reference"
-    href="/GTNH-Dev-Doc/reference/glossary/"
+    href="./reference/glossary/"
     description="Look up GTNH development terms and authoritative resources."
   />
 </CardGrid>
