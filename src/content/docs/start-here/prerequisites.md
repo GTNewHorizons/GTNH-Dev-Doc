@@ -9,24 +9,24 @@ sidebar:
 
 Install:
 
-- Git and a GitHub account.
+- Git or GitHub Desktop, and a GitHub account.
 - For code changes, a JDK matching the selected repository, IntelliJ IDEA with
   Gradle support, and enough free disk space for Gradle caches and a development
   instance.
 
 Asset, configuration, localization, and documentation changes may need only Git
-and an appropriate editor. The official
-[beginner contribution guide](https://wiki.gtnewhorizons.com/wiki/GTNH_Contribution_Guide_for_Beginners)
-covers a GitHub Desktop workflow for contributors who prefer a graphical tool.
+and an appropriate editor. If you prefer a graphical Git tool, follow
+[Contribute with GitHub Desktop](/GTNH-Dev-Doc/how-to/use-github-desktop/).
 
-Check what your shell will actually use:
+For command-line Git and code changes, check what your shell will actually use:
 
 ```console
 git --version
 java -version
 ```
 
-**Expected result:** `git` prints a version; for code changes, `java` does too.
+**Expected result:** `git` prints a version when using command-line Git. For
+code changes, `java` does too.
 Check the required Java version after choosing a repository. If Java cannot run,
 see [Troubleshoot Java](/GTNH-Dev-Doc/troubleshooting/java/).
 

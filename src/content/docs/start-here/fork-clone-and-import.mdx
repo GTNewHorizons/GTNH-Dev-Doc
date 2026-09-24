@@ -46,7 +46,7 @@ import { FileTree, Steps } from '@astrojs/starlight/components';
    ```
 
    **Expected result:** the version description includes a reachable tag.
-   A bare commit hash means this checkout still has no reachable tag; inspect
+   A bare commit hash means this checkout still has no reachable tag. Inspect
    its branch and history before troubleshooting a mod-version error.
 
 4. **Check Java and perform the repository's initial build.**
@@ -55,7 +55,7 @@ import { FileTree, Steps } from '@astrojs/starlight/components';
    and the README. Run `java -version` and `./gradlew --version` to distinguish
    the launcher JDK from the Gradle daemon. On Windows use `.\gradlew.bat`.
    Perform any pre-import build required by the README. GT5 recommends
-   `./gradlew build` before import; see the complete example below.
+   `./gradlew build` before import. See the complete example below.
 
 5. **Import the Gradle project in IntelliJ IDEA.**
 
@@ -81,8 +81,8 @@ platform. Follow the current checkout if its settings have changed.
 1. Install a **JDK 25** and select it for your shell and IntelliJ Gradle JVM.
    This revision's
    [daemon configuration](https://github.com/GTNewHorizons/GT5-Unofficial/blob/6688182f506be2fa524fb75969b0673887355013/gradle/gradle-daemon-jvm.properties)
-   selects Java 25. Game runtimes and compilation toolchains are separate;
-   let Gradle resolve the toolchains declared by the project.
+   selects Java 25. Game runtimes and compilation toolchains are separate.
+   Let Gradle resolve the toolchains declared by the project.
 2. Fork `GTNewHorizons/GT5-Unofficial`, then run the following, replacing
    `YOUR-USER` with your GitHub username:
 
@@ -105,7 +105,7 @@ platform. Follow the current checkout if its settings have changed.
    JDK 25, and wait for synchronization and indexing. The Gradle tool window
    should list the project's tasks without import errors.
 4. Run `./gradlew tasks --all`, then `./gradlew runClient`. The development
-   client should reach the main menu; create a disposable test world and check
+   client should reach the main menu. Create a disposable test world and check
    that GregTech is loaded. Close the client before the next step.
 5. Run `./gradlew runServer`. If startup stops for the Minecraft EULA, read it
    and, if you agree, set `eula=true` in the `eula.txt` in the server's printed
@@ -115,7 +115,7 @@ platform. Follow the current checkout if its settings have changed.
    verify the changed behavior. Enter `stop` in the server console afterward.
 
 Use generated Java-specific run configurations when testing another supported
-game runtime; selecting JDK 25 for Gradle does not select the game's runtime.
+game runtime. Selecting JDK 25 for Gradle does not select the game's runtime.
 For failures, follow [Locate logs](/GTNH-Dev-Doc/how-to/locate-logs/).
 Keep test worlds and generated files out of the commit. Continue with
 [full-pack testing](/GTNH-Dev-Doc/start-here/build-and-run/#test-integration-sensitive-changes-in-the-full-pack)
@@ -143,7 +143,7 @@ A GTNH mod repository may contain:
 </FileTree>
 
 The current [ExampleMod file list](https://github.com/GTNewHorizons/ExampleMod1.7.10)
-shows this layout; individual repositories vary.
+shows this layout. Individual repositories vary.
 
 If synchronization fails, use the
 [Gradle troubleshooting guide](/GTNH-Dev-Doc/troubleshooting/gradle/).

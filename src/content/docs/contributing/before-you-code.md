@@ -27,10 +27,10 @@ Some changes have additional rules maintained beside the affected content:
 
 | Change | Read first |
 | --- | --- |
-| Java or Scala code | The target repository's README and formatter configuration, plus the GTNH [code-style guide](https://wiki.gtnewhorizons.com/wiki/Code_Style) |
+| Java or Scala code | The target repository's README and formatter configuration, plus the [GTNH code-style guide](/GTNH-Dev-Doc/development-practices/code-style/) |
 | Questbook content | The modpack's current [quest development guide](https://github.com/GTNewHorizons/GT-New-Horizons-Modpack/blob/master/config/betterquesting/Readme.md) |
 | StructureLib multiblocks | The current [StructureLib documentation](https://www.gtnewhorizons.com/StructureLib/) and examples in the target repository |
-| Chemical recipes | The GTNH [Chemical Balance reference](https://wiki.gtnewhorizons.com/wiki/Chemical_Balance); follow the contribution guidelines for balance policy |
+| Chemical recipes | [Balance chemical recipes](/GTNH-Dev-Doc/development-practices/chemical-balance/), then follow the contribution guidelines for balance policy |
 
 Treat the target repository and its automated checks as authoritative when a
 general guide differs from the current project.

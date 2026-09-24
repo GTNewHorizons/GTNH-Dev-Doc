@@ -84,6 +84,8 @@ export default defineConfig({
           label: 'Development Practices',
           items: [
             { slug: 'development-practices' },
+            { slug: 'development-practices/code-style' },
+            { slug: 'development-practices/chemical-balance' },
             { slug: 'development-practices/localized-display-text' },
             { slug: 'development-practices/gt5-localization' },
             { slug: 'development-practices/optional-mod-integrations' },
@@ -105,8 +107,10 @@ export default defineConfig({
           label: 'How-to Guides',
           items: [
             { slug: 'how-to/find-change-location' },
+            { slug: 'how-to/use-github-desktop' },
             { slug: 'how-to/gradle-tasks' },
             { slug: 'how-to/test-cross-repository-changes' },
+            { slug: 'how-to/test-in-full-pack' },
             { slug: 'how-to/locate-logs' },
             { slug: 'how-to/use-horizon-qa' },
           ],
