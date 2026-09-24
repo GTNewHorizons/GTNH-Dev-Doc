@@ -43,7 +43,7 @@ supports the temporary `VERSION` override used below.
    That name defaults to the local folder name but can be set in the project's
    settings. Renaming a checkout can therefore change its artifact ID.
    `ARTIFACT_GROUP_ID` and `RELEASE_VERSION` can also override publication
-   coordinates; check your environment before publishing. See the
+   coordinates. Check your environment before publishing. See the
    [publishing module](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/PublishingModule.java).
    :::
 
@@ -86,7 +86,7 @@ supports the temporary `VERSION` override used below.
    ```
 
    Replace `GROUP:ARTIFACT` with the POM coordinates. Use the relevant resolvable
-   configuration if the repository customizes its runtime classpath; inspect
+   configuration if the repository customizes its runtime classpath. Inspect
    `compileClasspath` too when testing an API change. On Windows, use
    `.\gradlew.bat`.
 
@@ -95,7 +95,7 @@ supports the temporary `VERSION` override used below.
    consumer's normal build or development run.
 
    Republish after each producer change. If reusing the same version, resolve
-   again with `--refresh-dependencies`; use a new temporary version when you
+   again with `--refresh-dependencies`. Use a new temporary version when you
    need to distinguish iterations. Restart the consumer so it loads the new jar.
 
 5. **Replace temporary settings before submission.**

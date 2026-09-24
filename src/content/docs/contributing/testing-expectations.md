@@ -42,7 +42,9 @@ Use a current full development pack for changes involving other mods, pack
 configuration, recipes, world data, or startup order. Test coordinated artifact
 versions together with
 [Maven Local](/GTNH-Dev-Doc/how-to/test-cross-repository-changes/) or
-an online pre-release that CI can resolve.
+an online pre-release that CI can resolve. Follow
+[Test a change in the full pack](/GTNH-Dev-Doc/how-to/test-in-full-pack/)
+for the assembled-pack check.
 
 ## Report reproducible evidence
 

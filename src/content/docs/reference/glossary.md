@@ -9,7 +9,7 @@ sidebar:
 
 **Deobfuscated / deobf**
 : Code or an artifact using developer-readable Minecraft names. Dependency
-  handling is part of the tooling; do not manually copy a player jar into a
+  handling is part of the tooling. Do not manually copy a player jar into a
   development classpath. See
   [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle).
 
@@ -34,7 +34,7 @@ sidebar:
 
 **Task**
 : A named Gradle operation. Available tasks depend on the plugins and modules in
-  the current repository; list them before relying on a name.
+  the current repository. List them before relying on a name.
 
 ## Minecraft mod-development terms
 
@@ -70,6 +70,6 @@ sidebar:
 
 **Shared workflow**
 : A reusable GitHub Actions workflow invoked by another repository. Follow the
-  referenced file and revision to see the real build steps; the
+  referenced file and revision to see the real build steps. The
   [GTNH Actions Workflows repository](https://github.com/GTNewHorizons/GTNH-Actions-Workflows)
   contains current organization-wide examples.

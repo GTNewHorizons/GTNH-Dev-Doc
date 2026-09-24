@@ -6,6 +6,9 @@ sidebar:
 ---
 
 This documentation records GTNH development knowledge and shared decisions.
+Keep shared developer workflows here even when an older version exists on the
+GTNH wiki. Use links to the owning repository for project-specific API manuals
+and implementation details that change with that project.
 
 ## Decide whether the topic belongs here
 
