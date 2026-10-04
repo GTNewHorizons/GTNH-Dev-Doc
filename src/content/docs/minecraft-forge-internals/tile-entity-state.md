@@ -26,14 +26,24 @@ dirty so its chunk is saved.
 
 `markDirty()` concerns persistence. It does not by itself tell clients that a
 rendered value changed. Forge's
-[tile entity documentation](https://docs.minecraftforge.net/en/1.12.x/tileentities/tileentity/)
+[1.12 tile entity documentation](https://docs.minecraftforge.net/en/1.12.x/tileentities/tileentity/)
 separates saving, dirty marking, and the available synchronization paths.
+Use it for those concepts; its `getUpdateTag` and `getUpdatePacket` examples
+target 1.12.
 
 Machine NBT makes a value shared by every user and tied to that machine. Store
 player-specific accessibility and display choices in client configuration or
 player data.
 
 ## Synchronize what the client actually needs
+
+For an ordinary 1.7.10 Forge tile, synchronization can use
+`getDescriptionPacket()` with `S35PacketUpdateTileEntity`, `onDataPacket(...)`,
+and `worldObj.markBlockForUpdate(xCoord, yCoord, zCoord)` to request an update.
+See the [1.7.10 Forge tile hooks](https://github.com/MinecraftForge/MinecraftForge/blob/1.7.10/patches/minecraft/net/minecraft/tileentity/TileEntity.java.patch).
+GT5 metatile entities use the owning base tile's synchronization, so follow
+[its existing lifecycle](https://github.com/GTNewHorizons/GT5-Unofficial/blob/master/src/main/java/gregtech/api/metatileentity/BaseMetaTileEntity.java)
+instead of implementing vanilla hooks directly on the metatile entity.
 
 Synchronize only the state clients need, using the owning repository's existing
 mechanism:

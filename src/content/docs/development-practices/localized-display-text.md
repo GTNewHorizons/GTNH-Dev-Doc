@@ -25,8 +25,11 @@ locale-independent representation required by its protocol.
 Send translation keys and arguments to the client that will display them. Text
 localized on the server uses the server's language instead of each player's.
 Forge's
-[localization documentation](https://docs.minecraftforge.net/en/1.12.x/concepts/internationalization/)
+[1.12 localization documentation](https://docs.minecraftforge.net/en/1.12.x/concepts/internationalization/)
 explains this distinction and warns against using translation keys for logic.
+Use it for the localization model. In 1.7.10, translated chat uses
+`ChatComponentTranslation` and the English language file is `en_US.lang`;
+the guide's `TextComponentTranslation` and `en_us.lang` examples target 1.12.
 
 Use translation keys instead of hard-coded English when the API supports them.
 Changing a key also invalidates translations that use the old key.
