@@ -92,18 +92,6 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Minecraft & Forge Internals',
-          items: [
-            { slug: 'minecraft-forge-internals/client-server-boundaries' },
-            { slug: 'minecraft-forge-internals/tile-entity-state' },
-            { slug: 'minecraft-forge-internals/tick-update-model' },
-            { slug: 'minecraft-forge-internals/nbt-schema' },
-            { slug: 'minecraft-forge-internals/chunk-boundaries' },
-            { slug: 'minecraft-forge-internals/rendering-state' },
-            { slug: 'minecraft-forge-internals/stacks-and-inventories' },
-          ],
-        },
-        {
           label: 'How-to Guides',
           items: [
             { slug: 'how-to/find-change-location' },
@@ -143,6 +131,18 @@ export default defineConfig({
             { slug: 'troubleshooting/intellij' },
             { slug: 'troubleshooting/ci' },
             { slug: 'troubleshooting/mixins-and-transformers' },
+          ],
+        },
+        {
+          label: 'Minecraft & Forge Internals',
+          items: [
+            { slug: 'minecraft-forge-internals/client-server-boundaries' },
+            { slug: 'minecraft-forge-internals/tile-entity-state' },
+            { slug: 'minecraft-forge-internals/tick-update-model' },
+            { slug: 'minecraft-forge-internals/nbt-schema' },
+            { slug: 'minecraft-forge-internals/chunk-boundaries' },
+            { slug: 'minecraft-forge-internals/rendering-state' },
+            { slug: 'minecraft-forge-internals/stacks-and-inventories' },
           ],
         },
         {
