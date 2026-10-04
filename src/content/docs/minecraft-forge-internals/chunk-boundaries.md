@@ -12,11 +12,16 @@ object is still valid.
 
 In Minecraft 1.7.10, `World#getBlock` and `World#getTileEntity` load the target
 chunk if necessary. Before calling them, use the repository's non-loading check,
-commonly `blockExists` or `chunkExists`, when loading the chunk is not intended.
+such as `world.blockExists(x, y, z)` with block coordinates, when loading the
+chunk is not intended. A provider-level check,
+`world.getChunkProvider().chunkExists(x >> 4, z >> 4)`, takes chunk coordinates.
 
 Unchecked packet coordinates can generate arbitrary chunks. Validate that the
 target is loaded before accessing it
-([Forge SimpleImpl documentation](https://docs.minecraftforge.net/en/1.12.x/networking/simpleimpl/)).
+([Forge 1.12 SimpleImpl documentation](https://docs.minecraftforge.net/en/1.12.x/networking/simpleimpl/)).
+That guide explains the validation principle; its `BlockPos`, `isBlockLoaded`,
+and scheduling examples target 1.12. Use the checks above and the owning
+repository's packet-dispatch mechanism for 1.7.10.
 
 ## Do not trust cached tile instances forever
 

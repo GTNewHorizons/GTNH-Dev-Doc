@@ -4,7 +4,7 @@ description: Choose the correct localization API and name and place new GT5 lang
 ---
 
 These rules apply to new localization work in GT5-Unofficial. They summarize
-the localization guide introduced in
+the proposed localization guide in
 [GT5-Unofficial PR #7643](https://github.com/GTNewHorizons/GT5-Unofficial/pull/7643).
 Follow the PR's latest guide for a large language-file reorganization.
 Keep calculated and stored values locale-neutral as described in
@@ -22,8 +22,15 @@ Keep calculated and stored values locale-neutral as described in
 
 Pass the translation key, not a translated string, to `sendChatTrans`. It sends
 a `ChatComponentTranslation` so each receiving client translates the message in
-its own language. Chat components support only plain `%s` placeholders; do not
-use `%d`, `%f`, precision specifiers, or positional placeholders in chat keys.
+its own language. Minecraft 1.7.10 supports `%s` and indexed string placeholders
+such as `%1$s` and `%2$s`; GT5's
+[`sendChatTrans` API documentation](https://github.com/GTNewHorizons/GT5-Unofficial/blob/master/src/main/java/gregtech/api/util/GTUtility.java#L553-L564)
+also permits them. Numeric `%d`, `%f`, and precision specifiers are unsupported
+in chat keys.
+
+The [proposed guide's chat rule](https://github.com/GTNewHorizons/GT5-Unofficial/blob/21fa3f9687c3a5cb0da7655fed151a711d1bbebb/docs/Localization.md#L53-L55)
+requests plain `%s`. Follow that rule when applying this guide to new GT5 chat
+keys; it is stricter than the underlying API's supported formats.
 
 For client-side formatted text, prefer `translateToLocalFormatted` over applying
 `String.format` to a translated value. It catches an invalid translated format
@@ -70,7 +77,7 @@ gt.infodata.average_input=Avg. Input: %s EU/t
 Use placeholders instead of concatenating translated fragments. Client-side
 formatted text may use `%s`, `%d`, `%f`, and positional placeholders such as
 `%1$s`; positional placeholders let translations reorder arguments. Chat keys
-remain limited to plain `%s`.
+follow the proposed guide's plain `%s` rule above.
 
 Use `\n` inside one tooltip key when its lines always appear together. Use
 numbered `.tooltip.1`, `.tooltip.2`, and subsequent keys when lines can be

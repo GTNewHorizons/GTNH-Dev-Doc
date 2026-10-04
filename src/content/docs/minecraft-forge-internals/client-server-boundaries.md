@@ -17,8 +17,8 @@ work there but desynchronize in multiplayer or crash a dedicated server.
 | **Logical client** | Handles player input and presents state received from the server. |
 | **Logical server** | Owns game rules and authoritative state. It runs on both dedicated and integrated servers. |
 
-The official Forge
-[sides guide](https://docs.minecraftforge.net/en/1.12.x/concepts/sides/)
+The official
+[Forge 1.12 sides guide](https://docs.minecraftforge.net/en/1.12.x/concepts/sides/)
 describes this model using the same `world.isRemote`, `@SidedProxy`, and
 `FMLCommonHandler` APIs used by 1.7.10.
 
