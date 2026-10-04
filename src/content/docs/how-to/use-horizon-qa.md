@@ -13,16 +13,16 @@ for the complete API and configuration reference.
 
 ## Add one focused test
 
-Follow the consumer repository's existing convention. A typical dependency is:
+Follow the consumer repository's existing test layout and use the HQA version
+selected by the repository or pack. For a new setup, follow
+[Add Horizon-QA to your mod](https://www.gtnewhorizons.com/Horizon-QA/getting-started/mod-setup/)
+for the dependency and source layout. Its
+[test discovery requirements](https://www.gtnewhorizons.com/Horizon-QA/getting-started/mod-setup/#test-discovery)
+include `@GameTestHolder` on the holder class as well as `@GameTest` on methods.
 
-```groovy
-devOnlyNonPublishable('com.github.GTNewHorizons:Horizon-QA:VERSION:dev')
-```
-
-Use the version selected by the repository or pack. Test methods use
-`@GameTest`, are `public static void`, and receive `GameTestHelper` first. Poll
-observable state instead of using fixed delays. Label fixture positions and
-register cleanup before global mutations.
+Choose a test that observes the changed server behavior. Use HQA's
+[getting-started path](https://www.gtnewhorizons.com/Horizon-QA/getting-started/)
+for authoring, fixtures, and execution details.
 
 ## Run the exact test on a server
 
@@ -36,6 +36,7 @@ its own `--mcJvmArgs`:
   --mcJvmArgs="-Dhorizonqa.reportDir=${PWD}/build/horizonqa"
 ```
 
-Check the exit code, `TEST-horizonqa.xml`, and `horizonqa-result.json`. Exit `1`
-means a test failure; exit `2` means an infrastructure, discovery, fixture,
-cleanup, selection, or reporting error.
+Check the process exit code, `TEST-horizonqa.xml`, and `horizonqa-result.json`.
+Use HQA's [CI and report guide](https://www.gtnewhorizons.com/Horizon-QA/guide/ci/)
+to interpret test failures and infrastructure errors. Report the selector and
+results with your pull request.
