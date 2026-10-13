@@ -1,49 +1,56 @@
 ---
 title: Run a daily modpack build manually
-description: Start and monitor the current GTNH daily build workflow.
+description: Dispatch the daily workflow and verify its packages, metadata commit, and publication.
 sidebar:
   order: 1
 ---
 
-import { Steps } from '@astrojs/starlight/components';
+Use this procedure when an authorized DreamAssemblerXXL maintainer needs a
+daily build before the scheduled run. The workflow assembles and tests the
+pack, publishes downloads, updates generated repository data, and applies its
+release-retention rules.
 
-The
-[Daily modpack build workflow](https://github.com/GTNewHorizons/DreamAssemblerXXL/actions/workflows/daily-modpack-build.yml)
-supports manual runs. Its
-[workflow file](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/master/.github/workflows/daily-modpack-build.yml)
-is the authoritative source for its trigger, branch, and behavior.
+The [workflow file](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/master/.github/workflows/daily-modpack-build.yml)
+defines these effects. Its concurrency rule cancels an earlier daily run
+when a new one starts, so inspect current runs before dispatching.
 
-## Start the build
+## Start the intended run
 
-:::caution[Maintainer operation]
-This workflow can publish a daily release and update repository data. Run it
-only when you are authorized and a manual build is needed.
-:::
+1. Open [Daily modpack build](https://github.com/GTNewHorizons/DreamAssemblerXXL/actions/workflows/daily-modpack-build.yml)
+   and check whether a queued or running build already covers the need.
+2. Confirm the source revision and intended build with the release coordinator.
+   The current workflow checks out `master` explicitly.
+3. Select **Run workflow**, choose `master`, and confirm once.
+4. Open the new run and record its URL, revision, and run number.
 
-<Steps>
+Manual dispatch requires repository write access and a workflow declaring
+`workflow_dispatch`. GitHub documents
+[manual-run requirements](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow?tool=webui).
+If the control is unavailable, ask a DreamAssemblerXXL maintainer.
 
-1. Open the [DreamAssemblerXXL Actions page](https://github.com/GTNewHorizons/DreamAssemblerXXL/actions).
-2. Select **Daily modpack build** in the left sidebar.
-3. Select **Run workflow** above the workflow-run list.
-4. Choose the **master** branch.
-5. Select the green **Run workflow** button.
+## Verify the outputs
 
-</Steps>
+Follow the build, pack-test, upload, and final publication jobs.
+Check the run's selected-mod summary or generated manifest, then verify:
 
-**Expected result:** a new run appears near the top of the list, initially
-queued or in progress.
+- The corresponding release in
+  [GTNH Daily Builds](https://github.com/GTNewHorizons/GTNH-Daily-Builds/releases).
+- The expected client/server runtime variants and their archive contents.
+- The generated manifest, asset data, and changelog commit on `master`.
+- The pack-test results for the same bundle.
 
-Manual runs require repository write access. If the button is missing, check
-[GitHub manual-run requirements](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow?tool=webui)
-or ask a DreamAssemblerXXL maintainer.
+A published archive, metadata commit, and passing test job are separate
+outputs. Record the run and release together so testers can identify the
+matching artifacts.
 
-## Monitor the run
+## Investigate before retrying
 
-Follow the run's jobs. Successful artifacts appear in
-[GTNH Daily Builds](https://github.com/GTNewHorizons/GTNH-Daily-Builds/releases).
+Preserve the first failed job and relevant logs. Check which archives,
+releases, or commits already exist before starting another run.
+The workflow can overwrite assets for an existing daily tag and remove old
+daily releases; a retry is another publication operation.
 
-For failures, preserve the first failed job's log. Before restarting, check for
-another daily build: a new run cancels the run already in progress.
-
-To understand which mod releases feed the build, see
-[How changes reach a modpack build](/GTNH-Dev-Doc/concepts/release-pipeline/).
+Resolve the failed input or operation and coordinate the replacement run.
+For a mod version missing from the manifest, trace the
+[release pipeline](/GTNH-Dev-Doc/concepts/release-pipeline/)
+before assuming another assembly will include it.

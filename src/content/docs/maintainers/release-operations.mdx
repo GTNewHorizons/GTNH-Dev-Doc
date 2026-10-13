@@ -1,84 +1,81 @@
 ---
 title: Release operations
-description: Decide between automatic and manual mod releases, tag safely, and verify publication.
+description: Determine who creates the tag, select its commit, and verify each publication destination.
 sidebar:
   order: 3
 ---
 
-import { Steps } from '@astrojs/starlight/components';
+Pushing a version tag can publish mod jars consumed by other mods and pack
+assembly. Use this procedure only for an authorized release of the target
+repository. Confirm its release process and intended commit before creating
+a tag.
 
-:::caution[Maintainer operation]
-Pushing a tag can publish releases and Maven artifacts consumed by other mods
-and DreamAssembler. Continue only when you are authorized for the target
-repository and release.
-:::
+## Determine whether automation owns this release
 
-## Decide whether the tag is automatic
+Some mods use MergeMasterXXL coordinated tagging. Inspect recent tags,
+releases, and Actions runs, then confirm with the release coordinator whether
+automation is expected to handle the target commit.
 
-Some repositories receive end-of-day MergeMasterXXL tags; others are tagged
-manually. A moved branch alone is not a reason to tag.
+The [tagging implementation](https://github.com/GTNewHorizons/MergeMasterXXL/blob/master/src/tag_dev.ts)
+orders inter-repository dependencies and handles development tags.
+Its [tag helper](https://github.com/GTNewHorizons/MergeMasterXXL/blob/master/src/requests/tags.ts)
+increments the last numeric part of the existing format. Those sources
+describe behavior, not the production schedule or every current exception.
 
-The public
-[MergeMasterXXL tagging implementation](https://github.com/GTNewHorizons/MergeMasterXXL/blob/master/src/tag_dev.ts)
-derives its normal repository set from the current DreamAssemblerXXL
-experimental manifest. It skips a branch already pointing at an exact tag,
-orders inter-repository dependencies, and creates `-pre` tags for its development
-branches. Its
-[tag helper](https://github.com/GTNewHorizons/MergeMasterXXL/blob/master/src/requests/tags.ts)
-increments the last numeric part of the recent tag format.
+The repository's `.github/workflows/release-tags.yml` describes what happens
+after a tag is pushed. It does not decide who should create the tag.
 
-The public repository does not declare the production schedule or all current
-exceptions. Before tagging manually:
+## Verify the target and name
 
-<Steps>
+Run these commands from the mod checkout. This example assumes `origin`
+is the authorized release repository; inspect its URL first. Replace
+`TARGET-COMMIT` with the exact commit and `TAG` with the chosen version name.
 
-1. Check the target repository's recent tags, releases, and Actions runs.
-2. Check whether the target commit is already tagged.
-3. Confirm with the current release coordinator whether automation is expected
-   to handle this repository.
-
-</Steps>
-
-`.github/workflows/release-tags.yml` defines behavior after a tag is pushed, not
-who should create it.
-
-## Choose and verify the tag
-
-Use the repository's existing tag pattern. Do not infer a universal GTNH version
-scheme or reuse the next version from another mod.
-
-```console
+```sh
+git remote -v
 git fetch origin --tags
 git show --no-patch --oneline TARGET-COMMIT
 git tag --points-at TARGET-COMMIT
+git tag --list TAG
 ```
 
-**Expected result:** tags are refreshed, the target commit is identified, and
-existing tags on that commit are listed.
+Confirm the commit contains the intended changes and required checks have
+passed. Existing tags on that commit may mean publication already occurred.
+The proposed new name should not be in use.
 
-Use `-pre` only where the repository process requires it. The shared workflow
-withholds these builds from Modrinth and CurseForge but does not mark their
-GitHub release as a prerelease because that breaks DreamAssemblerXXL. The GitHub
-release remains public.
+Follow the repository's tag pattern and coordinated dependency order.
+Use `-pre` only where its process calls for it. In the
+[shared release workflow](https://github.com/GTNewHorizons/GTNH-Actions-Workflows/blob/master/.github/workflows/release-tags.yml),
+pre-release builds are withheld from Modrinth and CurseForge but ordinarily
+remain public GitHub releases without GitHub's prerelease flag for pack
+assembly compatibility.
 
-## Push a manual tag
+## Create and push the authorized tag
 
-After another maintainer check or the repository's required approval:
+After the repository's release checks and authorization are satisfied:
 
-```console
+```sh
 git tag TAG TARGET-COMMIT
 git push --dry-run origin refs/tags/TAG
 git push origin refs/tags/TAG
 ```
 
-**Expected result:** the dry run reports the tag without changing the remote;
-the final command pushes it. Never force-move a published tag.
+The first command creates a local tag. The dry run reports the proposed remote
+update; the final command publishes it. If the dry run identifies an
+unexpected destination or existing tag, resolve that before the push.
+Do not force-move a published tag.
 
-## Verify publication
+## Verify publication separately
 
-For the standard tag workflow, follow **Release tagged build** in Actions. Check
-the GitHub release and every configured publishing destination; a tag does not
-prove that publication succeeded.
+Follow the tag's **Release tagged build** run, or the owning repository's
+equivalent. Check the GitHub release assets and each required Maven or other
+destination for the exact version.
 
-Finally, confirm the intended version appears in the relevant DreamAssemblerXXL
-manifest before expecting it in an assembled modpack build.
+The shared workflow allows several publication steps to continue on error.
+A completed job therefore does not prove that every destination received the
+artifact. Inspect the relevant steps and files.
+
+Before retrying a partial release, coordinate the repair. The shared workflow
+can delete and recreate an existing GitHub release during a rerun.
+Finally, confirm the intended version in the relevant pack manifest before
+expecting it in an [assembled build](/GTNH-Dev-Doc/concepts/release-pipeline/).
