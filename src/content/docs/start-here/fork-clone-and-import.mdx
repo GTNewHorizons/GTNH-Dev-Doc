@@ -1,150 +1,168 @@
 ---
-title: Fork, clone, and import
-description: Create your working copy and let IntelliJ import the Gradle model.
+title: Set up your workspace
+description: Fork and clone a GTNH repository, prepare its Java setup, and import a mod into IntelliJ.
 sidebar:
-  order: 3
+  order: 2
 ---
 
-import { FileTree, Steps } from '@astrojs/starlight/components';
+Start with the [repository you chose](/GTNH-Dev-Doc/start-here/choose-a-repository/)
+and its contribution instructions. This page uses command-line Git and
+IntelliJ IDEA. For graphical Git operations, use
+[GitHub Desktop](/GTNH-Dev-Doc/how-to/use-github-desktop/) for the fork and
+clone, then return at step 3 below to fetch upstream history and tags before
+preparing Java and the IDE.
 
-<Steps>
+## Prepare your tools
 
-1. **Fork the repository.**
+You need a GitHub account, Git, and an editor for the files you will change.
+In a terminal, check that command-line Git is available:
 
-   Use GitHub's **Fork** button. GitHub's
-   [forking guide](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
-   describes the UI and upstream setup.
+```sh
+git --version
+```
 
-   When GitHub offers **Copy the master branch only**, leave it unchecked. The
-   GTNH build derives mod versions from Git tags. A fork without tags may fall
-   back to a commit hash and fail another mod's minimum-version check.
+For mod code, these instructions use IntelliJ IDEA with Gradle support and
+a JDK (Java Development Kit) selected for the repository. Leave space for
+Gradle downloads, decompiled Minecraft sources, and disposable test worlds.
+For documentation or pack data, follow the repository's README for its own
+tools and validation; the Git steps below still apply.
 
-2. **Clone your fork.**
+## Fork and clone
 
-   Copy the HTTPS URL from your fork's **Code** menu, then run:
+1. **Create your fork on GitHub.** Open the original repository and select
+   **Fork** to create a copy under your account. Follow
+   [GitHub's fork guide](https://docs.github.com/en/pull-requests/how-tos/work-with-forks/fork-a-repo)
+   for the interface. Fetch upstream tags explicitly after cloning rather
+   than relying on the fork's branch-copy options.
+2. **Clone your fork.** Replace `YOUR-USER` with your GitHub username and
+   `REPOSITORY` with the repository name. In the directory where you keep
+   projects, run:
 
-   ```console
+   ```sh
    git clone https://github.com/YOUR-USER/REPOSITORY.git
    cd REPOSITORY
+   git status --short
    ```
 
-   **Expected result:** tracked files are present and `git status` is clean.
+   A new clone should have no modified or untracked files. Clone through Git;
+   a downloaded source ZIP does not include the history used for mod versioning.
+3. **Connect the original repository.** From the cloned directory, inspect
+   the remotes:
 
-3. **Confirm the remotes.**
-
-   ```console
+   ```sh
    git remote -v
    ```
 
-   `origin` should point to your fork. Add the original repository as `upstream`
-   if that remote does not already exist, then fetch its tags:
+   `origin` should point to your fork. If `upstream` is absent, add the original
+   repository using its HTTPS URL. For a GTNewHorizons repository, replace
+   `REPOSITORY` as above:
 
-   ```console
+   ```sh
    git remote add upstream https://github.com/GTNewHorizons/REPOSITORY.git
-   git fetch upstream --tags
-   git describe --tags --always
    ```
 
-   **Expected result:** the version description includes a reachable tag.
-   A bare commit hash means this checkout still has no reachable tag. Inspect
-   its branch and history before troubleshooting a mod-version error.
+   If it is already present, confirm its URL. Then fetch the upstream history
+   and tags:
 
-4. **Check Java and perform the repository's initial build.**
+   ```sh
+   git fetch upstream --tags
+   ```
 
-   Read `.java-version` when present, `gradle/gradle-daemon-jvm.properties`,
-   and the README. Run `java -version` and `./gradlew --version` to distinguish
-   the launcher JDK from the Gradle daemon. On Windows use `.\gradlew.bat`.
-   Perform any pre-import build required by the README. GT5 recommends
-   `./gradlew build` before import. See the complete example below.
+   [GitHub's remote setup guide](https://docs.github.com/en/pull-requests/how-tos/work-with-forks/configuring-a-remote-repository-for-a-fork)
+   explains the two remotes: fetch project updates from `upstream` and push
+   your contribution branch to `origin`.
+4. **Prepare a contribution branch.** Start from the original repository's
+   target branch so your baseline uses the current project code. Replace
+   `BASE-BRANCH` with the branch identified when choosing the repository, and
+   `describe-your-change` with a short name for your work:
 
-5. **Import the Gradle project in IntelliJ IDEA.**
+   ```sh
+   git switch -c describe-your-change upstream/BASE-BRANCH
+   ```
 
-   Open the cloned directory. Choose the checked-in wrapper and the repository's
-   JDK. Do not replace or regenerate the wrapper to fix import. See
-   JetBrains' current [Gradle project guide](https://www.jetbrains.com/help/idea/gradle.html)
-   for the UI.
+   If you already prepared a contribution branch from that base, use it.
 
-6. **Wait for synchronization to finish.**
+### Check Git-based mod versions
 
-   **Expected result:** the Gradle tool window lists tasks with no project-model
-   error. Source indexing may continue afterward.
+GTNHGradle supplies shared build conventions for GTNH mods. Its
+[version module](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/GitVersionModule.java)
+derives the mod version from Git tags and history. In a mod checkout, check:
 
-</Steps>
+```sh
+git describe --tags --always
+```
+
+A reachable tag, possibly followed by a commit suffix, shows that Git can
+find release history. If you expected a tag but see only a commit hash,
+check the branch and fetched tags. For a shallow clone that lacks the needed
+history, fetch the full history and tags from the original repository:
+
+```sh
+git fetch upstream --unshallow --tags
+```
+
+Use `--unshallow` only for a shallow clone. Git documents it in the
+[fetch reference](https://git-scm.com/docs/git-fetch#Documentation/git-fetch.txt---unshallow).
+Repeat the version check before investigating a mod's minimum-version error.
+
+For non-mod changes, continue with the repository's validation instructions
+and [your first pull request](/GTNH-Dev-Doc/start-here/first-pull-request/).
+
+## Select Java and import the mod
+
+Run Gradle commands below from the cloned repository root containing `gradlew`.
+On Windows PowerShell, replace `./gradlew` with `.\gradlew.bat`.
+
+1. **Read the Java requirements.** Check the README, `.java-version` when
+   present, `gradle/gradle-daemon-jvm.properties`, and build configuration.
+   Install the required JDK, then compare the shell and Gradle selections:
+
+   ```sh
+   java -version
+   ./gradlew --version
+   ```
+
+   The wrapper launcher, Gradle daemon, compiler toolchains, and game runtime
+   can use different Java installations. Daemon JVM criteria take precedence
+   over `JAVA_HOME`. Use the
+   [Java selection checks](/GTNH-Dev-Doc/troubleshooting/java/)
+   if the reported selection does not match the project.
+2. **Complete the repository's initial setup.** Run the setup or build commands
+   required by its README before importing. Use the GT5 example below when
+   working on GregTech.
+3. **Open the cloned directory in IntelliJ.** Open the root containing
+   `settings.gradle` or `settings.gradle.kts` and import it as a Gradle project.
+   In [Gradle settings](https://www.jetbrains.com/help/idea/gradle-settings.html),
+   use the checked-in wrapper and the required **Gradle JVM** or **Gradle JVM
+   Criteria**. Set the Project SDK and language level according to the build.
+4. **Wait for import and indexing.** The Gradle tool window should list tasks,
+   and source files should resolve without import errors. If synchronization
+   or generated sources fail, follow
+   [IntelliJ problems](/GTNH-Dev-Doc/troubleshooting/intellij/)
+   with the first error from the import output.
 
 ## Worked example: GT5-Unofficial
 
-This example was checked against GT5 source on September 22, 2026, at
-[`6688182f506b`](https://github.com/GTNewHorizons/GT5-Unofficial/tree/6688182f506be2fa524fb75969b0673887355013).
-It is source-checked guidance, not a record of a successful game launch on every
-platform. Follow the current checkout if its settings have changed.
+[GT5-Unofficial](https://github.com/GTNewHorizons/GT5-Unofficial) supplies
+GregTech for GTNH. For the Git steps above, use `GT5-Unofficial` as the
+repository name; its default branch is `master`.
 
-1. Install a **JDK 25** and select it for your shell and IntelliJ Gradle JVM.
-   This revision's
-   [daemon configuration](https://github.com/GTNewHorizons/GT5-Unofficial/blob/6688182f506be2fa524fb75969b0673887355013/gradle/gradle-daemon-jvm.properties)
-   selects Java 25. Game runtimes and compilation toolchains are separate.
-   Let Gradle resolve the toolchains declared by the project.
-2. Fork `GTNewHorizons/GT5-Unofficial`, then run the following, replacing
-   `YOUR-USER` with your GitHub username:
+At [revision `b7fc37e18719`](https://github.com/GTNewHorizons/GT5-Unofficial/tree/b7fc37e18719b3829cc4752542b5b298e205e457),
+the [daemon configuration](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/gradle/gradle-daemon-jvm.properties)
+selects **Java 25**. Use JDK 25 for this example's shell and IntelliJ Gradle
+selection, and let Gradle resolve the project's compiler toolchains. Follow
+your checkout if its requirements have changed.
 
-   ```console
-   git clone https://github.com/YOUR-USER/GT5-Unofficial.git
-   cd GT5-Unofficial
-   git remote add upstream https://github.com/GTNewHorizons/GT5-Unofficial.git
-   git fetch upstream --tags
-   git switch -c describe-the-change upstream/master
-   git describe --tags --always
-   java -version
-   ./gradlew --version
-   ./gradlew build
-   ```
+The [GT5 README](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/README.md#contribution)
+recommends building before IDE import. From the cloned root, run:
 
-   In PowerShell, replace each `./gradlew` with `.\gradlew.bat`.
-   **Expected result:** a tag-based version, a Java 25 Gradle daemon, and
-   `BUILD SUCCESSFUL`. Preserve the first failing task's output if it fails.
-3. Open this directory in IntelliJ, choose the checked-in Gradle wrapper and
-   JDK 25, and wait for synchronization and indexing. The Gradle tool window
-   should list the project's tasks without import errors.
-4. Run `./gradlew tasks --all`, then `./gradlew runClient`. The development
-   client should reach the main menu. Create a disposable test world and check
-   that GregTech is loaded. Close the client before the next step.
-5. Run `./gradlew runServer`. If startup stops for the Minecraft EULA, read it
-   and, if you agree, set `eula=true` in the `eula.txt` in the server's printed
-   working directory, then rerun. **Expected result:** the server logs `Done`
-   and accepts connections. Keep it running and start `./gradlew runClient`
-   in another terminal. Join `localhost` (or the configured server port) and
-   verify the changed behavior. Enter `stop` in the server console afterward.
+```sh
+./gradlew build
+```
 
-Use generated Java-specific run configurations when testing another supported
-game runtime. Selecting JDK 25 for Gradle does not select the game's runtime.
-For failures, follow [Locate logs](/GTNH-Dev-Doc/how-to/locate-logs/).
-Keep test worlds and generated files out of the commit. Continue with
-[full-pack testing](/GTNH-Dev-Doc/start-here/build-and-run/#test-integration-sensitive-changes-in-the-full-pack)
-for cross-mod changes, then [your first pull request](/GTNH-Dev-Doc/start-here/first-pull-request/).
+On Windows PowerShell, use `.\gradlew.bat build`. The build should finish with
+`BUILD SUCCESSFUL`; then import the project as described above.
 
-## Recognize the important files
-
-A GTNH mod repository may contain:
-
-<FileTree>
-
-- `.github/`
-  - `workflows/` CI defines the authoritative remote checks
-- `gradle/`
-  - `wrapper/` checked-in Gradle version
-- `src/` production and test sources
-- `.java-version` repository JDK hint
-- `build.gradle.kts` or `build.gradle`
-- `gradle.properties`
-- `gradlew` Linux/macOS wrapper
-- `gradlew.bat` Windows wrapper
-- `README.md`
-- `settings.gradle.kts` or `settings.gradle`
-
-</FileTree>
-
-The current [ExampleMod file list](https://github.com/GTNewHorizons/ExampleMod1.7.10)
-shows this layout. Individual repositories vary.
-
-If synchronization fails, use the
-[Gradle troubleshooting guide](/GTNH-Dev-Doc/troubleshooting/gradle/).
-Otherwise, continue to [build and run the project](/GTNH-Dev-Doc/start-here/build-and-run/).
+Once the workspace is ready, continue to
+[Build and run](/GTNH-Dev-Doc/start-here/build-and-run/) for the client,
+dedicated-server, and full-pack checks.

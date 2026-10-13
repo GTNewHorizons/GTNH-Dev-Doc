@@ -6,7 +6,7 @@ description: Fork, edit, review, and submit a GTNH change with a graphical Git c
 Use GitHub Desktop if you prefer a graphical Git workflow. You still need an
 editor for the files you change and a terminal for the checks required by the
 target repository. For code changes, complete the
-[development setup](/GTNH-Dev-Doc/start-here/prerequisites/) first.
+[development setup](/GTNH-Dev-Doc/start-here/fork-clone-and-import/) first.
 
 ## Fork and clone the repository
 

@@ -1,50 +1,100 @@
 ---
 title: Build and run
-description: Discover repository tasks, build the project, and run a development client.
+description: Establish a working mod environment and test the client, server, and pack behavior your change affects.
 sidebar:
-  order: 4
+  order: 3
 ---
 
-## Discover tasks before running them
+Build the mod and launch it before editing code. A working baseline helps you
+distinguish a setup failure from a problem introduced by your change.
 
-```console
-./gradlew tasks --all
+These commands cover mods using GTNHGradle, GTNH's shared build plugin, including
+[GT5-Unofficial](/GTNH-Dev-Doc/start-here/fork-clone-and-import/#worked-example-gt5-unofficial).
+Complete [workspace setup](/GTNH-Dev-Doc/start-here/fork-clone-and-import/)
+first. For pack data, documentation, or a project using other tooling, follow
+its README's build and validation commands.
+
+Run commands from the mod repository root containing `gradlew`. On Windows
+PowerShell, replace `./gradlew` with `.\gradlew.bat` throughout this page.
+
+## Build the unchanged project
+
+```sh
+./gradlew build
 ```
 
-On Windows, use `gradlew.bat tasks --all`. Follow the repository README and CI
-workflow because task names vary. See
-[Work with Gradle tasks](/GTNH-Dev-Doc/how-to/gradle-tasks/) before
-using an unfamiliar task.
+Expect `BUILD SUCCESSFUL`. If you already built before IDE import and have
+not changed the checkout, continue to the client launch. For a failure, keep
+the command and first failing task, then follow
+[Gradle problems](/GTNH-Dev-Doc/troubleshooting/gradle/).
 
-## Build and run
+GTNHGradle generates build, client, and server configurations through its
+[IDE integration](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/IdeIntegrationModule.java).
+You can run the corresponding task from IntelliJ's Gradle tool window or the
+terminal. For an unfamiliar or missing task, use
+[Work with Gradle tasks](/GTNH-Dev-Doc/how-to/gradle-tasks/).
 
-For a concrete sequence from clone through a connected development client and
-dedicated server, use the
-[GT5 worked example](/GTNH-Dev-Doc/start-here/fork-clone-and-import/#worked-example-gt5-unofficial).
+## Launch the development client
 
-Run `build` through the wrapper when the task exists and the README or CI uses
-it. [GT5-Unofficial](https://github.com/GTNewHorizons/GT5-Unofficial#contribution),
-for example, recommends building before IDE import.
+```sh
+./gradlew runClient
+```
 
-`runClient` is the usual client entry point in GTNHGradle mod repositories. Its
-registration is visible in
-[GTNHGradle IDE integration source](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/IdeIntegrationModule.java).
-It may be absent from pack, tooling, or older repositories.
+The client should reach the main menu. Check the loaded mod list for your mod,
+then create a disposable world and confirm the behavior you intend to change.
+For GT5, check that GregTech is loaded and that you can enter the test world.
 
-If IntelliJ provides a **Hotswap** client configuration, use it in debug mode
-for quick iteration. After recompiling, choose **Run → Debugging Actions →
-Reload Changed Classes** to apply supported changes without restarting the game.
-Select the run configuration matching the JDK you need to test.
+A development run contains your mod and its configured dependencies; it does
+not reproduce the entire GTNH pack. Choose a generated Java-specific run when
+you need to test another supported game runtime. The JDK running Gradle does
+not select the game's runtime; see
+[Java and runtime selection](/GTNH-Dev-Doc/concepts/java-and-runtime-model/).
 
-**Expected result:** a build ends with `BUILD SUCCESSFUL`; a run starts a
-development client. For failures, see
-[Locate logs](/GTNH-Dev-Doc/how-to/locate-logs/).
+If the game exits or your code is absent, use
+[Development client and server problems](/GTNH-Dev-Doc/troubleshooting/development-client/)
+with the launch output and game logs.
 
-## Test integration-sensitive changes in the full pack
+## Test on a dedicated server
 
-After isolated testing,
-[test the change in the full pack](/GTNH-Dev-Doc/how-to/test-in-full-pack/).
-This catches interactions absent from an isolated development run.
+Use a dedicated server when your change affects server state, networking, or
+client/server interaction. Singleplayer's integrated server shares the client
+process and can hide class-loading or synchronization failures.
 
-When the project builds and the relevant behavior works, continue to
-[your first pull request](/GTNH-Dev-Doc/start-here/first-pull-request/).
+1. In another terminal at the same repository root, start the server:
+
+   ```sh
+   ./gradlew runServer
+   ```
+
+2. On first launch, the
+   [run task](https://github.com/GTNewHorizons/RetroFuturaGradle/blob/master/plugin/src/main/java/com/gtnewhorizons/retrofuturagradle/minecraft/RunMinecraftTask.java)
+   prompts for online mode and acceptance of the
+   [Minecraft End User License Agreement (EULA)](https://www.minecraft.net/en-us/eula).
+   Answer `n` to online mode so the default development client's test identity
+   can connect. Read the EULA and answer `y` only if you agree. The task writes
+   the settings for you and skips these prompts when the files already exist.
+   Use this offline-mode server for local testing.
+3. Wait for `Done` in the server log. Start the development client and join
+   `127.0.0.1`. If you changed `server-port`, append `:PORT`, replacing `PORT`
+   with that value. Check the affected behavior from the connected client,
+   including whether server changes reach it.
+4. Enter `stop` in the server console when finished.
+
+For GT5, this gives you a client and dedicated server built from the same
+checkout. Keep the reproduction so you can repeat it after the code change.
+See [Testing expectations](/GTNH-Dev-Doc/contributing/testing-expectations/)
+for save/reload, optional-dependency, and other cases your change may need.
+
+## Iterate and test in the full pack
+
+Use [In-game testing tools](/GTNH-Dev-Doc/how-to/in-game-testing-tools/) to
+inspect items, recipes, and saved data or attach a debugger. Restart for
+changes that affect initialization or registration; verify the final result
+in a fresh run even when you reloaded classes with HotSwap during debugging.
+
+For changes involving other mods, recipes, pack configuration, or startup
+order, [test the built artifact in the full pack](/GTNH-Dev-Doc/how-to/test-in-full-pack/).
+Record the pack and mod versions, setup, action, and observed result.
+
+With a working baseline and a test case for your change, continue to
+[Make your first pull request](/GTNH-Dev-Doc/start-here/first-pull-request/).

@@ -1,34 +1,64 @@
 ---
 title: Choose a repository
-description: Find the GTNH repository that owns the change you want to make.
+description: Identify the owner of your change and the contribution path to follow.
 sidebar:
-  order: 2
+  order: 1
 ---
 
-Start from the issue or behavior. Search the
-[GTNewHorizons organization](https://github.com/GTNewHorizons), then inspect
-candidate README files, issues, and recent pull requests. A similarly named
-project may only be a dependency.
+Find the repository that owns the change before setting up a development
+workspace. GTNH includes mod source, pack data, translations, and tooling in
+separate repositories; their build requirements differ.
 
-If unclear, use
+## Start from the change
+
+If you have not chosen a change yet, browse the
+[GTNH issue tracker](https://github.com/GTNewHorizons/GT-New-Horizons-Modpack/issues)
+for a problem you can reproduce in an area of the pack you know.
+
+For an existing issue, check its linked source and pull requests. If you
+start from a bug in game, keep the reproduction steps and relevant log,
+recipe, item, or class name. Use
 [Find where a change belongs](/GTNH-Dev-Doc/how-to/find-change-location/)
-or ask in the [official GTNH Discord](https://discord.gg/EXshrPV) with your
-findings. Do not open duplicate pull requests across repositories.
+to trace that evidence to the code or data responsible.
 
-For a new standalone 1.7.10 mod, follow the current
-[ExampleMod1.7.10 starter instructions](https://github.com/GTNewHorizons/ExampleMod1.7.10#getting-started).
-Use its starter archive rather than forking the example repository.
+Use the [repository map](/GTNH-Dev-Doc/concepts/repository-map/) to distinguish
+mod code from pack configuration, translations, and build tooling. Then read
+the candidate repository's README and inspect the relevant source. A name in
+a dependency list establishes that the project is used; it does not establish
+that the fix belongs there.
 
-## Read the repository as the specification
+If ownership remains unclear, ask in the
+[official GTNH Discord](https://discord.gg/EXshrPV) with the reproduction and
+repositories you have checked. For a change spanning several repositories,
+identify the dependency order and plan separate, linked pull requests.
 
-Inspect these files when present:
+## Check the contribution requirements
 
-- The `README.md` and contribution files for the repository-specific workflow.
-- The `.java-version` file and Gradle toolchains for the expected JDK.
-- The `gradle/gradle-daemon-jvm.properties` file for a pinned Gradle daemon JDK.
-- The `gradle/wrapper/gradle-wrapper.properties` file for the Gradle version.
-- The `.github/workflows/` directory for the tasks and environment used by CI.
-- The `gradle.properties` and dependency files for project settings.
+Read the [GTNH contribution guidelines](https://github.com/GTNewHorizons/.github/blob/master/CONTRIBUTING.md)
+and the repository's own instructions before implementation. Check existing
+issues and pull requests so you can build on work already underway.
 
-Treat checked-in files as repository facts, not universal GTNH policy.
-Next, [fork, clone, and import it](/GTNH-Dev-Doc/start-here/fork-clone-and-import/).
+Major new content must be discussed with the team before implementation.
+For balance or progression changes, consult people familiar with the affected
+area and follow the current balance requirements. Use
+[Before you start coding](/GTNH-Dev-Doc/contributing/before-you-code/)
+for the policy links, including the AI usage policy.
+
+Note the branch the repository asks you to target. You will use it when
+creating your working branch and opening the pull request.
+
+## Choose the setup you need
+
+- **Mod code:** continue to
+  [Set up your workspace](/GTNH-Dev-Doc/start-here/fork-clone-and-import/),
+  then [Build and run](/GTNH-Dev-Doc/start-here/build-and-run/).
+- **Documentation, translations, assets, or pack data:** fork and clone the
+  repository using the same [Git setup](/GTNH-Dev-Doc/start-here/fork-clone-and-import/#fork-and-clone).
+  Follow its README for the editor, generators, and validation it needs.
+- **A new standalone mod:** use the
+  [ExampleMod1.7.10 starter](https://github.com/GTNewHorizons/ExampleMod1.7.10#getting-started).
+  The project provides a starter archive; do not fork the example repository
+  to create your mod.
+
+You are ready to continue when you can name the owning repository, target
+branch, intended result, and any discussion required before work starts.

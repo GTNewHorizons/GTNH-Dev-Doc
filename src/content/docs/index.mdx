@@ -1,22 +1,22 @@
 ---
-title: GTNH Developer Documentation
-description: Shared practices, workflows, and technical knowledge for GTNH development
+title: Develop for GT New Horizons
+description: Set up a workspace, test a change, and contribute to GT New Horizons.
 template: splash
 head:
   - tag: base
     attrs:
       href: /GTNH-Dev-Doc/
 hero:
-  title: GTNH Developer Documentation
-  tagline: Shared practices, workflows, and technical knowledge for GTNH development
+  title: Develop for GT New Horizons
+  tagline: Set up your workspace, test your change, and contribute to GTNH's mods and modpack.
   image:
     file: ../../assets/gtnh-logo.png
     alt: GT New Horizons logo
   actions:
-    - text: Start developing
-      link: ./start-here/prerequisites/
+    - text: Start contributing
+      link: ./start-here/
       icon: right-arrow
-    - text: Browse practices
+    - text: Development practices
       link: ./development-practices/
       icon: open-book
       variant: secondary
@@ -24,59 +24,40 @@ hero:
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-This documentation is for developers, maintainers, reviewers, and contributors changing GTNH repositories. Player documentation belongs on the [official GTNH wiki](https://wiki.gtnewhorizons.com/).
+GT New Horizons (GTNH) develops a Minecraft 1.7.10 modpack and maintains many
+of its mods. Use these docs when you change mod code, recipes, pack
+configuration, translations, or developer tools.
 
-Technical pages link to current repository files or upstream documentation for details that may change.
-
-## Explore the documentation
+## Work in an existing checkout
 
 <CardGrid>
   <LinkCard
-    title="Start Here"
-    href="./start-here/prerequisites/"
-    description="Choose a repository, prepare its toolchain, and make a first pull request."
-  />
-  <LinkCard
-    title="Contributing"
-    href="./contributing/before-you-code/"
-    description="Check GTNH expectations before investing time in a change."
-  />
-  <LinkCard
-    title="Development Practices"
+    title="Follow shared development practices"
     href="./development-practices/"
-    description="Apply shared GTNH conventions and compatibility practices."
+    description="Check GTNH conventions for code style, localization, and optional mod integrations."
   />
   <LinkCard
-    title="How-to Guides"
-    href="./how-to/find-change-location/"
-    description="Complete a specific development or diagnostic task."
+    title="Test a change in the full pack"
+    href="./how-to/test-in-full-pack/"
+    description="Install your built mod in a development pack and check behavior with the other mods and pack configuration."
   />
   <LinkCard
-    title="Concepts"
-    href="./concepts/repository-map/"
-    description="Understand repository ownership, build tooling, and the release pipeline."
+    title="Inspect and debug a running game"
+    href="./how-to/in-game-testing-tools/"
+    description="Inspect items, recipes, and saved data, attach a debugger, and reload supported code changes."
   />
   <LinkCard
-    title="Maintainer Procedures"
-    href="./maintainers/run-daily-build/"
-    description="Perform authorized tagging and modpack build operations."
-  />
-  <LinkCard
-    title="Troubleshooting"
-    href="./troubleshooting/java/"
-    description="Diagnose Java, Gradle, client, IntelliJ, CI, and transformer symptoms."
-  />
-  <LinkCard
-    title="Minecraft & Forge Internals"
-    href="./minecraft-forge-internals/client-server-boundaries/"
-    description="Understand the Minecraft 1.7.10 and Forge behavior that matters to GTNH development."
-  />
-  <LinkCard
-    title="Reference"
-    href="./reference/glossary/"
-    description="Look up GTNH development terms and authoritative resources."
+    title="Diagnose a build failure"
+    href="./troubleshooting/gradle/"
+    description="Separate wrapper, configuration, and task failures and follow the reported cause."
   />
 </CardGrid>
 
-Use the [GTNewHorizons GitHub organization](https://github.com/GTNewHorizons)
-for code, issues, and repository-specific instructions.
+For repository roles and build tooling, use the
+[repository map](./concepts/repository-map/) and
+[build-system overview](./concepts/build-system-stack/). Maintainers can follow
+[pack-build procedures](./maintainers/run-daily-build/) and
+[release operations](./maintainers/release-operations/).
+
+For installation, progression, and other gameplay topics, use the
+[official GTNH wiki](https://wiki.gtnewhorizons.com/).

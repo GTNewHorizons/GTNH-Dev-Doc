@@ -10,6 +10,8 @@ export default defineConfig({
       '/GTNH-Dev-Doc/maintainers/run-daily-build',
     '/start-here/setup':
       '/GTNH-Dev-Doc/start-here/fork-clone-and-import',
+    '/start-here/prerequisites':
+      '/GTNH-Dev-Doc/start-here/fork-clone-and-import#prepare-your-tools',
     '/start-here/build-and-first-pr':
       '/GTNH-Dev-Doc/start-here/build-and-run',
     '/how-to/change-location':
@@ -64,7 +66,7 @@ export default defineConfig({
         {
           label: 'Start Here',
           items: [
-            { slug: 'start-here/prerequisites' },
+            { slug: 'start-here' },
             { slug: 'start-here/choose-a-repository' },
             { slug: 'start-here/fork-clone-and-import' },
             { slug: 'start-here/build-and-run' },
