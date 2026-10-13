@@ -99,6 +99,7 @@ export default defineConfig({
             { slug: 'how-to/gradle-tasks' },
             { slug: 'how-to/test-cross-repository-changes' },
             { slug: 'how-to/test-in-full-pack' },
+            { slug: 'how-to/in-game-testing-tools' },
             { slug: 'how-to/locate-logs' },
             { slug: 'how-to/use-horizon-qa' },
           ],
