@@ -1,8 +1,6 @@
 ---
 title: In-game testing tools and tricks
 description: Inspect items and recipes, debug Minecraft, and iterate with Single Hotswap.
-sidebar:
-  order: 7
 ---
 
 Use these tools to inspect game state and test a code change. Start in a

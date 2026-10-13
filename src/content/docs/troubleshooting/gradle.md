@@ -1,8 +1,6 @@
 ---
 title: Gradle problems
 description: Separate wrapper, configuration, and task failures, then repair the reported cause.
-sidebar:
-  order: 2
 ---
 
 Start with the command that failed and its first relevant exception, including

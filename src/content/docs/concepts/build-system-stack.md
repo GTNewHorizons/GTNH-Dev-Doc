@@ -1,8 +1,6 @@
 ---
 title: Understand the GTNH build-system stack
 description: Identify which build layer owns a setting, task, or failed operation.
-sidebar:
-  order: 2
 ---
 
 A GTNH mod's build combines repository-specific choices with shared Gradle

@@ -1,8 +1,6 @@
 ---
 title: Locate logs and useful errors
 description: Capture the command, context, and exception chain that explain a development failure.
-sidebar:
-  order: 3
 ---
 
 Collect output from the process that failed. A Gradle task failure, a game

@@ -1,8 +1,6 @@
 ---
 title: GTNH development glossary
 description: Look up the build, runtime, and collaboration terms used by the developer guides.
-sidebar:
-  order: 1
 ---
 
 Use these definitions to identify a term, then follow its guide for the

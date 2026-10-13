@@ -1,8 +1,6 @@
 ---
 title: Java problems
 description: Identify the Java installation responsible for a startup, toolchain, or bytecode error.
-sidebar:
-  order: 1
 ---
 
 A Java error needs a correction in the process that reports it. Gradle's

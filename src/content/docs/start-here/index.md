@@ -1,8 +1,6 @@
 ---
 title: Make your first contribution
 description: Follow the path from choosing a GTNH change to submitting a tested pull request.
-sidebar:
-  order: 0
 ---
 
 Start with a change you can describe and test. These guides take you from

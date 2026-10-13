@@ -1,8 +1,6 @@
 ---
 title: Pull request expectations
 description: Give GTNH reviewers the scope, context, and evidence needed to assess your change.
-sidebar:
-  order: 3
 ---
 
 A reviewer should be able to identify the problem, understand the resulting

@@ -1,8 +1,6 @@
 ---
 title: IntelliJ problems
 description: Diagnose Gradle imports, missing generated sources, and unresolved editor symbols.
-sidebar:
-  order: 4
 ---
 
 Check the failing operation through the Gradle wrapper before repairing IDE

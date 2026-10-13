@@ -1,8 +1,6 @@
 ---
 title: Make your first pull request
 description: Make one tested change, review the commit, and submit it to the owning GTNH repository.
-sidebar:
-  order: 4
 ---
 
 Submit one change that you can explain and verify. Before editing, confirm

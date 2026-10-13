@@ -1,8 +1,6 @@
 ---
 title: CI problems
 description: Reproduce the failing GitHub Actions operation and explain why its result differs locally.
-sidebar:
-  order: 5
 ---
 
 For a continuous integration (CI) failure, open the GitHub Actions run and

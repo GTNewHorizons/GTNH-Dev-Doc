@@ -1,8 +1,6 @@
 ---
 title: Test cross-repository changes
 description: Publish an unpublished dependency locally and confirm that its consumer uses the intended version.
-sidebar:
-  order: 4
 ---
 
 Use Maven Local when one mod needs an unpublished change from another.

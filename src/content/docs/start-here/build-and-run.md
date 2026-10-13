@@ -1,8 +1,6 @@
 ---
 title: Build and run
 description: Establish a working mod environment and test the client, server, and pack behavior your change affects.
-sidebar:
-  order: 3
 ---
 
 Build the mod and launch it before editing code. A working baseline helps you

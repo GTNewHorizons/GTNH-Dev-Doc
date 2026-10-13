@@ -1,8 +1,6 @@
 ---
 title: Understand dependencies and artifacts
 description: Choose dependency visibility and distinguish a development jar from a pack runtime artifact.
-sidebar:
-  order: 4
 ---
 
 A dependency declaration chooses an artifact and the classpaths that can use

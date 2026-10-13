@@ -1,8 +1,6 @@
 ---
 title: Find where a change belongs
 description: Trace a game symptom, recipe, or build failure to the source that owns it.
-sidebar:
-  order: 1
 ---
 
 Start with evidence you can search: a registry name, translation key, exact log

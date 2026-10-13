@@ -1,8 +1,6 @@
 ---
 title: Run a daily modpack build manually
 description: Dispatch the daily workflow and verify its packages, metadata commit, and publication.
-sidebar:
-  order: 1
 ---
 
 Use this procedure when an authorized DreamAssemblerXXL maintainer needs a

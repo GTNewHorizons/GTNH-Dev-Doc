@@ -1,8 +1,6 @@
 ---
 title: Understand the GTNH release pipeline
 description: Trace a merged change through a tagged mod artifact, pack manifest, and assembled download.
-sidebar:
-  order: 5
 ---
 
 A merge changes source. Players receive an assembled pack containing selected

@@ -1,8 +1,6 @@
 ---
 title: Development client and server problems
 description: Diagnose failed game launches, mod-loading errors, and changes absent from a running game.
-sidebar:
-  order: 3
 ---
 
 A failed run task can mean Gradle never launched Minecraft, or that the game

@@ -1,8 +1,6 @@
 ---
 title: Set up your workspace
 description: Fork and clone a GTNH repository, prepare its Java setup, and import a mod into IntelliJ.
-sidebar:
-  order: 2
 ---
 
 Start with the [repository you chose](/GTNH-Dev-Doc/start-here/choose-a-repository/)

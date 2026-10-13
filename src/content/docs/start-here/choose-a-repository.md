@@ -1,8 +1,6 @@
 ---
 title: Choose a repository
 description: Identify the owner of your change and the contribution path to follow.
-sidebar:
-  order: 1
 ---
 
 Find the repository that owns the change before setting up a development

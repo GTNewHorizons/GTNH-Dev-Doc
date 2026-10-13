@@ -1,8 +1,6 @@
 ---
 title: Map a change to the GTNH repositories
 description: Distinguish mod source, pack data, shared tooling, and publication before choosing an owner.
-sidebar:
-  order: 1
 ---
 
 GTNH's pack is assembled from many independently maintained projects.

@@ -1,8 +1,6 @@
 ---
 title: Use Horizon-QA GameTests
 description: Select a server-side regression test, run it in development, and inspect its reported result.
-sidebar:
-  order: 6
 ---
 
 Use [Horizon-QA](https://www.gtnewhorizons.com/Horizon-QA/) when a regression

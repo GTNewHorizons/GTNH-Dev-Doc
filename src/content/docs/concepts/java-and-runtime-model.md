@@ -1,8 +1,6 @@
 ---
 title: Understand Java and runtime selection
 description: Distinguish the Gradle launcher, daemon, compiler, and Minecraft runtime.
-sidebar:
-  order: 3
 ---
 
 A successful build can use several Java installations. The Java version that

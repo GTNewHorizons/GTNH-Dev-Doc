@@ -1,8 +1,6 @@
 ---
 title: Official resources
 description: Find the policy, source, support channel, or tool reference that owns a development question.
-sidebar:
-  order: 2
 ---
 
 Choose the resource that owns your question. A mod's source and build

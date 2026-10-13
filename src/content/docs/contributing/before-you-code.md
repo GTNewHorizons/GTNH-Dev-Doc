@@ -1,8 +1,6 @@
 ---
 title: Before you start coding
 description: Check design, balance, and contribution requirements before committing to a GTNH change.
-sidebar:
-  order: 1
 ---
 
 Check whether the change fits GTNH before investing in implementation. Read

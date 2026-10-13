@@ -1,8 +1,6 @@
 ---
 title: Run an experimental modpack build
 description: Dispatch the experimental workflow and verify its test bundle, downloads, and generated commit.
-sidebar:
-  order: 2
 ---
 
 An experimental build generates a mod selection, assembles client/server

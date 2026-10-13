@@ -65,6 +65,7 @@ export default defineConfig({
         { label: 'Home', slug: 'index' },
         {
           label: 'Start Here',
+          collapsed: true,
           items: [
             { slug: 'start-here' },
             { slug: 'start-here/choose-a-repository' },
@@ -75,6 +76,7 @@ export default defineConfig({
         },
         {
           label: 'Contributing',
+          collapsed: true,
           items: [
             { slug: 'contributing/before-you-code' },
             { slug: 'contributing/pull-request-expectations' },
@@ -83,50 +85,22 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Development Practices',
-          items: [
-            { slug: 'development-practices' },
-            { slug: 'development-practices/code-style' },
-            { slug: 'development-practices/chemical-balance' },
-            { slug: 'development-practices/localized-display-text' },
-            { slug: 'development-practices/gt5-localization' },
-            { slug: 'development-practices/optional-mod-integrations' },
-          ],
-        },
-        {
           label: 'How-to Guides',
+          collapsed: true,
           items: [
             { slug: 'how-to/find-change-location' },
             { slug: 'how-to/use-github-desktop' },
             { slug: 'how-to/gradle-tasks' },
             { slug: 'how-to/test-cross-repository-changes' },
             { slug: 'how-to/test-in-full-pack' },
+            { slug: 'how-to/use-horizon-qa' },
             { slug: 'how-to/in-game-testing-tools' },
             { slug: 'how-to/locate-logs' },
-            { slug: 'how-to/use-horizon-qa' },
-          ],
-        },
-        {
-          label: 'Concepts',
-          items: [
-            { slug: 'concepts/repository-map' },
-            { slug: 'concepts/build-system-stack' },
-            { slug: 'concepts/java-and-runtime-model' },
-            { slug: 'concepts/dependencies-and-artifacts' },
-            { slug: 'concepts/release-pipeline' },
-          ],
-        },
-        {
-          label: 'Maintainer Procedures',
-          items: [
-            { slug: 'maintainers/run-daily-build' },
-            { slug: 'maintainers/run-experimental-build' },
-            { slug: 'maintainers/release-operations' },
-            { slug: 'maintainers/repair-maven-metadata' },
           ],
         },
         {
           label: 'Troubleshooting',
+          collapsed: true,
           items: [
             { slug: 'troubleshooting/java' },
             { slug: 'troubleshooting/gradle' },
@@ -137,7 +111,31 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Development Practices',
+          collapsed: true,
+          items: [
+            { slug: 'development-practices' },
+            { slug: 'development-practices/code-style' },
+            { slug: 'development-practices/chemical-balance' },
+            { slug: 'development-practices/localized-display-text' },
+            { slug: 'development-practices/gt5-localization' },
+            { slug: 'development-practices/optional-mod-integrations' },
+          ],
+        },
+        {
+          label: 'Concepts',
+          collapsed: true,
+          items: [
+            { slug: 'concepts/repository-map' },
+            { slug: 'concepts/build-system-stack' },
+            { slug: 'concepts/java-and-runtime-model' },
+            { slug: 'concepts/dependencies-and-artifacts' },
+            { slug: 'concepts/release-pipeline' },
+          ],
+        },
+        {
           label: 'Minecraft & Forge Internals',
+          collapsed: true,
           items: [
             { slug: 'minecraft-forge-internals/client-server-boundaries' },
             { slug: 'minecraft-forge-internals/tile-entity-state' },
@@ -150,9 +148,20 @@ export default defineConfig({
         },
         {
           label: 'Reference',
+          collapsed: true,
           items: [
             { slug: 'reference/glossary' },
             { slug: 'reference/official-resources' },
+          ],
+        },
+        {
+          label: 'Maintainer Procedures',
+          collapsed: true,
+          items: [
+            { slug: 'maintainers/run-daily-build' },
+            { slug: 'maintainers/run-experimental-build' },
+            { slug: 'maintainers/release-operations' },
+            { slug: 'maintainers/repair-maven-metadata' },
           ],
         },
       ],

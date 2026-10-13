@@ -1,8 +1,6 @@
 ---
 title: Work with Gradle tasks
 description: Discover a checkout's tasks, inspect their options, and choose a supported local override.
-sidebar:
-  order: 2
 ---
 
 Run these commands from the repository root containing its checked-in wrapper,

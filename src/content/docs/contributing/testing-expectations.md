@@ -1,8 +1,6 @@
 ---
 title: Testing expectations
 description: Choose checks that observe the behavior and boundaries changed by a GTNH contribution.
-sidebar:
-  order: 4
 ---
 
 Test the behavior your change affects, then the boundaries it crosses.

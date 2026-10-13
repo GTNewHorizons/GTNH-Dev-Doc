@@ -1,8 +1,6 @@
 ---
 title: Mixins and transformers
 description: Identify a failed runtime patch and choose diagnostics that expose its target and effects.
-sidebar:
-  order: 6
 ---
 
 Mixins and class transformers patch classes while Minecraft loads them. For

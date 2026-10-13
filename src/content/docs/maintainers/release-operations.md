@@ -1,8 +1,6 @@
 ---
 title: Release operations
 description: Determine who creates the tag, select its commit, and verify each publication destination.
-sidebar:
-  order: 3
 ---
 
 Pushing a version tag can publish mod jars consumed by other mods and pack

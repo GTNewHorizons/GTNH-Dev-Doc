@@ -1,8 +1,6 @@
 ---
 title: Contribute to this documentation
 description: Choose a useful developer topic, verify its claims, and submit a documentation change.
-sidebar:
-  order: 5
 ---
 
 Write for a developer who needs to complete a task, choose an approach,
@@ -24,20 +22,24 @@ demonstrates can belong here with a source link.
 
 ## Put the content where readers need it
 
-| Section | Reader's goal |
-| --- | --- |
-| Start Here | Prepare a workspace and submit a first contribution. |
-| Contributing | Understand contribution, review, and testing expectations. |
-| Development Practices | Choose an implementation approach GTNH expects or recommends. |
-| How-to Guides | Complete a specific development task. |
-| Concepts | Understand repositories, build layers, runtimes, and releases. |
-| Maintainer Procedures | Perform an authorized build, publication, or recovery operation. |
-| Troubleshooting | Diagnose a symptom and verify recovery. |
-| Minecraft & Forge Internals | Understand a legacy platform mechanism that affects a change. |
-| Reference | Look up a term or authoritative resource. |
+The folders under `src/content/docs/` match the sidebar sections:
+
+| Section | Folder | Reader's goal |
+| --- | --- | --- |
+| Start Here | `start-here/` | Prepare a workspace and submit a first contribution. |
+| Contributing | `contributing/` | Understand contribution, review, and testing expectations. |
+| How-to Guides | `how-to/` | Complete a specific development task. |
+| Troubleshooting | `troubleshooting/` | Diagnose a symptom and verify recovery. |
+| Development Practices | `development-practices/` | Choose an implementation approach GTNH expects or recommends. |
+| Concepts | `concepts/` | Understand repositories, build layers, runtimes, and releases. |
+| Minecraft & Forge Internals | `minecraft-forge-internals/` | Understand a legacy platform mechanism that affects a change. |
+| Reference | `reference/` | Look up a term or authoritative resource. |
+| Maintainer Procedures | `maintainers/` | Perform an authorized build, publication, or recovery operation. |
 
 Link related material rather than explaining the same mechanism in several
 sections. A procedure can link background without interrupting its main path.
+An `index.md` page should introduce a useful path or help readers choose among
+guides in that section.
 
 ## Verify advice before publishing it
 
@@ -65,16 +67,20 @@ when they expose sequence, alternatives, priority, or navigation. Steps are
 ordered actions; tabs are mutually exclusive alternatives; cards are
 destinations. Essential actions belong in the main flow.
 
-Pages importing components use `.mdx` and import from
-`@astrojs/starlight/components`. Retain the basename when changing a page's
-extension so its route stays stable.
+Use `.md` for plain Markdown. Pages importing components use `.mdx` and import
+from `@astrojs/starlight/components`. Retain the basename when changing a
+page's extension so its route stays stable.
 
 ## Build and review the result
 
-Edit `src/content/docs/` and register new pages in `astro.config.mjs`.
-When merging or removing a page, update its inbound links and sidebar entry.
-Add a redirect to an equivalent successor when one exists. Check fragments
-when changing headings.
+Register new pages in the explicit sidebar in `astro.config.mjs`. That
+configuration controls section membership and reading order; page frontmatter
+provides the title and description. Inactive sections are collapsed by default,
+and the section containing the current page opens automatically.
+
+When moving, merging, or removing a page, update its inbound links and sidebar
+entry. Add a redirect to an equivalent successor when its URL changes.
+Check fragments when changing headings.
 
 From the documentation checkout root, install dependencies when needed and
 build:

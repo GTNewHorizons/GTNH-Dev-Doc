@@ -1,8 +1,6 @@
 ---
 title: Test a change in the full pack
 description: Replace the relevant jars or pack files in an isolated GTNH build and compare behavior.
-sidebar:
-  order: 5
 ---
 
 Use an assembled GTNH pack when the change depends on other mods, recipes,

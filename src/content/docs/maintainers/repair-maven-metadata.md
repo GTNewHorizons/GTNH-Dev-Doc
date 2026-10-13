@@ -1,8 +1,6 @@
 ---
 title: Repair Maven repository metadata
 description: Confirm metadata corruption, limit the Nexus repair scope, and verify resolution afterward.
-sidebar:
-  order: 4
 ---
 
 Use this recovery procedure only with Nexus administration access, confirmed
