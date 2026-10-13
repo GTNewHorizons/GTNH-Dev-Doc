@@ -1,44 +1,48 @@
 ---
 title: Isolate optional-mod integrations
-description: Keep GTNH mods loadable when an optional dependency is absent or has a different API.
+description: Keep optional API references behind a boundary that can stay unloaded when the dependency is absent.
 ---
 
-:::caution[The JVM can resolve types before your guard]
-The JVM may resolve an optional mod's types while loading the containing class,
-before an installation check inside a method runs.
-:::
+Keep optional-mod code in an implementation that the common startup path can
+leave unloaded. A presence check controls whether a call executes; it does
+not make an absent superclass or interface safe to resolve. The
+[JVM loading and resolution rules](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html#jvms-5.4)
+explain why class loading can fail before the guarded operation runs.
 
-## Put integration code behind a boundary
+## Keep the common entry point independent
 
-Keep optional-mod imports and calls in a dedicated compatibility class or
-package. Its GTNH-owned entry point must not expose optional types in fields,
-method signatures, annotations, or static initializers.
+Put imports and calls to the optional API in a dedicated compatibility class
+or package. The common entry point should use your own types or always-present
+types. Avoid optional types in its superclass, interfaces, public signatures,
+fields, annotations, and static initialization.
 
-Load that implementation only after the repository's compatibility check. FML
-1.7.10 provides
-[`Loader.isModLoaded`](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/Loader.java),
-but presence alone establishes neither API version nor feature support.
+Check availability before constructing or registering the integration.
+FML 1.7.10 provides
+[Loader.isModLoaded](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/Loader.java)
+for presence. That result does not establish an API version, method, or
+capability.
 
-## Detect the capability you require
+Catching `ClassNotFoundException` inside an integration method cannot protect
+a class that already failed to load because of its type hierarchy.
 
-For version-dependent APIs, check the version or probe for the required class or
-method at the compatibility boundary. Keep reflection there. Disable the
-integration or report a clear startup error for unsupported combinations.
+## Check the capability and lifecycle
 
-`ClassNotFoundException` inside a method cannot protect an optional type in the
-containing class's signature; that class may fail before the method runs.
+When supported versions have different APIs, check the version or probe for
+the required class or method at the compatibility boundary. Keep reflection
+and its failure handling there. Disable the unsupported integration or report
+a specific startup error according to the mod's intended dependency contract.
 
-## Respect loading order
+Use the lifecycle phase and dependency ordering appropriate to the
+registration. A presence check is not evidence that the dependency's registry
+is ready. Avoid registry access in static initializers; inspect the owning
+mod's initialization path before choosing where to register.
 
-Register the integration after the dependency has initialized. Avoid optional
-registry access from static initializers and class constructors.
+## Exercise the combinations
 
-Verify at least these configurations:
+Test with the dependency absent and with each API version your code handles.
+Include the minimum and newest supported versions, and confirm the intended
+failure or disabled-feature behavior for an unsupported combination.
 
-1. The optional mod is absent.
-2. The minimum supported version is present.
-3. The newest supported version is present.
-4. An unsupported version fails or disables the feature clearly.
-
-Run the absence case on a client and dedicated server; client-only integrations
-add a separate class-loading boundary.
+Run the absence case on both a client and dedicated server. An integration
+that also uses client-only classes crosses another
+[class-loading boundary](/GTNH-Dev-Doc/minecraft-forge-internals/client-server-boundaries/).

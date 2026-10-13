@@ -1,48 +1,47 @@
 ---
 title: Keep values separate from localized text
-description: Format and translate GTNH values only when presenting them to a player.
+description: Preserve numbers and identifiers through computation and translate only at the player's display boundary.
 ---
 
-Keep numbers and identifiers language-neutral during calculation, storage,
-comparison, and networking. Format and translate them only for display.
+Calculate, store, compare, and transmit numbers and identifiers in their
+original forms. Format and translate them when a player-facing API displays
+the result. A machine's stored energy value, for example, should remain a
+number even when its tooltip uses grouping separators.
 
-## Format only for display
+## Format the value at the display boundary
 
-Use GTNH's shared number-formatting utilities for player-facing values. Use
-`formatFluid` and `getFluidUnit` where applicable so fluid units follow the
-player's configuration.
+Use the owning mod's supported utility or GTNHLib's
+[NumberFormatUtil](https://github.com/GTNewHorizons/GTNHLib/blob/master/src/main/java/com/gtnewhorizon/gtnhlib/util/numberformatting/NumberFormatUtil.java).
+Its `formatNumber` handles number presentation, while `formatFluid` appends
+the configured fluid unit. `getFluidUnit` supplies the unit when an API needs
+it separately.
 
-:::caution[Do not parse display text]
-Never parse a localized result back into a number. Grouping and decimal
-separators differ by locale.
+A formatted value can contain locale-specific grouping and decimal separators.
+Keep the original number for further calculation; parsing the display string
+back into a number makes the calculation depend on presentation settings.
+Machine-readable text must use the representation required by its protocol.
 
-Calculate with the original number. For a machine-readable text format, use the
-locale-independent representation required by its protocol.
-:::
+## Let the receiving client translate
 
-## Translate for the receiving player
+For a message sent from server code, send a translation key and arguments
+through the mod's translated-message API. Each recipient can then display it
+in their own language. Pre-translating with the server's language loses that
+choice.
 
-Send translation keys and arguments to the client that will display them. Text
-localized on the server uses the server's language instead of each player's.
-Forge's
-[1.12 localization documentation](https://docs.minecraftforge.net/en/1.12.x/concepts/internationalization/)
-explains this distinction and warns against using translation keys for logic.
-Use it for the localization model. In 1.7.10, translated chat uses
-`ChatComponentTranslation` and the English language file is `en_US.lang`;
-the guide's `TextComponentTranslation` and `en_us.lang` examples target 1.12.
+In Minecraft 1.7.10, `ChatComponentTranslation` represents translated chat.
+GT5's [sendChatTrans implementation](https://github.com/GTNewHorizons/GT5-Unofficial/blob/master/src/main/java/gregtech/api/util/GTUtility.java)
+wraps that component; pass it the key and arguments. Use the relevant UI
+framework's translation API for client-rendered labels and tooltips.
 
-Use translation keys instead of hard-coded English when the API supports them.
-Changing a key also invalidates translations that use the old key.
+Translation keys are identifiers, not program logic. Keep an existing key
+when its meaning remains the same, and use placeholders so a translation
+can rearrange a complete sentence. For GT5 API choices, placeholder limits,
+and the proposed key layout, see
+[Add localized text to GT5](/GTNH-Dev-Doc/development-practices/gt5-localization/).
 
-## Use the shared GTNH utility
+## Check presentation and delivery
 
-Before adding `String.format`, `DecimalFormat`, or a unit helper, check the
-owning repository and GTNHLib. Current GTNH code uses
-[`NumberFormatUtil`](https://github.com/GTNewHorizons/GTNHLib/blob/master/src/main/java/com/gtnewhorizon/gtnhlib/util/numberformatting/NumberFormatUtil.java)
-for this purpose.
-
-Test a large value, a fractional value, configurable units, and a locale with
-different grouping or decimal separators.
-
-For GT5-specific API, key-naming, placeholder, and language-file layout rules,
-see [Add localized text to GT5](/GTNH-Dev-Doc/development-practices/gt5-localization/).
+Try large and fractional values, a different locale, and both configured
+fluid-unit labels. For server-originated text, connect a non-English client
+to a dedicated server. Confirm that the recipient translates the message and
+that changes in presentation do not alter stored or calculated values.

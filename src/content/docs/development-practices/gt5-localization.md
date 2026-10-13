@@ -1,140 +1,118 @@
 ---
 title: Add localized text to GT5
-description: Choose the correct localization API and name and place new GT5 language keys consistently.
+description: Choose a GT5 translation API, preserve language keys, and apply the proposed naming convention where appropriate.
 ---
 
-These rules apply to new localization work in GT5-Unofficial. They summarize
-the proposed localization guide in
-[GT5-Unofficial PR #7643](https://github.com/GTNewHorizons/GT5-Unofficial/pull/7643).
-Follow the PR's latest guide for a large language-file reorganization.
-Keep calculated and stored values locale-neutral as described in
-[Keep values separate from localized text](/GTNH-Dev-Doc/development-practices/localized-display-text/).
+Start from the text's display destination and preserve any existing key whose
+meaning still fits. These API choices apply to GT5-Unofficial. The naming and
+file layout below come from the **proposed** guide in
+[PR #7643](https://github.com/GTNewHorizons/GT5-Unofficial/pull/7643), which remains
+open; check its review before a broad language-file migration.
 
-## Choose the API by where text is displayed
+Community translations belong in
+[GTNH-Translations](https://github.com/GTNewHorizons/GTNH-Translations).
+This page covers English source strings and their Java call sites.
 
-| Text destination | API |
+## Choose the API by display destination
+
+| Destination | API |
 | --- | --- |
-| Client-rendered item name, tooltip, GUI, NEI, or WAILA text | `StatCollector.translateToLocal(key)` |
+| Client-rendered name, tooltip, GUI, NEI, or WAILA text | `StatCollector.translateToLocal(key)` |
 | Client-rendered text with arguments | `StatCollector.translateToLocalFormatted(key, args...)` |
 | Simple chat sent from server code | `GTUtility.sendChatTrans(player, key, args...)` |
-| Chat with independently styled components | Build an `IChatComponent`, then use `GTUtility.sendChatComp` |
+| Chat with separately styled components | An `IChatComponent` sent with `GTUtility.sendChatComp` |
 | ModularUI 2 widget or tooltip | `IKey.lang(key, args...)` |
 
-Pass the translation key, not a translated string, to `sendChatTrans`. It sends
-a `ChatComponentTranslation` so each receiving client translates the message in
-its own language. Minecraft 1.7.10 supports `%s` and indexed string placeholders
-such as `%1$s` and `%2$s`; GT5's
-[`sendChatTrans` API documentation](https://github.com/GTNewHorizons/GT5-Unofficial/blob/master/src/main/java/gregtech/api/util/GTUtility.java#L553-L564)
-also permits them. Numeric `%d`, `%f`, and precision specifiers are unsupported
-in chat keys.
+Pass the key to `sendChatTrans`, not a string already translated by the server.
+Its [implementation](https://github.com/GTNewHorizons/GT5-Unofficial/blob/master/src/main/java/gregtech/api/util/GTUtility.java)
+sends a `ChatComponentTranslation` so the recipient translates it.
+For new text, use the translation APIs above rather than adding
+`GTLanguageManager.addStringLocalization` calls.
 
-The [proposed guide's chat rule](https://github.com/GTNewHorizons/GT5-Unofficial/blob/21fa3f9687c3a5cb0da7655fed151a711d1bbebb/docs/Localization.md#L53-L55)
-requests plain `%s`. Follow that rule when applying this guide to new GT5 chat
-keys; it is stricter than the underlying API's supported formats.
+Server logs may reuse player-facing text, but do not add translation keys solely
+for logging. The proposed guide describes the dedicated server's English
+fallback and the integrated server's use of its host client's language.
 
-For client-side formatted text, prefer `translateToLocalFormatted` over applying
-`String.format` to a translated value. It catches an invalid translated format
-and returns a format-error result instead of propagating `IllegalFormatException`.
+## Choose placeholders that preserve the sentence
 
-A server may reuse a translated player-facing string in a log. Do not create a
-translation key solely for server logging: dedicated servers load `en_US`, while
-an integrated server uses its host client's language.
+Use placeholders instead of concatenating translated fragments. For new GT5
+chat keys, follow the proposed guide's plain `%s` convention. The underlying
+chat API also accepts indexed string placeholders, as its documentation
+states, but the proposal intentionally uses the narrower convention.
+Numeric conversions such as `%d` or `%f` are not chat formatting operations.
 
-## Name new keys consistently
+For client text, indexed string placeholders such as `%1$s` and `%2$s` let
+translations reorder arguments. Format displayed numbers with the
+[shared number utility](/GTNH-Dev-Doc/development-practices/localized-display-text/)
+before substitution. Minecraft 1.7.10's language loaders normalize numeric
+placeholders to string placeholders, so a key containing `%.2f` does not
+guarantee two decimal places. You can inspect `Locale` and `StringTranslate`
+in the generated Minecraft sources.
 
-Use this shape:
+Prefer `translateToLocalFormatted` to applying `String.format` to translated
+text yourself; its implementation returns a format-error result for an invalid
+format. Test each translated value with the arguments actually passed by its
+call site.
+
+Use `\n` within a tooltip key when its lines always appear together.
+Use numbered `.tooltip.1`, `.tooltip.2`, and subsequent keys when lines can
+be displayed independently. Use `EnumChatFormatting` for formatting in Java;
+language-file values may contain section-sign codes.
+
+## Apply the proposed naming convention
+
+For new keys using this convention, start with:
 
 ```text
 gt.<category>.<subcategory>.<identifier>
 ```
 
-- Use lowercase names.
-- Separate segments with `.`.
-- Use `snake_case` within a segment.
-- Put suffixes such as `.name`, `.tooltip`, `.title`, `.structure_error`,
-  `.shutdown_reason`, or `.recipe_result` last.
+Use lowercase categories and identifiers, `.` between segments, and
+`snake_case` within a segment. Put suffixes such as `.name`, `.tooltip`,
+`.title`, `.structure_error`, `.shutdown_reason`, and `.recipe_result` last.
 
-Creative-tab keys are generated as `itemGroup.<registryName>.<tabName>` and do
-not use the `gt.` prefix. All language keys share one namespace across the
-loaded game, so a key must identify its GT5 purpose clearly.
-
-If a key is used in one source file, put a class scope immediately after the
-category. Remove common `MTE`, `GT`, or `GT5U` prefixes and write the remainder
-in `camelCase`:
+A key used by one source file includes a class scope after the category.
+Remove common `MTE`, `GT`, or `GT5U` prefixes and use `camelCase` for this
+scope:
 
 ```properties
 gt.infodata.basicBatteryBuffer.stored_items=Stored: %s / %s EU
 ```
 
-Drop the class scope when multiple files share the key:
+Drop the class scope for keys shared by several files:
 
 ```properties
 gt.infodata.average_input=Avg. Input: %s EU/t
 ```
 
-## Preserve translatable structure
+Creative-tab keys use the generated `itemGroup.` naming instead of this prefix.
+All loaded language keys share a namespace, so the key must identify its GT5
+purpose.
 
-Use placeholders instead of concatenating translated fragments. Client-side
-formatted text may use `%s`, `%d`, `%f`, and positional placeholders such as
-`%1$s`; positional placeholders let translations reorder arguments. Chat keys
-follow the proposed guide's plain `%s` rule above.
+## Place and preserve the source values
 
-Use `\n` inside one tooltip key when its lines always appear together. Use
-numbered `.tooltip.1`, `.tooltip.2`, and subsequent keys when lines can be
-shown conditionally, reordered, or extended independently.
+Edit `src/main/resources/assets/gregtech/lang/en_US.lang`.
+The [proposal's layout](https://github.com/GTNewHorizons/GT5-Unofficial/blob/21fa3f9687c3a5cb0da7655fed151a711d1bbebb/docs/Localization.md)
+puts new keys near the bottom, below the new-system marker, under functional
+headings such as GUI, Tooltips, Chat, or Scanner & Info Data. Class scope is
+part of a key's name, not a separate functional section.
 
-Use `EnumChatFormatting` in Java. Section-sign formatting codes are permitted
-inside language-file values; keep hard-coded codes in Java for sequences where
-constants would make the result less readable.
+Check whether your checkout has that structure before using it. If the marker
+and sections are absent, follow the current file layout and coordinate the
+migration separately. Keep unrelated legacy entries in place.
 
-## Put keys in the functional section
+Never reuse a key for a different meaning. If a shipped key is intentionally
+renamed or removed, update its references and all shipped language files in
+the same change so another locale does not silently retain the old meaning.
 
-Add new keys at the bottom of `en_US.lang`, below the designated new-language
-system marker, under the heading matching where the text is used. GT5's
-top-level groups include items, blocks, elements and materials, GUI, tooltips,
-scanner and information data, chat, entities, achievements, and configuration.
+## Verify the result
 
-Use Markdown-style comment depth: `#` for a top-level group, `##` for its child,
-then `###` and `####`. Group a file-scoped key by function, not by its Java
-class. Text rendered inside a GUI belongs under GUI even when it reports an
-error or status; reserve Tooltips for hover text and multiblock tooltip-builder
-text.
+Check the key, English value, references, and placeholders together.
+Exercise the actual UI, including multiline or conditional text.
+For server chat, connect a non-English client to a dedicated server and verify
+that the recipient displays the translation.
 
-Do not reorder unrelated legacy keys while the language file is being migrated.
-Never reuse an existing key for a different meaning. When intentionally
-renaming or removing a key, update every shipped language file in the same pull
-request so another locale does not silently keep the old meaning.
-
-## Verify the change
-
-Check that:
-
-1. The selected API translates on the client that displays the text.
-2. The key follows the prefix, category, scope, and suffix rules.
-3. Every placeholder is supported by the selected API.
-4. The key is under the correct functional heading.
-5. Server-originated chat works on a dedicated server with a non-English client.
-
-## References and editor tooling
-
-Forge's
-[internationalization and localization documentation](https://docs.minecraftforge.net/en/1.12.x/concepts/internationalization/)
-explains translation keys, language files, client-side localization, and why
-translation keys must not be used for program logic. It targets Minecraft 1.12,
-so use it for the localization model and follow the GT5 rules above for 1.7.10
-class names and placeholder support.
-
-[GTNH-Lang-utils](https://github.com/GTNewHorizons/GTNH-Lang-utils) provides an
-optional VS Code extension for GTNH `.lang` files. Install its `.vsix` from the
-[releases page](https://github.com/GTNewHorizons/GTNH-Lang-utils/releases). It
-provides:
-
-- Minecraft, Angelica, gradient, rainbow, and formatting-code highlighting.
-- Color swatches for inline colors and GTNHLib `ColorResource` values.
-- Navigation between Java translation calls and language keys.
-- Reference counts and translated-value hover information.
-- Section folding and sticky headings based on `#` comment depth.
-
-:::note[AI-generated tool]
-The extension is fully AI-generated. Treat its results as editor assistance and verify keys, formatting, and references against the source files and the GT5 localization guide.
-:::
+[GTNH-Lang-utils](https://github.com/GTNewHorizons/GTNH-Lang-utils) provides
+optional VS Code assistance for `.lang` highlighting and section navigation.
+Use its current README for installation and supported features; source files
+and the localization guide determine correctness.
