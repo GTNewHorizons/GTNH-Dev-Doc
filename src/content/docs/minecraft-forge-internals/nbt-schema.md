@@ -1,51 +1,73 @@
 ---
 title: Treat NBT as a persistent schema
-description: Evolve saved GTNH data without changing existing worlds accidentally.
+description: Preserve the meaning of released keys and define defaults and migrations for older saved data.
 ---
 
-:::caution[NBT is a compatibility contract]
-Released NBT keys form a persistent schema that newer code must still read.
-:::
+A released NBT key becomes part of the data your newer code must read.
+Changing a field's name, unit, or interpretation can change an existing world
+even when the new code compiles. Define the old-data behavior before changing
+serialization.
 
-## Distinguish missing from zero
+## Distinguish absence from a stored value
 
-For a new key, distinguish an absent key from a stored zero. Check for the key
-and assign the old behavior explicitly when it is absent.
+Minecraft 1.7.10's `NBTTagCompound.getInteger` returns zero for a missing
+key, and `getBoolean` returns false. Those defaults are not necessarily
+your feature's legacy behavior. Use `hasKey`, including a type check when
+needed, before choosing the fallback.
 
-Add a data-version key for multi-step migrations. Use a local missing-key check
-when it completely describes the old format.
+For an illustrative machine whose old mode is `1` and valid modes are
+`0` through `2`, this helper preserves stored zero while giving absent,
+wrong-type, and invalid values the defined fallback:
 
-## Preserve the superclass contract
+```java
+private static int readMode(NBTTagCompound tag) {
+    if (!tag.hasKey("mode", Constants.NBT.TAG_INT)) {
+        return 1;
+    }
+    int mode = tag.getInteger("mode");
+    return mode >= 0 && mode <= 2 ? mode : 1;
+}
+```
 
-Call superclass read and write methods in the expected order. Review every
-subclass when a parent adds serialization. Do not reuse a parent's key.
+This is a fragment for the owning read hook, using `NBTTagCompound` and
+Forge's [Constants.NBT](https://github.com/MinecraftForge/MinecraftForge/blob/1.7.10/src/main/java/net/minecraftforge/common/util/Constants.java).
+Choose the fallback and accepted types from your actual old schema.
+The ordinary canonical write for this example is `setInteger("mode", mode)`.
 
-NBT can load before neighbors, external networks, or players are ready. Read
-raw values first and initialize external objects in their lifecycle callback.
+## Preserve the serialization contract
 
-## Validate after reading
+Call the superclass's read and write methods in the expected order and avoid
+keys it owns. For a tile entity, that includes identity and coordinates.
+For a parent-class change, inspect subclasses that may override its hooks.
 
-Treat NBT from worlds, items, commands, and packets as potentially malformed or
-from an older schema. Reject it or load a defined fallback instead of crashing
-or leaving partially initialized state:
+Load raw values before depending on neighbors, players, or external networks.
+Use the owning lifecycle to initialize those relationships. Saving a runtime
+object reference does not make it a valid relationship after reload.
 
-- Clamp values to the range the current implementation accepts.
-- Reconcile fields that are now mutually exclusive.
-- Handle renamed enum members and identifiers deliberately.
-- Widen numeric types safely and consider values outside the old range.
-- Replace references to removed content with a defined fallback.
+Validate combinations as well as individual ranges. A numeric value can be
+in range while conflicting with another field or referring to removed content.
+Define the fallback, migration, or rejected-load behavior for that case.
 
-Add a new key or migration when a key's unit or meaning changes.
+## Make a format change explicit
 
-## Test old data
+Keep the key when its meaning stays the same. For a renamed key, changed unit,
+or changed identifier, read the old form deliberately and write the new
+canonical form. Accept the older numeric types required by the migration;
+merely changing an integer getter to a long getter does not define the
+compatibility contract.
 
-For a persistence change, keep a representative tag or world created by the
-previous release and verify:
+A missing-key check can be enough for one additive field. Use a data-version
+key when several historical formats require ordered migrations.
+Do not reuse a retired key for a different meaning.
 
-1. It loads with the same observable behavior.
-2. Saving writes the new canonical form.
-3. Reloading the migrated data is stable.
-4. Missing, malformed, and boundary values follow the chosen fallback.
+## Verify old data through a full save cycle
 
-Also test chunk unload and a process restart; an in-memory field does not test
-NBT persistence.
+Keep a representative tag or world from the previous release.
+Check that it loads with the intended behavior, saves the canonical form,
+and loads that form again without another change.
+
+Include absent keys, wrong types, invalid identifiers, and boundary values.
+For world state, test chunk unload and a process restart as well as an
+in-memory read. Follow
+[the tile lifecycle](/GTNH-Dev-Doc/minecraft-forge-internals/tile-entity-state/)
+and record the tested old format in the pull request.

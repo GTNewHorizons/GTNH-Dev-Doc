@@ -1,75 +1,73 @@
 ---
 title: Understand tile entity state
-description: Separate authoritative state, saved state, client synchronization, and player preferences.
+description: Follow a machine value through server ownership, saving, synchronization, and client presentation.
 ---
 
-A tile entity field reaches neither disk nor clients automatically. Classify
-each value before choosing its storage and synchronization.
+A tile entity field reaches neither disk nor clients automatically.
+Consider a machine mode selected in a GUI: the server owns the mode, saving
+preserves it across reloads, and synchronization supplies the client-visible
+copy. Each mechanism serves a different part of that lifecycle.
 
-## Identify the state you are adding
+## Decide what the value belongs to
 
-| Kind of state | Owner | Typical mechanism |
-| --- | --- | --- |
-| Authoritative game state | Logical server | A server-side field changed by game logic |
-| Persistent world state | Saved chunk or world | NBT, followed by dirty marking when it changes |
-| Client-visible state | Server, copied to tracking clients | Description/update packets, GUI sync values, or a focused custom packet |
-| Player preference | Individual client or player | Client configuration or player-scoped data |
+| Value | Owner and lifetime |
+| --- | --- |
+| A machine's operating mode | Server-owned world state; persist it if it must survive reload. |
+| Progress shown in an open GUI | Server state copied through the GUI's synchronization mechanism. |
+| A rendered state visible outside the GUI | Server state sent to the clients tracking the tile. |
+| A player's display preference | Client configuration or player-scoped data, according to the feature. |
+| A derived cache | Recompute or invalidate it when its inputs or lifecycle change. |
 
-A machine mode may need three mechanisms: server authority, NBT persistence,
-and client synchronization for rendering.
+Putting a personal preference in machine NBT makes it shared by every user
+of that machine. Choose ownership before selecting a convenient storage hook.
 
-## Persist only world state
+## Persist the authoritative value
 
-Store state that must survive unload or restart in NBT. Call the superclass and
-follow the repository's serialization hooks. Mark changed persistent state
-dirty so its chunk is saved.
+Use the owning class's serialization hooks and preserve its superclass
+contract. An ordinary `TileEntity` writes its identity and coordinates in
+`writeToNBT`; subclasses add their own values alongside that data.
+[Evolve those keys as a schema](/GTNH-Dev-Doc/minecraft-forge-internals/nbt-schema/)
+when released worlds already contain them.
 
-`markDirty()` concerns persistence. It does not by itself tell clients that a
-rendered value changed. Forge's
-[1.12 tile entity documentation](https://docs.minecraftforge.net/en/1.12.x/tileentities/tileentity/)
-separates saving, dirty marking, and the available synchronization paths.
-Use it for those concepts; its `getUpdateTag` and `getUpdatePacket` examples
-target 1.12.
+Call the relevant dirty-marking path when persistent state changes.
+In Minecraft 1.7.10, `TileEntity.markDirty()` marks its chunk for saving and
+performs related world notifications. It does not serialize and send an
+arbitrary field to clients. You can inspect that implementation in the
+[Forge development sources](/GTNH-Dev-Doc/concepts/build-system-stack/)
+generated for your checkout.
 
-Machine NBT makes a value shared by every user and tied to that machine. Store
-player-specific accessibility and display choices in client configuration or
-player data.
+Read saved values without assuming that neighbors or external networks are
+ready. Reconnect to those objects through the owning lifecycle after loading.
 
-## Synchronize what the client actually needs
+## Send the state needed by the audience
 
-For an ordinary 1.7.10 Forge tile, synchronization can use
-`getDescriptionPacket()` with `S35PacketUpdateTileEntity`, `onDataPacket(...)`,
-and `worldObj.markBlockForUpdate(xCoord, yCoord, zCoord)` to request an update.
-See the [1.7.10 Forge tile hooks](https://github.com/MinecraftForge/MinecraftForge/blob/1.7.10/patches/minecraft/net/minecraft/tileentity/TileEntity.java.patch).
-GT5 metatile entities use the owning base tile's synchronization, so follow
-[its existing lifecycle](https://github.com/GTNewHorizons/GT5-Unofficial/blob/master/src/main/java/gregtech/api/metatileentity/BaseMetaTileEntity.java)
-instead of implementing vanilla hooks directly on the metatile entity.
+Ordinary 1.7.10 Forge tiles can use `getDescriptionPacket()`,
+`S35PacketUpdateTileEntity`, and `onDataPacket(...)`.
+`worldObj.markBlockForUpdate(xCoord, yCoord, zCoord)` requests the update
+path; it is useful only when that path carries the value.
+The [Forge tile hooks](https://github.com/MinecraftForge/MinecraftForge/blob/1.7.10/patches/minecraft/net/minecraft/tileentity/TileEntity.java.patch)
+define the legacy callbacks.
 
-Synchronize only the state clients need, using the owning repository's existing
-mechanism:
+GT5 metatile entities participate through their owning base tile.
+Follow [BaseMetaTileEntity's lifecycle](https://github.com/GTNewHorizons/GT5-Unofficial/blob/master/src/main/java/gregtech/api/metatileentity/BaseMetaTileEntity.java)
+and the affected machine's existing hooks instead of adding vanilla tile
+callbacks to a metatile entity.
 
-- Include initial state in the tile's description data when a tracking client
-  first receives it.
-- Send an update when a client-visible value changes after that initial sync.
-- Use the GUI framework's sync values for data needed only while a panel is
-  open.
-- Use a focused packet when the lifecycle or audience does not match those
-  mechanisms.
+Include initial state for a client that begins tracking, then send changes
+afterward. Use a GUI sync value when only the open panel needs the data.
+Use a focused packet when the audience or lifecycle does not fit those paths.
+Keep client-side presentation separate from the server's authoritative value.
 
-Removing an update call can leave the client stale even when the server field
-still changes.
+## Use symptoms to find the missing boundary
 
-## Verify the complete lifecycle
+| Observation | Investigate |
+| --- | --- |
+| Mode resets after unload or restart | Written NBT, read defaults, and dirty marking. |
+| Server mode changes but the display stays stale | The update trigger and payload reaching the client. |
+| Existing client is correct but a newly joined client is wrong | Initial tracking or GUI synchronization. |
+| One player's display choice affects another | Preference ownership and storage. |
 
-Test each state boundary:
-
-1. Change the value on a dedicated server and observe it from a connected
-   client.
-2. Close and reopen the GUI or move out of tracking range and return.
-3. Unload and reload the chunk.
-4. Restart the world.
-5. Connect two players with different client preferences when the feature is
-   player-specific.
-
-Each failure identifies a missing boundary: authority, synchronization,
-persistence, or preference storage.
+Repeat the checks on a dedicated server. Close and reopen the GUI, leave and
+return to tracking range, unload/reload the chunk, and restart the world.
+These observations narrow the missing mechanism; they do not prove a single
+cause without inspecting the relevant path.

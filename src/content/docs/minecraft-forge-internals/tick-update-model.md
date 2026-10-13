@@ -1,62 +1,69 @@
 ---
 title: Understand ticks and updates
-description: Schedule recurring GTNH work without creating tick spikes or stale state.
+description: Match recurring work to its event context, preserve units, and avoid synchronized workload spikes.
 ---
 
-The server targets 20 ticks per second. All loaded worlds, entities, tile
-entities, and scheduled work share about 50 milliseconds per tick. Longer ticks
-reduce the effective tick rate.
+Minecraft's server targets 20 ticks per second, leaving about 50 milliseconds
+for each tick's game-thread work. A costly machine update shares that budget
+with the rest of the loaded world. Rendering has a separate client frame
+schedule.
 
-## Know which tick you are handling
+## Choose the event and phase that match the work
 
-FML exposes server, world, player, client, and render events with `START` and
-`END` phases. The
-[1.7.10 `TickEvent` source](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/gameevent/TickEvent.java)
-shows the available contexts and their sides.
+FML 1.7.10's
+[TickEvent](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/gameevent/TickEvent.java)
+defines server, world, player, client, and render contexts with `START`
+and `END` phases.
 
-Choose whether work runs once per server, world, or player tick. Registering it
-at multiple levels multiplies its executions. Keep authoritative work on the
-logical server and rendering or input on the logical client.
+A server-level operation should run once per server tick; a per-world
+operation should use its world context. Registering the same work at several
+levels, or handling both phases accidentally, multiplies its executions.
+Keep authoritative state changes on the logical server.
 
-## Distinguish notification from completion
+State the unit of an interval. Twenty completed game ticks represent one
+second at the target tick rate; under lag, a tick-based cooldown takes longer
+in wall-clock time. Choose the intended clock before replacing a counter
+with a real-time deadline.
 
-Read the contract of each Forge event. A cancelable pre-event describes an
-attempt, not a completed action, and a later-priority handler can still change
-its canceled state. The event bus reports the final state only after all
-eligible handlers have run
-([1.7.10 `EventBus` source](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/eventhandler/EventBus.java)).
+## An event can describe an attempt
 
-Do not commit an irreversible reaction to an attempted action unless that
-event's contract makes the outcome final. Use a corresponding post-event or
-inspect the resulting state when either is available.
+Read the specific event's contract before reacting. A cancelable pre-event
+can report an attempted action that another handler later cancels.
+The [legacy EventBus](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/eventhandler/EventBus.java)
+runs its eligible listeners before returning the final cancellation state.
 
-## Prefer invalidation over constant polling
+For example, charging a cost as soon as an attempted placement event arrives
+can debit the player even if the action is later canceled. Use a completion
+event or verified resulting state when the API provides one. Do not treat
+notification order as proof that the operation completed.
 
-Use inventory changes, block updates, configuration changes, or a dirty flag to
-invalidate cached results. Recompute on demand or in a later controlled tick.
+## Recompute when the inputs change
 
-Poll only when no reliable change signal exists. Choose its interval from the
-required response time and cost. Use a cheap change trigger plus a bounded
-fallback check.
+For a machine's cached recipe result, identify all inputs: inventory, fluids,
+mode, relevant neighbors, and configuration. Invalidate the cache when those
+inputs change, then recompute when needed or in controlled tick work.
 
-## Spread periodic work
+Use polling when no reliable signal covers an input, with an interval chosen
+from response time and cost. A cheap change signal plus a bounded fallback
+check can cover missed invalidation without repeating the expensive work on
+every tick.
 
-Spread periodic instances across stable buckets derived from dimension and
-coordinates. Running every instance on the same twentieth tick creates a spike.
+## Distribute periodic work
 
-Do not derive the bucket from the first loaded tick because objects in one chunk
-often load together.
+If every loaded machine performs a large check on tick 20, the average cost
+may look acceptable while that tick stalls. Assign stable offsets derived
+from dimension and coordinates or another persistent identity.
 
-## Preserve units and behavior
+A first-load timestamp is a poor offset source because many objects in a
+chunk load together. Preserve each instance's required interval and response
+time while distributing its work.
 
-Name units as ticks, seconds, operations, or rates. Decide whether a feature
-follows game time or wall-clock time; 20 completed ticks take more than one
-second when the server lags.
+## Measure behavior as well as cost
 
-When optimizing tick code, verify both cost and behavior:
+Compare the same representative workload before and after an optimization.
+Use many loaded instances or a busy full pack rather than one machine in an
+empty world.
 
-- Profile in a representative full development pack.
-- Test many loaded instances, not one machine in an empty world.
-- Exercise insertion, removal, chunk reload, and neighbor changes that should
-  invalidate cached state.
-- Confirm that the new schedule does not make all instances run together.
+Check inventory and neighbor changes, mode changes, unload/reload, and the
+periodic fallback. Confirm that the result stays current and that the new
+schedule spreads work instead of moving the same spike to another tick.

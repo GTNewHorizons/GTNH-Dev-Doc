@@ -59,3 +59,15 @@ generated migration output still needs to preserve the project's behavior.
 Pack assembly is a separate process:
 [DreamAssemblerXXL selects published mod artifacts](/GTNH-Dev-Doc/concepts/release-pipeline/)
 rather than running each mod checkout's development client.
+
+## Inspect the legacy implementation
+
+After development setup and IDE import, use **Navigate → Class** to open the
+Minecraft or Forge class named by an internals guide. Confirm the checkout's
+Minecraft and Forge versions before comparing it with newer documentation.
+
+RFG's [source-preparation tasks](https://github.com/GTNewHorizons/RetroFuturaGradle/blob/master/docs/mcp-forge.md)
+decompile, patch, and remap the game sources. The standard output is
+`build/rfg/mcp_patched_minecraft-sources.jar`. If the IDE cannot resolve those
+sources, follow [IntelliJ problems](/GTNH-Dev-Doc/troubleshooting/intellij/)
+and the setup task output instead of using an unrelated source version.

@@ -1,58 +1,68 @@
 ---
 title: Treat rendering and block bounds as shared state
-description: Keep Minecraft 1.7.10 renderers and block bounds isolated, balanced, and predictable.
+description: Preserve caller-visible render state and prevent one block position from leaking bounds into another.
 ---
 
-:::caution[Render state is shared]
-Minecraft 1.7.10 shares mutable rendering state between draws. Unrestored
-bounds, lighting, blending, color, or matrix state affects later renderers.
-:::
+Minecraft 1.7.10 reuses mutable renderer and block state. A draw that leaves
+a color, texture override, or bound changed can affect a later object.
+Treat the renderer's entry and exit state as part of its contract, including
+cached paths and early returns.
 
-## Restore everything you change
+## Restore the state the operation changes
 
-Restore every changed value on normal returns, cache hits, and exceptions. Use
-`try`/`finally` for balanced state.
+Balance matrix pushes and pops, and restore altered blending, lighting,
+culling, alpha, depth, light-map, texture, and color state as required by the
+calling renderer. A [matrix pop](https://registry.khronos.org/OpenGL-Refpages/gl2.1/xhtml/glPushMatrix.xml)
+restores matrix state; it does not reset unrelated rendering state.
 
-Typical shared state includes:
+Use a `try`/`finally` boundary or the repository's supported state guard
+when an operation can return early or fail. Restore the prior state or the
+explicit state required by the caller, rather than assuming a convenient
+default is always correct.
 
-- `RenderBlocks` bounds and override textures.
-- Matrix-stack pushes and transformations.
-- Blend enablement and blend functions.
-- Lighting, culling, alpha, depth, and light-map state.
-- The current color.
+`RenderBlocks` also carries mutable bounds and override-texture state.
+A cache hit must leave the same caller-visible state as the uncached path.
+Cache calculated geometry or immutable data instead of a renderer whose
+current fields belong to a draw.
 
-## Treat block bounds as scratch state
+## Block bounds belong to the shared block instance
 
-A registered `Block` instance is shared by every position using that block. Its
-six bounds fields are mutable fields on that shared instance, not per-position
-state. Set all six bounds on every path before calling inherited collision,
-selection, or ray-tracing behavior, and do not expect them to retain a meaning
-after the call. Prefer local `AxisAlignedBB` values where the API permits them.
+A registered `Block` instance represents every position using that block.
+Its six bounds fields are mutable instance fields, not values owned by the
+tile or position being queried.
 
-A zero-volume `AxisAlignedBB` is not the same as no collision: 1.7.10's
-intersection test does not reject equal minimum and maximum coordinates. Return
-`null` when a block has no collision box; otherwise use correctly ordered bounds
-with the intended positive extent.
+For metadata- or tile-dependent shapes, set all six bounds on every relevant
+path before using inherited collision, selection, or ray tracing behavior.
+Otherwise, a query at one position can reuse bounds established by another.
+Prefer a local `AxisAlignedBB` when the API permits an independent result.
 
-## Make caches preserve the full contract
+A zero-volume bounding box is not the same as no collision. The legacy
+`AxisAlignedBB.intersectsWith` comparisons can report overlap when a
+degenerate box lies inside another box. Return `null` from the collision-box
+path for no collision; otherwise return the intended ordered bounds.
 
-A cached path must leave the same state as an uncached path. Prefer caching
-immutable geometry or calculated data over mutable renderers.
+Inspect `Block`, `RenderBlocks`, and `AxisAlignedBB` in the
+[generated 1.7.10 sources](/GTNH-Dev-Doc/concepts/build-system-stack/)
+when changing these contracts.
 
-Include every result-changing input in the cache key, including resource,
-metadata, and render pass. Clear the cache on the required resource-reload or
-lifecycle event.
+## Invalidate cached data at the right boundary
 
-## Keep per-frame work small
+Include every input that changes the result: metadata, model state, render
+pass, and resource generation where applicable. Clear resource-dependent
+caches on reload so an old texture or model does not survive a new resource
+pack.
 
-Avoid per-frame helper allocation, static-geometry rebuilding, unchanged
-resource lookups, and duplicate opaque draws. Their cost scales with visible
-instances and render passes.
+Measure the view that makes the renderer expensive, such as many visible
+machines or a large recipe page. Include cache construction, misses, and
+resource reloads in the comparison. Avoid rebuilding unchanged geometry or
+resolving the same resources on every frame.
 
-Profile the actual heavy view, such as a large NEI page or many visible
-machines, and include cache construction and resource reloads.
+## Check interactions, not only the isolated object
 
-## Test alongside other renderers
+Render beside unrelated blocks, items, GUI elements, and translucent geometry.
+Exercise cold and warm caches, early returns, alternate metadata, and a
+resource reload. For bounds, query two differently shaped positions in both
+orders.
 
-Render the object beside unrelated blocks, items, GUIs, and translucent
-geometry. Exercise every early return and cached branch.
+A correct isolated screenshot cannot show whether the renderer contaminates
+the next draw or whether one position changes another's collision.

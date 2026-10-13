@@ -1,42 +1,40 @@
 ---
 title: Understand client and server boundaries
-description: Keep game logic authoritative and client-only code safe on dedicated GTNH servers.
+description: Separate physical class loading from logical state ownership in Minecraft 1.7.10.
 ---
 
-:::note[Single player hides side errors]
-Single player runs client and server logic in one process. Code can therefore
-work there but desynchronize in multiplayer or crash a dedicated server.
-:::
+Two boundaries matter when a change works in singleplayer but fails on a
+dedicated server: which classes the process can load, and which side owns the
+game state. Singleplayer puts both logical sides in the physical client
+process, so it can hide either error.
 
-## Separate physical environments from logical sides
+## Identify the boundary
 
-| Term | Meaning |
+| Environment or side | Role |
 | --- | --- |
-| **Physical client** | The graphical Minecraft process. In single player it contains both a logical client and an integrated logical server. |
-| **Physical server** | The dedicated server process. Client-only Minecraft classes are unavailable here. |
-| **Logical client** | Handles player input and presents state received from the server. |
-| **Logical server** | Owns game rules and authoritative state. It runs on both dedicated and integrated servers. |
+| Physical client | The graphical process, including the integrated server in singleplayer. |
+| Physical server | The dedicated server process, where physical-client classes are unavailable. |
+| Logical client | Presents received state and collects player input. |
+| Logical server | Owns game rules and authoritative world state, on either server type. |
 
-The official
-[Forge 1.12 sides guide](https://docs.minecraftforge.net/en/1.12.x/concepts/sides/)
-describes this model using the same `world.isRemote`, `@SidedProxy`, and
-`FMLCommonHandler` APIs used by 1.7.10.
+When you have a world, `world.isRemote` identifies its logical side:
+`false` is server and `true` is client. An integrated server also has a
+server world where this value is false.
 
-## Choose the check that matches the question
+For example, a GUI requests a machine-mode change. The client sends the
+request, the server validates and changes the mode, and synchronization
+returns the result to clients. A static field shared in singleplayer is not
+a network synchronization mechanism and can race between its two threads.
 
-When you have a `World`, use `world.isRemote` to identify its **logical** side:
+## Load client code through a physical-side boundary
 
-```java
-if (!world.isRemote) {
-    // Change authoritative game state here.
-}
-```
+Keep renderers, key bindings, audio, and client GUI classes in a client
+implementation. Common classes should expose an interface that uses only
+types available on both physical sides.
 
-`false` means logical server and `true` means logical client. The integrated
-server also has a world where `isRemote` is `false`.
-
-Use the physical side when loading renderers, key bindings, or other
-physical-client code. The usual 1.7.10 mechanism is `@SidedProxy`:
+FML 1.7.10's [SidedProxy](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/SidedProxy.java)
+selects an implementation by physical environment. In an illustrative mod
+with `CommonProxy` and `ClientProxy` classes, the declaration is:
 
 ```java
 @SidedProxy(
@@ -45,75 +43,49 @@ physical-client code. The usual 1.7.10 mechanism is `@SidedProxy`:
 public static CommonProxy proxy;
 ```
 
-FML creates one proxy for the physical environment. The
-[GTNH example mod](https://github.com/GTNewHorizons/ExampleMod1.7.10/blob/master/src/main/java/com/myname/mymodid/MyMod.java)
-uses this pattern, and its
-[client proxy](https://github.com/GTNewHorizons/ExampleMod1.7.10/blob/master/src/main/java/com/myname/mymodid/ClientProxy.java)
-is the intended home for client-only registration.
+The common proxy and its public signatures must remain loadable on the
+dedicated server. A conditional around a call cannot protect a common class
+whose superclass or interface already requires a client-only type.
 
-Use a `World` or event instead of
-`FMLCommonHandler.instance().getEffectiveSide()` when possible. Its
-[1.7.10 implementation](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/FMLCommonHandler.java#L147-L162)
-result is inferred from the thread name.
+`@SideOnly` is a declaration for FML's transformer, not a runtime guard.
+The [legacy transformer](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/asm/transformers/SideTransformer.java)
+removes annotated members or rejects a class on the opposite physical side.
+It does not remove every use or initializer referring to that member.
+Follow an annotated API's contract and keep callers behind the appropriate
+physical-side boundary.
 
-## Isolate client-only classes
+## Use the world or event for logical ownership
 
-Keep rendering, input, audio, GUI, and other client-only references inside
-client implementation classes. Common code should call through an interface or
-proxy that contains no client-only types in fields, signatures, or static
-initializers.
+Use the world or the event's documented side when deciding whether to change
+game state. The
+[1.7.10 effective-side helper](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/FMLCommonHandler.java)
+infers its result from the thread name. It is not a substitute for the world
+associated with an operation, especially on a network or worker thread.
 
-A side check around a call is insufficient because class loading can resolve
-client references before the branch runs. A proxy prevents the server from
-loading the client implementation. Forge's 1.7.10
-[`@SidedProxy` source](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/SidedProxy.java)
-documents this purpose directly.
+Keep processing, inventory mutation, damage, and entity spawning on the
+logical server. The client may predict or display behavior, but the server
+must validate the authoritative operation.
 
-## Keep game state on the logical server
+## Validate and dispatch network requests
 
-Run machine processing, inventory changes, entity spawning, damage, and other
-state changes on the logical server. Use the client for presentation and input,
-and synchronize through packets or existing update mechanisms.
+A handler's target side does not make its input trusted. In SimpleImpl,
+the [indexed codec](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/network/FMLIndexedMessageToMessageCodec.java)
+creates the message and
+[SimpleIndexedCodec](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/network/simpleimpl/SimpleIndexedCodec.java)
+calls `fromBytes` before the handler runs.
 
-Static fields do not synchronize logical sides. They fail across a network and
-can race between integrated client and server threads.
+Check readable bytes, identifiers, and length limits before allocation or
+loops during decoding. In the handler, check permission, dimension,
+[loaded location](/GTNH-Dev-Doc/minecraft-forge-internals/chunk-boundaries/),
+and current state before applying the requested action.
 
-## Validate packets while decoding
+The [handler wrapper](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/network/simpleimpl/SimpleChannelHandlerWrapper.java)
+calls `onMessage` from its network channel. A side value does not establish
+that the game thread is executing the handler. Use the repository's
+network-to-game-thread mechanism for world work; do not copy a scheduler API
+from newer Minecraft documentation.
 
-In SimpleImpl, the shared codec constructs a message and calls `fromBytes`
-before a side-specific handler receives it
-([1.7.10 codec source](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/network/FMLIndexedMessageToMessageCodec.java)).
-Registering a handler for one side therefore does not make decoding trusted.
-
-In `fromBytes`, check readable bytes, validate identifiers, and cap lengths
-before loops or allocations. In the handler, separately validate permissions,
-coordinates, loaded state, and current world state before acting.
-
-## Treat `@SideOnly` as a declaration, not a guard
-
-`@SideOnly` causes FML's transformer to remove annotated members or reject an
-annotated class on the opposite physical side. It does not perform a runtime
-side check, and annotating a field does not protect code in its initializer.
-
-It is reasonable to annotate code that is inherently client-only and would fail
-on a dedicated server anyway, such as a method that calls another client-only
-method. The annotation makes that restriction explicit. It is also appropriate
-when required by the surrounding API, such as an already annotated vanilla
-override.
-
-Code loaded on both physical sides must still guard calls to annotated members
-with the appropriate side check, or route them through a sided proxy. The
-annotation does not make an unguarded call safe. Its
-[1.7.10 documentation](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/relauncher/SideOnly.java)
-also notes that it is primarily intended for Forge and FML internals.
-
-## Verify both environments
-
-For any change that touches side-specific behavior:
-
-1. Exercise it in a development client.
-2. Start and join a dedicated development server.
-3. Verify that the server owns the state and connected clients receive it.
-
-An `Attempted to load class ... for invalid side SERVER` error usually means a
-common class still has a direct or indirect reference to client-only code.
+Verify the feature in a client and with a client connected to a dedicated
+server. Check both successful requests and invalid or stale requests.
+An invalid-side class-loading error points toward a reference crossing the
+physical boundary; stale state needs a separate synchronization investigation.
