@@ -38,7 +38,7 @@ with the successful run and follow
 ## Compilation, formatting, or tests fail
 
 For a formatting failure, use the checkout's
-[formatter](/GTNH-Dev-Doc/development-practices/code-style/#run-the-repositorys-style-checks),
+[formatter](/GTNH-Dev-Doc/development-practices/code-style/#run-the-configured-checks),
 review the diff, and rerun the failed check.
 
 For a compiler error, compare the selected compiler and dependency versions
@@ -86,7 +86,7 @@ before increasing the timeout.
 
 When Horizon-QA is enabled, inspect `TEST-horizonqa.xml` and
 `horizonqa-result.json`, keeping the test selector. Use
-[Horizon-QA reporting](/GTNH-Dev-Doc/how-to/use-horizon-qa/#run-the-exact-test-on-a-server)
+[Horizon-QA reporting](/GTNH-Dev-Doc/how-to/use-horizon-qa/#run-a-reported-batch)
 to distinguish assertion failures from startup or test-discovery failures.
 
 Verify the correction by repeating the failed operation locally. After the

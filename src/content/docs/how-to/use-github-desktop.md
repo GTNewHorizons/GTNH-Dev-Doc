@@ -4,7 +4,8 @@ description: Prepare a contribution branch, review files, and open a pull reques
 ---
 
 Use GitHub Desktop for graphical Git operations and your editor for the
-change. You still need the owning repository's build and validation tools.
+change. You need command-line Git for the upstream/tag step below, plus the
+owning repository's build and validation tools.
 Start with [the repository and its target branch](/GTNH-Dev-Doc/start-here/choose-a-repository/).
 
 ## Fork and clone

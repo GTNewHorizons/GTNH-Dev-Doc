@@ -44,7 +44,7 @@ Numeric conversions such as `%d` or `%f` are not chat formatting operations.
 For client text, indexed string placeholders such as `%1$s` and `%2$s` let
 translations reorder arguments. Format displayed numbers with the
 [shared number utility](/GTNH-Dev-Doc/development-practices/localized-display-text/)
-before substitution. Minecraft 1.7.10's language loaders normalize numeric
+before substitution. Minecraft 1.7.10's standard language loaders normalize numeric
 placeholders to string placeholders, so a key containing `%.2f` does not
 guarantee two decimal places. You can inspect `Locale` and `StringTranslate`
 in the generated Minecraft sources.

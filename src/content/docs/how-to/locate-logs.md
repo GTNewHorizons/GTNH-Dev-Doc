@@ -48,7 +48,7 @@ the IDE model or the build itself.
 
 For an IntelliJ internal failure, collect the IDE log through its **Help**
 menu. JetBrains maintains
-[the log-location guide](https://www.jetbrains.com/help/idea/troubleshooting-materials.html#locate-log-files).
+[the log-location guide](https://www.jetbrains.com/help/idea/troubleshooting-materials.html#locate_log_files).
 An IDE log does not replace the game log for a crash in a launched client.
 
 ## Share a reproducible report

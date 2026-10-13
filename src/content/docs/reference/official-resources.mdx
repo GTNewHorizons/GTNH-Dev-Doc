@@ -1,42 +1,59 @@
 ---
 title: Official resources
-description: Authoritative starting points for GTNH development facts and support.
+description: Find the policy, source, support channel, or tool reference that owns a development question.
 sidebar:
   order: 2
 ---
 
-import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+Choose the resource that owns your question. A mod's source and build
+configuration establish its implementation; project policy and review
+requirements come from the maintained policy documents.
 
-## GTNH entry points
+## Contribution and design
 
-<CardGrid>
-  <LinkCard title="GTNewHorizons GitHub organization" href="https://github.com/GTNewHorizons" description="Source, issues, pull requests, and maintained links." />
-  <LinkCard title="Official GTNH wiki" href="https://wiki.gtnewhorizons.com/" description="Player guides and gameplay information." />
-  <LinkCard title="Official GTNH Discord" href="https://discord.gg/EXshrPV" description="Community and developer discussion. Include repository links, logs, and attempted steps." />
-  <LinkCard title="Central modpack issue tracker" href="https://github.com/GTNewHorizons/GT-New-Horizons-Modpack/issues" description="Pack-level reports and coordination." />
-  <LinkCard title="Developer's Code of Conduct" href="https://github.com/GTNewHorizons/.github/blob/master/CODE_OF_CONDUCT.md" description="Read the current file before submitting changes." />
-  <LinkCard title="Contribution guidelines" href="https://github.com/GTNewHorizons/.github/blob/master/CONTRIBUTING.md" description="Read the current file before submitting changes." />
-</CardGrid>
+| Question | Resource |
+| --- | --- |
+| What contribution and balance requirements apply? | [GTNH contribution guidelines](https://github.com/GTNewHorizons/.github/blob/master/CONTRIBUTING.md) |
+| What conduct is expected? | [Developer's Code of Conduct](https://github.com/GTNewHorizons/.github/blob/master/CODE_OF_CONDUCT.md) |
+| What AI assistance is permitted? | [AI usage policy](https://github.com/GTNewHorizons/GTNH-Dev-Doc/blob/master/AI_POLICY.md) |
+| What is the intended pack design? | [Modpack vision](https://github.com/GTNewHorizons/GTNH-Dev-Doc/blob/master/vision%20of%20the%20modpack/original%20vision%20doc.md) |
+| How do I edit quests? | [Quest development guide](https://github.com/GTNewHorizons/GT-New-Horizons-Modpack/blob/master/config/betterquesting/Readme.md) |
+| Which StructureLib APIs define a multiblock? | [StructureLib documentation](https://www.gtnewhorizons.com/StructureLib/) |
 
-For project ownership, build tooling, and mod support, use the
-[repository map](/GTNH-Dev-Doc/concepts/repository-map/).
+The local [contribution guides](/GTNH-Dev-Doc/contributing/before-you-code/)
+help apply these requirements; the linked owners maintain the policies.
 
-## GTNH-specific guides
+## Source, support, and pack testing
 
-<CardGrid>
-  <LinkCard title="Code style" href="/GTNH-Dev-Doc/development-practices/code-style/" description="Shared readability practices and repository formatting checks." />
-  <LinkCard title="Quest development" href="https://github.com/GTNewHorizons/GT-New-Horizons-Modpack/blob/master/config/betterquesting/Readme.md" description="Current quest-writing, editing, testing, and translation workflow." />
-  <LinkCard title="StructureLib" href="https://www.gtnewhorizons.com/StructureLib/" description="API documentation for StructureLib multiblock structures." />
-  <LinkCard title="Chemical balance" href="/GTNH-Dev-Doc/development-practices/chemical-balance/" description="GTNH's material-equivalence rules and balance PR requirements." />
-</CardGrid>
+Use the [repository map](/GTNH-Dev-Doc/concepts/repository-map/)
+to locate mod code, pack data, libraries, and tooling. The
+[GTNewHorizons organization](https://github.com/GTNewHorizons)
+contains their source, issues, and repository instructions.
 
-## External tool documentation
+Report pack-level symptoms through the
+[central modpack issue tracker](https://github.com/GTNewHorizons/GT-New-Horizons-Modpack/issues),
+following its template. For a confirmed project-specific bug, follow that
+repository's reporting instructions.
+[GTNH Discord](https://discord.gg/EXshrPV) provides community and developer
+discussion; bring the reproduction, source locations, or relevant logs.
 
-<CardGrid>
-  <LinkCard title="GitHub: contributing with forks" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks" />
-  <LinkCard title="Gradle user manual" href="https://docs.gradle.org/current/userguide/userguide.html" />
-  <LinkCard title="IntelliJ IDEA Gradle guide" href="https://www.jetbrains.com/help/idea/gradle.html" />
-</CardGrid>
+For assembled development packages, use
+[GTNH Daily Builds](https://github.com/GTNewHorizons/GTNH-Daily-Builds/releases)
+and [full-pack testing](/GTNH-Dev-Doc/how-to/test-in-full-pack/).
+For installation, progression, and gameplay, use the
+[official GTNH wiki](https://wiki.gtnewhorizons.com/).
 
-When sources disagree, prefer the current target repository and commit. Ask its
-maintainers before treating a local convention as a general rule.
+## Tool references
+
+| Task or mechanism | Owning reference |
+| --- | --- |
+| Forks and contribution branches | [GitHub's fork guide](https://docs.github.com/en/pull-requests/how-tos/work-with-forks/fork-a-repo) |
+| Gradle tasks and configuration | [Gradle user manual](https://docs.gradle.org/current/userguide/userguide.html) |
+| IDE import and Gradle selection | [IntelliJ Gradle settings](https://www.jetbrains.com/help/idea/gradle-settings.html) |
+| Minecraft development and jar tasks | [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) |
+| GTNH build conventions and properties | [GTNHGradle](https://github.com/GTNewHorizons/GTNHGradle) |
+| In-game server regression tests | [Horizon-QA documentation](https://www.gtnewhorizons.com/Horizon-QA/) |
+
+Use the documentation matching the repository's selected version.
+If a general guide and the checked-out implementation disagree, inspect the
+difference and ask the owning maintainer before treating it as a shared rule.

@@ -48,7 +48,8 @@ path; it is useful only when that path carries the value.
 The [Forge tile hooks](https://github.com/MinecraftForge/MinecraftForge/blob/1.7.10/patches/minecraft/net/minecraft/tileentity/TileEntity.java.patch)
 define the legacy callbacks.
 
-GT5 metatile entities participate through their owning base tile.
+In GT5, a metatile entity is the machine implementation hosted by a base tile.
+It participates in persistence and synchronization through that owning tile.
 Follow [BaseMetaTileEntity's lifecycle](https://github.com/GTNewHorizons/GT5-Unofficial/blob/master/src/main/java/gregtech/api/metatileentity/BaseMetaTileEntity.java)
 and the affected machine's existing hooks instead of adding vanilla tile
 callbacks to a metatile entity.
