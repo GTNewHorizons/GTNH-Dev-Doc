@@ -1,61 +1,58 @@
 ---
 title: Testing expectations
-description: Match GTNH test evidence to the risk and integration surface of a change.
+description: Choose checks that observe the behavior and boundaries changed by a GTNH contribution.
 sidebar:
   order: 4
 ---
 
-Run the repository's relevant build checks and exercise the changed behavior in
-its development environment. Start with the narrowest test that can fail for
-the changed behavior, then cover the boundaries the change crosses.
+Test the behavior your change affects, then the boundaries it crosses.
+A build checks source and configured tests; a game launch, saved-world check,
+or pack integration test answers a different question. Choose the evidence
+that can expose the failure you are fixing.
 
-## Match evidence to the change
+## Establish a comparison
 
-| Change | Minimum useful evidence |
+For a bug fix, reproduce the problem on the unchanged version and retain that
+setup. Repeat the same action after the change. For new behavior, define the
+expected result before testing so a successful launch is not the only
+acceptance condition.
+
+Run the repository's relevant build and validation commands. Add a focused
+automated regression test when it can observe the behavior reliably.
+[Horizon-QA](/GTNH-Dev-Doc/how-to/use-horizon-qa/) can preserve server-side
+in-game checks; client appearance and some interactions still need manual
+inspection.
+
+## Select the relevant cases
+
+| Changed behavior | Evidence to collect |
 | --- | --- |
-| Documentation or configuration | Build or validate the affected files and inspect the rendered or generated result. |
-| Isolated Java logic | Run the focused automated test and the repository's normal build. |
-| Client rendering, input, or GUI behavior | Exercise the changed path in a development client and capture comparable screenshots or video when the result is visual. |
-| Server-owned state or networking | Start a dedicated server, connect a client, and verify authority, validation, and synchronization. |
-| Saved world or tile state | Change the state, unload and reload it, restart the world, and test data written by the previous version when compatibility is relevant. |
-| Optional-mod integration | Test with the dependency present and absent. Test supported version differences when the integration handles them. |
-| Cross-mod behavior, recipes, or startup order | Test the coordinated artifacts together in a current full development pack. |
-| Tick, rendering, or other performance-sensitive code | Confirm behavior under representative load and compare measurements before and after the change. |
+| Documentation or generated configuration | Build or validate the files and inspect the rendered or generated result. |
+| Isolated logic | A focused automated test and the repository's build checks. |
+| Rendering, input, or GUI | Exercise the affected client path; show comparable screenshots or video for visual changes. |
+| Server state or networking | Connect a client to a dedicated server and check validation, authority, and synchronization. |
+| Saved state | Change the value, unload/reload its owner, and restart the world. Load data written by the previous version when compatibility is affected. |
+| Optional-mod integration | Start with the mod absent and present; exercise supported API versions and the unsupported-version behavior. |
+| Cross-mod behavior, recipes, or startup order | Test coordinated artifacts in a full development pack with the relevant configuration. |
+| Tick or rendering performance | Repeat the same workload and compare measurements before and after the change. |
 
-Use [Horizon-QA](/GTNH-Dev-Doc/how-to/use-horizon-qa/) when an in-game server
-test can preserve the regression as an automated check. A manual test is still
-appropriate when automation would not observe the behavior reliably.
+Several rows can apply to one change. A machine-mode fix, for example, may
+need both a connected-client check and a saved-world check. Singleplayer does
+not exercise the same physical class-loading boundary as a dedicated server.
 
-## Test the relevant boundaries
+Use [cross-repository testing](/GTNH-Dev-Doc/how-to/test-cross-repository-changes/)
+when an addon needs an unpublished API change, then
+[test the artifacts in the full pack](/GTNH-Dev-Doc/how-to/test-in-full-pack/)
+when pack interactions matter. Confirm the loaded versions so the test
+actually exercises the intended code.
 
-Do not treat a successful compilation as evidence that runtime behavior works.
-Check each boundary the change affects:
+## Report enough to repeat the check
 
-- Client and dedicated-server class loading.
-- Logical client and server ownership.
-- Save, unload, reload, and restart behavior.
-- Dependency presence, version, and startup order.
-- Clean checkout and CI behavior.
-- Existing worlds or configurations that must remain compatible.
+Include the commands or run configurations, relevant JDK and mod/pack versions,
+test setup, action, expected result, and observed result. Identify any important
+case left untested and explain the limitation.
 
-Use a current full development pack for changes involving other mods, pack
-configuration, recipes, world data, or startup order. Test coordinated artifact
-versions together with
-[Maven Local](/GTNH-Dev-Doc/how-to/test-cross-repository-changes/) or
-an online pre-release that CI can resolve. Follow
-[Test a change in the full pack](/GTNH-Dev-Doc/how-to/test-in-full-pack/)
-for the assembled-pack check.
-
-## Report reproducible evidence
-
-In the pull request, state:
-
-- The exact commands or run configurations used.
-- The tested JDK, environment, and relevant mod or pack versions.
-- The setup and action performed.
-- The expected and observed result.
-- Any important case that was not tested, with the reason.
-
-:::tip[Report reviewable evidence]
-Screenshots complement behavioral tests but do not replace them.
-:::
+For a manual check, “joined a dedicated server, changed the machine mode, and
+verified it on a second client and after restart” is more useful than “tested
+in game.” Screenshots support that evidence but cannot establish persistence
+or synchronization on their own.

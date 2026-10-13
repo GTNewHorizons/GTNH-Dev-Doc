@@ -1,109 +1,94 @@
 ---
 title: Contribute to this documentation
-description: Decide what belongs in the GTNH Developer Documentation and submit a focused change.
+description: Choose a useful developer topic, verify its claims, and submit a documentation change.
 sidebar:
   order: 5
 ---
 
-This documentation records GTNH development knowledge and shared decisions.
-Keep shared developer workflows here even when an older version exists on the
-GTNH wiki. Use links to the owning repository for project-specific API manuals
-and implementation details that change with that project.
+Write for a developer who needs to complete a task, choose an approach,
+understand a GTNH mechanism, or look up a fact. Shared developer workflows
+belong here; player guides belong on the
+[GTNH wiki](https://wiki.gtnewhorizons.com/), and an individual mod's API manual
+belongs with its source.
 
-## Decide whether the topic belongs here
+## Decide what the page contributes
 
-A topic needs a clear GTNH development purpose. Check:
+Start with the reader's situation and the result they need. Find existing
+coverage before adding a page. A better change may be a missing example,
+a merged procedure, or removal of duplicated guidance.
 
-- Is it useful to developers working on GTNH repositories?
-- Is it shared across repositories, or likely to help contributors beyond one
-  mod?
-- Does it describe a GTNH convention, agreed practice, workflow, or recurring
-  pitfall?
-- Does it explain how relevant Minecraft 1.7.10 or Forge knowledge applies to
-  GTNH development?
-- Is it stable enough that maintaining the page is practical?
+Keep material that explains a GTNH convention, a shared workflow, a recurring
+failure, or the relevance of Minecraft 1.7.10 behavior to GTNH. A standalone
+tour of one mod's implementation belongs with that mod. A shared choice it
+demonstrates can belong here with a source link.
 
-For example, document which shared color utility preserves resource-pack
-compatibility, when to use it, why, and where to verify its current API.
+## Put the content where readers need it
 
-## Choose where it belongs
-
-Choose the section from the reader's goal:
-
-| Section | Use it for |
+| Section | Reader's goal |
 | --- | --- |
-| **Start Here** | The ordered path a new contributor follows to prepare a development environment and make a first change. |
-| **Contributing** | Contribution policies, review expectations, testing expectations, and guidance for improving this documentation. |
-| **Development Practices** | Shared GTNH conventions, preferred APIs, style decisions, and compatibility practices. |
-| **Minecraft & Forge Internals** | Minecraft 1.7.10 and Forge mechanisms explained through their relevance to GTNH development. |
-| **How-to Guides** | Steps for completing a specific development task with a clear outcome. |
-| **Concepts** | Explanations of GTNH repository structure, build tooling, dependencies, and release systems. |
-| **Maintainer Procedures** | Release, build, and recovery operations performed by GTNH maintainers. |
-| **Troubleshooting** | Diagnosing a symptom, finding its cause, and recovering from it. |
-| **Reference** | Information readers look up, such as terminology, repositories, and authoritative resources. |
+| Start Here | Prepare a workspace and submit a first contribution. |
+| Contributing | Understand contribution, review, and testing expectations. |
+| Development Practices | Choose an implementation approach GTNH expects or recommends. |
+| How-to Guides | Complete a specific development task. |
+| Concepts | Understand repositories, build layers, runtimes, and releases. |
+| Maintainer Procedures | Perform an authorized build, publication, or recovery operation. |
+| Troubleshooting | Diagnose a symptom and verify recovery. |
+| Minecraft & Forge Internals | Understand a legacy platform mechanism that affects a change. |
+| Reference | Look up a term or authoritative resource. |
 
-For overlapping topics, put shared choices in **Development Practices**,
-platform mechanisms in **Minecraft & Forge Internals**, and procedures in
-**How-to Guides**. Link instead of duplicating explanations.
+Link related material rather than explaining the same mechanism in several
+sections. A procedure can link background without interrupting its main path.
 
-## Keep these topics elsewhere
+## Verify advice before publishing it
 
-- Put player guides and gameplay information on the
-  [official GTNH wiki](https://wiki.gtnewhorizons.com/).
-- Include Minecraft 1.7.10 or Forge material only when it explains its relevance
-  and application to GTNH development.
-- Keep documentation of an individual mod's implementation with that mod,
-  close to the source it describes.
+Check consequential claims against the owning source, README, build
+configuration, workflow, or version-matched documentation. Existing prose and
+a related link are leads to investigate, not proof.
 
-A walkthrough of `RenderForgeOfGods` would duplicate one mod's source and become
-outdated. Document any reusable convention it demonstrates and link the class
-as an example.
+Minecraft 1.7.10 advice needs evidence for that version and the relevant GTNH
+implementation. Newer Forge guides can suggest a model, but their API names
+and behavior are not a substitute for legacy evidence. Identify the scope of
+version-specific examples and label proposals as proposals.
 
-Link repository-dependent claims to the relevant source, build script, or
-documentation. Do not copy implementation details that can change separately.
+Preserve the strength of approved policies. Explain recommendations as
+recommendations; do not turn an editorial preference into a project rule.
 
-## Write a useful page
+## Write and format for the task
 
-- Start with the task, decision, or convention the reader needs to understand.
-- State the useful conclusion before its background.
-- Keep only sentences that define, instruct, explain a reason, or provide
-  evidence.
-- Explain which repositories or situations it applies to.
-- Include the reason behind an agreed practice so readers know when it matters.
-- Prefer short procedures and concrete examples over broad introductions.
-- Link to current source material for details that may change.
-- Use the same concise, task-oriented style as the existing pages.
+Lead with the useful conclusion. Give necessary context before the action it
+affects, explain non-obvious choices, and show how to recognize success.
+Commands need a working directory, required inputs, and suitable shell syntax.
 
-## Use formatting to expose structure
+Use headings, paragraphs, lists, tables, and code blocks first. Use
+[Starlight components](https://starlight.astro.build/components/using-components/)
+when they expose sequence, alternatives, priority, or navigation. Steps are
+ordered actions; tabs are mutually exclusive alternatives; cards are
+destinations. Essential actions belong in the main flow.
 
-Use standard Markdown by default. Use [Starlight components](https://starlight.astro.build/components/using-components/) when they make the existing information easier to scan or apply:
+Pages importing components use `.mdx` and import from
+`@astrojs/starlight/components`. Retain the basename when changing a page's
+extension so its route stays stable.
 
-| Format | Use it for |
-| --- | --- |
-| [Asides](https://starlight.astro.build/components/asides/) | A note, tip, warning, or danger that must stand apart from the surrounding explanation. Give custom titles specific meaning, such as `Signs`, `Maintainer operation`, or `Do not parse display text`. |
-| [Steps](https://starlight.astro.build/components/steps/) | An ordered procedure whose sequence matters. Do not use it for an unordered checklist. |
-| [Tabs](https://starlight.astro.build/components/tabs/) | Parallel alternatives such as operating systems, tools, or mutually exclusive workflows. Keep information outside the tabs when it applies to every alternative. |
-| [Cards and card grids](https://starlight.astro.build/components/cards/) | A small set of destinations or categories that readers choose between. Use `LinkCard` when the whole card leads to one destination. |
-| Tables | Comparisons, mappings, compatibility matrices, and compact reference data. |
-| Code blocks | Commands, configuration, output, and examples that readers need to copy or recognize. |
+## Build and review the result
 
-Do not add components only for decoration. A component should reveal priority, sequence, alternatives, or navigation. Keep dense technical explanations as plain headings and paragraphs when no component improves their structure.
+Edit `src/content/docs/` and register new pages in `astro.config.mjs`.
+When merging or removing a page, update its inbound links and sidebar entry.
+Add a redirect to an equivalent successor when one exists. Check fragments
+when changing headings.
 
-Pages that import Starlight components must use `.mdx`. Import components from `@astrojs/starlight/components`, and keep the page's route unchanged when renaming a file from `.md` to `.mdx`.
-
-## Submit the change
-
-Use **Edit page**, or edit `src/content/docs/` locally. Register new pages in
-`astro.config.mjs`.
-
-Before opening a pull request, run:
+From the documentation checkout root, install dependencies when needed and
+build:
 
 ```sh
 npm ci
 npm run build
 ```
 
-Review the rendered page on desktop and mobile when changing components or layout. Check the final diff for altered facts, lost links, and unrelated edits.
+Inspect the rendered result, especially when changing components or layout.
+Check desktop readability and use a narrow viewport for changes that could
+affect responsive behavior. Review the diff for altered facts, missing useful
+material, and broken links.
 
-Keep the pull request focused and explain what problem the new or updated
-content solves for GTNH developers.
+Follow the [AI usage policy](https://github.com/GTNewHorizons/GTNH-Dev-Doc/blob/master/AI_POLICY.md)
+for assisted text. In your pull request, explain the reader's problem, the
+resulting improvement, and the checks you completed.

@@ -23,8 +23,8 @@ npm run dev
 ```
 
 Run `npm run build` before opening a pull request. Documentation lives in
-`src/content/docs/`. Edit or add Markdown/MDX there and use the existing concise,
-task-oriented style.
+`src/content/docs/`. Follow [the documentation contribution guide](src/content/docs/contributing/contribute-to-the-documentation.md)
+to choose a useful topic, verify its advice, and review the rendered result.
 
 The `master` branch deploys with GitHub Actions to
 <https://www.gtnewhorizons.com/GTNH-Dev-Doc/>.
