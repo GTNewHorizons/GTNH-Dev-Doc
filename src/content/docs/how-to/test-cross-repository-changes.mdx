@@ -1,66 +1,59 @@
 ---
 title: Test cross-repository changes
-description: Publish a modified GTNH mod locally and use that version from a dependent mod.
+description: Publish an unpublished dependency locally and confirm that its consumer uses the intended version.
 sidebar:
   order: 4
 ---
 
-import { Steps, TabItem, Tabs } from '@astrojs/starlight/components';
+Use Maven Local when one mod needs an unpublished change from another.
+Publish the producer, point the consumer at that version, then verify both
+dependency selection and behavior. These instructions cover GTNHGradle mods
+with Maven publishing enabled.
 
-Use this when one mod must build against an unpublished change from another.
-GTNHGradle's
-[version module](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/GitVersionModule.java)
-supports the temporary `VERSION` override used below.
+Run commands in the named producer or consumer checkout root.
+The temporary version `99.99.99` is an example: choose a distinguishable test
+version and use it consistently. GitHub Actions needs an online artifact;
+your local Maven repository is available only on your machine.
 
-<Steps>
+## Publish the producer
 
-1. **Publish the modified dependency locally.**
+In the producer checkout, build and test the change, then publish with
+GTNHGradle's [VERSION override](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/GitVersionModule.java).
 
-   Choose a temporary version, run `publishToMavenLocal` in the dependency mod,
-   and use the same version in the dependent mod:
+On Linux, macOS, or Git Bash:
 
-   <Tabs syncKey="operating-system">
-     <TabItem label="Linux, macOS, or Git Bash">
+```sh
+VERSION=99.99.99 ./gradlew publishToMavenLocal
+```
 
-   ```shell
-   VERSION=99.99.99 ./gradlew publishToMavenLocal
-   ```
+On Windows PowerShell, restore the previous environment value afterward:
 
-     </TabItem>
-     <TabItem label="Windows PowerShell">
+```powershell
+$previousVersion = $env:VERSION
+try {
+    $env:VERSION = '99.99.99'
+    .\gradlew.bat publishToMavenLocal
+} finally {
+    $env:VERSION = $previousVersion
+}
+```
 
-   ```powershell
-   $env:VERSION = '99.99.99'
-   .\gradlew.bat publishToMavenLocal
-   Remove-Item Env:VERSION
-   ```
+Expect the version-override message and a successful publication. Inspect
+the published POM and jars in the configured local Maven repository
+(default `~/.m2/repository/`). Group dots become directory separators.
 
-     </TabItem>
-   </Tabs>
+Confirm the POM's `groupId`, `artifactId`, and `version`, plus the classifier
+required by the consumer, commonly `dev`. The
+[publishing module](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/PublishingModule.java)
+uses `ARTIFACT_ID` or the Gradle project name for the artifact ID. Renaming a
+checkout can change that name if settings do not fix it. Existing
+`ARTIFACT_GROUP_ID` or `RELEASE_VERSION` overrides can also change the
+coordinates; check them before diagnosing a missing artifact.
 
-   :::caution[Check the published coordinates]
-   GTNHGradle uses `ARTIFACT_ID` when set, otherwise the Gradle project name.
-   That name defaults to the local folder name but can be set in the project's
-   settings. Renaming a checkout can therefore change its artifact ID.
-   `ARTIFACT_GROUP_ID` and `RELEASE_VERSION` can also override publication
-   coordinates. Check your environment before publishing. See the
-   [publishing module](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/PublishingModule.java).
-   :::
+## Select it in the consumer
 
-   **Expected result:** GTNHGradle reports the override and
-   `publishToMavenLocal` succeeds. The
-   [GTNHGradle version module](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/GitVersionModule.java)
-   reads the uppercase `VERSION` environment variable.
-
-   Inspect the new POM in `~/.m2/repository/GROUP/PATH/ARTIFACT/99.99.99/`
-   (`$HOME/.m2/repository/` in PowerShell). Group dots become directory
-   separators. Confirm its `groupId`, `artifactId`, and `version`, and that the
-   jar with the classifier required by the consumer, often `dev`, exists.
-
-2. **Enable Maven Local in the dependent mod.**
-
-   Check `repositories.gradle` or `repositories.gradle.kts` first. Some repositories already declare it. If
-   it is missing, add `mavenLocal()` to the existing `repositories` block:
+1. Inspect the consumer's repository declarations. If Maven Local is absent,
+   add it to the existing `repositories` block for this test:
 
    ```groovy
    repositories {
@@ -68,47 +61,43 @@ supports the temporary `VERSION` override used below.
    }
    ```
 
-3. **Use the local version in the dependent mod.**
+2. In the dependency declaration, preserve the configuration, group, artifact,
+   and classifier, and replace only the version with `99.99.99`.
+   If the producer published under the wrong artifact ID, correct its project
+   name or temporary override and republish.
+3. Inspect selection before building. Replace `GROUP:ARTIFACT` with the
+   published coordinates:
 
-   In `dependencies.gradle` or `dependencies.gradle.kts`, preserve the existing group, artifact,
-   configuration, and classifier. Set its version to `99.99.99`. Do not add a
-   `resolutionStrategy.force` rule.
-
-   If the POM has a different artifact ID, correct the producer's project name
-   or temporary `ARTIFACT_ID` override and republish before continuing.
-
-4. **Refresh and test the dependent mod.**
-
-   Inspect the resolved dependency before running the build or client:
-
-   ```console
+   ```sh
    ./gradlew dependencyInsight --dependency GROUP:ARTIFACT --configuration runtimeClasspath
    ```
 
-   Replace `GROUP:ARTIFACT` with the POM coordinates. Use the relevant resolvable
-   configuration if the repository customizes its runtime classpath. Inspect
-   `compileClasspath` too when testing an API change. On Windows, use
-   `.\gradlew.bat`.
+   On Windows PowerShell, use `.\gradlew.bat`. Use the relevant resolvable
+   configuration if the consumer customizes its classpaths, and inspect
+   `compileClasspath` too for an API change.
 
-   **Expected result:** the selected version is `99.99.99`, with no conflict
-   selecting a different version. Confirm the modified behavior in the
-   consumer's normal build or development run.
+Expect the selected local version and no conflict choosing another version.
+Changing a dependency declaration is not proof that resolution selected it;
+avoid adding a force rule to hide that conflict.
 
-   Republish after each producer change. If reusing the same version, resolve
-   again with `--refresh-dependencies`. Use a new temporary version when you
-   need to distinguish iterations. Restart the consumer so it loads the new jar.
+## Test and iterate
 
-5. **Replace temporary settings before submission.**
+Run the consumer's build and relevant game scenario. Republish after each
+producer change, then restart the consumer so it loads the new jar.
+Use a fresh temporary version to distinguish iterations. If reusing a version,
+resolve again with `--refresh-dependencies`.
 
-   Once an online pre-release exists, replace `99.99.99` with that version in
-   the consumer. Remove a `mavenLocal()` entry added only for this test and any
-   temporary publication overrides. Review `git diff`, then repeat dependency
-   inspection and the build from a clean checkout without the local artifact.
+A development-classpath test uses the development artifact. For an assembled
+pack, install the coordinated runtime jars with
+[full-pack testing](/GTNH-Dev-Doc/how-to/test-in-full-pack/).
 
-</Steps>
+## Prepare the submitted changes
 
-:::caution[Local means local]
-GitHub Actions cannot access artifacts from your machine. CI requires an online
-pre-release. Ask a GTNH team member if you cannot publish one, and link the
-producer and consumer pull requests so reviewers can follow their dependency.
-:::
+Once an online pre-release exists, use that version in the consumer. Remove
+test-only repository entries and publication overrides, and review the diff.
+Repeat dependency inspection and the build in a checkout that cannot resolve
+the unpublished local artifact.
+
+Link producer and consumer pull requests and state their dependency order.
+Ask an authorized GTNH team member to publish a pre-release if needed; local
+publication does not make the dependency available to reviewers or CI.

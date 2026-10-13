@@ -1,45 +1,54 @@
 ---
 title: Contribute with GitHub Desktop
-description: Fork, edit, review, and submit a GTNH change with a graphical Git client.
+description: Prepare a contribution branch, review files, and open a pull request through GitHub Desktop.
 ---
 
-Use GitHub Desktop if you prefer a graphical Git workflow. You still need an
-editor for the files you change and a terminal for the checks required by the
-target repository. For code changes, complete the
-[development setup](/GTNH-Dev-Doc/start-here/fork-clone-and-import/) first.
+Use GitHub Desktop for graphical Git operations and your editor for the
+change. You still need the owning repository's build and validation tools.
+Start with [the repository and its target branch](/GTNH-Dev-Doc/start-here/choose-a-repository/).
 
-## Fork and clone the repository
+## Fork and clone
 
-1. [Choose the repository](/GTNH-Dev-Doc/start-here/choose-a-repository/)
-   that owns the change. On its GitHub page, select **Fork** and create a fork
-   under your account. If GitHub offers **Copy the master branch only**, leave
-   it unchecked so the fork keeps version tags used by GTNH builds.
+1. Create a fork under your GitHub account using the original repository's
+   **Fork** button.
 2. Sign in to [GitHub Desktop](https://desktop.github.com/). Choose
-   **File → Clone Repository → GitHub.com**, select your fork, choose a local
-   path, and select **Clone**. If the fork is not listed, use the **URL** tab
-   with your fork's GitHub URL.
-3. Check that Desktop shows your fork as the current repository. Select
-   **Current Branch → New Branch** and give the branch a short name describing
-   this change.
+   **File → Clone Repository**, select your fork, choose a local path, and
+   clone it. Use the **URL** tab if the fork is absent from the list.
+3. In the cloned repository, open a terminal through Desktop and complete
+   [the upstream and branch setup](/GTNH-Dev-Doc/start-here/fork-clone-and-import/#fork-and-clone),
+   starting at step 3. Fetch upstream history and tags, then create the branch
+   from the original repository's requested base. GitHub's branch-copy checkbox
+   is not the step that fetches version tags.
+4. Return to Desktop and confirm the current repository and branch.
+   For mod code, continue with
+   [Java and IDE setup](/GTNH-Dev-Doc/start-here/fork-clone-and-import/#select-java-and-import-the-mod).
 
-## Change, test, and submit
+GitHub maintains the
+[cloning and forking reference](https://docs.github.com/en/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop)
+for interface changes.
 
-1. Open the local repository in your editor, make one focused change, and save
-   the files. Follow the target repository's README for its build and test
-   commands. For a mod, use [build and run](/GTNH-Dev-Doc/start-here/build-and-run/).
-2. In Desktop's **Changes** tab, inspect the diff and select only the files you
-   intend to submit. Leave generated build files, run directories, IDE state,
-   and secrets out of the commit.
-3. Enter a descriptive **Summary**, select **Commit to _your branch_**, then
-   select **Publish branch**. For later revisions, use **Push origin** after
-   committing.
-4. Select **Preview Pull Request**, verify that the base is the branch requested
-   by the target repository, then select **Create Pull Request**. On GitHub,
-   check that the base repository is the original GTNH repository. Fill in the
-   pull request template with the problem, change, and test results. Choose a
-   draft pull request if the work needs early feedback.
+## Review and commit the change
 
-Continue with the [pull request expectations](/GTNH-Dev-Doc/contributing/pull-request-expectations/)
-and respond to review on the same branch. GitHub maintains the
-[Desktop interface reference](https://docs.github.com/en/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop)
-if a menu label changes.
+Make one focused change and run the repository's checks. For a mod, use
+[Build and run](/GTNH-Dev-Doc/start-here/build-and-run/) to establish and test
+the environment.
+
+In Desktop's **Changes** view, inspect every changed file and select the
+intended files or hunks. Leave build output, run directories, test worlds,
+IDE state, and private configuration out of the commit.
+
+Enter a descriptive **Summary** in your own voice and commit to the
+contribution branch. Confirm that the resulting commit contains the intended
+change, then choose **Publish branch**. For subsequent commits, use
+**Push origin**.
+
+## Open and revise the pull request
+
+Use **Preview Pull Request** when available, then **Create Pull Request**.
+On GitHub, confirm the original base repository and requested branch.
+Fill out its template with the problem, result, dependencies, and test
+evidence; use a draft for unfinished work.
+
+Follow [Pull request expectations](/GTNH-Dev-Doc/contributing/pull-request-expectations/).
+Make review revisions on the same branch, repeat the affected checks, and
+commit and push them. Check the updated pull request's files and status.

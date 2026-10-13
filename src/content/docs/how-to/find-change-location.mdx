@@ -1,52 +1,63 @@
 ---
 title: Find where a change belongs
-description: Trace a requested change to the repository and source that own it.
+description: Trace a game symptom, recipe, or build failure to the source that owns it.
 sidebar:
   order: 1
 ---
 
-import { Steps } from '@astrojs/starlight/components';
+Start with evidence you can search: a registry name, translation key, exact log
+message, configuration key, or stack-trace class. A pack symptom can originate
+in a mod, a pack override, or tooling. Use the
+[repository map](/GTNH-Dev-Doc/concepts/repository-map/) to choose candidate
+checkouts, then confirm ownership in their source.
 
-## Start from evidence
+## Capture an identifier
 
-Collect a visible name, log message, configuration key, class name, or
-stack-trace frame. Search that exact text in GitHub and the checkout first.
+For an item or recipe, use
+[in-game inspection](/GTNH-Dev-Doc/how-to/in-game-testing-tools/)
+to record its registry identity and inputs, outputs, machine, and quantities.
+A display name may be translated, and the mod that owns an item need not
+register the recipe involving it.
 
-Pack issues may belong to an individual mod; dependency and build failures may
-belong to [GTNHGradle](https://github.com/GTNewHorizons/GTNHGradle),
-[RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle), or a
-shared workflow.
+For a crash, retain the first relevant exception and its stack trace.
+For a build failure, retain the task and dependency coordinates. Use
+[Locate logs](/GTNH-Dev-Doc/how-to/locate-logs/) when the visible error is only
+a summary.
 
-## Narrow the location
+## Find the code or data that produces the behavior
 
-<Steps>
+1. Search the exact identifier or message in the candidate checkout. With
+   ripgrep installed, run this from its root, replacing `EXACT-TEXT`:
 
-1. Search the exact user-visible string or error text.
-2. Find the code that constructs or consumes it.
-3. Follow imports and calls outward until you reach the behavior to change.
-4. Check `dependencies.gradle`, `repositories.gradle`, and settings files when
-   the implementation comes from another repository.
-5. Use blame and recent pull requests to understand why the code is present.
-   Do not treat age alone as evidence that it is wrong.
-6. Confirm that the repository is active and read its README, issue templates,
-   and contribution files.
+   ```sh
+   rg -n -F 'EXACT-TEXT' .
+   ```
 
-</Steps>
+   Your IDE's **Find in Files** is another way to search. If the match is a
+   language-file value, find its key's Java references. If it is configuration,
+   find the code that reads the key.
+2. Follow the matching registration, caller, or consumer to the behavior.
+   A wrapper or addon may delegate to another mod. Search pack scripts and
+   configuration when the behavior differs from the mod's default.
+3. If the implementation comes from a dependency, inspect the dependency
+   declaration and imports. Confirm the matching source repository and version
+   before editing a similarly named local class.
+4. Read nearby tests, history, and linked issues to understand the contract.
+   Use blame as a route to that context, not as evidence that old code is wrong.
 
-:::tip[Keep the first pull request narrow]
-If the fix needs coordinated changes in two repositories, describe that
-dependency explicitly. Do not bundle drive-by cleanup from either repository.
-:::
+For tooling, distinguish the repository's configuration from the plugin or
+workflow implementing it. The
+[build-system overview](/GTNH-Dev-Doc/concepts/build-system-stack/)
+shows where GTNHGradle, RetroFuturaGradle, shared CI, and pack assembly fit.
 
-## Know when you are done searching
+## Confirm the owner before editing
 
-You should be able to name:
+You should be able to name the repository, relevant file or call path,
+reproduction, and check that will verify the change. Read that repository's
+contribution instructions and inspect existing issues and pull requests.
 
-- The repository that owns the behavior.
-- The source or configuration file involved.
-- The task that verifies the change.
-- An issue, code path, or maintainer confirmation supporting that choice.
-
-Otherwise, bring the partial findings to the
-[official GTNH Discord](https://discord.gg/EXshrPV) or the relevant issue. For build
-behavior, [inspect Gradle tasks](/GTNH-Dev-Doc/how-to/gradle-tasks/) before assuming the task name.
+If the evidence still points to several owners, share the reproduction and
+locations you checked in the relevant issue or
+[GTNH Discord](https://discord.gg/EXshrPV). For coordinated work, identify
+separate changes and their dependency order rather than opening competing
+fixes in several repositories.

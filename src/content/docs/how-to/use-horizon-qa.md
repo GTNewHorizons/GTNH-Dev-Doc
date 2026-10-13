@@ -1,42 +1,75 @@
 ---
 title: Use Horizon-QA GameTests
-description: Add and run focused in-game integration tests for GTNH mods.
+description: Select a server-side regression test, run it in development, and inspect its reported result.
 sidebar:
   order: 6
 ---
 
-Use [Horizon-QA](https://github.com/GTNewHorizons/Horizon-QA) for server behavior:
-lifecycle, ticks, structures, GregTech machines, and cross-mod integration. Keep
-it on development and CI classpaths, never as a gameplay dependency. Use the
-[official Horizon-QA documentation](https://www.gtnewhorizons.com/Horizon-QA/)
-for the complete API and configuration reference.
+Use [Horizon-QA](https://www.gtnewhorizons.com/Horizon-QA/) when a regression
+depends on Minecraft server behavior: ticks, structures, machines, or mod
+integration. Keep HQA on development and CI classpaths; a gameplay mod's
+published dependency contract should remain independent of the test framework.
 
-## Add one focused test
+## Prepare the test
 
-Follow the consumer repository's existing test layout and use the HQA version
-selected by the repository or pack. For a new setup, follow
-[Add Horizon-QA to your mod](https://www.gtnewhorizons.com/Horizon-QA/getting-started/mod-setup/)
-for the dependency and source layout. Its
-[test discovery requirements](https://www.gtnewhorizons.com/Horizon-QA/getting-started/mod-setup/#test-discovery)
-include `@GameTestHolder` on the holder class as well as `@GameTest` on methods.
+Use the consumer repository's selected HQA version and existing test layout.
+For a new integration, follow
+[Add Horizon-QA to your mod](https://www.gtnewhorizons.com/Horizon-QA/getting-started/mod-setup/).
+That guide covers dependency configuration, structures, and release packaging.
 
-Choose a test that observes the changed server behavior. Use HQA's
-[getting-started path](https://www.gtnewhorizons.com/Horizon-QA/getting-started/)
-for authoring, fixtures, and execution details.
+Discovery requires a `@GameTestHolder` class and public static `@GameTest`
+methods with the supported signature. Choose a test that observes the
+changed behavior, including the failure you want to prevent. Follow HQA's
+[first-test guide](https://www.gtnewhorizons.com/Horizon-QA/getting-started/first-test/)
+for the actual fixture and assertion API.
 
-## Run the exact test on a server
+## Run it interactively
 
-Inspect the repository for its server task, then pass each HQA property through
-its own `--mcJvmArgs`:
+Start the consumer's development server and connect its client. Interactive
+mode is the default. With an operator account, run the full test ID, replacing
+`modid:Holder.method` with yours:
 
-```console
+```text
+/horizonqa run modid:Holder.method
+```
+
+The `/qa` alias also works. Inspect a failed cell, fix the behavior, and use
+`/horizonqa runthis` to rerun that cell. HQA's
+[debugging guide](https://www.gtnewhorizons.com/Horizon-QA/guide/debugging/)
+explains the available evidence and commands.
+
+## Run a reported batch
+
+Use a disposable development server. CI mode selects HQA's void-world policy
+by default, runs the selection, and writes reports. From the consumer checkout
+root, use its server task and pass each property to the **Minecraft JVM**
+through a separate `--mcJvmArgs`.
+
+This Bash example uses an absolute report directory and the test ID you chose:
+
+```sh
 ./gradlew runServer \
   --mcJvmArgs=-Dhorizonqa.mode=ci \
   --mcJvmArgs=-Dhorizonqa.tests=modid:Holder.method \
   --mcJvmArgs="-Dhorizonqa.reportDir=${PWD}/build/horizonqa"
 ```
 
-Check the process exit code, `TEST-horizonqa.xml`, and `horizonqa-result.json`.
-Use HQA's [CI and report guide](https://www.gtnewhorizons.com/Horizon-QA/guide/ci/)
-to interpret test failures and infrastructure errors. Report the selector and
-results with your pull request.
+In PowerShell:
+
+```powershell
+$reportPath = Join-Path (Get-Location) 'build/horizonqa'
+.\gradlew.bat runServer --mcJvmArgs=-Dhorizonqa.mode=ci --mcJvmArgs=-Dhorizonqa.tests=modid:Holder.method --mcJvmArgs="-Dhorizonqa.reportDir=$reportPath"
+```
+
+Passing `-Dhorizonqa.mode=ci` directly to Gradle sets it on the wrong JVM.
+For a multi-project consumer, use its qualified server task.
+
+Inspect `TEST-horizonqa.xml` and `horizonqa-result.json` in the report
+directory. The JSON distinguishes a pass, required-test failure, and
+infrastructure error; a missing or unmatched test is not a passing regression
+check. Confirm the selected test and counts, then read the failure trace or
+infrastructure issue.
+
+Use the [CI and report guide](https://www.gtnewhorizons.com/Horizon-QA/guide/ci/)
+for selectors, exit-code meanings, optional tests, and workflow integration.
+Report the test ID, relevant versions, and observed result in your pull request.
