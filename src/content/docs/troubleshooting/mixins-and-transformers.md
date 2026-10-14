@@ -10,9 +10,9 @@ failed patch.
 
 ## Check the patch against the loaded target
 
-Record the mixin configuration and name, or transformer class; the target
-class and member; the loaded versions of both mods; and whether the failure
-occurs on the client, dedicated server, or both. Keep the surrounding startup
+Record the mixin configuration and name, or transformer class, along with the
+target class and member. Include the loaded versions of both mods and whether
+the failure occurs on the client, dedicated server, or both. Keep the surrounding startup
 sequence using [Locate logs](/GTNH-Dev-Doc/how-to/locate-logs/).
 
 Compare the expected method or field with the source or bytecode of the

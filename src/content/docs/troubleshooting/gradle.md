@@ -4,8 +4,8 @@ description: Separate wrapper, configuration, and task failures, then repair the
 ---
 
 Start with the command that failed and its first relevant exception, including
-any nested cause. The failed stage determines whether you need to repair
-Gradle startup, project configuration, or an individual task.
+any nested cause. Which stage failed tells you whether to look at Gradle
+startup, project configuration, or an individual task.
 
 Run this page's commands from the repository root containing the checked-in
 wrapper. On Windows PowerShell, replace `./gradlew` with `.\gradlew.bat`.
@@ -45,7 +45,7 @@ If downloading Gradle fails, compare the failed URL with `distributionUrl` in
 reported network error. Review any changes to the wrapper files and restore
 accidental edits. The
 [wrapper reference](https://docs.gradle.org/current/userguide/gradle_wrapper.html)
-explains this download; use the checkout's wrapper to retain its intended
+explains this download. Use the checkout's wrapper to keep the intended
 Gradle version.
 
 ## A dependency or plugin cannot be resolved

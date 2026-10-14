@@ -4,9 +4,9 @@ description: Choose dependency visibility and distinguish a development jar from
 ---
 
 A dependency declaration chooses an artifact and the classpaths that can use
-it. Publication also decides which dependencies a consumer inherits.
-These choices are related, but adding a jar to a development run does not
-necessarily publish it as part of your mod's dependency contract.
+it. When you publish the mod, you also decide which dependencies a consumer
+inherits. Adding a jar to a development run doesn't necessarily publish it as
+part of your mod's dependency contract.
 
 ## Choose the required visibility
 
@@ -42,7 +42,7 @@ legacy `compile` compatibility depends on the checkout's build support.
 For the usual `group:artifact:version:classifier` notation, the group and
 artifact identify the published module, the version selects a publication,
 and the optional classifier selects a variant such as `dev` or `sources`.
-A coordinate refers to a published file, not your neighboring source checkout.
+A coordinate refers to a published file, not the source checkout next to yours.
 
 In standard RFG packaging, the `-dev` jar uses development names and the
 unclassified reobfuscated jar is the pack runtime artifact. The
@@ -55,7 +55,7 @@ repository instructions.
 Suppose a library adds a method and an addon calls it. The addon must compile
 against an artifact containing that method, and its game run must load a
 compatible runtime artifact. A neighboring checkout or successful library
-build does not change the addon's selected version.
+build doesn't change the version the addon selects.
 
 Use [Maven Local](/GTNH-Dev-Doc/how-to/test-cross-repository-changes/)
 for unpublished local work and `dependencyInsight` to verify selection.

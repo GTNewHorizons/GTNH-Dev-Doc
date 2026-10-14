@@ -3,9 +3,8 @@ title: Official resources
 description: Find the policy, source, support channel, or tool reference that owns a development question.
 ---
 
-Choose the resource that owns your question. A mod's source and build
-configuration establish its implementation; project policy and review
-requirements come from the maintained policy documents.
+Use a mod's source and build configuration to check how it works, and the
+maintained policy documents to check project policy and review requirements.
 
 ## Contribution and design
 
@@ -19,7 +18,8 @@ requirements come from the maintained policy documents.
 | Which StructureLib APIs define a multiblock? | [StructureLib documentation](https://www.gtnewhorizons.com/StructureLib/) |
 
 The local [contribution guides](/GTNH-Dev-Doc/contributing/before-you-code/)
-help apply these requirements; the linked owners maintain the policies.
+help you apply these requirements. The linked documents are where the policies
+are maintained.
 
 ## Source, support, and pack testing
 

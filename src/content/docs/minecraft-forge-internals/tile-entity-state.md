@@ -3,10 +3,10 @@ title: Understand tile entity state
 description: Follow a machine value through server ownership, saving, synchronization, and client presentation.
 ---
 
-A tile entity field reaches neither disk nor clients automatically.
+A tile entity field isn't saved or sent to clients automatically.
 Consider a machine mode selected in a GUI: the server owns the mode, saving
-preserves it across reloads, and synchronization supplies the client-visible
-copy. Each mechanism serves a different part of that lifecycle.
+keeps it across reloads, and synchronization sends a copy to the client.
+Saving and synchronization handle different parts of that lifecycle.
 
 ## Decide what the value belongs to
 
@@ -70,5 +70,5 @@ Keep client-side presentation separate from the server's authoritative value.
 
 Repeat the checks on a dedicated server. Close and reopen the GUI, leave and
 return to tracking range, unload/reload the chunk, and restart the world.
-These observations narrow the missing mechanism; they do not prove a single
-cause without inspecting the relevant path.
+These observations help you find the missing mechanism, but you still need to
+inspect the relevant path to confirm the cause.

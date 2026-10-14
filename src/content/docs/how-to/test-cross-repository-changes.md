@@ -9,8 +9,8 @@ dependency selection and behavior. These instructions cover GTNHGradle mods
 with Maven publishing enabled.
 
 Run commands in the named producer or consumer checkout root.
-The temporary version `99.99.99` is an example: choose a distinguishable test
-version and use it consistently. GitHub Actions needs an online artifact;
+The temporary version `99.99.99` is an example: choose a test version you can
+recognize and use it consistently. GitHub Actions needs an online artifact;
 your local Maven repository is available only on your machine.
 
 ## Publish the producer
@@ -74,9 +74,9 @@ coordinates; check them before diagnosing a missing artifact.
    configuration if the consumer customizes its classpaths, and inspect
    `compileClasspath` too for an API change.
 
-Expect the selected local version and no conflict choosing another version.
-Changing a dependency declaration is not proof that resolution selected it;
-avoid adding a force rule to hide that conflict.
+The report should show the local version you selected, with no conflict choosing
+another version. Changing the declaration doesn't guarantee that Gradle resolved
+that version. Avoid adding a force rule to hide a conflict.
 
 ## Test and iterate
 
@@ -93,9 +93,9 @@ pack, install the coordinated runtime jars with
 
 Once an online pre-release exists, use that version in the consumer. Remove
 test-only repository entries and publication overrides, and review the diff.
-Repeat dependency inspection and the build in a checkout that cannot resolve
+Repeat dependency inspection and the build in a checkout that can't resolve
 the unpublished local artifact.
 
 Link producer and consumer pull requests and state their dependency order.
 Ask an authorized GTNH team member to publish a pre-release if needed; local
-publication does not make the dependency available to reviewers or CI.
+publication doesn't make the dependency available to reviewers or CI.

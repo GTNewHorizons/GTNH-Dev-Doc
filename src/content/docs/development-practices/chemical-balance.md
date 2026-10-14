@@ -37,8 +37,8 @@ dusts (`SnCu₃`), and one tin dust.
    entering and leaving the system.
 
 For water, 1,000 L of `H₂O` corresponds to 2,000 L of hydrogen and 1,000 L of
-oxygen. This comparison uses formula components; equal fluid volumes on each
-side are not the balance criterion.
+oxygen. Compare the formula components rather than expecting the fluid volumes
+on each side to match.
 
 A chemically balanced chain can still have progression or economic effects.
 Follow the [balance contribution requirements](/GTNH-Dev-Doc/contributing/before-you-code/#for-a-balance-change)

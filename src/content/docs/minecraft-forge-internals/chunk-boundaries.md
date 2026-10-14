@@ -36,7 +36,7 @@ then resolve the current object only when access is allowed.
 
 For a cached tile, check validity and confirm that the expected object still
 occupies the location. Clear the cache on relevant unload or removal signals.
-A previously valid reference is not proof that the endpoint is still present.
+A reference that was valid earlier doesn't tell you whether the endpoint is still there.
 
 ## Account for the update path's own loads
 

@@ -17,7 +17,7 @@ used by Minecraft.
 | Minecraft runtime | The selected client/server task or generated run configuration. | The JVM that loads the game and mods. |
 
 IntelliJ's Project SDK also affects its code model and IDE compilation.
-It is not a substitute for the Gradle model imported from the repository.
+It doesn't replace the Gradle model imported from the repository.
 
 [Daemon JVM criteria](https://docs.gradle.org/current/userguide/gradle_daemon.html#sec:daemon_jvm_criteria)
 in `gradle/gradle-daemon-jvm.properties` take precedence over
@@ -30,8 +30,8 @@ override every process automatically.
 A project can run Gradle on a newer JDK and compile for another target.
 Some GTNH builds also use JVM bytecode downgrading to make modern source
 features compatible with their supported game runtimes. The build
-configuration determines that transformation; installing a newer JDK does
-not add it.
+configuration determines that transformation. Installing a newer JDK doesn't
+add it.
 
 GTNHGradle's
 [toolchain module](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/ToolchainModule.java)
@@ -41,8 +41,8 @@ and enabled modules.
 
 For example, the
 [GT5 workspace example](/GTNH-Dev-Doc/start-here/fork-clone-and-import/#worked-example-gt5-unofficial)
-pins its daemon to Java 25. That pin does not establish which Java-specific
-client or server run you exercised, or that every installed pack artifact
+pins its daemon to Java 25. That pin doesn't tell you which Java-specific
+client or server run you tested, or whether every installed pack artifact
 supports the same runtime.
 
 ## Diagnose and report the relevant selection
@@ -52,7 +52,7 @@ wrapper/daemon context. Inspect the compile task for its toolchain and target,
 and the launch output for the Minecraft executable and version.
 
 When reporting a Java-specific failure, name the failing process and record
-both the build and game selections. An IDE import proves that a project
-model loaded; runtime compatibility needs the matching game launch.
+both the build and game selections. An IDE import shows that the project
+model loaded. To check runtime compatibility, you need to launch the matching game.
 [Java problems](/GTNH-Dev-Doc/troubleshooting/java/)
 provides the diagnostic checks.

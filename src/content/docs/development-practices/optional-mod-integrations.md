@@ -19,8 +19,8 @@ fields, annotations, and static initialization.
 Check availability before constructing or registering the integration.
 FML 1.7.10 provides
 [Loader.isModLoaded](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/Loader.java)
-for presence. That result does not establish an API version, method, or
-capability.
+for presence. That check doesn't tell you whether an API version, method, or
+capability is available.
 
 Catching `ClassNotFoundException` inside an integration method cannot protect
 a class that already failed to load because of its type hierarchy.
@@ -33,9 +33,9 @@ and its failure handling there. Disable the unsupported integration or report
 a specific startup error according to the mod's intended dependency contract.
 
 Use the lifecycle phase and dependency ordering appropriate to the
-registration. A presence check is not evidence that the dependency's registry
-is ready. Avoid registry access in static initializers; inspect the owning
-mod's initialization path before choosing where to register.
+registration. Finding the mod doesn't mean its registry is ready. Avoid registry
+access in static initializers, and inspect the mod's initialization path before
+choosing where to register.
 
 ## Exercise the combinations
 

@@ -29,8 +29,8 @@ differ. Use this map to identify candidates, then
 For example, an item can come from one mod while a pack script or another mod
 registers its recipe. Likewise, a Gradle error can be caused by the checkout's
 configuration even when the failing task belongs to a plugin. Names and
-dependency lists help you find candidates; registration and execution paths
-establish ownership.
+dependency lists help you find candidates. Follow the registration and
+execution paths to work out which repository owns the behavior.
 
 Hodgepodge centralizes patches applied through mixins and class transformation.
 When GTNH maintains the target mod's source, prefer fixing the behavior in
@@ -38,10 +38,10 @@ that repository when possible.
 
 ## Separate ownership from support
 
-Organization membership does not establish a mod's support level. Consult the
+Being in the organization doesn't tell you a mod's support level. Check the
 [mod support spreadsheet](https://docs.google.com/spreadsheets/d/1LHd8c4FLLHiJqsuTppF2XFTE6bh-mXE7afVwGbzOKms)
 and its current legend. A consumed upstream mod may have no GTNH source fork.
-Confirm the intended ownership with maintainers before creating one.
+Check with maintainers who should own the fork before creating one.
 
 ## Follow the artifact as well as the source
 

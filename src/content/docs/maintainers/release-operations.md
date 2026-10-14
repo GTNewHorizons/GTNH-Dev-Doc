@@ -18,7 +18,8 @@ The [tagging implementation](https://github.com/GTNewHorizons/MergeMasterXXL/blo
 orders inter-repository dependencies and handles development tags.
 Its [tag helper](https://github.com/GTNewHorizons/MergeMasterXXL/blob/master/src/requests/tags.ts)
 increments the last numeric part of the existing format. Those sources
-describe behavior, not the production schedule or every current exception.
+describe how tagging works. They don't tell you the production schedule or
+every current exception.
 
 The repository's `.github/workflows/release-tags.yml` describes what happens
 after a tag is pushed. It does not decide who should create the tag.
@@ -50,7 +51,7 @@ assembly compatibility.
 
 ## Create and push the authorized tag
 
-After the repository's release checks and authorization are satisfied:
+Once the repository's release checks have passed and you have authorization:
 
 ```sh
 git tag TAG TARGET-COMMIT
@@ -70,7 +71,7 @@ equivalent. Check the GitHub release assets and each required Maven or other
 destination for the exact version.
 
 The shared workflow allows several publication steps to continue on error.
-A completed job therefore does not prove that every destination received the
+Even if the job completes, some destinations may not have received the
 artifact. Inspect the relevant steps and files.
 
 Before retrying a partial release, coordinate the repair. The shared workflow

@@ -50,7 +50,7 @@ If another unpublished mod is required, first
 then install the matching runtime artifacts together.
 
 For pack data or resources, copy the changed files to their corresponding
-instance paths. Retain the originals so the test can be reset. Record the
+instance paths. Keep the originals so you can reset the test. Record the
 source commits, jar names, or changed pack-file paths.
 
 ## Compare and verify
@@ -67,10 +67,10 @@ source commits, jar names, or changed pack-file paths.
    for recipe, item, and saved-data evidence.
 
 Report the pack tag, runtime variant, installed artifacts, setup, and the
-baseline and modified results. Identify important cases left untested.
-For a failure, retain the first useful exception using
+baseline and modified results. Say which important cases you didn't test.
+If the test fails, keep the first useful exception using
 [Locate logs](/GTNH-Dev-Doc/how-to/locate-logs/).
 
-A completed test establishes that the intended files loaded and the chosen
+A completed test shows that the intended files loaded and the chosen
 scenario behaved as expected. Restore the original files or discard the
 instance before another unrelated test.

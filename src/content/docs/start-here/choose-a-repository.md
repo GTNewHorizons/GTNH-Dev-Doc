@@ -19,16 +19,16 @@ recipe, item, or class name. Use
 [Find where a change belongs](/GTNH-Dev-Doc/how-to/find-change-location/)
 to trace that evidence to the code or data responsible.
 
-Use the [repository map](/GTNH-Dev-Doc/concepts/repository-map/) to distinguish
-mod code from pack configuration, translations, and build tooling. Then read
-the candidate repository's README and inspect the relevant source. A name in
-a dependency list establishes that the project is used; it does not establish
-that the fix belongs there.
+Use the [repository map](/GTNH-Dev-Doc/concepts/repository-map/) to work out
+whether you're looking for mod code, pack configuration, translations, or build
+tooling. Read the candidate repository's README, then inspect the relevant
+source. A dependency list tells you that a project is used, but that doesn't
+tell you whether the fix belongs there.
 
 If ownership remains unclear, ask in the
 [official GTNH Discord](https://discord.gg/EXshrPV) with the reproduction and
 repositories you have checked. For a change spanning several repositories,
-identify the dependency order and plan separate, linked pull requests.
+work out the dependency order and plan separate, linked pull requests.
 
 ## Check the contribution requirements
 
@@ -58,5 +58,5 @@ creating your working branch and opening the pull request.
   The project provides a starter archive; do not fork the example repository
   to create your mod.
 
-You are ready to continue when you can name the owning repository, target
-branch, intended result, and any discussion required before work starts.
+You're ready to continue once you know which repository and branch to use,
+what you want the change to do, and whether you need to discuss it with the team first.

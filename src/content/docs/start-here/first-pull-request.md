@@ -26,7 +26,7 @@ git switch -c describe-your-change upstream/BASE-BRANCH
 Keep the change focused on the problem you chose. For a bug fix, reproduce
 the failure first and keep that setup as the test case. After the edit, repeat
 the same action and compare the result. Include a focused automated test
-when it can preserve the regression.
+when it can catch the regression in future changes.
 
 Run the repository's relevant build and validation commands, then exercise
 the changed behavior. Use
@@ -55,7 +55,7 @@ git add -- path/to/changed-file
 git diff --cached
 ```
 
-Commit after the staged diff contains only the intended change. Replace the
+Once the staged diff contains only the intended change, commit it. Replace the
 message below with a description of your change in your own voice, and use
 your branch name in the push command:
 
@@ -75,9 +75,9 @@ covers the interface.
 Fill out the repository's template and follow
 [Pull request expectations](/GTNH-Dev-Doc/contributing/pull-request-expectations/).
 Explain the problem, resulting behavior, and test results. Link the issue,
-prior discussion, and any dependent pull requests. State relevant environments
-and versions and any important case you could not test. Use a draft pull
-request for unfinished work or early feedback.
+prior discussion, and any dependent pull requests. Include the relevant
+environments and versions, and say which important cases you couldn't test.
+Use a draft pull request for unfinished work or early feedback.
 
 Confirm that the pull request shows your intended files and commits. Watch the
 checks for that revision; if a local build and GitHub Actions disagree, follow

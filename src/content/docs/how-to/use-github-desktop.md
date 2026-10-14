@@ -31,7 +31,7 @@ for interface changes.
 ## Review and commit the change
 
 Make one focused change and run the repository's checks. For a mod, use
-[Build and run](/GTNH-Dev-Doc/start-here/build-and-run/) to establish and test
+[Build and run](/GTNH-Dev-Doc/start-here/build-and-run/) to set up and test
 the environment.
 
 In Desktop's **Changes** view, inspect every changed file and select the
@@ -39,7 +39,7 @@ intended files or hunks. Leave build output, run directories, test worlds,
 IDE state, and private configuration out of the commit.
 
 Enter a descriptive **Summary** in your own voice and commit to the
-contribution branch. Confirm that the resulting commit contains the intended
+contribution branch. Check that the commit contains the intended
 change, then choose **Publish branch**. For subsequent commits, use
 **Push origin**.
 

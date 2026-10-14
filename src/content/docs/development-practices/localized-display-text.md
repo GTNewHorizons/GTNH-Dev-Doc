@@ -17,8 +17,8 @@ the configured fluid unit. `getFluidUnit` supplies the unit when an API needs
 it separately.
 
 A formatted value can contain locale-specific grouping and decimal separators.
-Keep the original number for further calculation; parsing the display string
-back into a number makes the calculation depend on presentation settings.
+Keep the original number for further calculation. If you parse the display
+string back into a number, the calculation depends on presentation settings.
 Machine-readable text must use the representation required by its protocol.
 
 ## Let the receiving client translate

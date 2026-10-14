@@ -19,7 +19,7 @@ Discovery requires a `@GameTestHolder` class and public static `@GameTest`
 methods with the supported signature. Choose a test that observes the
 changed behavior, including the failure you want to prevent. Follow HQA's
 [first-test guide](https://www.gtnewhorizons.com/Horizon-QA/getting-started/first-test/)
-for the actual fixture and assertion API.
+for the fixture and assertion API.
 
 ## Run it interactively
 

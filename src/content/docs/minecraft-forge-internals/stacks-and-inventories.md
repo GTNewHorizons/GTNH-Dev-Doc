@@ -5,8 +5,8 @@ description: Track ownership, actual transfer amounts, and inventory restriction
 
 An `ItemStack` or `FluidStack` is a mutable value: identity and optional
 NBT travel with an amount. Inventory and transfer APIs can retain, copy,
-or modify it. Establish ownership and the API's return contract before
-changing a stack.
+or modify it. Before changing a stack, check who owns it and what the API
+promises to return.
 
 ## Copy when you need an independent value
 
@@ -21,7 +21,7 @@ inputs.
 
 Choose the comparison the operation needs: item identity, damage, NBT,
 ore-dictionary membership, or fluid identity. Fluid equality, for example,
-does not by itself establish equal amounts. No single equality helper
+doesn't by itself tell you whether the amounts match. No single equality helper
 settles every recipe or transfer question.
 
 ## Account for the amount that actually moved
@@ -44,8 +44,8 @@ and compare the combined amount before and after.
 
 An `EntityItem` can keep its old stack after pickup, merging, or removal
 marks it dead. Before a transfer, require a live entity and a positive
-available stack. A saved reference's stack data is not proof that those
-items still exist in the world.
+available stack. A saved reference can still contain stack data even when
+those items no longer exist in the world.
 
 Inspect `EntityItem` and `ItemStack` in the
 [generated development sources](/GTNH-Dev-Doc/concepts/build-system-stack/)

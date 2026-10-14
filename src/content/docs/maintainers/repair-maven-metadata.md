@@ -3,9 +3,10 @@ title: Repair Maven repository metadata
 description: Confirm metadata corruption, limit the Nexus repair scope, and verify resolution afterward.
 ---
 
-Use this recovery procedure only with Nexus administration access, confirmed
-metadata corruption, and the exact hosted-repository path. A missing artifact,
-wrong coordinate, or client cache problem needs a different correction.
+Use this recovery procedure only if you have Nexus administration access,
+have confirmed metadata corruption, and know the exact hosted-repository path.
+A missing artifact, wrong coordinate, or client cache problem needs a different
+correction.
 
 Sonatype's [task reference](https://help.sonatype.com/en/tasks.html#types-of-tasks)
 documents **Repair - Rebuild Maven repository metadata (maven-metadata.xml)**.
@@ -17,10 +18,9 @@ Fetch the damaged `maven-metadata.xml` and compare its version entries with
 the published artifacts and affected consumer's request. Record the hosted
 repository, group, artifact, and any relevant base version.
 
-Inspect an existing repair task before reusing it. Its name does not establish
-its scope; confirm the repository and filters. The live GTNH task inventory is
-administrative configuration, so check it in Nexus rather than relying on a
-list of task names in documentation.
+Inspect an existing repair task before reusing it. Its name doesn't tell you
+what it will repair, so check the repository and filters. Check the current
+GTNH tasks in Nexus rather than relying on a list of names in documentation.
 
 ## Configure and run the repair
 
@@ -46,7 +46,7 @@ choose a base-version filter that excludes the damaged metadata.
 
 Set the schedule to **Manual**, save, and review the complete scope before
 running once. Follow its task log to completion. If the available fields
-cannot express the intended scope, resolve that with the repository
+can't limit the task to the intended scope, resolve that with the repository
 administrator before running a broader task.
 
 ## Verify recovery
@@ -56,4 +56,4 @@ checksums. Repeat the affected consumer's resolution check against the
 repaired repository, refreshing its cache if necessary.
 
 Record the task, scope, and result. If corruption recurs, investigate the
-publishing or storage cause; scheduling repeated rebuilds hides that failure.
+publishing or storage cause. Scheduling repeated rebuilds hides that failure.

@@ -5,8 +5,8 @@ description: Preserve the meaning of released keys and define defaults and migra
 
 A released NBT key becomes part of the data your newer code must read.
 Changing a field's name, unit, or interpretation can change an existing world
-even when the new code compiles. Define the old-data behavior before changing
-serialization.
+even when the new code compiles. Decide how your code should handle old data
+before changing serialization.
 
 ## Distinguish absence from a stored value
 
@@ -32,7 +32,7 @@ private static int readMode(NBTTagCompound tag) {
 This is a fragment for the owning read hook, using `NBTTagCompound` and
 Forge's [Constants.NBT](https://github.com/MinecraftForge/MinecraftForge/blob/1.7.10/src/main/java/net/minecraftforge/common/util/Constants.java).
 Choose the fallback and accepted types from your actual old schema.
-The ordinary canonical write for this example is `setInteger("mode", mode)`.
+For this example, write the canonical value with `setInteger("mode", mode)`.
 
 ## Preserve the serialization contract
 

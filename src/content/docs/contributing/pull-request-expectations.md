@@ -3,15 +3,17 @@ title: Pull request expectations
 description: Give GTNH reviewers the scope, context, and evidence needed to assess your change.
 ---
 
-A reviewer should be able to identify the problem, understand the resulting
-behavior, and repeat the relevant checks from your pull request. Follow the
+A reviewer should be able to understand the problem, see how your change
+affects the behavior, and repeat the relevant checks from your pull request.
+Follow the
 [contribution guidelines](https://github.com/GTNewHorizons/.github/blob/master/CONTRIBUTING.md)
 and fill out the owning repository's template.
 
 ## Make the change reviewable
 
 Keep one feature or coherent change in a pull request. Put unrelated cleanup
-in another change; it obscures the behavioral diff and complicates rollback.
+in another change, because it makes the behavior harder to review and the
+change harder to roll back.
 Use clear commits that describe the work they contain.
 
 Target the branch requested by the repository. For work spanning several
@@ -21,27 +23,27 @@ applicable.
 
 ## Explain the problem and result
 
-Write a title that carries useful changelog context. For example,
+Write a title that will make sense in a changelog. For example,
 “Fix battery charge display after reconnecting” tells readers which behavior
 changes; “Fix GUI” leaves that work to the reviewer.
 
 In the description, explain what changes, why, and which part of the pack is
-affected. Link the issue and any design discussion. Name consequential behavior,
-compatibility, or progression changes rather than making reviewers infer them
-from the code.
+affected. Link the issue and any design discussion. Explain important changes to
+behavior, compatibility, or progression so reviewers don't have to work them
+out from the code.
 
 For balance changes and new recipe chains, include the
 [required balance answers and flowchart](/GTNH-Dev-Doc/contributing/before-you-code/#for-a-balance-change).
 
 ## Show the evidence
 
-State the tested revision or artifacts, relevant environment, setup, action,
-and observed result. Separate completed checks from important cases you could
-not test. [Testing expectations](/GTNH-Dev-Doc/contributing/testing-expectations/)
+Include the tested revision or artifacts, relevant environment, setup, action,
+and what you observed. Make clear which checks you completed and which important
+cases you couldn't test. [Testing expectations](/GTNH-Dev-Doc/contributing/testing-expectations/)
 helps you select those cases.
 
 For visual changes, use comparable before-and-after screenshots. For new
-visual behavior, show the result. Add video when motion or interaction cannot
+visual behavior, show the result. Add video when motion or interaction can't
 be assessed from still images.
 
 ## Keep the review current

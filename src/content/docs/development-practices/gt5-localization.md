@@ -3,8 +3,8 @@ title: Add localized text to GT5
 description: Choose a GT5 translation API, preserve language keys, and apply the proposed naming convention where appropriate.
 ---
 
-Start from the text's display destination and preserve any existing key whose
-meaning still fits. These API choices apply to GT5-Unofficial. The naming and
+Start with where the text will appear, and keep any existing key whose meaning
+still fits. These API choices apply to GT5-Unofficial. The naming and
 file layout below come from the **proposed** guide in
 [PR #7643](https://github.com/GTNewHorizons/GT5-Unofficial/pull/7643), which remains
 open; check its review before a broad language-file migration.
@@ -114,5 +114,5 @@ that the recipient displays the translation.
 
 [GTNH-Lang-utils](https://github.com/GTNewHorizons/GTNH-Lang-utils) provides
 optional VS Code assistance for `.lang` highlighting and section navigation.
-Use its current README for installation and supported features; source files
-and the localization guide determine correctness.
+Use its current README for installation and supported features. Check your
+work against the source files and localization guide.

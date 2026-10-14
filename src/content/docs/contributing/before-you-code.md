@@ -3,12 +3,12 @@ title: Before you start coding
 description: Check design, balance, and contribution requirements before committing to a GTNH change.
 ---
 
-Check whether the change fits GTNH before investing in implementation. Read
+Check whether the change fits GTNH before spending time implementing it. Read
 the [contribution guidelines](https://github.com/GTNewHorizons/.github/blob/master/CONTRIBUTING.md),
 the target repository's instructions, and the
 [Developer's Code of Conduct](https://github.com/GTNewHorizons/.github/blob/master/CODE_OF_CONDUCT.md).
-This page helps you find the requirements that affect your proposal; the linked
-policies remain authoritative.
+The requirements below help you plan your proposal. The linked policies
+define those requirements.
 
 ## Discuss the design before substantial work
 
@@ -41,8 +41,8 @@ Answer the guidelines' required questions:
 At least two approvals are required, including one from the Balance Review
 team. A new recipe chain also requires a flowchart. Use
 [chemical balance](/GTNH-Dev-Doc/development-practices/chemical-balance/)
-to check material quantities; balanced quantities alone do not establish that
-a chain fits progression.
+to check material quantities. Those quantities can balance even when a chain
+doesn't fit progression.
 
 ## Read the instructions for the affected content
 
@@ -61,6 +61,6 @@ your own voice and intent. Commit messages and pull request descriptions must
 read in your own voice. The policy also covers firsthand bug reproduction,
 issues, discussions, quests, and prohibited AI-generated media.
 
-Once the proposal and requirements are understood,
+Once you understand the proposal and its requirements,
 [choose the owning repository](/GTNH-Dev-Doc/start-here/choose-a-repository/)
 and prepare the change.

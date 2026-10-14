@@ -4,15 +4,15 @@ description: Identify which build layer owns a setting, task, or failed operatio
 ---
 
 A GTNH mod's build combines repository-specific choices with shared Gradle
-plugins and Minecraft tooling. Knowing who owns each part helps you change
-the supported setting or investigate the responsible implementation.
+plugins and Minecraft tooling. Knowing which part controls a setting helps you
+find the supported way to change it, or the implementation to inspect when it fails.
 
 ## Follow one build from the checkout
 
 The **Gradle wrapper** starts the distribution selected by
 `gradle/wrapper/gradle-wrapper.properties`. The repository's settings and
-build files select plugins and describe the project. Its properties,
-dependency declarations, and supported add-on scripts supply project inputs.
+build files select plugins and describe the project. Properties, dependency
+declarations, and supported add-on scripts provide the inputs for that build.
 
 [GTNHGradle](https://github.com/GTNewHorizons/GTNHGradle) applies shared
 conventions through configurable modules: versioning, toolchains, formatting,
@@ -50,9 +50,9 @@ to find the intended entry point. GTNHGradle's `propertiesHelp` describes
 its configurable properties. Use repository-supported local add-on files for
 personal run tweaks.
 
-A build-system update can replace shared files while leaving customizations
-to reconcile. Review the resulting diff and rerun the repository's checks;
-generated migration output still needs to preserve the project's behavior.
+A build-system update can replace shared files, so you may need to adjust
+your customizations afterward. Review the diff and rerun the repository's
+checks. Even a generated migration needs to preserve the project's behavior.
 
 Pack assembly is a separate process:
 [DreamAssemblerXXL selects published mod artifacts](/GTNH-Dev-Doc/concepts/release-pipeline/)

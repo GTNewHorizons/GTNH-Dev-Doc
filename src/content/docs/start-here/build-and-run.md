@@ -21,9 +21,9 @@ PowerShell, replace `./gradlew` with `.\gradlew.bat` throughout this page.
 ./gradlew build
 ```
 
-Expect `BUILD SUCCESSFUL`. If you already built before IDE import and have
-not changed the checkout, continue to the client launch. For a failure, keep
-the command and first failing task, then follow
+The build should finish with `BUILD SUCCESSFUL`. If you already built before
+IDE import and haven't changed the checkout, continue to the client launch.
+If the build fails, keep the command and first failing task, then follow
 [Gradle problems](/GTNH-Dev-Doc/troubleshooting/gradle/).
 
 GTNHGradle generates build, client, and server configurations through its
@@ -42,8 +42,8 @@ The client should reach the main menu. Check the loaded mod list for your mod,
 then create a disposable world and confirm the behavior you intend to change.
 For GT5, check that GregTech is loaded and that you can enter the test world.
 
-A development run contains your mod and its configured dependencies; it does
-not reproduce the entire GTNH pack. Choose a generated Java-specific run when
+A development run contains your mod and its configured dependencies, so it
+doesn't reproduce the entire GTNH pack. Choose a generated Java-specific run when
 you need to test another supported game runtime. The JDK running Gradle does
 not select the game's runtime; see
 [Java and runtime selection](/GTNH-Dev-Doc/concepts/java-and-runtime-model/).
@@ -79,7 +79,8 @@ process and can hide class-loading or synchronization failures.
 4. Enter `stop` in the server console when finished.
 
 For GT5, this gives you a client and dedicated server built from the same
-checkout. Keep the reproduction so you can repeat it after the code change.
+checkout. Keep the test setup so you can repeat the reproduction after changing
+the code.
 See [Testing expectations](/GTNH-Dev-Doc/contributing/testing-expectations/)
 for save/reload, optional-dependency, and other cases your change may need.
 

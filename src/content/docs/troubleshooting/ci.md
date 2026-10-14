@@ -5,8 +5,8 @@ description: Reproduce the failing GitHub Actions operation and explain why its 
 
 For a continuous integration (CI) failure, open the GitHub Actions run and
 expand the first failing step. Keep the run URL, tested revision, job,
-command, and first relevant exception. A skipped step does not identify the
-cause, and a local compilation may cover less than the failed job.
+command, and first relevant exception. A skipped step doesn't tell you why the
+job failed, and a local compilation may cover less than the failed job.
 
 ## Match the operation and inputs
 
@@ -74,7 +74,7 @@ request. For a failed download, use
 
 Inspect `server.log` and any crash report, even if the earlier server-launch
 step is green. The shared workflow checks server output in a later step;
-the launch step alone does not establish that startup succeeded.
+the launch step alone doesn't show that the server started successfully.
 
 A client-only class loaded on the dedicated server needs a
 [side-boundary correction](/GTNH-Dev-Doc/minecraft-forge-internals/client-server-boundaries/).

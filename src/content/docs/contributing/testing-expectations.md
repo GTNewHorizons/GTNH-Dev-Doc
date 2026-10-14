@@ -4,16 +4,16 @@ description: Choose checks that observe the behavior and boundaries changed by a
 ---
 
 Test the behavior your change affects, then the boundaries it crosses.
-A build checks source and configured tests; a game launch, saved-world check,
-or pack integration test answers a different question. Choose the evidence
-that can expose the failure you are fixing.
+A build checks your source and configured tests. Launching the game, checking
+a saved world, or testing pack integration answers different questions.
+Choose checks that can reveal the failure you're fixing.
 
 ## Establish a comparison
 
-For a bug fix, reproduce the problem on the unchanged version and retain that
+For a bug fix, reproduce the problem on the unchanged version and keep that
 setup. Repeat the same action after the change. For new behavior, define the
-expected result before testing so a successful launch is not the only
-acceptance condition.
+expected result before testing, so you're checking more than whether the game
+launches successfully.
 
 Run the repository's relevant build and validation commands. Add a focused
 automated regression test when it can observe the behavior reliably.
@@ -48,9 +48,9 @@ actually exercises the intended code.
 
 Include the commands or run configurations, relevant JDK and mod/pack versions,
 test setup, action, expected result, and observed result. Identify any important
-case left untested and explain the limitation.
+case you didn't test and explain why.
 
 For a manual check, “joined a dedicated server, changed the machine mode, and
 verified it on a second client and after restart” is more useful than “tested
-in game.” Screenshots support that evidence but cannot establish persistence
-or synchronization on their own.
+in game.” Screenshots support that evidence, but they can't show on their own
+whether a value persists or synchronizes.

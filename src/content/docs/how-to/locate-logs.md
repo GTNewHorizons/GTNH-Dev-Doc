@@ -20,8 +20,8 @@ unresolved dependency or task-execution details. Record the command, working
 directory, task, and relevant launcher/daemon Java versions.
 
 Avoid replacing the original log with only the last `Caused by` line.
-A low-level exception needs the surrounding operation and call path to be
-interpreted.
+To understand a low-level exception, you need the surrounding operation and
+call path too.
 
 ## Development clients and servers
 
@@ -47,7 +47,7 @@ the IDE model or the build itself.
 For an IntelliJ internal failure, collect the IDE log through its **Help**
 menu. JetBrains maintains
 [the log-location guide](https://www.jetbrains.com/help/idea/troubleshooting-materials.html#locate_log_files).
-An IDE log does not replace the game log for a crash in a launched client.
+If a launched client crashes, the IDE log can't replace the game log.
 
 ## Share a reproducible report
 
@@ -56,9 +56,9 @@ environment, reproduction steps, and expected and observed behavior.
 Use excerpts for the important exception and attach or link the full log
 when needed.
 
-Remove tokens or private connection details before sharing. Retain exception
-types, dependency coordinates, task names, and the surrounding cause chain;
-those are the evidence the maintainer needs.
+Remove tokens or private connection details before sharing. Keep exception
+types, dependency coordinates, task names, and the surrounding cause chain,
+because the maintainer needs those to investigate.
 
 Continue with the matching
 [Java](/GTNH-Dev-Doc/troubleshooting/java/),

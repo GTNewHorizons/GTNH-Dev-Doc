@@ -30,8 +30,8 @@ selects it, and a pack can change configuration without changing that mod.
 
 [DreamAssemblerXXL](https://github.com/GTNewHorizons/DreamAssemblerXXL)
 owns manifests and assembly. Its daily and experimental workflows generate
-their corresponding manifests and packages. Inspect the manifest associated
-with the actual run; a later update to `master` is not proof of what an
+their corresponding manifests and packages. Inspect the manifest from the
+run you're checking. A later update to `master` doesn't tell you what an
 earlier archive contains.
 
 Daily packages are published in
@@ -50,8 +50,8 @@ such as `2.9.1`. Use the
 [modpack release notes](https://github.com/GTNewHorizons/GT-New-Horizons-Modpack/releases)
 for the changes and migration instructions attached to the specific build.
 
-The version label alone does not establish save compatibility or that a
-particular bug is fixed. Confirm the included artifacts and test affected
+The version label alone doesn't tell you whether saves are compatible or a
+particular bug is fixed. Check the included artifacts and test affected
 existing data when necessary.
 
 ## Find the boundary where a change stopped

@@ -61,7 +61,7 @@ For a failure in Minecraft workspace setup, rerun:
 ```
 
 Use that command only when the checkout provides the task. For another build
-system, use its documented generation task. If generation fails, retain the
+system, use its documented generation task. If generation fails, keep the
 first download, decompilation, or compilation error and follow
 [Gradle problems](/GTNH-Dev-Doc/troubleshooting/gradle/).
 If it succeeds, reload Gradle and check that the missing sources resolve.

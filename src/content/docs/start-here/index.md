@@ -13,7 +13,7 @@ finding the repository that owns it to submitting a pull request:
    Fork and clone the project, create a working branch, and prepare the tools
    that repository needs.
 3. [Build and run](/GTNH-Dev-Doc/start-here/build-and-run/).
-   For mod code, establish a working development environment before editing.
+   For mod code, get the development environment working before editing.
    Test the relevant client, server, and pack behavior after your change.
 4. [Make your first pull request](/GTNH-Dev-Doc/start-here/first-pull-request/).
    Review the diff, commit your change, and report what you tested. Use the

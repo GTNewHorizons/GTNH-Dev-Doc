@@ -9,7 +9,7 @@ pack, publishes downloads, updates generated repository data, and applies its
 release-retention rules.
 
 The [workflow file](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/master/.github/workflows/daily-modpack-build.yml)
-defines these effects. Its concurrency rule cancels an earlier daily run
+describes what the workflow does. Its concurrency rule cancels an earlier daily run
 when a new one starts, so inspect current runs before dispatching.
 
 ## Start the intended run
@@ -43,10 +43,10 @@ matching artifacts.
 
 ## Investigate before retrying
 
-Preserve the first failed job and relevant logs. Check which archives,
+Keep the first failed job and relevant logs. Check which archives,
 releases, or commits already exist before starting another run.
 The workflow can overwrite assets for an existing daily tag and remove old
-daily releases; a retry is another publication operation.
+daily releases. A retry runs that publication process again.
 
 Resolve the failed input or operation and coordinate the replacement run.
 For a mod version missing from the manifest, trace the

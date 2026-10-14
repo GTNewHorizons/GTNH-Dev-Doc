@@ -4,11 +4,11 @@ description: Fork and clone a GTNH repository, prepare its Java setup, and impor
 ---
 
 Start with the [repository you chose](/GTNH-Dev-Doc/start-here/choose-a-repository/)
-and its contribution instructions. This page uses command-line Git and
-IntelliJ IDEA. For graphical Git operations, use
+and its contribution instructions. These steps use command-line Git and
+IntelliJ IDEA. If you prefer a graphical Git client, use
 [GitHub Desktop](/GTNH-Dev-Doc/how-to/use-github-desktop/) for the fork and
-clone, then return at step 3 below to fetch upstream history and tags before
-preparing Java and the IDE.
+clone, then return to step 3 below to fetch upstream history and tags before
+setting up Java and the IDE.
 
 ## Prepare your tools
 
@@ -59,7 +59,7 @@ tools and validation; the Git steps below still apply.
    git remote add upstream https://github.com/GTNewHorizons/REPOSITORY.git
    ```
 
-   If it is already present, confirm its URL. Then fetch the upstream history
+   If it is already present, check its URL. Then fetch the upstream history
    and tags:
 
    ```sh
@@ -70,7 +70,7 @@ tools and validation; the Git steps below still apply.
    explains the two remotes: fetch project updates from `upstream` and push
    your contribution branch to `origin`.
 4. **Prepare a contribution branch.** Start from the original repository's
-   target branch so your baseline uses the current project code. Replace
+   target branch so you begin with the current project code. Replace
    `BASE-BRANCH` with the branch identified when choosing the repository, and
    `describe-your-change` with a short name for your work:
 
@@ -91,7 +91,7 @@ git describe --tags --always
 ```
 
 A reachable tag, possibly followed by a commit suffix, shows that Git can
-find release history. If you expected a tag but see only a commit hash,
+find the release history. If you expected a tag but see only a commit hash,
 check the branch and fetched tags. For a shallow clone that lacks the needed
 history, fetch the full history and tags from the original repository:
 
@@ -147,9 +147,9 @@ repository name; its default branch is `master`.
 
 At [revision `b7fc37e18719`](https://github.com/GTNewHorizons/GT5-Unofficial/tree/b7fc37e18719b3829cc4752542b5b298e205e457),
 the [daemon configuration](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/gradle/gradle-daemon-jvm.properties)
-selects **Java 25**. Use JDK 25 for this example's shell and IntelliJ Gradle
-selection, and let Gradle resolve the project's compiler toolchains. Follow
-your checkout if its requirements have changed.
+selects **Java 25**. Use JDK 25 in the shell and IntelliJ Gradle settings for
+this example, and let Gradle resolve the project's compiler toolchains. If your
+checkout's requirements have changed, follow those instead.
 
 The [GT5 README](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/README.md#contribution)
 recommends building before IDE import. From the cloned root, run:

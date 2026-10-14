@@ -9,7 +9,7 @@ Run these commands from the repository root containing its checked-in wrapper,
 For a known operation, start with the README or CI command. In a GTNHGradle
 mod, the usual entry points are `build`, `runClient`, and `runServer`;
 [Build and run](/GTNH-Dev-Doc/start-here/build-and-run/) explains that workflow.
-Use discovery when the task or its options are unfamiliar.
+If you're unfamiliar with the task or its options, look them up below.
 
 ## List the tasks
 
@@ -26,8 +26,8 @@ with:
 
 Use the checked-in wrapper to keep the intended Gradle version. Listing tasks
 configures the build, so configuration can fail before the report appears.
-It does not compile the mod or prove that a game launch works. For a failure
-before the report, follow
+Listing tasks doesn't compile the mod or show that the game can launch. If the
+build fails before the report appears, follow
 [Gradle problems](/GTNH-Dev-Doc/troubleshooting/gradle/).
 
 ## Inspect the task and its inputs
@@ -62,7 +62,7 @@ supports `addon.local.gradle[.kts]` for local tweaks and
 Confirm support and Git ignore rules in the target repository before adding
 one. Keep personal paths and run arguments out of committed configuration.
 
-When a known task fails, retain its command and first failing task.
+When a known task fails, keep its command and first failing task.
 Add `--stacktrace` for the exception chain and `--info` when dependency or
 execution details remain unclear. Use
 [Locate logs](/GTNH-Dev-Doc/how-to/locate-logs/)

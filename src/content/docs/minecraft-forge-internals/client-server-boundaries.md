@@ -59,7 +59,7 @@ physical-side boundary.
 Use the world or the event's documented side when deciding whether to change
 game state. The
 [1.7.10 effective-side helper](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/FMLCommonHandler.java)
-infers its result from the thread name. It is not a substitute for the world
+infers its result from the thread name. It doesn't replace the world
 associated with an operation, especially on a network or worker thread.
 
 Keep processing, inventory mutation, damage, and entity spawning on the
@@ -80,8 +80,8 @@ loops during decoding. In the handler, check permission, dimension,
 and current state before applying the requested action.
 
 The [handler wrapper](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/network/simpleimpl/SimpleChannelHandlerWrapper.java)
-calls `onMessage` from its network channel. A side value does not establish
-that the game thread is executing the handler. Use the repository's
+calls `onMessage` from its network channel. A side value doesn't tell you
+whether the handler is running on the game thread. Use the repository's
 network-to-game-thread mechanism for world work; do not copy a scheduler API
 from newer Minecraft documentation.
 

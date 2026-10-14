@@ -11,14 +11,15 @@ belongs with its source.
 
 ## Decide what the page contributes
 
-Start with the reader's situation and the result they need. Find existing
-coverage before adding a page. A better change may be a missing example,
-a merged procedure, or removal of duplicated guidance.
+Start with the reader's situation and the result they need. Check what's
+already covered before adding a page. Adding a missing example, combining
+overlapping procedures, or removing repeated advice may help more.
 
 Keep material that explains a GTNH convention, a shared workflow, a recurring
 failure, or the relevance of Minecraft 1.7.10 behavior to GTNH. A standalone
-tour of one mod's implementation belongs with that mod. A shared choice it
-demonstrates can belong here with a source link.
+tour of one mod's implementation belongs with that mod. If it illustrates a
+choice other developers face too, you can explain that choice here and link
+to the source.
 
 ## Put the content where readers need it
 
@@ -37,20 +38,21 @@ The folders under `src/content/docs/` match the sidebar sections:
 | Maintainer Procedures | `maintainers/` | Perform an authorized build, publication, or recovery operation. |
 
 Link related material rather than explaining the same mechanism in several
-sections. A procedure can link background without interrupting its main path.
+sections. Link background reading from a procedure so readers can find it
+without losing their place in the task.
 An `index.md` page should introduce a useful path or help readers choose among
 guides in that section.
 
 ## Verify advice before publishing it
 
-Check consequential claims against the owning source, README, build
-configuration, workflow, or version-matched documentation. Existing prose and
-a related link are leads to investigate, not proof.
+Check claims that affect the reader's work against the relevant source, README,
+build configuration, workflow, or documentation for that version. An existing
+paragraph or related link can help you find the answer, but isn't proof by itself.
 
 Minecraft 1.7.10 advice needs evidence for that version and the relevant GTNH
 implementation. Newer Forge guides can suggest a model, but their API names
-and behavior are not a substitute for legacy evidence. Identify the scope of
-version-specific examples and label proposals as proposals.
+and behavior don't replace evidence from the legacy version. Identify the scope
+of version-specific examples, and make clear when advice is still a proposal.
 
 Preserve the strength of approved policies. Explain recommendations as
 recommendations; do not turn an editorial preference into a project rule.
@@ -63,7 +65,7 @@ Commands need a working directory, required inputs, and suitable shell syntax.
 
 Use headings, paragraphs, lists, tables, and code blocks first. Use
 [Starlight components](https://starlight.astro.build/components/using-components/)
-when they expose sequence, alternatives, priority, or navigation. Steps are
+when they make sequence, alternatives, priority, or navigation clearer. Steps are
 ordered actions; tabs are mutually exclusive alternatives; cards are
 destinations. Essential actions belong in the main flow.
 
@@ -96,5 +98,5 @@ affect responsive behavior. Review the diff for altered facts, missing useful
 material, and broken links.
 
 Follow the [AI usage policy](https://github.com/GTNewHorizons/GTNH-Dev-Doc/blob/master/AI_POLICY.md)
-for assisted text. In your pull request, explain the reader's problem, the
-resulting improvement, and the checks you completed.
+for assisted text. In your pull request, explain the reader's problem, how your
+change helps, and the checks you completed.

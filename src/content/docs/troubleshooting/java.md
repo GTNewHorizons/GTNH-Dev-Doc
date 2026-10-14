@@ -3,9 +3,8 @@ title: Java problems
 description: Identify the Java installation responsible for a startup, toolchain, or bytecode error.
 ---
 
-A Java error needs a correction in the process that reports it. Gradle's
-launcher, its build daemon, the compiler, and Minecraft can use different Java
-installations. Identify the failing process before selecting another JDK
+Gradle's launcher, build daemon, compiler, and Minecraft can use different Java
+installations. Check which process reports the error before choosing another JDK
 (Java Development Kit).
 
 ## Check the selected Java installations
@@ -77,8 +76,8 @@ documents these controls, including automatic downloads.
 For **`invalid source release`** or **`release version ... not supported`**,
 the selected compiler cannot accept the requested language level. Compare the
 failing task's compiler or IntelliJ SDK with the build's source/release
-configuration. Correct that selection; changing Minecraft's runtime does
-not select the compiler.
+configuration. Correct that selection. Changing Minecraft's runtime doesn't
+select the compiler.
 
 ## A class-file version is unsupported
 

@@ -14,11 +14,11 @@ checkouts, then confirm ownership in their source.
 For an item or recipe, use
 [in-game inspection](/GTNH-Dev-Doc/how-to/in-game-testing-tools/)
 to record its registry identity and inputs, outputs, machine, and quantities.
-A display name may be translated, and the mod that owns an item need not
-register the recipe involving it.
+A display name may be translated, and a different mod may register the recipe
+for that item.
 
-For a crash, retain the first relevant exception and its stack trace.
-For a build failure, retain the task and dependency coordinates. Use
+For a crash, keep the first relevant exception and its stack trace.
+For a build failure, keep the task and dependency coordinates. Use
 [Locate logs](/GTNH-Dev-Doc/how-to/locate-logs/) when the visible error is only
 a summary.
 
@@ -41,7 +41,7 @@ a summary.
    declaration and imports. Confirm the matching source repository and version
    before editing a similarly named local class.
 4. Read nearby tests, history, and linked issues to understand the contract.
-   Use blame as a route to that context, not as evidence that old code is wrong.
+   Use blame to find that context. Code isn't wrong merely because it's old.
 
 For tooling, distinguish the repository's configuration from the plugin or
 workflow implementing it. The

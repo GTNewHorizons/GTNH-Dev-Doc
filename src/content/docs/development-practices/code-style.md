@@ -4,8 +4,8 @@ description: Apply the repository's formatter and make the behavioral change rea
 ---
 
 Use the target repository's checked-in formatter configuration and CI checks
-for exact layout rules. Keep formatting changes within the work you are
-submitting so reviewers can identify the behavioral diff.
+for exact layout rules. Keep formatting changes within the work you're
+submitting so reviewers can see what behavior changed.
 
 ## Run the configured checks
 
@@ -21,16 +21,16 @@ When a Spotless check fails and the project provides the task, run:
 ```
 
 On Windows PowerShell, use `.\gradlew.bat spotlessApply`. Inspect `git diff`
-afterward: a formatter can change files outside your intended scope. Retain
+afterward: a formatter can change files outside your intended scope. Keep
 the changes that belong to your contribution, then rerun the failed check.
 Use [task discovery](/GTNH-Dev-Doc/how-to/gradle-tasks/) if the expected task
 is absent.
 
 ## Make intent visible
 
-Automated formatting does not settle naming or structure. Follow the
+Automated formatting doesn't settle naming or structure. Follow the
 repository's conventions and choose names that identify the role of a value
-or the action of a method. Keep related behavior near each other and expose
+or the action of a method. Keep related behavior together and expose
 only the interface callers need.
 
 Give a repeated or unexplained value a meaningful name; an ordinary small

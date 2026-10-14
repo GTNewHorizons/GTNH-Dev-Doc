@@ -36,7 +36,7 @@ to `master`. Check that commit as well as the downloadable workflow
 artifacts. Experimental artifacts are a separate destination from
 [the daily releases](/GTNH-Dev-Doc/maintainers/run-daily-build/).
 
-For a failure, retain the first relevant job log and inspect partial output.
+If the build fails, keep the first relevant job log and inspect any partial output.
 Confirm whether upload or metadata publication already occurred before
 rerunning. Correct the failing input or step instead of repeatedly dispatching
 the same build.
