@@ -46,8 +46,9 @@ its cause.
 
 Use the first mod-loading error to select a check:
 
-- **Duplicate mod:** inspect both runtime dependencies and the run's `mods`
-  directory. Keep one intended copy; remove the duplicate jar or declaration.
+- **Duplicate mod:** inspect runtime dependencies and the game working
+  directory's `mods/` and `mods/1.7.10/` folders. Keep one intended copy across
+  those sources; remove the duplicate jar or declaration.
 - **Missing mod or minimum version:** compare the required version with the
   loaded mod list and resolved dependency. Supply the required version. If
   your own mod reports only a commit hash, check

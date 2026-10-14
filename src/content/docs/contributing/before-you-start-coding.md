@@ -35,7 +35,7 @@ Answer the guidelines' required questions:
 - What goal does the change serve, and which tier does it target?
 - What are the effects on other systems and the wider game meta?
 - If relevant, what measurements or visualizations support it? For a new
-  multiblock, include a picture and its practical setup.
+  multiblock, can you show a picture or a practical setup?
 - Does it depend on another planned or unmerged change?
 
 At least two approvals are required, including one from the Balance Review

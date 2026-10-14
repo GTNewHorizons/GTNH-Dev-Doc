@@ -11,9 +11,9 @@ pack, publishes downloads, updates generated repository data, and applies its
 release-retention rules.
 
 :::caution[A new run cancels the earlier daily build]
-The [workflow file](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/master/.github/workflows/daily-modpack-build.yml)
-describes what the workflow does. Its concurrency rule cancels an earlier daily run
-when a new one starts, so inspect current runs before dispatching.
+The [daily workflow's](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/master/.github/workflows/daily-modpack-build.yml)
+concurrency rule cancels an earlier daily run when a new one starts.
+Inspect current runs before dispatching.
 :::
 
 ## Start the intended run

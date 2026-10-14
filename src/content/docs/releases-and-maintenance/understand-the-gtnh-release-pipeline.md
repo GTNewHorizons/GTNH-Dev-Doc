@@ -3,9 +3,10 @@ title: Understand the GTNH release pipeline
 description: Trace a merged change through a tagged mod artifact, pack manifest, and assembled download.
 ---
 
-A merge changes source. Players receive an assembled pack containing selected
-mod artifacts and pack data. To find whether a fix reached that pack, trace the
-commit through publication and the build's manifest.
+If a fix has merged but your daily build still shows the bug, check how far
+the change reached. A merge updates source; players receive an assembled pack
+containing selected mod artifacts and pack data. Trace the commit through its
+tag, published jar, and the pack build's manifest to find what was included.
 
 ## Follow one mod change
 
@@ -65,8 +66,10 @@ existing data when necessary.
 | Matching archive and startup/mod list | The installed test contains the intended version. |
 | Repeated reproduction | The changed behavior works in the tested setup. |
 
-Check the first missing boundary rather than assuming that green mod CI means
-the fix is already in the pack. Maintainers can use
+Start at the earliest stage you cannot verify: for example, a tag without the
+required Maven artifact, or a released mod version absent from the pack
+manifest. A green mod CI run alone does not establish that the fix reached
+the pack. Maintainers can use
 [release operations](/GTNH-Dev-Doc/releases-and-maintenance/release-operations/)
 or [daily builds](/GTNH-Dev-Doc/releases-and-maintenance/run-a-daily-modpack-build-manually/)
 for the corresponding operations.

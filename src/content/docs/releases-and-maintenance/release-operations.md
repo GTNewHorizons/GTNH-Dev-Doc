@@ -17,9 +17,9 @@ automation is expected to handle the target commit.
 The [tagging implementation](https://github.com/GTNewHorizons/MergeMasterXXL/blob/master/src/tag_dev.ts)
 orders inter-repository dependencies and handles development tags.
 Its [tag helper](https://github.com/GTNewHorizons/MergeMasterXXL/blob/master/src/requests/tags.ts)
-increments the last numeric part of the existing format. Those sources
-describe how tagging works. They don't tell you the production schedule or
-every current exception.
+increments the last numeric part of the existing format. Confirm the current
+production schedule and any exceptions for this repository with the release
+coordinator.
 
 The repository's `.github/workflows/release-tags.yml` describes what happens
 after a tag is pushed. It does not decide who should create the tag.

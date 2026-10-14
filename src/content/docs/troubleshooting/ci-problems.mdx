@@ -69,8 +69,9 @@ and source repository. An unpublished change needs an artifact the workflow
 can fetch; follow [cross-repository testing](/GTNH-Dev-Doc/testing/test-cross-repository-changes/)
 for local publication and artifact selection.
 
-The shared workflow also checks for prerelease versions in `dependencies.gradle*`.
-A published artifact can resolve successfully and still fail that check.
+The shared workflow also scans `dependencies.gradle*` for `-pre` text,
+excluding `-preshadow`. A published artifact can resolve successfully and
+still fail that check.
 Replace the temporary declaration with the intended release version, or ask
 a maintainer how this repository tests changes that depend on another pull
 request. For a failed download, use
