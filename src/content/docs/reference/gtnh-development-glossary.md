@@ -23,9 +23,9 @@ checkout.
 | Task | A named Gradle operation registered by the project's build and plugins. |
 | Toolchain | A selected compiler or Java installation used by a task; it can differ from the JDK running Gradle. |
 
-See [build layers](/GTNH-Dev-Doc/concepts/understand-the-gtnh-build-system-stack/),
-[Java selection](/GTNH-Dev-Doc/concepts/understand-java-and-runtime-selection/), and
-[dependencies and artifacts](/GTNH-Dev-Doc/concepts/understand-dependencies-and-artifacts/)
+See [build layers](/GTNH-Dev-Doc/build-tools/understand-the-gtnh-build-system-stack/),
+[Java selection](/GTNH-Dev-Doc/build-tools/understand-java-and-runtime-selection/), and
+[dependencies and artifacts](/GTNH-Dev-Doc/build-tools/understand-dependencies-and-artifacts/)
 for the relationships between these terms.
 
 ## Minecraft and mod-development terms
@@ -72,7 +72,7 @@ See [client/server boundaries](/GTNH-Dev-Doc/minecraft-forge-internals/understan
 | Upstream | For a fork, the original project; a remote named `upstream` conventionally points there. A branch's tracking upstream is a separate setting for synchronization. |
 | Working tree | The files you're currently editing in a checkout, including changes that haven't been committed. |
 
-Use [GitHub Desktop](/GTNH-Dev-Doc/how-to/contribute-with-github-desktop/) or the
+Use [GitHub Desktop](/GTNH-Dev-Doc/contributing/contribute-with-github-desktop/) or the
 [command-line setup](/GTNH-Dev-Doc/start-here/set-up-your-workspace/)
 for the contribution workflow. Git's [glossary](https://git-scm.com/docs/gitglossary)
 and [fetch](https://git-scm.com/docs/git-fetch) and
@@ -87,6 +87,6 @@ and [fetch](https://git-scm.com/docs/git-fetch) and
 | Shared workflow | A reusable GitHub Actions workflow called by a repository's own workflow. |
 | Pre-release | A version published for development or coordinated testing; its tag convention and destination depend on the repository. |
 
-Use [cross-repository testing](/GTNH-Dev-Doc/how-to/test-cross-repository-changes/)
-and [the release pipeline](/GTNH-Dev-Doc/concepts/understand-the-gtnh-release-pipeline/)
+Use [cross-repository testing](/GTNH-Dev-Doc/testing/test-cross-repository-changes/)
+and [the release pipeline](/GTNH-Dev-Doc/releases-and-maintenance/understand-the-gtnh-release-pipeline/)
 to follow an artifact into its consumer or pack.

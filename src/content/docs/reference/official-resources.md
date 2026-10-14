@@ -23,7 +23,7 @@ are maintained.
 
 ## Source, support, and pack testing
 
-Use the [repository map](/GTNH-Dev-Doc/concepts/map-a-change-to-the-gtnh-repositories/)
+Use the [repository map](/GTNH-Dev-Doc/start-here/choose-a-repository/#match-the-change-to-its-owner)
 to locate mod code, pack data, libraries, and tooling. The
 [GTNewHorizons organization](https://github.com/GTNewHorizons)
 contains their source, issues, and repository instructions.
@@ -37,7 +37,7 @@ discussion; bring the reproduction, source locations, or relevant logs.
 
 For assembled development packages, use
 [GTNH Daily Builds](https://github.com/GTNewHorizons/GTNH-Daily-Builds/releases)
-and [full-pack testing](/GTNH-Dev-Doc/how-to/test-a-change-in-the-full-pack/).
+and [full-pack testing](/GTNH-Dev-Doc/testing/test-a-change-in-the-full-pack/).
 For installation, progression, and gameplay, use the
 [official GTNH wiki](https://wiki.gtnewhorizons.com/).
 

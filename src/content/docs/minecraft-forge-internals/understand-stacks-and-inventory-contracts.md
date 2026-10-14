@@ -48,7 +48,7 @@ available stack. A saved reference can still contain stack data even when
 those items no longer exist in the world.
 
 Inspect `EntityItem` and `ItemStack` in the
-[generated development sources](/GTNH-Dev-Doc/concepts/understand-the-gtnh-build-system-stack/)
+[generated development sources](/GTNH-Dev-Doc/build-tools/understand-the-gtnh-build-system-stack/)
 when changing pickup or world-item automation.
 
 ## Honor the inventory's actual interface

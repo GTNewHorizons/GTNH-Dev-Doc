@@ -39,7 +39,7 @@ For balance changes and new recipe chains, include the
 
 Include the tested revision or artifacts, relevant environment, setup, action,
 and what you observed. Make clear which checks you completed and which important
-cases you couldn't test. [Testing expectations](/GTNH-Dev-Doc/contributing/testing-expectations/)
+cases you couldn't test. [Testing expectations](/GTNH-Dev-Doc/testing/testing-expectations/)
 helps you select those cases.
 
 For visual changes, use comparable before-and-after screenshots. For new

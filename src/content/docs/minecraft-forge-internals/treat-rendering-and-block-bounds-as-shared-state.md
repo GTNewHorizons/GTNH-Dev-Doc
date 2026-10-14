@@ -42,7 +42,7 @@ degenerate box lies inside another box. Return `null` from the collision-box
 path for no collision; otherwise return the intended ordered bounds.
 
 Inspect `Block`, `RenderBlocks`, and `AxisAlignedBB` in the
-[generated 1.7.10 sources](/GTNH-Dev-Doc/concepts/understand-the-gtnh-build-system-stack/)
+[generated 1.7.10 sources](/GTNH-Dev-Doc/build-tools/understand-the-gtnh-build-system-stack/)
 when changing these contracts.
 
 ## Invalidate cached data at the right boundary

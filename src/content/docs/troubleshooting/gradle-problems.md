@@ -63,7 +63,7 @@ failed repository URL. Choose the correction from the error:
 - **Artifact not found or HTTP 404:** compare the version, classifier, and
   declared repositories with the published artifact. For an unpublished mod
   change, use the
-  [cross-repository workflow](/GTNH-Dev-Doc/how-to/test-cross-repository-changes/).
+  [cross-repository workflow](/GTNH-Dev-Doc/testing/test-cross-repository-changes/).
 - **No cached version in offline mode:** disable offline mode in the invoking
   tool and resolve again with network access.
 
@@ -93,7 +93,7 @@ as corrupt; deleting all caches loses evidence and forces unrelated downloads.
 
 For **`Task ... not found`**, check the task's spelling, repository root, and
 subproject path. Use
-[Work with Gradle tasks](/GTNH-Dev-Doc/how-to/work-with-gradle-tasks/) to find the task
+[Work with Gradle tasks](/GTNH-Dev-Doc/build-tools/work-with-gradle-tasks/) to find the task
 provided by that checkout, then repeat the intended operation.
 
 ## The daemon disappears
@@ -112,4 +112,4 @@ if the log does not explain the exit.
 Repeat the original failed command to verify recovery. For a run task, check
 that Minecraft reaches the expected startup state as well. Keep any remaining
 exception and the command in your
-[failure report](/GTNH-Dev-Doc/how-to/locate-logs-and-useful-errors/).
+[failure report](/GTNH-Dev-Doc/troubleshooting/locate-logs-and-useful-errors/).

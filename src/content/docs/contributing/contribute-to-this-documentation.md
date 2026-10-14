@@ -21,7 +21,7 @@ the repository's [README](https://github.com/GTNewHorizons/GTNH-Dev-Doc#local-se
 
 1. **Prepare a checkout.** Fork and clone `GTNewHorizons/GTNH-Dev-Doc`, then
    create a branch from `master` for your change. If you prefer graphical Git,
-   follow [Contribute with GitHub Desktop](/GTNH-Dev-Doc/how-to/contribute-with-github-desktop/)
+   follow [Contribute with GitHub Desktop](/GTNH-Dev-Doc/contributing/contribute-with-github-desktop/)
    using this repository.
 2. **Find the page's file.** The **Edit page** link at the bottom of a published
    page opens its file on GitHub. Use the path shown there to find the same
@@ -53,19 +53,19 @@ guide someone is already following. Give a topic its own page when readers
 need to find and use it separately, such as a procedure for testing changes
 across repositories or an explanation of how tile entity state is saved.
 
-Choose the folder by what the page helps someone do:
+Choose the folder by the topic someone would look for:
 
 | What you're adding | Folder under `src/content/docs/` |
 | --- | --- |
 | A step in making a first contribution | `start-here/` |
-| Contribution, review, or testing expectations | `contributing/` |
-| A procedure for a development task | `how-to/` |
-| Checks and fixes for a recognizable failure | `troubleshooting/` |
+| Finding source, using Git, submitting changes, or editing these docs | `contributing/` |
+| Gradle tasks, build configuration, Java runtimes, or dependencies | `build-tools/` |
+| Testing expectations, methods, or tools | `testing/` |
+| Logs, checks, and fixes for a recognizable failure | `troubleshooting/` |
 | A shared implementation convention | `development-practices/` |
-| An explanation of GTNH's repositories, tooling, or releases | `concepts/` |
 | Minecraft 1.7.10 or Forge behavior developers need to understand | `minecraft-forge-internals/` |
+| The release pipeline or a build, release, or repair procedure for maintainers | `releases-and-maintenance/` |
 | Definitions or resources to look up | `reference/` |
-| A build, release, or repair procedure for maintainers | `maintainers/` |
 
 ### Create the file
 

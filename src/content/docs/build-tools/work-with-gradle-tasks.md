@@ -65,5 +65,5 @@ one. Keep personal paths and run arguments out of committed configuration.
 When a known task fails, keep its command and first failing task.
 Add `--stacktrace` for the exception chain and `--info` when dependency or
 execution details remain unclear. Use
-[Locate logs](/GTNH-Dev-Doc/how-to/locate-logs-and-useful-errors/)
+[Locate logs](/GTNH-Dev-Doc/troubleshooting/locate-logs-and-useful-errors/)
 to collect the output needed for diagnosis.

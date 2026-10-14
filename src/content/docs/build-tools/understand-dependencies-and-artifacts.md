@@ -57,8 +57,8 @@ against an artifact containing that method, and its game run must load a
 compatible runtime artifact. A neighboring checkout or successful library
 build doesn't change the version the addon selects.
 
-Use [Maven Local](/GTNH-Dev-Doc/how-to/test-cross-repository-changes/)
+Use [Maven Local](/GTNH-Dev-Doc/testing/test-cross-repository-changes/)
 for unpublished local work and `dependencyInsight` to verify selection.
 For CI and reviewers, publish an online pre-release through the authorized
 release process. Then
-[test the coordinated runtime jars in the pack](/GTNH-Dev-Doc/how-to/test-a-change-in-the-full-pack/).
+[test the coordinated runtime jars in the pack](/GTNH-Dev-Doc/testing/test-a-change-in-the-full-pack/).

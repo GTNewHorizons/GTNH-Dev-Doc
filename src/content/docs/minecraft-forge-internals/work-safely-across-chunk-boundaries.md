@@ -17,7 +17,7 @@ For ordinary world access that must avoid loading, use
 `world.blockExists(x, y, z)` with **block coordinates** before the getter.
 A provider-level `chunkExists(x >> 4, z >> 4)` takes **chunk coordinates**.
 Inspect `World`, the active chunk provider, and any mod overrides in the
-[development sources](/GTNH-Dev-Doc/concepts/understand-the-gtnh-build-system-stack/)
+[development sources](/GTNH-Dev-Doc/build-tools/understand-the-gtnh-build-system-stack/)
 for the actual path.
 
 If the location is unavailable, defer the operation or return the feature's

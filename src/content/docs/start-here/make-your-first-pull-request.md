@@ -9,7 +9,7 @@ For mod code, start from a [working development environment](/GTNH-Dev-Doc/start
 
 These steps use command-line Git from the cloned repository root. For the
 same process in a graphical client, use
-[GitHub Desktop](/GTNH-Dev-Doc/how-to/contribute-with-github-desktop/).
+[GitHub Desktop](/GTNH-Dev-Doc/contributing/contribute-with-github-desktop/).
 
 ## Create a branch and make the change
 
@@ -30,7 +30,7 @@ when it can catch the regression in future changes.
 
 Run the repository's relevant build and validation commands, then exercise
 the changed behavior. Use
-[Testing expectations](/GTNH-Dev-Doc/contributing/testing-expectations/)
+[Testing expectations](/GTNH-Dev-Doc/testing/testing-expectations/)
 to select dedicated-server, save/reload, or full-pack checks. Capture comparable
 before-and-after screenshots for visual changes.
 
@@ -84,7 +84,7 @@ checks for that revision; if a local build and GitHub Actions disagree, follow
 [CI problems](/GTNH-Dev-Doc/troubleshooting/ci-problems/).
 
 To find the PR again and follow its discussion, use
-[Find and follow your pull request](/GTNH-Dev-Doc/how-to/contribute-with-github-desktop/#find-and-follow-your-pull-request).
+[Find and follow your pull request](/GTNH-Dev-Doc/contributing/contribute-with-github-desktop/#find-and-follow-your-pull-request).
 
 ## Respond to review
 

@@ -33,7 +33,7 @@ Call the relevant dirty-marking path when persistent state changes.
 In Minecraft 1.7.10, `TileEntity.markDirty()` marks its chunk for saving and
 performs related world notifications. It does not serialize and send an
 arbitrary field to clients. You can inspect that implementation in the
-[Forge development sources](/GTNH-Dev-Doc/concepts/understand-the-gtnh-build-system-stack/)
+[Forge development sources](/GTNH-Dev-Doc/build-tools/understand-the-gtnh-build-system-stack/)
 generated for your checkout.
 
 Read saved values without assuming that neighbors or external networks are

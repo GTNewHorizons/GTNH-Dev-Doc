@@ -33,7 +33,7 @@ the caller selects the revision, environment, inputs, and permissions.
 | Which Gradle distribution starts | Wrapper properties and wrapper launch output. |
 | Which plugin version or module is active | Settings/build files and `gradle.properties`. |
 | Which mod version is resolved | Dependency and repository declarations, then `dependencyInsight`. |
-| Which Java installation compiles or runs code | [Java and runtime selection](/GTNH-Dev-Doc/concepts/understand-java-and-runtime-selection/). |
+| Which Java installation compiles or runs code | [Java and runtime selection](/GTNH-Dev-Doc/build-tools/understand-java-and-runtime-selection/). |
 | How a Minecraft task or remapped jar works | The matching RFG task and its configured inputs. |
 | Why local and CI behavior differ | The caller workflow, called workflow, and their exact revisions. |
 
@@ -45,7 +45,7 @@ operation before applying a fix from another project.
 ## Customize through the supported inputs
 
 Use the repository's README and
-[task/property discovery](/GTNH-Dev-Doc/how-to/work-with-gradle-tasks/)
+[task/property discovery](/GTNH-Dev-Doc/build-tools/work-with-gradle-tasks/)
 to find the intended entry point. GTNHGradle's `propertiesHelp` describes
 its configurable properties. Use repository-supported local add-on files for
 personal run tweaks.
@@ -55,7 +55,7 @@ your customizations afterward. Review the diff and rerun the repository's
 checks. Even a generated migration needs to preserve the project's behavior.
 
 Pack assembly is a separate process:
-[DreamAssemblerXXL selects published mod artifacts](/GTNH-Dev-Doc/concepts/understand-the-gtnh-release-pipeline/)
+[DreamAssemblerXXL selects published mod artifacts](/GTNH-Dev-Doc/releases-and-maintenance/understand-the-gtnh-release-pipeline/)
 rather than running each mod checkout's development client.
 
 ## Inspect the legacy implementation

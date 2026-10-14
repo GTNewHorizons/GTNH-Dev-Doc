@@ -28,7 +28,7 @@ build configuration, and CI workflow. Check `.java-version`,
 `gradle.properties`, and `gradle/gradle-daemon-jvm.properties` when present.
 For a game failure, read the Java version in the launch output or crash report
 and check the selected run configuration. The
-[Java and runtime model](/GTNH-Dev-Doc/concepts/understand-java-and-runtime-selection/)
+[Java and runtime model](/GTNH-Dev-Doc/build-tools/understand-java-and-runtime-selection/)
 explains these separate selections.
 
 ## Gradle will not start
@@ -95,4 +95,4 @@ checkout's supported setup before changing dependencies.
 After correcting the relevant selection, repeat the original build, import,
 or game launch. Confirm that it passes the stage that reported the Java error.
 If it still fails, include the Gradle and game Java selections with the
-[logs](/GTNH-Dev-Doc/how-to/locate-logs-and-useful-errors/).
+[logs](/GTNH-Dev-Doc/troubleshooting/locate-logs-and-useful-errors/).

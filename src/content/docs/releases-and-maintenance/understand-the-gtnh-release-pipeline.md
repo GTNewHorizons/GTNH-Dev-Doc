@@ -67,6 +67,6 @@ existing data when necessary.
 
 Check the first missing boundary rather than assuming that green mod CI means
 the fix is already in the pack. Maintainers can use
-[release operations](/GTNH-Dev-Doc/maintainers/release-operations/)
-or [daily builds](/GTNH-Dev-Doc/maintainers/run-a-daily-modpack-build-manually/)
+[release operations](/GTNH-Dev-Doc/releases-and-maintenance/release-operations/)
+or [daily builds](/GTNH-Dev-Doc/releases-and-maintenance/run-a-daily-modpack-build-manually/)
 for the corresponding operations.

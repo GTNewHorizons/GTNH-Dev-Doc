@@ -66,7 +66,7 @@ A clean checkout still shares your machine's dependency caches and local
 Maven repository. For a suspicious dependency, inspect its
 [selected version](/GTNH-Dev-Doc/troubleshooting/gradle-problems/#gradle-selects-an-unexpected-version)
 and source repository. An unpublished change needs an artifact the workflow
-can fetch; follow [cross-repository testing](/GTNH-Dev-Doc/how-to/test-cross-repository-changes/)
+can fetch; follow [cross-repository testing](/GTNH-Dev-Doc/testing/test-cross-repository-changes/)
 for local publication and artifact selection.
 
 The shared workflow also checks for prerelease versions in `dependencies.gradle*`.
@@ -90,11 +90,11 @@ before increasing the timeout.
 
 When Horizon-QA is enabled, inspect `TEST-horizonqa.xml` and
 `horizonqa-result.json`, keeping the test selector. Use
-[Horizon-QA reporting](/GTNH-Dev-Doc/how-to/use-horizon-qa-gametests/#run-a-reported-batch)
+[Horizon-QA reporting](/GTNH-Dev-Doc/testing/use-horizon-qa-gametests/#run-a-reported-batch)
 to distinguish assertion failures from startup or test-discovery failures.
 
 Verify the correction by repeating the failed operation locally. After the
 fix is submitted, confirm that the new workflow run tests the intended
 revision and passes the original step and its dependent checks. If results
 still differ, include the run URL and environment comparison with the
-[logs](/GTNH-Dev-Doc/how-to/locate-logs-and-useful-errors/).
+[logs](/GTNH-Dev-Doc/troubleshooting/locate-logs-and-useful-errors/).

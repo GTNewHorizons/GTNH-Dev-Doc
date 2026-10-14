@@ -17,7 +17,7 @@ failed run with `--stacktrace`. For a standard GTNHGradle client:
 On Windows PowerShell, use `.\gradlew.bat`. For a dedicated server, use
 `runServer`; for a Java-specific run configuration, use its corresponding
 task. Follow the checkout's README for specialized or older projects. If the
-task is missing, [look up the available tasks](/GTNH-Dev-Doc/how-to/work-with-gradle-tasks/).
+task is missing, [look up the available tasks](/GTNH-Dev-Doc/build-tools/work-with-gradle-tasks/).
 
 ## Minecraft never starts
 
@@ -27,7 +27,7 @@ A game window cannot appear until those prerequisites succeed.
 
 If the game JVM (Java Virtual Machine) starts, inspect the logs and crash
 reports in its working directory using
-[Locate logs](/GTNH-Dev-Doc/how-to/locate-logs-and-useful-errors/). **`Process ... finished with
+[Locate logs](/GTNH-Dev-Doc/troubleshooting/locate-logs-and-useful-errors/). **`Process ... finished with
 non-zero exit value`** reports the exit; an earlier game exception explains
 its cause.
 
@@ -83,7 +83,7 @@ configured port. A missing `net.minecraft.client...` class on the dedicated
 server points to a client-only reference or dependency loaded on the server.
 Check the [client/server boundary](/GTNH-Dev-Doc/minecraft-forge-internals/understand-client-and-server-boundaries/).
 For a full-pack connection test, use matching client and server builds and
-mod replacements from [Test in the full pack](/GTNH-Dev-Doc/how-to/test-a-change-in-the-full-pack/).
+mod replacements from [Test in the full pack](/GTNH-Dev-Doc/testing/test-a-change-in-the-full-pack/).
 
 ## The game runs, but your change is absent
 
@@ -91,7 +91,7 @@ Confirm that you launched the intended instance, world, and runtime:
 
 - In a pack instance, compare the installed jar with the artifact you built
   and confirm that only the intended mod version remains. Follow
-  [runtime jar selection](/GTNH-Dev-Doc/how-to/test-a-change-in-the-full-pack/).
+  [runtime jar selection](/GTNH-Dev-Doc/testing/test-a-change-in-the-full-pack/).
 - In a development run, confirm that compilation succeeded and the run uses
   the changed classes. If only the IntelliJ run misses the change, compare
   its configuration with the terminal launch.
@@ -99,7 +99,7 @@ Confirm that you launched the intended instance, world, and runtime:
   process running the changed code. Reloading does not repeat initialization
   or registration; use a full restart for those changes. Existing world state
   may also need a fresh test fixture. See
-  [In-game testing tools](/GTNH-Dev-Doc/how-to/in-game-testing-tools-and-tricks/).
+  [In-game testing tools](/GTNH-Dev-Doc/testing/in-game-testing-tools-and-tricks/).
 
 After correcting the cause, repeat the launch and the action that failed.
 For a client, load the test world as well as reaching the main menu. For a

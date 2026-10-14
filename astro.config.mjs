@@ -46,29 +46,38 @@ export default defineConfig({
           collapsed: true,
           items: [
             { slug: 'contributing/before-you-start-coding' },
+            { slug: 'contributing/find-where-a-change-belongs' },
+            { slug: 'contributing/contribute-with-github-desktop' },
             { slug: 'contributing/pull-request-expectations' },
-            { slug: 'contributing/testing-expectations' },
             { slug: 'contributing/contribute-to-this-documentation' },
           ],
         },
         {
-          label: 'How-to Guides',
+          label: 'Build Tools',
           collapsed: true,
           items: [
-            { slug: 'how-to/find-where-a-change-belongs' },
-            { slug: 'how-to/contribute-with-github-desktop' },
-            { slug: 'how-to/work-with-gradle-tasks' },
-            { slug: 'how-to/test-cross-repository-changes' },
-            { slug: 'how-to/test-a-change-in-the-full-pack' },
-            { slug: 'how-to/use-horizon-qa-gametests' },
-            { slug: 'how-to/in-game-testing-tools-and-tricks' },
-            { slug: 'how-to/locate-logs-and-useful-errors' },
+            { slug: 'build-tools/understand-the-gtnh-build-system-stack' },
+            { slug: 'build-tools/work-with-gradle-tasks' },
+            { slug: 'build-tools/understand-java-and-runtime-selection' },
+            { slug: 'build-tools/understand-dependencies-and-artifacts' },
+          ],
+        },
+        {
+          label: 'Testing',
+          collapsed: true,
+          items: [
+            { slug: 'testing/testing-expectations' },
+            { slug: 'testing/in-game-testing-tools-and-tricks' },
+            { slug: 'testing/test-a-change-in-the-full-pack' },
+            { slug: 'testing/test-cross-repository-changes' },
+            { slug: 'testing/use-horizon-qa-gametests' },
           ],
         },
         {
           label: 'Troubleshooting',
           collapsed: true,
           items: [
+            { slug: 'troubleshooting/locate-logs-and-useful-errors' },
             { slug: 'troubleshooting/java-problems' },
             { slug: 'troubleshooting/gradle-problems' },
             { slug: 'troubleshooting/development-client-and-server-problems' },
@@ -90,17 +99,6 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Concepts',
-          collapsed: true,
-          items: [
-            { slug: 'concepts/map-a-change-to-the-gtnh-repositories' },
-            { slug: 'concepts/understand-the-gtnh-build-system-stack' },
-            { slug: 'concepts/understand-java-and-runtime-selection' },
-            { slug: 'concepts/understand-dependencies-and-artifacts' },
-            { slug: 'concepts/understand-the-gtnh-release-pipeline' },
-          ],
-        },
-        {
           label: 'Minecraft & Forge Internals',
           collapsed: true,
           items: [
@@ -114,21 +112,22 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Releases and Maintenance',
+          collapsed: true,
+          items: [
+            { slug: 'releases-and-maintenance/understand-the-gtnh-release-pipeline' },
+            { slug: 'releases-and-maintenance/run-a-daily-modpack-build-manually' },
+            { slug: 'releases-and-maintenance/run-an-experimental-modpack-build' },
+            { slug: 'releases-and-maintenance/release-operations' },
+            { slug: 'releases-and-maintenance/repair-maven-repository-metadata' },
+          ],
+        },
+        {
           label: 'Reference',
           collapsed: true,
           items: [
             { slug: 'reference/gtnh-development-glossary' },
             { slug: 'reference/official-resources' },
-          ],
-        },
-        {
-          label: 'Maintainer Procedures',
-          collapsed: true,
-          items: [
-            { slug: 'maintainers/run-a-daily-modpack-build-manually' },
-            { slug: 'maintainers/run-an-experimental-modpack-build' },
-            { slug: 'maintainers/release-operations' },
-            { slug: 'maintainers/repair-maven-repository-metadata' },
           ],
         },
       ],

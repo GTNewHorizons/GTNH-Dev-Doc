@@ -8,20 +8,20 @@ import { Steps } from '@astrojs/starlight/components';
 Start with evidence you can search: a registry name, translation key, exact log
 message, configuration key, or stack-trace class. A pack symptom can originate
 in a mod, a pack override, or tooling. Use the
-[repository map](/GTNH-Dev-Doc/concepts/map-a-change-to-the-gtnh-repositories/) to choose candidate
+[repository map](/GTNH-Dev-Doc/start-here/choose-a-repository/#match-the-change-to-its-owner) to choose candidate
 checkouts, then confirm ownership in their source.
 
 ## Capture an identifier
 
 For an item or recipe, use
-[in-game inspection](/GTNH-Dev-Doc/how-to/in-game-testing-tools-and-tricks/)
+[in-game inspection](/GTNH-Dev-Doc/testing/in-game-testing-tools-and-tricks/)
 to record its registry identity and inputs, outputs, machine, and quantities.
 A display name may be translated, and a different mod may register the recipe
 for that item.
 
 For a crash, keep the first relevant exception and its stack trace.
 For a build failure, keep the task and dependency coordinates. Use
-[Locate logs](/GTNH-Dev-Doc/how-to/locate-logs-and-useful-errors/) when the visible error is only
+[Locate logs](/GTNH-Dev-Doc/troubleshooting/locate-logs-and-useful-errors/) when the visible error is only
 a summary.
 
 ## Find the code or data that produces the behavior
@@ -51,7 +51,7 @@ a summary.
 
 For tooling, distinguish the repository's configuration from the plugin or
 workflow implementing it. The
-[build-system overview](/GTNH-Dev-Doc/concepts/understand-the-gtnh-build-system-stack/)
+[build-system overview](/GTNH-Dev-Doc/build-tools/understand-the-gtnh-build-system-stack/)
 shows where GTNHGradle, RetroFuturaGradle, shared CI, and pack assembly fit.
 
 ## Confirm the owner before editing
