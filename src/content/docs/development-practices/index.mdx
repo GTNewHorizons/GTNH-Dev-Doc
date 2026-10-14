@@ -1,0 +1,41 @@
+---
+title: Development practices
+description: Find the shared GTNH conventions relevant to the code or content you are changing.
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+Use these guides when choosing how to implement a GTNH change. Check the
+target repository's instructions and current code alongside them; formatter
+rules and mod-specific APIs can differ.
+
+<CardGrid>
+  <LinkCard
+    title="Code style"
+    href="/GTNH-Dev-Doc/development-practices/code-style/"
+    description="How to format and organize a code change"
+  />
+  <LinkCard
+    title="Balance chemical recipes"
+    href="/GTNH-Dev-Doc/development-practices/balance-chemical-recipes/"
+    description="How to compare a chemical recipe's material quantities"
+  />
+  <LinkCard
+    title="Keep values separate from localized text"
+    href="/GTNH-Dev-Doc/development-practices/keep-values-separate-from-localized-text/"
+    description="Where to format values and translate player-facing text"
+  />
+  <LinkCard
+    title="Add localized text to GT5"
+    href="/GTNH-Dev-Doc/development-practices/add-localized-text-to-gt5/"
+    description="Which translation API and language keys to use in GT5"
+  />
+  <LinkCard
+    title="Isolate optional-mod integrations"
+    href="/GTNH-Dev-Doc/development-practices/isolate-optional-mod-integrations/"
+    description="How to keep a mod loadable without an optional dependency"
+  />
+</CardGrid>
+
+For design approval, balance-review requirements, and the AI policy, read
+[Before you start coding](/GTNH-Dev-Doc/contributing/before-you-start-coding/).

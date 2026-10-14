@@ -1,0 +1,56 @@
+---
+title: Testing expectations
+description: Choose checks that observe the behavior and boundaries changed by a GTNH contribution.
+---
+
+Test the behavior your change affects, then the boundaries it crosses.
+A build checks your source and configured tests. Launching the game, checking
+a saved world, or testing pack integration answers different questions.
+Choose checks that can reveal the failure you're fixing.
+
+## Establish a comparison
+
+For a bug fix, reproduce the problem on the unchanged version and keep that
+setup. Repeat the same action after the change. For new behavior, define the
+expected result before testing, so you're checking more than whether the game
+launches successfully.
+
+Run the repository's relevant build and validation commands. Add a focused
+automated regression test when it can observe the behavior reliably.
+[Horizon-QA](/GTNH-Dev-Doc/testing/use-horizon-qa-gametests/) can preserve server-side
+in-game checks; client appearance and some interactions still need manual
+inspection.
+
+## Select the relevant cases
+
+| Changed behavior | Evidence to collect |
+| --- | --- |
+| Documentation or generated configuration | Build or validate the files and inspect the rendered or generated result. |
+| Isolated logic | A focused automated test and the repository's build checks. |
+| Rendering, input, or GUI | Exercise the affected client path; show comparable screenshots or video for visual changes. |
+| Server state or networking | Connect a client to a dedicated server and check validation, authority, and synchronization. |
+| Saved state | Change the value, unload/reload its owner, and restart the world. Load data written by the previous version when compatibility is affected. |
+| Optional-mod integration | Start with the mod absent and present; exercise supported API versions and the unsupported-version behavior. |
+| Cross-mod behavior, recipes, or startup order | Test coordinated artifacts in a full development pack with the relevant configuration. |
+| Tick or rendering performance | [Measure the same workload](/GTNH-Dev-Doc/testing/measure-a-performance-change/) before and after the change, and keep the profiles and functional checks. |
+
+Several rows can apply to one change. A machine-mode fix, for example, may
+need both a connected-client check and a saved-world check. Singleplayer does
+not exercise the same physical class-loading boundary as a dedicated server.
+
+Use [cross-repository testing](/GTNH-Dev-Doc/testing/test-cross-repository-changes/)
+when an addon needs an unpublished API change, then
+[test the artifacts in the full pack](/GTNH-Dev-Doc/testing/test-a-change-in-the-full-pack/)
+when pack interactions matter. Confirm the loaded versions so the test
+actually exercises the intended code.
+
+## Report enough to repeat the check
+
+Include the commands or run configurations, relevant JDK and mod/pack versions,
+test setup, action, expected result, and observed result. Identify any important
+case you didn't test and explain why.
+
+For a manual check, “joined a dedicated server, changed the machine mode, and
+verified it on a second client and after restart” is more useful than “tested
+in game.” Screenshots support that evidence, but they can't show on their own
+whether a value persists or synchronizes.

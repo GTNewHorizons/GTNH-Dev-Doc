@@ -1,0 +1,203 @@
+---
+title: Contribute with GitHub Desktop
+description: Fork a GTNH project, edit and test its files, and submit a pull request using GitHub Desktop.
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Use GitHub Desktop to contribute code, textures, translations, documentation,
+or pack data through a graphical Git workflow. Edit files with your usual
+text, image, or other relevant editor, then use Desktop to record and publish
+the changes.
+
+Before starting, [choose the owning repository](/GTNH-Dev-Doc/start-here/choose-a-repository/),
+read its contribution instructions, and note the branch it asks you to target.
+Its README determines which editing, build, and validation tools you need.
+
+## How your changes reach the project
+
+**Git** records file history on your computer. **GitHub** hosts repositories
+and the discussions where maintainers review changes. Desktop connects the two.
+The workflow below uses three copies of the project:
+
+- The **original repository**, maintained by GTNH.
+- Your **fork**, a separate repository under your GitHub account.
+- Your **clone**, the files and Git history on your computer.
+
+You edit the clone on a **branch** for your change. A **commit** records a
+local checkpoint; **pushing** sends those commits to your fork. A **pull
+request (PR)** asks the original project's maintainers to review and merge
+your branch. The [Git glossary](/GTNH-Dev-Doc/reference/gtnh-development-glossary/#git-and-collaboration-terms)
+explains the terms you'll encounter.
+
+## Install and sign in
+
+Create a [GitHub account](https://github.com/signup) if you need one, then
+install [GitHub Desktop](https://desktop.github.com/download/). The official
+application supports [Windows and macOS](https://docs.github.com/en/desktop/overview/supported-operating-systems-for-github-desktop).
+For Linux, use the [command-line workflow](/GTNH-Dev-Doc/start-here/set-up-your-workspace/).
+
+Open Desktop, choose **Sign in to GitHub.com**, and complete sign-in in your
+browser. Return to Desktop when prompted. If you're already using the app,
+sign-in is under **Accounts** in **File → Options** on Windows or
+**GitHub Desktop → Settings** on macOS. GitHub's
+[authentication guide](https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop)
+covers those controls.
+
+## Fork and clone
+
+<Steps>
+
+1. On the original repository's GitHub page, select **Fork** and create the
+   fork under your account. If the requested target branch isn't the default,
+   clear the option to copy only the default branch so the target is included.
+   Use an existing fork if you already have one.
+2. Copy your fork's URL. Its owner should be your username. In Desktop, select
+   **File → Clone Repository → URL** and paste that URL.
+3. Choose a **Local Path**, note where Desktop will store the project, and
+   select **Clone**. This folder will hold the files you edit.
+4. If Desktop asks how you will use the fork, choose **To contribute to the
+   parent project**. You can check this later under
+   **Repository → Repository Settings → Fork Behavior**. Confirm that
+   **Current Repository** shows the chosen project and the **Changes** view
+   has no pending edits.
+
+</Steps>
+
+GitHub maintains the
+[cloning and forking reference](https://docs.github.com/en/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop)
+for interface changes.
+
+You can clone a public project without write access. This workflow uses your
+fork so you have a repository where you can publish your branch.
+
+## Create a contribution branch
+
+Start from the branch requested by the project. Its name may be `master`,
+`main`, or something else. Updating it before creating your working branch
+gives you the current project files.
+
+<Steps>
+
+1. On your fork's GitHub page, select the requested base branch. Open
+   **Sync fork**, review any incoming commits, and select **Update branch**
+   if it is behind the original. If GitHub reports conflicts, resolve them
+   before continuing; its [fork-sync guide](https://docs.github.com/en/pull-requests/how-tos/work-with-forks/syncing-a-fork)
+   explains the available paths. For a target branch missing from an existing
+   fork, use GitHub's [additional-branch instructions](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project#creating-your-own-copy-of-a-project).
+2. In Desktop, select the same base branch under **Current Branch**.
+   Select **Fetch origin**, then **Pull origin** if updates are available.
+   Fetch checks the remote history; pull brings its changes into your local
+   branch. Here, `origin` is your fork, which you updated in the previous step.
+3. Select **Current Branch → New Branch**. Enter a short name describing
+   the change, such as `fix-battery-tooltip`. Under **Create branch based
+   on…**, choose the base branch you just updated, then select **Create Branch**.
+   Confirm that **Current Branch** now shows your contribution branch.
+
+</Steps>
+
+GitHub's [branch guide](https://docs.github.com/en/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop)
+describes creation and switching. Keep each contribution on its own branch
+so a later PR can contain a separate change.
+
+For mods using GTNHGradle, complete the
+[Git-based version checks](/GTNH-Dev-Doc/start-here/set-up-your-workspace/#check-git-based-mod-versions)
+before building. Those checks include explicitly fetching upstream history
+and tags with command-line Git; copying branches into a fork doesn't replace
+them.
+For mod code, continue with
+[Java and IDE setup](/GTNH-Dev-Doc/start-here/set-up-your-workspace/#select-java-and-import-the-mod)
+and [Build and run](/GTNH-Dev-Doc/start-here/build-and-run/).
+
+## Edit and test the files
+
+Open the folder you noted as **Local Path** in Explorer or Finder. Locate the
+file identified when choosing the repository, then edit it with your text,
+image, or other relevant editor. Save the result in the clone. Desktop's
+**Changes** view should now list the file; if it doesn't, check that you edited
+the cloned copy and saved it, and whether the repository ignores that path.
+
+Run the repository's checks for the type of file you changed. For documentation,
+build and inspect the rendered pages. For a texture or translation, inspect
+the affected screen in game. For pack data, exercise the changed behavior in
+a [separate test instance](/GTNH-Dev-Doc/testing/test-a-change-in-the-full-pack/).
+If you edited a file in that instance, copy the intended change back to its
+corresponding path in the clone before committing. Use
+[Testing expectations](/GTNH-Dev-Doc/testing/testing-expectations/)
+to choose additional checks and record the result.
+
+## Review and commit the change
+
+In Desktop's **Changes** view, inspect every listed file and select the
+checkboxes for the changes you intend to submit. Review text diffs and changed
+assets. Leave build output, run directories, test worlds, IDE state, and
+private configuration out of the commit.
+
+Enter a descriptive **Summary** in your own voice, then select **Commit to
+YOUR-BRANCH**, where the button shows your branch name. In **History**, check
+that the new commit contains the intended files. You can make several focused
+commits as you work; each records progress locally.
+
+Select **Publish branch** for a new branch or **Push origin** for one you've
+already published. Once the push succeeds, open your fork on GitHub, select
+the contribution branch, and confirm that the commit and changed files appear
+there. A local commit alone isn't visible to reviewers.
+
+GitHub's [commit and review guide](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop)
+covers selecting files or individual changes for a commit.
+
+## Open and revise the pull request
+
+Use Desktop's **Preview Pull Request**, then **Create Pull Request** to open
+the form in your browser. Before submitting, check both sides of the comparison:
+
+- **Base repository and branch:** the original GTNH project and its requested
+  target branch.
+- **Head repository and compare branch:** your fork and contribution branch.
+
+Review the listed commits and files. If unrelated work appears, check the
+selected branches before submitting. Fill out the repository's template with
+the problem, result, dependencies, and test evidence, following
+[Pull request expectations](/GTNH-Dev-Doc/contributing/pull-request-expectations/).
+
+For unfinished work or early feedback, use the dropdown beside **Create pull
+request** and choose **Create draft pull request**. When the change is ready,
+select **Ready for review** on that PR. GitHub's
+[draft guide](https://docs.github.com/en/pull-requests/how-tos/create-pull-requests/changing-the-stage-of-a-pull-request)
+describes switching between draft and review states.
+
+Make review revisions on the same branch, repeat the affected checks, and
+commit and push them. The PR updates with those commits. Reply to the feedback
+and re-request review when you've addressed it; you don't need a new PR for
+each revision.
+
+## Find and follow your pull request
+
+The PR belongs to the repository you asked to merge into. Open the original
+project's **Pull requests** tab and search for `author:@me` while signed in,
+or use your [pull request dashboard](https://github.com/pulls). Check the
+closed list as well if the PR no longer appears among open requests; a closed
+PR may have been merged or closed without merging.
+
+Read the PR's conversation, review comments, and checks. If a check fails,
+open its details and follow [CI problems](/GTNH-Dev-Doc/troubleshooting/ci-problems/)
+when you need to compare it with local validation. For visual changes, attach
+the before-and-after evidence requested by the contribution guidelines.
+
+A merged PR updates project source. Publication and pack assembly still have
+to include it before players receive the change; see the
+[release pipeline](/GTNH-Dev-Doc/releases-and-maintenance/understand-the-gtnh-release-pipeline/).
+
+## Update an existing contribution branch
+
+If a reviewer asks you to include newer project changes, commit or stash any
+pending work before switching branches. Repeat the base-branch update above,
+then switch back to your contribution branch. Updating the base branch alone
+doesn't update this branch.
+
+Under **Current Branch**, choose **Choose a branch to merge into YOUR-BRANCH**,
+select the updated local base branch, and confirm the merge. Resolve any
+conflicts, rerun the affected checks, and select **Push origin** so the PR
+receives the update. Follow GitHub's
+[branch-sync guide](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop#merging-another-branch-into-your-project-branch)
+for the controls and conflict handling.

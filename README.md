@@ -1,17 +1,17 @@
 # GTNH Developer Documentation
 
-Developer documentation for contributors to
-[GT New Horizons](https://github.com/GTNewHorizons). Shared developer workflows
-belong here. The [official GTNH wiki](https://wiki.gtnewhorizons.com/) serves
-players and gameplay topics. Project-specific API manuals remain with their
-owning projects and are linked as source references.
+These docs cover shared development workflows for contributors to
+[GT New Horizons](https://github.com/GTNewHorizons). For player guides and
+gameplay topics, use the [official GTNH wiki](https://wiki.gtnewhorizons.com/).
+Each project's API manual stays with that project; these docs link to those
+manuals where you need them.
 
 This repository also contains documents related to GTNH contributions, including
 the [AI Policy](AI_POLICY.md) and the [vision for the modpack](vision%20of%20the%20modpack/original%20vision%20doc.md).
 
 The Contribution Guidelines and Code of Conduct are maintained in the
 [GTNewHorizons/.github](https://github.com/GTNewHorizons/.github) repository.
-Please make changes to those documents there.
+Make changes to those documents there.
 
 ## Local setup
 
@@ -23,8 +23,25 @@ npm run dev
 ```
 
 Run `npm run build` before opening a pull request. Documentation lives in
-`src/content/docs/`. Edit or add Markdown/MDX there and use the existing concise,
-task-oriented style.
+`src/content/docs/`. Follow [the documentation contribution guide](src/content/docs/contributing/contribute-to-this-documentation.md)
+to edit or add a page, preview the site, and prepare the change for review.
+
+## Source layout
+
+| Location | Purpose |
+| --- | --- |
+| `src/content/docs/` | Published pages, grouped by the reader's task or topic. The home page is `index.mdx`. |
+| `astro.config.mjs` | Sidebar sections, page order, and site configuration. |
+| `src/assets/` and `public/` | Site images and static assets. |
+| `src/content/i18n/` | Documentation interface labels. |
+| `src/pages/404.astro` | Custom not-found page. |
+
+Name page files after their titles using lowercase words separated by hyphens.
+Use `index` for the home page and section landing pages, `.md` for prose, and
+`.mdx` for pages that import components. The sidebar explicitly lists pages, so
+update its entries in `astro.config.mjs` when content changes. The policy,
+governance, and vision documents at the repository root are maintained separately
+from the published handbook.
 
 The `master` branch deploys with GitHub Actions to
 <https://www.gtnewhorizons.com/GTNH-Dev-Doc/>.

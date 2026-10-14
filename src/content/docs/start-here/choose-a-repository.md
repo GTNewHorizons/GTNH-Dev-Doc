@@ -1,34 +1,119 @@
 ---
 title: Choose a repository
-description: Find the GTNH repository that owns the change you want to make.
-sidebar:
-  order: 2
+description: Identify the owner of your change and the contribution path to follow.
+prev:
+  link: /GTNH-Dev-Doc/start-here/
+  label: Make your first contribution
 ---
 
-Start from the issue or behavior. Search the
-[GTNewHorizons organization](https://github.com/GTNewHorizons), then inspect
-candidate README files, issues, and recent pull requests. A similarly named
-project may only be a dependency.
+Find the repository that owns the change before setting up a development
+workspace. GTNH includes mod source, pack data, translations, and tooling in
+separate repositories; their build requirements differ.
 
-If unclear, use
-[Find where a change belongs](/GTNH-Dev-Doc/how-to/find-change-location/)
-or ask in the [official GTNH Discord](https://discord.gg/EXshrPV) with your
-findings. Do not open duplicate pull requests across repositories.
+## Start from the change
 
-For a new standalone 1.7.10 mod, follow the current
-[ExampleMod1.7.10 starter instructions](https://github.com/GTNewHorizons/ExampleMod1.7.10#getting-started).
-Use its starter archive rather than forking the example repository.
+If you have not chosen a change yet, browse the
+[GTNH issue tracker](https://github.com/GTNewHorizons/GT-New-Horizons-Modpack/issues)
+for a problem you can reproduce in an area of the pack you know.
 
-## Read the repository as the specification
+For an existing issue, check its linked source and pull requests. If you
+start from a bug in game, keep the reproduction steps and relevant log,
+recipe, item, or class name. Use
+[Find where a change belongs](/GTNH-Dev-Doc/contributing/find-where-a-change-belongs/)
+to trace that evidence to the code or data responsible.
 
-Inspect these files when present:
+## Match the change to its owner
 
-- The `README.md` and contribution files for the repository-specific workflow.
-- The `.java-version` file and Gradle toolchains for the expected JDK.
-- The `gradle/gradle-daemon-jvm.properties` file for a pinned Gradle daemon JDK.
-- The `gradle/wrapper/gradle-wrapper.properties` file for the Gradle version.
-- The `.github/workflows/` directory for the tasks and environment used by CI.
-- The `gradle.properties` and dependency files for project settings.
+GTNH's pack is assembled from many independently maintained projects.
+The place where a symptom appears and the repository that controls it can
+differ. Use this table to identify candidates, then trace the behavior to
+its source.
 
-Treat checked-in files as repository facts, not universal GTNH policy.
-Next, [fork, clone, and import it](/GTNH-Dev-Doc/start-here/fork-clone-and-import/).
+| Concern | Candidate owner |
+| --- | --- |
+| Java or Scala behavior in a mod | That mod's source in the [GTNewHorizons organization](https://github.com/GTNewHorizons). |
+| Pack-specific code or recipe registration | The affected mod or [NewHorizonsCoreMod](https://github.com/GTNewHorizons/NewHorizonsCoreMod); confirm the registration call site. |
+| Pack configuration, scripts, and packaged resources | [GT-New-Horizons-Modpack](https://github.com/GTNewHorizons/GT-New-Horizons-Modpack). |
+| Minecraft, Forge, or external-mod patches requiring transformation | [Hodgepodge](https://github.com/GTNewHorizons/Hodgepodge). |
+| Shared utility APIs | [GTNHLib](https://github.com/GTNewHorizons/GTNHLib) or the library named by the caller. |
+| Shared build conventions | [GTNHGradle](https://github.com/GTNewHorizons/GTNHGradle). |
+| Minecraft development, mapping, and reobfuscation | [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle). |
+| A new mod's starting build and layout | [ExampleMod1.7.10](https://github.com/GTNewHorizons/ExampleMod1.7.10). |
+| Reusable mod CI and release workflows | [GTNH Actions Workflows](https://github.com/GTNewHorizons/GTNH-Actions-Workflows). |
+| Coordinated merging and tagging | [MergeMasterXXL](https://github.com/GTNewHorizons/MergeMasterXXL). |
+| Pack manifests and assembled archives | [DreamAssemblerXXL](https://github.com/GTNewHorizons/DreamAssemblerXXL). |
+| Community translations | [GTNH-Translations](https://github.com/GTNewHorizons/GTNH-Translations). |
+| This developer documentation | [GTNH-Dev-Doc](https://github.com/GTNewHorizons/GTNH-Dev-Doc). |
+| In-game server regression tests | [Horizon-QA](https://github.com/GTNewHorizons/Horizon-QA). |
+
+Read the candidate repository's README, then inspect the relevant source.
+For example, an item can come from one mod while a pack script or another mod
+registers its recipe. Likewise, a Gradle error can be caused by the checkout's
+configuration even when the failing task belongs to a plugin. Names and
+dependency lists help you find candidates. Follow the registration and
+execution paths to work out which repository owns the behavior.
+
+Hodgepodge centralizes patches applied through mixins and class transformation.
+When GTNH maintains the target mod's source, prefer fixing the behavior in
+that repository when possible.
+
+If ownership remains unclear, ask in the
+[official GTNH Discord](https://discord.gg/EXshrPV) with the reproduction and
+repositories you have checked.
+
+## Separate ownership from support
+
+Being in the organization doesn't tell you a mod's support level. Check the
+[mod support spreadsheet](https://docs.google.com/spreadsheets/d/1LHd8c4FLLHiJqsuTppF2XFTE6bh-mXE7afVwGbzOKms)
+and its current legend. The pack may use an upstream mod's releases without
+maintaining a GTNH fork. If a source change needs a new fork, agree with
+maintainers where it should live before creating it.
+
+## Check the contribution requirements
+
+Read the [GTNH contribution guidelines](https://github.com/GTNewHorizons/.github/blob/master/CONTRIBUTING.md)
+and the repository's own instructions before implementation. Check existing
+issues and pull requests so you can build on work already underway.
+
+Major new content must be discussed with the team before implementation.
+For balance or progression changes, consult people familiar with the affected
+area and follow the current balance requirements. Use
+[Before you start coding](/GTNH-Dev-Doc/contributing/before-you-start-coding/)
+for the policy links, including the AI usage policy.
+
+Note the branch the repository asks you to target. You will use it when
+creating your working branch and opening the pull request.
+
+## Choose the setup you need
+
+- **Mod code:** continue to
+  [Set up your workspace](/GTNH-Dev-Doc/start-here/set-up-your-workspace/),
+  then [Build and run](/GTNH-Dev-Doc/start-here/build-and-run/).
+- **Documentation, translations, assets, or pack data:** fork and clone the
+  repository with [GitHub Desktop](/GTNH-Dev-Doc/contributing/contribute-with-github-desktop/)
+  or the [command-line Git setup](/GTNH-Dev-Doc/start-here/set-up-your-workspace/#fork-and-clone).
+  Follow its README for the editor, generators, and validation it needs.
+- **This documentation:** use
+  [Contribute to this documentation](/GTNH-Dev-Doc/contributing/contribute-to-this-documentation/)
+  for checkout, editing, preview, and build instructions.
+- **A new standalone mod:** use the
+  [ExampleMod1.7.10 starter](https://github.com/GTNewHorizons/ExampleMod1.7.10#getting-started).
+  The project provides a starter archive; do not fork the example repository
+  to create your mod.
+
+## Follow the artifact as well as the source
+
+Mod source, a published mod jar, and an assembled pack are different outputs.
+[GTNH Maven](https://nexus.gtnewhorizons.com/) hosts dependency artifacts;
+DreamAssemblerXXL selects versions and builds pack archives.
+
+For example, if an addon needs a new library method, the library must publish
+an artifact containing that method, the addon must select it, and the pack must
+include compatible versions of both. Use
+[cross-repository testing](/GTNH-Dev-Doc/testing/test-cross-repository-changes/)
+to check the unpublished changes together.
+
+Plan separate, linked pull requests and their dependency order. A merge in one
+repository does not immediately update the others; the
+[release pipeline](/GTNH-Dev-Doc/releases-and-maintenance/understand-the-gtnh-release-pipeline/)
+explains how source changes reach published jars and pack builds.

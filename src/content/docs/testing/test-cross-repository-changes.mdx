@@ -1,0 +1,150 @@
+---
+title: Test cross-repository changes
+description: Publish an unpublished dependency locally and confirm that its consumer uses the intended version.
+---
+
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+Use Maven Local when one mod needs an unpublished change from another.
+For example, a library may add a method that an addon needs to call. Here,
+the library is the **producer**: it publishes the dependency. The addon is
+the **consumer**: it selects and uses that dependency.
+
+Publish the producer locally, point the consumer at that version, then check
+which artifact Gradle selected and test the behavior. These instructions cover
+mods with Maven publishing enabled, following GTNHGradle **2.0.34** and RFG
+**2.0.6**. The source links pin those versions; check the plugin versions
+selected by your checkout if its tasks or publication layout differ.
+
+Run commands in the named producer or consumer checkout root.
+The temporary version `99.99.99` is an example: choose a test version you can
+recognize and use it consistently.
+
+:::note[Local artifacts aren't available to CI]
+GitHub Actions needs an online artifact;
+your local Maven repository is available only on your machine.
+:::
+
+## Publish the producer
+
+In the producer checkout, build and test the change, then publish with
+GTNHGradle's [VERSION override](https://github.com/GTNewHorizons/GTNHGradle/blob/04d5d0f931b569497b00e493a0c9a9f606bd2f60/src/main/java/com/gtnewhorizons/gtnhgradle/modules/GitVersionModule.java).
+
+<Tabs syncKey="shell">
+<TabItem label="Bash">
+
+On Linux, macOS, or Git Bash:
+
+```sh
+VERSION=99.99.99 ./gradlew publishToMavenLocal
+```
+
+</TabItem>
+<TabItem label="PowerShell">
+
+On Windows PowerShell, restore the previous environment value afterward:
+
+```powershell
+$previousVersion = $env:VERSION
+try {
+    $env:VERSION = '99.99.99'
+    .\gradlew.bat publishToMavenLocal
+} finally {
+    $env:VERSION = $previousVersion
+}
+```
+
+</TabItem>
+</Tabs>
+
+Expect the version-override message and a successful publication. Inspect
+the published POM and jars in the configured local Maven repository
+(default `~/.m2/repository/`). Group dots become directory separators.
+
+Confirm the POM's `groupId`, `artifactId`, and `version`, plus the classifier
+required by the consumer, commonly `dev`. The
+[publishing module](https://github.com/GTNewHorizons/GTNHGradle/blob/04d5d0f931b569497b00e493a0c9a9f606bd2f60/src/main/java/com/gtnewhorizons/gtnhgradle/modules/PublishingModule.java)
+uses `ARTIFACT_ID` or the Gradle project name for the artifact ID. Renaming a
+checkout can change that name if settings do not fix it. Existing
+`ARTIFACT_GROUP_ID` or `RELEASE_VERSION` overrides can also change the
+coordinates; check them before diagnosing a missing artifact.
+
+## Select it in the consumer
+
+<Steps>
+
+1. Inspect the consumer's repository declarations. If Maven Local is absent,
+   add it to the existing `repositories` block for this test:
+
+   ```groovy
+   repositories {
+       mavenLocal()
+   }
+   ```
+
+2. In the dependency declaration, preserve the configuration, group, artifact,
+   and classifier, and replace only the version with `99.99.99`.
+   If the producer published under the wrong artifact ID, correct its project
+   name or temporary override and republish.
+3. Inspect selection before building. Replace `GROUP:ARTIFACT` with the
+   published coordinates:
+
+   ```sh
+   ./gradlew dependencyInsight --dependency GROUP:ARTIFACT --configuration runtimeClasspath
+   ```
+
+   On Windows PowerShell, use `.\gradlew.bat`. Use the relevant resolvable
+   configuration if the consumer customizes its classpaths, and inspect
+   `compileClasspath` too for an API change.
+
+</Steps>
+
+The report should show the local version you selected, with no conflict choosing
+another version. Changing the declaration doesn't guarantee that Gradle resolved
+that version. Avoid adding a force rule to hide a conflict.
+
+## Test and iterate
+
+Run the consumer's build and relevant game scenario. Republish after each
+producer change, then restart the consumer so it loads the new jar.
+Use a fresh temporary version to distinguish iterations. If reusing a version,
+resolve again with `--refresh-dependencies`.
+
+A development run uses the dependency artifact selected for that classpath.
+For an assembled pack, install the coordinated runtime jars with
+[full-pack testing](/GTNH-Dev-Doc/testing/test-a-change-in-the-full-pack/).
+
+## Prepare the submitted changes
+
+Link the producer and consumer pull requests, explain which one depends on the
+other, and record the producer revision and coordinates you tested. A reviewer
+can repeat the local publication steps, but CI cannot use your Maven Local.
+
+The [standard shared CI workflow](https://github.com/GTNewHorizons/GTNH-Actions-Workflows/blob/042346f78918d09dce48d0185a6fd86806334886/.github/workflows/build-and-test.yml#L293-L295)
+also rejects `-pre` text in `dependencies.gradle*`, except `-preshadow`.
+Publishing a `-pre` version online does not satisfy that check. Inspect the
+workflow revision called by the consumer before choosing the version for CI.
+
+For a consumer using that gate, arrange the handoff in this order:
+
+1. **Have the producer reviewed and merged.** Keep the consumer PR linked to it;
+   use a draft while the dependency is being prepared. Include the producer
+   commit and local test results so reviewers know what the consumer needs.
+2. **Arrange an authorized producer release.** Give its maintainer the merged
+   commit, consumer PR, Maven group and artifact, and required classifier.
+   Follow the producer's [release process](/GTNH-Dev-Doc/releases-and-maintenance/release-operations/).
+   Confirm that the published version contains the API change, is available
+   from the consumer's declared online repository, and is accepted by its gate.
+3. **Update the consumer to that version.** Replace `99.99.99`, remove any
+   test-only `mavenLocal()` entry and publication overrides, and repeat
+   `dependencyInsight`, the build, and the relevant game test. Check that the
+   producer's runtime jar matches the API you compiled against.
+4. **Verify the consumer's CI before merging it.** The run must resolve the
+   published dependency and pass both the dependency gate and the affected
+   checks. Record the released producer version in the consumer PR.
+
+If the repository documents another way to test an unmerged dependency, follow
+that procedure. Otherwise, ask its maintainer how to prepare the artifact;
+keep the existing CI gate in place. Use
+[CI problems](/GTNH-Dev-Doc/troubleshooting/ci-problems/#ci-cannot-find-an-input-available-locally)
+to diagnose a remaining difference between local resolution and CI.

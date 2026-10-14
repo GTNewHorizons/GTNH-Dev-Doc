@@ -1,0 +1,131 @@
+---
+title: Find where a change belongs
+description: Trace a game symptom, recipe, or build failure to the source that owns it.
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Start with evidence you can search: a registry name, translation key, exact log
+message, configuration key, or stack-trace class. A pack symptom can originate
+in a mod, a pack override, or tooling. Use the
+[repository map](/GTNH-Dev-Doc/start-here/choose-a-repository/#match-the-change-to-its-owner) to choose candidate
+checkouts, then confirm ownership in their source.
+
+## Capture an identifier
+
+For an item or recipe, use
+[in-game inspection](/GTNH-Dev-Doc/testing/in-game-testing-tools-and-tricks/)
+to record its registry identity and inputs, outputs, machine, and quantities.
+A display name may be translated, and a different mod may register the recipe
+for that item.
+
+For a crash, keep the first relevant exception and its stack trace.
+For a build failure, keep the task and dependency coordinates. Use
+[Locate logs](/GTNH-Dev-Doc/troubleshooting/locate-logs-and-useful-errors/) when the visible error is only
+a summary.
+
+## Find the code or data that produces the behavior
+
+<Steps>
+
+1. Search the exact identifier or message in the candidate checkout. With
+   ripgrep installed, run this from its root, replacing `EXACT-TEXT`:
+
+   ```sh
+   rg -n -F 'EXACT-TEXT' .
+   ```
+
+   Your IDE's **Find in Files** is another way to search. If the match is a
+   language-file value, search for its key and follow the usages in code or
+   data. If it is configuration, find the code that reads the key.
+2. Follow the matching registration, caller, or consumer to the behavior.
+   A wrapper or addon may delegate to another mod. Search pack scripts and
+   configuration when the behavior differs from the mod's default.
+3. If the implementation comes from a dependency, inspect the dependency
+   declaration and imports. Confirm the matching source repository and version
+   before editing a similarly named local class.
+4. Read nearby tests, history, and linked issues to understand why the code
+   behaves this way and what other callers rely on. Blame can lead you to the
+   commits that last changed the relevant lines. Their discussions may explain
+   a constraint that still matters.
+
+</Steps>
+
+For tooling, distinguish the repository's configuration from the plugin or
+workflow implementing it. The
+[build-system overview](/GTNH-Dev-Doc/build-tools/understand-the-gtnh-build-system-stack/)
+shows where GTNHGradle, RetroFuturaGradle, shared CI, and pack assembly fit.
+
+## Example: a Data Stick tooltip and recipe
+
+GT5 defines the Data Stick's tooltip, while NewHorizonsCoreMod registers a
+Circuit Assembler recipe that produces the item. In the GT5 source linked
+below, its registry identity is
+`gregtech:gt.metaitem.01`, metadata `32708`.
+Use the linked revisions to follow this example. When investigating your own
+change, use the source versions that match your pack.
+
+<Steps>
+
+1. From a GT5-Unofficial checkout's root, search the English tooltip text:
+
+   ```sh
+   rg -n -F 'A Low Capacity Data Storage' src/main/resources/assets/gregtech/lang/en_US.lang
+   ```
+
+   The [language-file match](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/resources/assets/gregtech/lang/en_US.lang#L5661)
+   defines `gt.item.tool.data_stick.tooltip`.
+2. Search that key in the same checkout:
+
+   ```sh
+   rg -n -F 'gt.item.tool.data_stick.tooltip' src/main/java
+   ```
+
+   [MetaGeneratedItem01](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/common/items/MetaGeneratedItem01.java#L3174-L3180)
+   uses this key when registering the item and stores the result in
+   `ItemList.Tool_DataStick`. Change this tooltip in GT5.
+3. To find a recipe using that item, search its constant in candidate recipe
+   repositories. From a NewHorizonsCoreMod checkout's root:
+
+   ```sh
+   rg -n -F 'Tool_DataStick' src/main/java
+   ```
+
+   In [CircuitAssemblerRecipes](https://github.com/GTNewHorizons/NewHorizonsCoreMod/blob/c2f26436d3f8472da10ef82a42049f1f94ba0d43/src/main/java/com/dreammaster/gthandler/recipes/CircuitAssemblerRecipes.java#L961-L971),
+   the recipe uses `ItemList.Tool_DataStick.get(1L)` as its output and is added
+   to `circuitAssemblerRecipes`. It requires a cleanroom and soldering fluid;
+   its inputs include two `Circuit_Chip_CPU` and 32 `Circuit_Chip_NAND`.
+   Compare the complete inputs, output, and machine with the recipe you
+   inspected in game. Edit this recipe in NewHorizonsCoreMod.
+
+</Steps>
+
+Other matches may use the stick as an input. GT5 also registers
+[a shapeless recipe](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/common/items/MetaGeneratedItem01.java#L5137-L5140)
+that produces a Data Stick. Choose the registration for the affected recipe,
+rather than choosing an owner from the item's name.
+
+## When searches are inconclusive
+
+- **No matches:** check that the checkout matches the loaded mod version.
+  Names may be assembled during registration, so search a distinctive part,
+  the display text, or the class reported by in-game inspection. If the
+  implementation comes from a dependency, inspect that version's sources.
+- **Many matches:** distinguish definitions from usages. Follow the translation
+  key, registration, or caller to the behavior. A recipe that mentions an item
+  may consume it; compare its inputs, output, machine, and quantities.
+- **Behavior only differs in the pack:** inspect pack scripts, configuration,
+  and patches alongside the mod's default implementation. Keep the pack and
+  mod versions with your reproduction.
+
+## Confirm the owner before editing
+
+You should be able to name the repository, relevant file or call path,
+reproduction, and check that will verify the change. Read that repository's
+contribution instructions and inspect existing issues and pull requests.
+
+If the evidence still points to several owners, share the reproduction and
+locations you checked in the relevant issue or
+[GTNH Discord](https://discord.gg/EXshrPV). For coordinated work, identify
+separate changes and their dependency order rather than opening competing
+fixes in several repositories.
