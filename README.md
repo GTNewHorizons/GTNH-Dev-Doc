@@ -24,7 +24,7 @@ npm run dev
 
 Run `npm run build` before opening a pull request. Documentation lives in
 `src/content/docs/`. Follow [the documentation contribution guide](src/content/docs/contributing/contribute-to-this-documentation.md)
-to choose a useful topic, verify its advice, and review the rendered result.
+to edit or add a page, preview the site, and prepare the change for review.
 
 ## Source layout
 
