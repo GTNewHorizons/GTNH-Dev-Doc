@@ -51,7 +51,8 @@ creating your working branch and opening the pull request.
   [Set up your workspace](/GTNH-Dev-Doc/start-here/fork-clone-and-import/),
   then [Build and run](/GTNH-Dev-Doc/start-here/build-and-run/).
 - **Documentation, translations, assets, or pack data:** fork and clone the
-  repository using the same [Git setup](/GTNH-Dev-Doc/start-here/fork-clone-and-import/#fork-and-clone).
+  repository with [GitHub Desktop](/GTNH-Dev-Doc/how-to/use-github-desktop/)
+  or the [command-line Git setup](/GTNH-Dev-Doc/start-here/fork-clone-and-import/#fork-and-clone).
   Follow its README for the editor, generators, and validation it needs.
 - **A new standalone mod:** use the
   [ExampleMod1.7.10 starter](https://github.com/GTNewHorizons/ExampleMod1.7.10#getting-started).

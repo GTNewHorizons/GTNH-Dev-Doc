@@ -8,9 +8,11 @@ import { Steps } from '@astrojs/starlight/components';
 Start with the [repository you chose](/GTNH-Dev-Doc/start-here/choose-a-repository/)
 and its contribution instructions. These steps use command-line Git and
 IntelliJ IDEA. If you prefer a graphical Git client, use
-[GitHub Desktop](/GTNH-Dev-Doc/how-to/use-github-desktop/) for the fork and
-clone, then return to step 3 below to fetch upstream history and tags before
-setting up Java and the IDE.
+[Contribute with GitHub Desktop](/GTNH-Dev-Doc/how-to/use-github-desktop/)
+for the workflow from cloning through review. For mods using GTNHGradle,
+complete the [Git-based version checks](#check-git-based-mod-versions) before
+building. For mod code, continue with
+[Java and IDE setup](#select-java-and-import-the-mod).
 
 ## Prepare your tools
 
@@ -87,6 +89,11 @@ tools and validation; the Git steps below still apply.
 </Steps>
 
 ### Check Git-based mod versions
+
+If you prepared the checkout with Desktop, complete step 3 above from the
+cloned repository root to check the `upstream` remote and explicitly fetch
+the original project's history and tags. Keep the contribution branch you
+already created in Desktop.
 
 GTNHGradle supplies shared build conventions for GTNH mods. Its
 [version module](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/GitVersionModule.java)

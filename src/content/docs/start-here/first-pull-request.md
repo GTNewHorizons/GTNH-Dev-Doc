@@ -83,6 +83,9 @@ Confirm that the pull request shows your intended files and commits. Watch the
 checks for that revision; if a local build and GitHub Actions disagree, follow
 [CI problems](/GTNH-Dev-Doc/troubleshooting/ci/).
 
+To find the PR again and follow its discussion, use
+[Find and follow your pull request](/GTNH-Dev-Doc/how-to/use-github-desktop/#find-and-follow-your-pull-request).
+
 ## Respond to review
 
 Make requested revisions on the same branch, rerun the affected checks, and
