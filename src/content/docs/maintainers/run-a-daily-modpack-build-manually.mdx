@@ -1,0 +1,62 @@
+---
+title: Run a daily modpack build manually
+description: Dispatch the daily workflow and verify its packages, metadata commit, and publication.
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Use this procedure when an authorized DreamAssemblerXXL maintainer needs a
+daily build before the scheduled run. The workflow assembles and tests the
+pack, publishes downloads, updates generated repository data, and applies its
+release-retention rules.
+
+:::caution[A new run cancels the earlier daily build]
+The [workflow file](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/master/.github/workflows/daily-modpack-build.yml)
+describes what the workflow does. Its concurrency rule cancels an earlier daily run
+when a new one starts, so inspect current runs before dispatching.
+:::
+
+## Start the intended run
+
+<Steps>
+
+1. Open [Daily modpack build](https://github.com/GTNewHorizons/DreamAssemblerXXL/actions/workflows/daily-modpack-build.yml)
+   and check whether a queued or running build already covers the need.
+2. Confirm the source revision and intended build with the release coordinator.
+   The current workflow checks out `master` explicitly.
+3. Select **Run workflow**, choose `master`, and confirm once.
+4. Open the new run and record its URL, revision, and run number.
+
+</Steps>
+
+Manual dispatch requires repository write access and a workflow declaring
+`workflow_dispatch`. GitHub documents
+[manual-run requirements](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow?tool=webui).
+If the control is unavailable, ask a DreamAssemblerXXL maintainer.
+
+## Verify the outputs
+
+Follow the build, pack-test, upload, and final publication jobs.
+Check the run's selected-mod summary or generated manifest, then verify:
+
+- The corresponding release in
+  [GTNH Daily Builds](https://github.com/GTNewHorizons/GTNH-Daily-Builds/releases).
+- The expected client/server runtime variants and their archive contents.
+- The generated manifest, asset data, and changelog commit on `master`.
+- The pack-test results for the same bundle.
+
+A published archive, metadata commit, and passing test job are separate
+outputs. Record the run and release together so testers can identify the
+matching artifacts.
+
+## Investigate before retrying
+
+Keep the first failed job and relevant logs. Check which archives,
+releases, or commits already exist before starting another run.
+The workflow can overwrite assets for an existing daily tag and remove old
+daily releases. A retry runs that publication process again.
+
+Resolve the failed input or operation and coordinate the replacement run.
+For a mod version missing from the manifest, trace the
+[release pipeline](/GTNH-Dev-Doc/concepts/understand-the-gtnh-release-pipeline/)
+before assuming another assembly will include it.

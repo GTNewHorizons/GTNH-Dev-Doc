@@ -17,13 +17,13 @@ maintained policy documents to check project policy and review requirements.
 | How do I edit quests? | [Quest development guide](https://github.com/GTNewHorizons/GT-New-Horizons-Modpack/blob/master/config/betterquesting/Readme.md) |
 | Which StructureLib APIs define a multiblock? | [StructureLib documentation](https://www.gtnewhorizons.com/StructureLib/) |
 
-The local [contribution guides](/GTNH-Dev-Doc/contributing/before-you-code/)
+The local [contribution guides](/GTNH-Dev-Doc/contributing/before-you-start-coding/)
 help you apply these requirements. The linked documents are where the policies
 are maintained.
 
 ## Source, support, and pack testing
 
-Use the [repository map](/GTNH-Dev-Doc/concepts/repository-map/)
+Use the [repository map](/GTNH-Dev-Doc/concepts/map-a-change-to-the-gtnh-repositories/)
 to locate mod code, pack data, libraries, and tooling. The
 [GTNewHorizons organization](https://github.com/GTNewHorizons)
 contains their source, issues, and repository instructions.
@@ -37,7 +37,7 @@ discussion; bring the reproduction, source locations, or relevant logs.
 
 For assembled development packages, use
 [GTNH Daily Builds](https://github.com/GTNewHorizons/GTNH-Daily-Builds/releases)
-and [full-pack testing](/GTNH-Dev-Doc/how-to/test-in-full-pack/).
+and [full-pack testing](/GTNH-Dev-Doc/how-to/test-a-change-in-the-full-pack/).
 For installation, progression, and gameplay, use the
 [official GTNH wiki](https://wiki.gtnewhorizons.com/).
 

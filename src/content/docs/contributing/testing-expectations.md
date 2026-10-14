@@ -17,7 +17,7 @@ launches successfully.
 
 Run the repository's relevant build and validation commands. Add a focused
 automated regression test when it can observe the behavior reliably.
-[Horizon-QA](/GTNH-Dev-Doc/how-to/use-horizon-qa/) can preserve server-side
+[Horizon-QA](/GTNH-Dev-Doc/how-to/use-horizon-qa-gametests/) can preserve server-side
 in-game checks; client appearance and some interactions still need manual
 inspection.
 
@@ -40,7 +40,7 @@ not exercise the same physical class-loading boundary as a dedicated server.
 
 Use [cross-repository testing](/GTNH-Dev-Doc/how-to/test-cross-repository-changes/)
 when an addon needs an unpublished API change, then
-[test the artifacts in the full pack](/GTNH-Dev-Doc/how-to/test-in-full-pack/)
+[test the artifacts in the full pack](/GTNH-Dev-Doc/how-to/test-a-change-in-the-full-pack/)
 when pack interactions matter. Confirm the loaded versions so the test
 actually exercises the intended code.
 

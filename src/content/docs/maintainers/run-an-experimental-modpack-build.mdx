@@ -1,0 +1,48 @@
+---
+title: Run an experimental modpack build
+description: Dispatch the experimental workflow and verify its test bundle, downloads, and generated commit.
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+An experimental build generates a mod selection, assembles client/server
+packages, runs pack tests, uploads artifacts, and commits generated metadata
+to DreamAssemblerXXL's `master` branch. Run it only with authorization for
+that build.
+
+Inspect the
+[current workflow](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/master/.github/workflows/experimental-modpack-build.yml)
+and recent runs first. It updates available mod data while generating the
+experimental release; identify which versions you expect it to select.
+
+## Dispatch and follow the run
+
+<Steps>
+
+1. Open [Experimental modpack build](https://github.com/GTNewHorizons/DreamAssemblerXXL/actions/workflows/experimental-modpack-build.yml).
+2. Check for an existing run and confirm the intended source revision.
+   The current workflow explicitly checks out `master`.
+3. Select **Run workflow**, choose `master`, and confirm once.
+4. Open the queued run and record its URL and run number.
+5. Follow its build, pack-test, and upload jobs.
+
+</Steps>
+
+GitHub's [manual dispatch guide](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow?tool=webui)
+covers the required repository access and interface.
+
+## Check the build that testers will receive
+
+Inspect `releases/manifests/experimental.json` from the run and confirm
+the selected versions. Verify the uploaded client/server runtime variants
+and the pack-test result for that bundle.
+
+The upload job commits the generated manifest, asset data, and changelog
+to `master`. Check that commit as well as the downloadable workflow
+artifacts. Experimental artifacts are a separate destination from
+[the daily releases](/GTNH-Dev-Doc/maintainers/run-a-daily-modpack-build-manually/).
+
+If the build fails, keep the first relevant job log and inspect any partial output.
+Confirm whether upload or metadata publication already occurred before
+rerunning. Correct the failing input or step instead of repeatedly dispatching
+the same build.

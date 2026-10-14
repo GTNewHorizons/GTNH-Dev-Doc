@@ -33,7 +33,7 @@ behavior, compatibility, or progression so reviewers don't have to work them
 out from the code.
 
 For balance changes and new recipe chains, include the
-[required balance answers and flowchart](/GTNH-Dev-Doc/contributing/before-you-code/#for-a-balance-change).
+[required balance answers and flowchart](/GTNH-Dev-Doc/contributing/before-you-start-coding/#for-a-balance-change).
 
 ## Show the evidence
 

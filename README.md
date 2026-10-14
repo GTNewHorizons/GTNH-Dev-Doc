@@ -23,7 +23,7 @@ npm run dev
 ```
 
 Run `npm run build` before opening a pull request. Documentation lives in
-`src/content/docs/`. Follow [the documentation contribution guide](src/content/docs/contributing/contribute-to-the-documentation.md)
+`src/content/docs/`. Follow [the documentation contribution guide](src/content/docs/contributing/contribute-to-this-documentation.md)
 to choose a useful topic, verify its advice, and review the rendered result.
 
 ## Source layout
@@ -31,15 +31,17 @@ to choose a useful topic, verify its advice, and review the rendered result.
 | Location | Purpose |
 | --- | --- |
 | `src/content/docs/` | Published pages, grouped by the reader's task or topic. The home page is `index.mdx`. |
-| `astro.config.mjs` | Sidebar sections, page order, redirects, and site configuration. |
+| `astro.config.mjs` | Sidebar sections, page order, and site configuration. |
 | `src/assets/` and `public/` | Site images and static assets. |
 | `src/content/i18n/` | Documentation interface labels. |
 | `src/pages/404.astro` | Custom not-found page. |
 
-Use `.md` for prose and `.mdx` for pages that import components. The sidebar
-explicitly lists pages, so update its entries in `astro.config.mjs` when
-content changes. The policy, governance, and vision documents at the repository
-root are maintained separately from the published handbook.
+Name page files after their titles using lowercase words separated by hyphens.
+Use `index` for the home page and section landing pages, `.md` for prose, and
+`.mdx` for pages that import components. The sidebar explicitly lists pages, so
+update its entries in `astro.config.mjs` when content changes. The policy,
+governance, and vision documents at the repository root are maintained separately
+from the published handbook.
 
 The `master` branch deploys with GitHub Actions to
 <https://www.gtnewhorizons.com/GTNH-Dev-Doc/>.

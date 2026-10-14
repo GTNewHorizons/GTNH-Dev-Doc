@@ -80,4 +80,4 @@ can delete and recreate an existing GitHub release during a rerun.
 :::
 
 Finally, confirm the intended version in the relevant pack manifest before
-expecting it in an [assembled build](/GTNH-Dev-Doc/concepts/release-pipeline/).
+expecting it in an [assembled build](/GTNH-Dev-Doc/concepts/understand-the-gtnh-release-pipeline/).

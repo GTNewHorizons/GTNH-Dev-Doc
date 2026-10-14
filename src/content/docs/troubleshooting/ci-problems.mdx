@@ -1,0 +1,100 @@
+---
+title: CI problems
+description: Reproduce the failing GitHub Actions operation and explain why its result differs locally.
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+For a continuous integration (CI) failure, open the GitHub Actions run and
+expand the first failing step. Keep the run URL, tested revision, job,
+command, and first relevant exception. A skipped step doesn't tell you why the
+job failed, and a local compilation may cover less than the failed job.
+
+## Match the operation and inputs
+
+<Steps>
+
+1. **Identify the revision actually checked out.** Use the checkout step's log,
+   not an assumption that CI tested your local branch tip. A `pull_request`
+   workflow can test GitHub's
+   [merge commit](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request)
+   with the base branch.
+2. **Read the workflow used by that run.** Follow any reusable workflow's
+   `uses:` reference and inputs. GTNH's shared
+   [build-and-test workflow](https://github.com/GTNewHorizons/GTNH-Actions-Workflows/blob/master/.github/workflows/build-and-test.yml)
+   separates workspace setup, assembly, build checks, and server checks. Use
+   the run's workflow revision and logs if a referenced branch has since changed.
+3. **Repeat the failed operation in a separate clean checkout.** Include the
+   required tags and submodules. Match the command, arguments, Java selections,
+   and relevant environment settings. Use
+   [Java selection checks](/GTNH-Dev-Doc/troubleshooting/java-problems/#check-the-selected-java-installations)
+   to compare the launcher, daemon, and toolchains. Run commands from the
+   repository root; on Windows PowerShell, use `.\gradlew.bat`.
+
+</Steps>
+
+If the command needs platform-specific tools such as `xvfb-run`, reproduce it
+on the job's operating system. Record any remaining environment difference
+when the results still disagree. If only your local build fails, compare it
+with the successful run and follow
+[Gradle problems](/GTNH-Dev-Doc/troubleshooting/gradle-problems/).
+
+## Compilation, formatting, or tests fail
+
+For a formatting failure, use the checkout's
+[formatter](/GTNH-Dev-Doc/development-practices/code-style/#run-the-configured-checks),
+review the diff, and rerun the failed check.
+
+For a compiler error, compare the selected compiler and dependency versions
+with local output. For a test failure, open the named test's report under
+`build/reports` or the uploaded workflow reports and reproduce that test.
+If it passes locally, inspect its assumptions about paths, locale, time, and
+execution order against the CI environment.
+
+When Linux CI fails while Windows or macOS succeeds, compare filename case,
+line endings, and tracked executable bits. Correct the input responsible
+and repeat the same operation.
+
+## CI cannot find an input available locally
+
+Check `git status --short --ignored` in your original working copy for untracked or
+ignored resources. Also inspect local add-on scripts, environment overrides,
+Gradle initialization scripts, and Maven Local artifacts. These can supply
+inputs that the workflow does not have.
+
+A clean checkout still shares your machine's dependency caches and local
+Maven repository. For a suspicious dependency, inspect its
+[selected version](/GTNH-Dev-Doc/troubleshooting/gradle-problems/#gradle-selects-an-unexpected-version)
+and source repository. An unpublished change needs an artifact the workflow
+can fetch; follow [cross-repository testing](/GTNH-Dev-Doc/how-to/test-cross-repository-changes/)
+for local publication and artifact selection.
+
+The shared workflow also checks for prerelease versions in `dependencies.gradle*`.
+A published artifact can resolve successfully and still fail that check.
+Replace the temporary declaration with the intended release version, or ask
+a maintainer how this repository tests changes that depend on another pull
+request. For a failed download, use
+[dependency diagnostics](/GTNH-Dev-Doc/troubleshooting/gradle-problems/#a-dependency-or-plugin-cannot-be-resolved).
+
+## A server check fails
+
+Inspect `server.log` and any crash report, even if the earlier server-launch
+step is green. The shared workflow checks server output in a later step;
+the launch step alone doesn't show that the server started successfully.
+
+A client-only class loaded on the dedicated server needs a
+[side-boundary correction](/GTNH-Dev-Doc/minecraft-forge-internals/understand-client-and-server-boundaries/).
+For a timeout, use the last log entries to distinguish startup that never
+reached `Done` from a server still running tests. Investigate that stage
+before increasing the timeout.
+
+When Horizon-QA is enabled, inspect `TEST-horizonqa.xml` and
+`horizonqa-result.json`, keeping the test selector. Use
+[Horizon-QA reporting](/GTNH-Dev-Doc/how-to/use-horizon-qa-gametests/#run-a-reported-batch)
+to distinguish assertion failures from startup or test-discovery failures.
+
+Verify the correction by repeating the failed operation locally. After the
+fix is submitted, confirm that the new workflow run tests the intended
+revision and passes the original step and its dependent checks. If results
+still differ, include the run URL and environment comparison with the
+[logs](/GTNH-Dev-Doc/how-to/locate-logs-and-useful-errors/).

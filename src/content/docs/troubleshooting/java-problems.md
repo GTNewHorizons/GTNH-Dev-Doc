@@ -1,0 +1,98 @@
+---
+title: Java problems
+description: Identify the Java installation responsible for a startup, toolchain, or bytecode error.
+---
+
+Gradle's launcher, build daemon, compiler, and Minecraft can use different Java
+installations. Check which process reports the error before choosing another JDK
+(Java Development Kit).
+
+## Check the selected Java installations
+
+In the terminal where the failure occurs, open the mod repository root
+containing `gradlew` and run:
+
+```sh
+java -version
+./gradlew --version
+```
+
+On Windows PowerShell, use `.\gradlew.bat` in place of `./gradlew` throughout
+this page. The shell's `java` comes from `PATH`; the wrapper uses `JAVA_HOME`
+when it is set. Recent Gradle versions report **Launcher JVM** and **Daemon
+JVM** separately. The daemon entry can describe selection criteria rather
+than an installation path.
+
+Compare the selection for the failing process with the checkout's README,
+build configuration, and CI workflow. Check `.java-version`,
+`gradle.properties`, and `gradle/gradle-daemon-jvm.properties` when present.
+For a game failure, read the Java version in the launch output or crash report
+and check the selected run configuration. The
+[Java and runtime model](/GTNH-Dev-Doc/concepts/understand-java-and-runtime-selection/)
+explains these separate selections.
+
+## Gradle will not start
+
+**`JAVA_HOME is set to an invalid directory`** means the wrapper cannot use
+that path. Point `JAVA_HOME` at the installed JDK's root directory, which
+contains `bin`, then open a new terminal and repeat the version checks.
+Restart IntelliJ if it still inherits the old environment.
+
+For a minimum-Java or unsupported-JVM error, compare the reported version
+with the checkout's requirement. If the wrapper itself fails, find its
+Gradle version in `gradle/wrapper/gradle-wrapper.properties` and consult
+[Gradle's Java compatibility matrix](https://docs.gradle.org/current/userguide/compatibility.html#java_runtime).
+Select a compatible launcher JDK before retrying.
+
+### Changing `JAVA_HOME` does not change the daemon
+
+When the checkout supplies `gradle/gradle-daemon-jvm.properties`, its
+[daemon JVM criteria](https://docs.gradle.org/current/userguide/gradle_daemon.html#sec:daemon_jvm_criteria)
+take precedence over `JAVA_HOME` and `org.gradle.java.home`. Install a JDK
+matching those criteria or restore access to the configured download service.
+Keep the project's criteria intact.
+
+If only IntelliJ fails, check the linked project's **Gradle JVM** or **Gradle
+JVM Criteria** in its
+[Gradle settings](https://www.jetbrains.com/help/idea/gradle-settings.html).
+Changing the Project SDK alone may leave Gradle's selection unchanged.
+
+## A compiler or toolchain is unavailable
+
+For **`Cannot find a Java installation ...`**, read the requested language
+version, vendor, and platform. If project configuration succeeds, list the
+installations Gradle detects:
+
+```sh
+./gradlew javaToolchains
+```
+
+If no installation matches, install the requested JDK or repair the reported
+toolchain download failure. If the JDK is installed but absent from the
+report, check local Gradle properties for disabled detection or stale paths.
+The [toolchain guide](https://docs.gradle.org/current/userguide/toolchains.html#sub:viewing_toolchains)
+documents these controls, including automatic downloads.
+
+For **`invalid source release`** or **`release version ... not supported`**,
+the selected compiler cannot accept the requested language level. Compare the
+failing task's compiler or IntelliJ SDK with the build's source/release
+configuration. Correct that selection. Changing Minecraft's runtime doesn't
+select the compiler.
+
+## A class-file version is unsupported
+
+**[`UnsupportedClassVersionError`](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/UnsupportedClassVersionError.html)**
+means the JVM loading a class cannot read
+its bytecode version. Identify that JVM and the jar containing the named
+class. Use the intended runtime for that process, or rebuild the artifact for
+the supported target.
+
+**`Unsupported class file major version`** from ASM, Groovy, or another build
+tool can instead indicate an outdated bytecode reader. Use the stack trace to
+identify the reader and compare the JDK, wrapper, and plugin versions with the
+checkout's supported setup before changing dependencies.
+
+After correcting the relevant selection, repeat the original build, import,
+or game launch. Confirm that it passes the stage that reported the Java error.
+If it still fails, include the Gradle and game Java selections with the
+[logs](/GTNH-Dev-Doc/how-to/locate-logs-and-useful-errors/).

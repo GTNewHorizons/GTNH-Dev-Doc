@@ -23,7 +23,7 @@ When a Spotless check fails and the project provides the task, run:
 On Windows PowerShell, use `.\gradlew.bat spotlessApply`. Inspect `git diff`
 afterward: a formatter can change files outside your intended scope. Keep
 the changes that belong to your contribution, then rerun the failed check.
-Use [task discovery](/GTNH-Dev-Doc/how-to/gradle-tasks/) if the expected task
+Use [task discovery](/GTNH-Dev-Doc/how-to/work-with-gradle-tasks/) if the expected task
 is absent.
 
 ## Make intent visible

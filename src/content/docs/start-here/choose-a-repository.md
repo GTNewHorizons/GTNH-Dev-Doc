@@ -16,10 +16,10 @@ for a problem you can reproduce in an area of the pack you know.
 For an existing issue, check its linked source and pull requests. If you
 start from a bug in game, keep the reproduction steps and relevant log,
 recipe, item, or class name. Use
-[Find where a change belongs](/GTNH-Dev-Doc/how-to/find-change-location/)
+[Find where a change belongs](/GTNH-Dev-Doc/how-to/find-where-a-change-belongs/)
 to trace that evidence to the code or data responsible.
 
-Use the [repository map](/GTNH-Dev-Doc/concepts/repository-map/) to work out
+Use the [repository map](/GTNH-Dev-Doc/concepts/map-a-change-to-the-gtnh-repositories/) to work out
 whether you're looking for mod code, pack configuration, translations, or build
 tooling. Read the candidate repository's README, then inspect the relevant
 source. A dependency list tells you that a project is used, but that doesn't
@@ -39,7 +39,7 @@ issues and pull requests so you can build on work already underway.
 Major new content must be discussed with the team before implementation.
 For balance or progression changes, consult people familiar with the affected
 area and follow the current balance requirements. Use
-[Before you start coding](/GTNH-Dev-Doc/contributing/before-you-code/)
+[Before you start coding](/GTNH-Dev-Doc/contributing/before-you-start-coding/)
 for the policy links, including the AI usage policy.
 
 Note the branch the repository asks you to target. You will use it when
@@ -48,11 +48,11 @@ creating your working branch and opening the pull request.
 ## Choose the setup you need
 
 - **Mod code:** continue to
-  [Set up your workspace](/GTNH-Dev-Doc/start-here/fork-clone-and-import/),
+  [Set up your workspace](/GTNH-Dev-Doc/start-here/set-up-your-workspace/),
   then [Build and run](/GTNH-Dev-Doc/start-here/build-and-run/).
 - **Documentation, translations, assets, or pack data:** fork and clone the
-  repository with [GitHub Desktop](/GTNH-Dev-Doc/how-to/use-github-desktop/)
-  or the [command-line Git setup](/GTNH-Dev-Doc/start-here/fork-clone-and-import/#fork-and-clone).
+  repository with [GitHub Desktop](/GTNH-Dev-Doc/how-to/contribute-with-github-desktop/)
+  or the [command-line Git setup](/GTNH-Dev-Doc/start-here/set-up-your-workspace/#fork-and-clone).
   Follow its README for the editor, generators, and validation it needs.
 - **A new standalone mod:** use the
   [ExampleMod1.7.10 starter](https://github.com/GTNewHorizons/ExampleMod1.7.10#getting-started).
