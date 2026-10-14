@@ -51,8 +51,10 @@ every tick.
 ## Distribute periodic work
 
 If every loaded machine performs a large check on tick 20, the average cost
-may look acceptable while that tick stalls. Assign stable offsets derived
-from dimension and coordinates or another persistent identity.
+may look acceptable while that tick stalls. A check that runs every 20 ticks
+can keep that interval while different machines use different offsets within
+it. Derive stable offsets from dimension and coordinates or another persistent
+identity so their work is spread across ticks.
 
 A first-load timestamp is a poor offset source because many objects in a
 chunk load together. Preserve each instance's required interval and response

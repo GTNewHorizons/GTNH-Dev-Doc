@@ -28,6 +28,11 @@ through the mod's translated-message API. Each recipient can then display it
 in their own language. Pre-translating with the server's language loses that
 choice.
 
+Translation does not reformat an argument that is already a string. A number
+formatted on the server keeps those separators even when the surrounding
+sentence is translated by the client. Where the display API supports it, keep
+the number unformatted until the receiving client's display path.
+
 In Minecraft 1.7.10, `ChatComponentTranslation` represents translated chat.
 GT5's [sendChatTrans implementation](https://github.com/GTNewHorizons/GT5-Unofficial/blob/master/src/main/java/gregtech/api/util/GTUtility.java)
 wraps that component; pass it the key and arguments. Use the relevant UI

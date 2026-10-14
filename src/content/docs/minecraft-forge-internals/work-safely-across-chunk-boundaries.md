@@ -3,8 +3,9 @@ title: Work safely across chunk boundaries
 description: Distinguish a loaded location from a coordinate and avoid unintended loads and stale tile references.
 ---
 
-A coordinate identifies a location, not a loaded chunk or a current tile
-instance. Decide whether an operation is allowed to load that location before
+A pipe may know the coordinates of a tank in the next chunk even while that
+chunk is unloaded. Those coordinates do not guarantee that the tank is
+available. Decide whether the operation is allowed to load the location before
 asking the world for its block or tile.
 
 ## Check availability before a non-loading read
@@ -21,8 +22,9 @@ Inspect `World`, the active chunk provider, and any mod overrides in the
 for the actual path.
 
 If the location is unavailable, defer the operation or return the feature's
-defined unavailable result. Treating it as air or as an empty inventory can
-make a network or multiblock cache record a false conclusion.
+defined unavailable result. The pipe cannot infer that the tank is empty from
+an unloaded endpoint. Treating an unavailable location as air or an empty
+inventory can make a network or multiblock cache record a false conclusion.
 
 Validate packet dimensions and loaded targets before world getters.
 A requested coordinate should not cause arbitrary chunk loading simply
@@ -36,7 +38,8 @@ then resolve the current object only when access is allowed.
 
 For a cached tile, check validity and confirm that the expected object still
 occupies the location. Clear the cache on relevant unload or removal signals.
-A reference that was valid earlier doesn't tell you whether the endpoint is still there.
+After a reload, the tank at the same coordinates can be a new tile instance.
+Resolve that current instance rather than continuing to use the old reference.
 
 ## Account for the update path's own loads
 

@@ -3,10 +3,10 @@ title: Understand tile entity state
 description: Follow a machine value through server ownership, saving, synchronization, and client presentation.
 ---
 
-A tile entity field isn't saved or sent to clients automatically.
-Consider a machine mode selected in a GUI: the server owns the mode, saving
-keeps it across reloads, and synchronization sends a copy to the client.
-Saving and synchronization handle different parts of that lifecycle.
+A machine's mode can work correctly until the world restarts, or change on the
+server while its GUI still shows the old value. The field needs separate paths
+for saving and synchronization. Follow the mode from the server accepting a
+GUI request, through saving it, to sending the state clients need to display.
 
 ## Decide what the value belongs to
 
@@ -19,24 +19,27 @@ Saving and synchronization handle different parts of that lifecycle.
 | A derived cache | Recompute or invalidate it when its inputs or lifecycle change. |
 
 Putting a personal preference in machine NBT makes it shared by every user
-of that machine. Choose ownership before selecting a convenient storage hook.
+of that machine. Decide whether a value belongs to the machine, the player,
+or the client before choosing where to store it.
 
 ## Persist the authoritative value
 
-Use the owning class's serialization hooks and preserve its superclass
-contract. An ordinary `TileEntity` writes its identity and coordinates in
-`writeToNBT`; subclasses add their own values alongside that data.
+For the machine mode, add the value to the owning class's save and load hooks.
+Keep the superclass's serialization behavior: an ordinary `TileEntity` writes
+its identity and coordinates in `writeToNBT`, and subclasses add their own
+values alongside that data.
 [Evolve those keys as a schema](/GTNH-Dev-Doc/minecraft-forge-internals/treat-nbt-as-a-persistent-schema/)
 when released worlds already contain them.
 
-Call the relevant dirty-marking path when persistent state changes.
+When the server accepts a new mode, call the relevant dirty-marking path so
+the changed state will be saved.
 In Minecraft 1.7.10, `TileEntity.markDirty()` marks its chunk for saving and
 performs related world notifications. It does not serialize and send an
 arbitrary field to clients. You can inspect that implementation in the
 [Forge development sources](/GTNH-Dev-Doc/build-tools/understand-the-gtnh-build-system-stack/)
 generated for your checkout.
 
-Read saved values without assuming that neighbors or external networks are
+Read the saved mode without assuming that neighbors or external networks are
 ready. Reconnect to those objects through the owning lifecycle after loading.
 
 ## Send the state needed by the audience
@@ -54,10 +57,15 @@ Follow [BaseMetaTileEntity's lifecycle](https://github.com/GTNewHorizons/GT5-Uno
 and the affected machine's existing hooks instead of adding vanilla tile
 callbacks to a metatile entity.
 
-Include initial state for a client that begins tracking, then send changes
-afterward. Use a GUI sync value when only the open panel needs the data.
+Choose who needs the mode. If it only changes a label in the open GUI, use the
+GUI's synchronization mechanism. If it changes the machine's appearance in the
+world, send it to clients tracking the tile. Include initial state for a client
+that begins tracking, then send later changes; a change-only update leaves a
+newly joined client without the current value.
+
 Use a focused packet when the audience or lifecycle does not fit those paths.
-Keep client-side presentation separate from the server's authoritative value.
+The client's copy is for presentation. The server still owns the value used
+to run the machine.
 
 ## Use symptoms to find the missing boundary
 

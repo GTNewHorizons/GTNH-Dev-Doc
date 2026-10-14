@@ -4,9 +4,9 @@ description: Preserve caller-visible render state and prevent one block position
 ---
 
 Minecraft 1.7.10 reuses mutable renderer and block state. A draw that leaves
-a color, texture override, or bound changed can affect a later object.
-Treat the renderer's entry and exit state as part of its contract, including
-cached paths and early returns.
+a color changed can tint the next item; a texture override or changed bounds
+can leak into later draws too. Preserve the state expected by the calling
+renderer on every path, including cache hits and early returns.
 
 ## Restore the state the operation changes
 
@@ -29,7 +29,8 @@ current fields belong to a draw.
 
 A registered `Block` instance represents every position using that block.
 Its six bounds fields are mutable instance fields, not values owned by the
-tile or position being queried.
+tile or position being queried. Two positions with different shapes still
+write to the same block instance's bounds.
 
 For metadata- or tile-dependent shapes, set all six bounds on every relevant
 path before using inherited collision, selection, or ray tracing behavior.

@@ -16,6 +16,11 @@ or package. The common entry point should use your own types or always-present
 types. Avoid optional types in its superclass, interfaces, public signatures,
 fields, annotations, and static initialization.
 
+For example, a common interface can describe the operation your mod needs,
+while an optional implementation calls the other mod's API. The common startup
+path can then choose whether to construct that implementation without requiring
+the optional API in the interface itself.
+
 Check availability before constructing or registering the integration.
 FML 1.7.10 provides
 [Loader.isModLoaded](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/Loader.java)

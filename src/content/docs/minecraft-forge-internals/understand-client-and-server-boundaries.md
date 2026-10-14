@@ -3,10 +3,10 @@ title: Understand client and server boundaries
 description: Separate physical class loading from logical state ownership in Minecraft 1.7.10.
 ---
 
-Two boundaries matter when a change works in singleplayer but fails on a
-dedicated server: which classes the process can load, and which side owns the
-game state. Singleplayer puts both logical sides in the physical client
-process, so it can hide either error.
+A machine GUI can work in singleplayer and fail on a dedicated server for two
+different reasons: server code may refer to a client-only class, or the client
+may change a value that the server owns. Singleplayer puts both logical sides
+in the physical client process, so it can hide either error.
 
 ## Identify the boundary
 
@@ -78,6 +78,11 @@ Check readable bytes, identifiers, and length limits before allocation or
 loops during decoding. In the handler, check permission, dimension,
 [loaded location](/GTNH-Dev-Doc/minecraft-forge-internals/work-safely-across-chunk-boundaries/),
 and current state before applying the requested action.
+
+For the machine-mode request, receiving valid coordinates is only part of the
+check. Confirm that the player can operate the machine and that the expected
+tile still exists there. A request can arrive after the player moved or the
+block was replaced.
 
 The [handler wrapper](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/network/simpleimpl/SimpleChannelHandlerWrapper.java)
 calls `onMessage` from its network channel. A side value doesn't tell you

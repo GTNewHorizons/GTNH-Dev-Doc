@@ -21,10 +21,11 @@ For fluid `A₂B`, that corresponds to 2,000 L of A and 1,000 L of B if both
 components are fluids. Use one dust instead of 1,000 L for a solid component.
 A molten material with a solid form follows its solid form's rule.
 
-**Grouped compounds:** treat a parenthesized group as one component at its
-outer multiplier, then expand the group when the recipe needs its ingredients.
-Five dusts of potin, `Pb₂(SnCu₃)₂Sn`, correspond to two lead dusts, two bronze
-dusts (`SnCu₃`), and one tin dust.
+**Grouped compounds:** treat a parenthesized group as one component,
+multiplied by the number outside the parentheses. Five dusts of potin,
+`Pb₂(SnCu₃)₂Sn`, correspond to two lead dusts, two bronze dusts (`SnCu₃`), and
+one tin dust. Use the group's own formula when checking a recipe that breaks
+that component down further.
 
 ## Check the whole recipe
 

@@ -15,9 +15,11 @@ Forge's [FluidStack](https://github.com/MinecraftForge/MinecraftForge/blob/1.7.1
 also exposes mutable amount, copy, and equality operations.
 
 Copy an inventory, recipe, or cache value before treating it as independently
-owned. Mutate an API result directly only when the contract permits that.
-A shallow reference to the same tag or stack lets one path change another's
-inputs.
+owned. For example, assigning a recipe's template stack to another variable
+does not copy it. Reducing that variable's stack size also changes the template
+if both refer to the same object. Use `copy()` when the new value must change
+independently, including its NBT. Mutate an API result directly only when the
+contract permits that.
 
 Choose the comparison the operation needs: item identity, damage, NBT,
 ore-dictionary membership, or fluid identity. Fluid equality, for example,
