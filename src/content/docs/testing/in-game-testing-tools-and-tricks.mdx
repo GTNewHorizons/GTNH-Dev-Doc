@@ -16,20 +16,20 @@ to prepare and launch the development environment.
 NBT (Named Binary Tag) stores item, entity, and tile-entity data. Not Enough
 Items (NEI) provides the item and recipe inspection shortcuts below.
 
-Load the mod named in each row before using its tool. A minimal development
-run may need additional development dependencies; use versions supported by
-your checkout. Check configured keybindings if a shortcut differs.
+Check that the listed mods are loaded in your development run. A minimal run
+may need additional development dependencies; use versions supported by your
+checkout. Check configured keybindings if a shortcut differs.
 
-| Tool and provider | Command or shortcut | Usage and requirements |
+| Tool | Usage | Description |
 | --- | --- | --- |
-| NBT editor — [ServerUtilities](https://github.com/GTNewHorizons/ServerUtilities/blob/master/src/main/java/serverutils/command/CmdEditNBT.java) | `/nbtedit item`<br />`/nbtedit` | Inspect and edit NBT. Hold a stack for `/nbtedit item`, or aim at a tile entity or entity for `/nbtedit`. Needs ServerUtilities on both the client and server; editing requires operator permissions. Edit a copy of the test world. |
-| Held-item information — [GTNHLib](https://github.com/GTNewHorizons/GTNHLib/blob/master/src/main/java/com/gtnewhorizon/gtnhlib/commands/ItemInHandCommand.java) | `/iih` | Hold a stack to see its registry name, metadata, class, and fluid contents, and copy its script identifier. Runs on the client without operator permissions. |
-| Held-item script identifier — [MineTweaker3](https://github.com/stanhebben/MineTweaker3/blob/master/MineTweaker3-API/src/main/java/minetweaker/MineTweakerImplementationAPI.java) | `/mt hand` | Hold a stack to copy its script identifier and list its OreDictionary entries. Requires operator permissions on the server. |
-| Copy item name — [NEI](https://github.com/GTNewHorizons/NotEnoughItems/blob/master/src/main/java/codechicken/nei/api/ShortcutInputHandler.java) | `Ctrl+C` | Hover over an item to copy its name. |
-| Copy registry identifier — [NEI](https://github.com/GTNewHorizons/NotEnoughItems/blob/master/src/main/java/codechicken/nei/api/ShortcutInputHandler.java) | `Ctrl+X` | Hover over an item to copy its registry identifier. |
-| Copy OreDictionary entries — [NEI](https://github.com/GTNewHorizons/NotEnoughItems/blob/master/src/main/java/codechicken/nei/api/ShortcutInputHandler.java) | `Ctrl+D` | Hover over an item to copy its OreDictionary entries. |
-| NEI recipe-handler widget | `Shift+D` | Inspect recipe-handler layout. Enable **Inventory → Recipes GUI → Handler Info Widget** in NEI settings and open a recipe view. Follow [Inspect and reset a recipe handler](#inspect-and-reset-a-recipe-handler) for layout adjustments. |
-| Minecraft advanced tooltips | `F3+H` | Show extra item information in tooltips. |
+| NBT editor | `/nbtedit item`<br />`/nbtedit` | Inspect and edit NBT with [ServerUtilities](https://github.com/GTNewHorizons/ServerUtilities/blob/master/src/main/java/serverutils/command/CmdEditNBT.java). Hold a stack for `/nbtedit item`, or aim at an entity or tile entity for `/nbtedit`. Needs the mod on both the client and server; editing requires operator permissions. Use a copy of the test world. |
+| Item in hand | `/iih` | Hold a stack to see its registry name, metadata, class, and fluid contents, and copy its script identifier with [GTNHLib](https://github.com/GTNewHorizons/GTNHLib/blob/master/src/main/java/com/gtnewhorizon/gtnhlib/commands/ItemInHandCommand.java). Runs on the client without operator permissions. |
+| Script identifier | `/mt hand` | Hold a stack to copy its script identifier and list its OreDictionary entries with [MineTweaker3](https://github.com/stanhebben/MineTweaker3/blob/master/MineTweaker3-API/src/main/java/minetweaker/MineTweakerImplementationAPI.java). Requires operator permissions on the server. |
+| Copy item name | `Ctrl+C` | Hover over an item to copy its name with [NEI](https://github.com/GTNewHorizons/NotEnoughItems/blob/master/src/main/java/codechicken/nei/api/ShortcutInputHandler.java). |
+| Copy item ID | `Ctrl+X` | Hover over an item to copy its registry identifier with [NEI](https://github.com/GTNewHorizons/NotEnoughItems/blob/master/src/main/java/codechicken/nei/api/ShortcutInputHandler.java). |
+| Copy OreDictionary entries | `Ctrl+D` | Hover over an item to copy its OreDictionary entries with [NEI](https://github.com/GTNewHorizons/NotEnoughItems/blob/master/src/main/java/codechicken/nei/api/ShortcutInputHandler.java). |
+| Recipe handler | `Shift+D` | Inspect recipe-handler layout. Enable **Inventory → Recipes GUI → Handler Info Widget** in NEI settings and open a recipe view. Follow [Inspect and reset a recipe handler](#inspect-and-reset-a-recipe-handler) for layout adjustments. |
+| Advanced item tooltips | `F3+H` | Minecraft shows extra item information in tooltips. |
 
 An NBT edit can create a reproduction case; verify that ordinary gameplay also
 produces the expected state. For save-related changes, check
