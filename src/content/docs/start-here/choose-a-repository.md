@@ -1,6 +1,9 @@
 ---
 title: Choose a repository
 description: Identify the owner of your change and the contribution path to follow.
+prev:
+  link: /GTNH-Dev-Doc/start-here/
+  label: Make your first contribution
 ---
 
 Find the repository that owns the change before setting up a development
@@ -89,6 +92,9 @@ creating your working branch and opening the pull request.
   repository with [GitHub Desktop](/GTNH-Dev-Doc/contributing/contribute-with-github-desktop/)
   or the [command-line Git setup](/GTNH-Dev-Doc/start-here/set-up-your-workspace/#fork-and-clone).
   Follow its README for the editor, generators, and validation it needs.
+- **This documentation:** use
+  [Contribute to this documentation](/GTNH-Dev-Doc/contributing/contribute-to-this-documentation/)
+  for checkout, editing, preview, and build instructions.
 - **A new standalone mod:** use the
   [ExampleMod1.7.10 starter](https://github.com/GTNewHorizons/ExampleMod1.7.10#getting-started).
   The project provides a starter archive; do not fork the example repository

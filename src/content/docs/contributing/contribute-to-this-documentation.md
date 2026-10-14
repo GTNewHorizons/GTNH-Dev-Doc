@@ -100,10 +100,16 @@ entry for Code style is:
 ```
 
 For a section's `index` page, use the folder alone, such as `start-here`.
-The order of those entries controls the reading order. Link to the new page
+The order of those entries controls the sidebar. Link to the new page
 from a related guide where someone would need it. If you rename or remove a
 page, update its sidebar entry and the links to it. When you change a heading,
 check links to that section too.
+
+Use previous and next links when pages form a sequence, such as workspace
+setup followed by a first build. Set those links explicitly with the
+[`prev` and `next` frontmatter fields](https://starlight.astro.build/reference/frontmatter/#prev).
+For other guides, link to related pages where they help someone continue
+the task.
 
 ## Write instructions people can follow
 

@@ -1,36 +1,55 @@
 ---
 title: Make your first contribution
 description: Follow the path from choosing a GTNH change to submitting a tested pull request.
+next:
+  link: /GTNH-Dev-Doc/start-here/choose-a-repository/
+  label: Choose a repository
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-Start with a change you can describe and test. These guides take you from
-finding the repository that owns it to submitting a pull request.
+Start with a change you can describe and test.
+[Choose a repository](/GTNH-Dev-Doc/start-here/choose-a-repository/) to find the
+code or data responsible, check existing work, and read the contribution
+requirements. Then follow the path for the files you're changing.
 
-For graphical Git, [Contribute with GitHub Desktop](/GTNH-Dev-Doc/contributing/contribute-with-github-desktop/)
-walks through setup, editing files, and submitting the change. It covers code,
-textures, translations, documentation, and pack data. The path below uses
-command-line Git; its Java and mod-launch steps apply to mod development.
+## Mod code
+
+These guides use command-line Git and IntelliJ IDEA. If you prefer graphical
+Git, use [Contribute with GitHub Desktop](/GTNH-Dev-Doc/contributing/contribute-with-github-desktop/)
+for the Git steps and follow the Java, IDE, and build instructions below.
+With a working checkout, go straight to the step you need.
 
 <Steps>
 
-1. [Choose a repository](/GTNH-Dev-Doc/start-here/choose-a-repository/).
-   Identify the code or data responsible for the behavior, check existing
-   work, and read the contribution requirements.
-2. [Set up your workspace](/GTNH-Dev-Doc/start-here/set-up-your-workspace/).
+1. [Set up your workspace](/GTNH-Dev-Doc/start-here/set-up-your-workspace/).
    Fork and clone the project, create a working branch, and prepare the tools
    that repository needs.
-3. [Build and run](/GTNH-Dev-Doc/start-here/build-and-run/).
-   For mod code, get the development environment working before editing.
+2. [Build and run](/GTNH-Dev-Doc/start-here/build-and-run/).
+   Get the development environment working before editing.
    Test the relevant client, server, and pack behavior after your change.
-4. [Make your first pull request](/GTNH-Dev-Doc/start-here/make-your-first-pull-request/).
+3. [Make your first pull request](/GTNH-Dev-Doc/start-here/make-your-first-pull-request/).
    Review the diff, commit your change, and report what you tested. Use the
    same branch for revisions during review.
 
 </Steps>
 
-For textures, translations, documentation, or pack data, follow the chosen
-repository's validation instructions.
+## Assets, translations, and pack data
 
-If you already have a working checkout, go directly to the step you need.
+[Contribute with GitHub Desktop](/GTNH-Dev-Doc/contributing/contribute-with-github-desktop/)
+walks through cloning, editing files, and submitting a pull request. Follow
+the chosen repository's README for the editor, generators, and validation
+your change needs.
+
+Use the same Git workflow for documentation in a mod or tooling repository.
+
+For command-line Git, use the
+[fork and clone steps](/GTNH-Dev-Doc/start-here/set-up-your-workspace/#fork-and-clone),
+then [Make your first pull request](/GTNH-Dev-Doc/start-here/make-your-first-pull-request/)
+after editing and testing the files.
+
+## This documentation
+
+Follow [Contribute to this documentation](/GTNH-Dev-Doc/contributing/contribute-to-this-documentation/)
+to find a page's source file, edit it, and preview the result. It also covers
+adding a page, building the site, and submitting your change.

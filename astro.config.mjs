@@ -10,6 +10,8 @@ export default defineConfig({
       title: 'GTNH Developer Documentation',
       description: 'Shared practices, workflows, and technical knowledge for GTNH development',
       lastUpdated: true,
+      // Onboarding pages set their own previous and next links.
+      pagination: false,
       // src/pages/404.astro owns this route; avoid duplicate content routes.
       disable404Route: true,
       plugins: [starlightThemeNova()],
