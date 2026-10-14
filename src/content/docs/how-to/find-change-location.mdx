@@ -3,6 +3,8 @@ title: Find where a change belongs
 description: Trace a game symptom, recipe, or build failure to the source that owns it.
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 Start with evidence you can search: a registry name, translation key, exact log
 message, configuration key, or stack-trace class. A pack symptom can originate
 in a mod, a pack override, or tooling. Use the
@@ -24,6 +26,8 @@ a summary.
 
 ## Find the code or data that produces the behavior
 
+<Steps>
+
 1. Search the exact identifier or message in the candidate checkout. With
    ripgrep installed, run this from its root, replacing `EXACT-TEXT`:
 
@@ -42,6 +46,8 @@ a summary.
    before editing a similarly named local class.
 4. Read nearby tests, history, and linked issues to understand the contract.
    Use blame to find that context. Code isn't wrong merely because it's old.
+
+</Steps>
 
 For tooling, distinguish the repository's configuration from the plugin or
 workflow implementing it. The

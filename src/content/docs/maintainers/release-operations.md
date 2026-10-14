@@ -74,7 +74,10 @@ The shared workflow allows several publication steps to continue on error.
 Even if the job completes, some destinations may not have received the
 artifact. Inspect the relevant steps and files.
 
+:::caution[Reruns can replace an existing release]
 Before retrying a partial release, coordinate the repair. The shared workflow
 can delete and recreate an existing GitHub release during a rerun.
+:::
+
 Finally, confirm the intended version in the relevant pack manifest before
 expecting it in an [assembled build](/GTNH-Dev-Doc/concepts/release-pipeline/).

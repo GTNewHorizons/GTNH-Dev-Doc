@@ -3,6 +3,8 @@ title: Set up your workspace
 description: Fork and clone a GTNH repository, prepare its Java setup, and import a mod into IntelliJ.
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 Start with the [repository you chose](/GTNH-Dev-Doc/start-here/choose-a-repository/)
 and its contribution instructions. These steps use command-line Git and
 IntelliJ IDEA. If you prefer a graphical Git client, use
@@ -26,6 +28,8 @@ For documentation or pack data, follow the repository's README for its own
 tools and validation; the Git steps below still apply.
 
 ## Fork and clone
+
+<Steps>
 
 1. **Create your fork on GitHub.** Open the original repository and select
    **Fork** to create a copy under your account. Follow
@@ -80,6 +84,8 @@ tools and validation; the Git steps below still apply.
 
    If you already prepared a contribution branch from that base, use it.
 
+</Steps>
+
 ### Check Git-based mod versions
 
 GTNHGradle supplies shared build conventions for GTNH mods. Its
@@ -111,6 +117,8 @@ and [your first pull request](/GTNH-Dev-Doc/start-here/first-pull-request/).
 Run Gradle commands below from the cloned repository root containing `gradlew`.
 On Windows PowerShell, replace `./gradlew` with `.\gradlew.bat`.
 
+<Steps>
+
 1. **Read the Java requirements.** Check the README, `.java-version` when
    present, `gradle/gradle-daemon-jvm.properties`, and build configuration.
    Install the required JDK, then compare the shell and Gradle selections:
@@ -138,6 +146,8 @@ On Windows PowerShell, replace `./gradlew` with `.\gradlew.bat`.
    or generated sources fail, follow
    [IntelliJ problems](/GTNH-Dev-Doc/troubleshooting/intellij/)
    with the first error from the import output.
+
+</Steps>
 
 ## Worked example: GT5-Unofficial
 

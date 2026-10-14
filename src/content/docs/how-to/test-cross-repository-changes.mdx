@@ -3,6 +3,8 @@ title: Test cross-repository changes
 description: Publish an unpublished dependency locally and confirm that its consumer uses the intended version.
 ---
 
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
 Use Maven Local when one mod needs an unpublished change from another.
 Publish the producer, point the consumer at that version, then verify both
 dependency selection and behavior. These instructions cover GTNHGradle mods
@@ -10,19 +12,29 @@ with Maven publishing enabled.
 
 Run commands in the named producer or consumer checkout root.
 The temporary version `99.99.99` is an example: choose a test version you can
-recognize and use it consistently. GitHub Actions needs an online artifact;
+recognize and use it consistently.
+
+:::note[Local artifacts aren't available to CI]
+GitHub Actions needs an online artifact;
 your local Maven repository is available only on your machine.
+:::
 
 ## Publish the producer
 
 In the producer checkout, build and test the change, then publish with
 GTNHGradle's [VERSION override](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/GitVersionModule.java).
 
+<Tabs syncKey="shell">
+<TabItem label="Bash">
+
 On Linux, macOS, or Git Bash:
 
 ```sh
 VERSION=99.99.99 ./gradlew publishToMavenLocal
 ```
+
+</TabItem>
+<TabItem label="PowerShell">
 
 On Windows PowerShell, restore the previous environment value afterward:
 
@@ -35,6 +47,9 @@ try {
     $env:VERSION = $previousVersion
 }
 ```
+
+</TabItem>
+</Tabs>
 
 Expect the version-override message and a successful publication. Inspect
 the published POM and jars in the configured local Maven repository
@@ -49,6 +64,8 @@ checkout can change that name if settings do not fix it. Existing
 coordinates; check them before diagnosing a missing artifact.
 
 ## Select it in the consumer
+
+<Steps>
 
 1. Inspect the consumer's repository declarations. If Maven Local is absent,
    add it to the existing `repositories` block for this test:
@@ -73,6 +90,8 @@ coordinates; check them before diagnosing a missing artifact.
    On Windows PowerShell, use `.\gradlew.bat`. Use the relevant resolvable
    configuration if the consumer customizes its classpaths, and inspect
    `compileClasspath` too for an API change.
+
+</Steps>
 
 The report should show the local version you selected, with no conflict choosing
 another version. Changing the declaration doesn't guarantee that Gradle resolved

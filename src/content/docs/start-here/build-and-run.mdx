@@ -3,6 +3,8 @@ title: Build and run
 description: Establish a working mod environment and test the client, server, and pack behavior your change affects.
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 Build the mod and launch it before editing code. A working baseline helps you
 distinguish a setup failure from a problem introduced by your change.
 
@@ -58,6 +60,8 @@ Use a dedicated server when your change affects server state, networking, or
 client/server interaction. Singleplayer's integrated server shares the client
 process and can hide class-loading or synchronization failures.
 
+<Steps>
+
 1. In another terminal at the same repository root, start the server:
 
    ```sh
@@ -77,6 +81,8 @@ process and can hide class-loading or synchronization failures.
    with that value. Check the affected behavior from the connected client,
    including whether server changes reach it.
 4. Enter `stop` in the server console when finished.
+
+</Steps>
 
 For GT5, this gives you a client and dedicated server built from the same
 checkout. Keep the test setup so you can repeat the reproduction after changing

@@ -3,6 +3,8 @@ title: Use Horizon-QA GameTests
 description: Select a server-side regression test, run it in development, and inspect its reported result.
 ---
 
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
 Use [Horizon-QA](https://www.gtnewhorizons.com/Horizon-QA/) when a regression
 depends on Minecraft server behavior: ticks, structures, machines, or mod
 integration. Keep HQA on development and CI classpaths; a gameplay mod's
@@ -43,6 +45,9 @@ by default, runs the selection, and writes reports. From the consumer checkout
 root, use its server task and pass each property to the **Minecraft JVM**
 through a separate `--mcJvmArgs`.
 
+<Tabs syncKey="shell">
+<TabItem label="Bash">
+
 This Bash example uses an absolute report directory and the test ID you chose:
 
 ```sh
@@ -52,6 +57,9 @@ This Bash example uses an absolute report directory and the test ID you chose:
   --mcJvmArgs="-Dhorizonqa.reportDir=${PWD}/build/horizonqa"
 ```
 
+</TabItem>
+<TabItem label="PowerShell">
+
 In PowerShell:
 
 ```powershell
@@ -59,7 +67,13 @@ $reportPath = Join-Path (Get-Location) 'build/horizonqa'
 .\gradlew.bat runServer --mcJvmArgs=-Dhorizonqa.mode=ci --mcJvmArgs=-Dhorizonqa.tests=modid:Holder.method --mcJvmArgs="-Dhorizonqa.reportDir=$reportPath"
 ```
 
+</TabItem>
+</Tabs>
+
+:::caution[Pass the property to the game JVM]
 Passing `-Dhorizonqa.mode=ci` directly to Gradle sets it on the wrong JVM.
+:::
+
 For a multi-project consumer, use its qualified server task.
 
 Inspect `TEST-horizonqa.xml` and `horizonqa-result.json` in the report

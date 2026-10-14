@@ -3,6 +3,8 @@ title: In-game testing tools and tricks
 description: Inspect items and recipes, debug Minecraft, and iterate with Single Hotswap.
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 Use these tools to inspect game state and test a code change. Start in a
 disposable development world with the machine, items, recipe, or GUI you need
 to reproduce the behavior. Record the starting result, then repeat the same
@@ -49,6 +51,8 @@ after a restart, so keep a copy of any existing file before changing values.
 The [widget implementation](https://github.com/GTNewHorizons/NotEnoughItems/blob/master/src/main/java/codechicken/nei/recipe/debug/DebugHandlerWidget.java)
 defines the saved settings and its reset action.
 
+<Steps>
+
 1. In NEI settings, enable **Inventory → Recipes GUI → Handler Info Widget**.
    Open the affected recipe view and press `Shift+D` to show the widget.
 2. Inspect the handler ID, dimensions, and offsets. Change a value when you need
@@ -59,6 +63,8 @@ defines the saved settings and its reset action.
    saved `handlers.patch`. If no file existed before the test, remove the file
    created by the widget. Restart the client and confirm the original layout.
 
+</Steps>
+
 ## Attach the debugger to Minecraft
 
 HotSwap needs a debugger connection to the **game JVM**. Gradle launches
@@ -66,6 +72,8 @@ Minecraft in a separate process, so enable debugging for that process before
 attaching IntelliJ. After completing the build setup, close your existing test
 client or stop the test server before launching a debug run. For a
 RetroFuturaGradle development client, use this procedure:
+
+<Steps>
 
 1. In IntelliJ, open **Run → Edit Configurations**, add a **Remote JVM Debug**
    configuration, and choose **Attach to remote JVM**. Set the host to
@@ -84,6 +92,8 @@ RetroFuturaGradle development client, use this procedure:
    put a breakpoint in the mod method you are testing and trigger that action
    in game. IntelliJ should stop at the breakpoint and show the game's stack
    and variables. Resume execution before continuing the test.
+
+</Steps>
 
 The [RetroFuturaGradle run task](https://github.com/GTNewHorizons/RetroFuturaGradle/blob/master/plugin/src/main/java/com/gtnewhorizons/retrofuturagradle/minecraft/RunMinecraftTask.java)
 inherits Gradle's [JavaExec debugging options](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.JavaExec.html).
@@ -142,6 +152,8 @@ an optional IntelliJ plugin for selecting the edited source file to reload.
 It is useful when iterating on a method that runs repeatedly, such as a GUI
 callback or machine update.
 
+<Steps>
+
 1. Install the plugin from **Settings → Plugins → Marketplace** and restart
    the IDE if prompted.
 2. For the GTNH workflow, clear **Use Built-In Compiler** under **Settings →
@@ -151,6 +163,8 @@ callback or machine update.
 4. Edit the method and keep that Java source file open. Click the plugin's blue
    hammer, or use **Find Action → Single Hotswap**. Check the HotSwap output for
    compilation or reload failures, then repeat the in-game action.
+
+</Steps>
 
 With that compiler setting, the plugin uses your project's build configuration
 and reloads the selected file's class and generated inner classes. Compilation

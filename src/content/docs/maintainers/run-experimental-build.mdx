@@ -3,6 +3,8 @@ title: Run an experimental modpack build
 description: Dispatch the experimental workflow and verify its test bundle, downloads, and generated commit.
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 An experimental build generates a mod selection, assembles client/server
 packages, runs pack tests, uploads artifacts, and commits generated metadata
 to DreamAssemblerXXL's `master` branch. Run it only with authorization for
@@ -15,12 +17,16 @@ experimental release; identify which versions you expect it to select.
 
 ## Dispatch and follow the run
 
+<Steps>
+
 1. Open [Experimental modpack build](https://github.com/GTNewHorizons/DreamAssemblerXXL/actions/workflows/experimental-modpack-build.yml).
 2. Check for an existing run and confirm the intended source revision.
    The current workflow explicitly checks out `master`.
 3. Select **Run workflow**, choose `master`, and confirm once.
 4. Open the queued run and record its URL and run number.
 5. Follow its build, pack-test, and upload jobs.
+
+</Steps>
 
 GitHub's [manual dispatch guide](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow?tool=webui)
 covers the required repository access and interface.

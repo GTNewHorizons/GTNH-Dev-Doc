@@ -3,16 +3,22 @@ title: Run a daily modpack build manually
 description: Dispatch the daily workflow and verify its packages, metadata commit, and publication.
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 Use this procedure when an authorized DreamAssemblerXXL maintainer needs a
 daily build before the scheduled run. The workflow assembles and tests the
 pack, publishes downloads, updates generated repository data, and applies its
 release-retention rules.
 
+:::caution[A new run cancels the earlier daily build]
 The [workflow file](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/master/.github/workflows/daily-modpack-build.yml)
 describes what the workflow does. Its concurrency rule cancels an earlier daily run
 when a new one starts, so inspect current runs before dispatching.
+:::
 
 ## Start the intended run
+
+<Steps>
 
 1. Open [Daily modpack build](https://github.com/GTNewHorizons/DreamAssemblerXXL/actions/workflows/daily-modpack-build.yml)
    and check whether a queued or running build already covers the need.
@@ -20,6 +26,8 @@ when a new one starts, so inspect current runs before dispatching.
    The current workflow checks out `master` explicitly.
 3. Select **Run workflow**, choose `master`, and confirm once.
 4. Open the new run and record its URL, revision, and run number.
+
+</Steps>
 
 Manual dispatch requires repository write access and a workflow declaring
 `workflow_dispatch`. GitHub documents

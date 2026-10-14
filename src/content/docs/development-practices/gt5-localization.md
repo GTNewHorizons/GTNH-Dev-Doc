@@ -4,10 +4,14 @@ description: Choose a GT5 translation API, preserve language keys, and apply the
 ---
 
 Start with where the text will appear, and keep any existing key whose meaning
-still fits. These API choices apply to GT5-Unofficial. The naming and
+still fits. These API choices apply to GT5-Unofficial.
+
+:::note[The naming convention is still a proposal]
+The naming and
 file layout below come from the **proposed** guide in
 [PR #7643](https://github.com/GTNewHorizons/GT5-Unofficial/pull/7643), which remains
 open; check its review before a broad language-file migration.
+:::
 
 Community translations belong in
 [GTNH-Translations](https://github.com/GTNewHorizons/GTNH-Translations).

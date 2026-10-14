@@ -3,12 +3,16 @@ title: Test a change in the full pack
 description: Replace the relevant jars or pack files in an isolated GTNH build and compare behavior.
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 Use an assembled GTNH pack when the change depends on other mods, recipes,
 configuration, saved data, or startup order. Run the owning repository's
 checks first, then use a separate pack instance to compare unchanged and
 modified behavior.
 
 ## Prepare the baseline
+
+<Steps>
 
 1. Choose a build from
    [GTNH Daily Builds](https://github.com/GTNewHorizons/GTNH-Daily-Builds/releases)
@@ -26,6 +30,8 @@ modified behavior.
    `startserver.bat`; the modern package provides `startserver-java9.sh` and
    `startserver-java9.bat`. Accept the Minecraft EULA only if you agree.
    Wait for `Done` and confirm the baseline client can join.
+
+</Steps>
 
 Reproduce the original problem or record the starting behavior. Keep the
 setup and actions for the comparison, then close the client and server
@@ -55,6 +61,8 @@ source commits, jar names, or changed pack-file paths.
 
 ## Compare and verify
 
+<Steps>
+
 1. Launch the modified pack and inspect the mod list or startup log for the
    loaded versions. If the displayed version cannot distinguish a local build,
    compare the installed jar's checksum with the built artifact.
@@ -65,6 +73,8 @@ source commits, jar names, or changed pack-file paths.
    [Testing expectations](/GTNH-Dev-Doc/contributing/testing-expectations/).
    Use [in-game inspection](/GTNH-Dev-Doc/how-to/in-game-testing-tools/)
    for recipe, item, and saved-data evidence.
+
+</Steps>
 
 Report the pack tag, runtime variant, installed artifacts, setup, and the
 baseline and modified results. Say which important cases you didn't test.

@@ -3,6 +3,8 @@ title: IntelliJ problems
 description: Diagnose Gradle imports, missing generated sources, and unresolved editor symbols.
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 Check the failing operation through the Gradle wrapper before repairing IDE
 state. For unresolved Java symbols in a standard mod project, open a terminal
 in the repository root containing `gradlew` and run:
@@ -20,6 +22,8 @@ the IDE's imported model and environment with the working terminal build.
 
 ## Gradle synchronization fails
 
+<Steps>
+
 1. Confirm that the linked project is the repository root containing
    `settings.gradle` or `settings.gradle.kts`.
 2. In the linked project's
@@ -34,6 +38,8 @@ the IDE's imported model and environment with the working terminal build.
 4. Sync or reload the project from the Gradle tool window. Wait for
    synchronization and indexing to finish, then confirm that tasks and source
    sets appear without import errors.
+
+</Steps>
 
 ## Gradle compiles, but the editor cannot resolve symbols
 

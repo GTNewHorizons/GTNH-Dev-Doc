@@ -3,12 +3,16 @@ title: CI problems
 description: Reproduce the failing GitHub Actions operation and explain why its result differs locally.
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 For a continuous integration (CI) failure, open the GitHub Actions run and
 expand the first failing step. Keep the run URL, tested revision, job,
 command, and first relevant exception. A skipped step doesn't tell you why the
 job failed, and a local compilation may cover less than the failed job.
 
 ## Match the operation and inputs
+
+<Steps>
 
 1. **Identify the revision actually checked out.** Use the checkout step's log,
    not an assumption that CI tested your local branch tip. A `pull_request`
@@ -26,6 +30,8 @@ job failed, and a local compilation may cover less than the failed job.
    [Java selection checks](/GTNH-Dev-Doc/troubleshooting/java/#check-the-selected-java-installations)
    to compare the launcher, daemon, and toolchains. Run commands from the
    repository root; on Windows PowerShell, use `.\gradlew.bat`.
+
+</Steps>
 
 If the command needs platform-specific tools such as `xvfb-run`, reproduce it
 on the job's operating system. Record any remaining environment difference
