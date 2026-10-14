@@ -8,15 +8,21 @@ the change reached. A merge updates source; players receive an assembled pack
 containing selected mod artifacts and pack data. Trace the commit through its
 tag, published jar, and the pack build's manifest to find what was included.
 
+The workflow examples below follow DreamAssemblerXXL revision
+[`1a49b99073ad`](https://github.com/GTNewHorizons/DreamAssemblerXXL/tree/1a49b99073ad339d72719f9397492880d3f23ab2)
+and GTNH Actions Workflows revision
+[`042346f78918`](https://github.com/GTNewHorizons/GTNH-Actions-Workflows/tree/042346f78918d09dce48d0185a6fd86806334886),
+checked on **2026-10-14**. For a particular build, inspect its recorded revision.
+
 ## Follow one mod change
 
 1. The change lands on the owning repository's target branch.
 2. A tag selects a commit for publication. Some mods use coordinated
    MergeMasterXXL tagging; others need an authorized manual release.
 3. In repositories using the standard
-   [tag workflow](https://github.com/GTNewHorizons/GTNH-Actions-Workflows/blob/master/templates/release-tags.yml),
+   [tag workflow](https://github.com/GTNewHorizons/GTNH-Actions-Workflows/blob/042346f78918d09dce48d0185a6fd86806334886/templates/release-tags.yml),
    pushing the tag calls the shared
-   [release build](https://github.com/GTNewHorizons/GTNH-Actions-Workflows/blob/master/.github/workflows/release-tags.yml).
+   [release build](https://github.com/GTNewHorizons/GTNH-Actions-Workflows/blob/042346f78918d09dce48d0185a6fd86806334886/.github/workflows/release-tags.yml).
 4. The release build produces jars and publishes to its configured destinations.
    GitHub Releases and Maven are separate outputs; verify the destination
    needed by the consumer.
@@ -39,8 +45,8 @@ Daily packages are published in
 [GTNH Daily Builds](https://github.com/GTNewHorizons/GTNH-Daily-Builds/releases).
 Experimental packages are available through the experimental workflow's
 artifacts. Their
-[daily](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/master/.github/workflows/daily-modpack-build.yml)
-and [experimental](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/master/.github/workflows/experimental-modpack-build.yml)
+[daily](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/1a49b99073ad339d72719f9397492880d3f23ab2/.github/workflows/daily-modpack-build.yml)
+and [experimental](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/1a49b99073ad339d72719f9397492880d3f23ab2/.github/workflows/experimental-modpack-build.yml)
 workflows define the current selection and publication steps.
 
 ## Interpret a pack version in context

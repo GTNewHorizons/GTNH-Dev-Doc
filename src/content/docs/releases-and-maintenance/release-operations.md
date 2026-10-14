@@ -8,6 +8,11 @@ assembly. Use this procedure only for an authorized release of the target
 repository. Confirm its release process and intended commit before creating
 a tag.
 
+The shared release behavior below follows GTNH Actions Workflows revision
+[`042346f78918`](https://github.com/GTNewHorizons/GTNH-Actions-Workflows/tree/042346f78918d09dce48d0185a6fd86806334886),
+checked on **2026-10-14**. Inspect the workflow revision selected by the mod
+before using the procedure; publication and rerun behavior can differ.
+
 ## Determine whether automation owns this release
 
 Some mods use MergeMasterXXL coordinated tagging. Inspect recent tags,
@@ -44,7 +49,7 @@ The proposed new name should not be in use.
 
 Follow the repository's tag pattern and coordinated dependency order.
 Use `-pre` only where its process calls for it. In the
-[shared release workflow](https://github.com/GTNewHorizons/GTNH-Actions-Workflows/blob/master/.github/workflows/release-tags.yml),
+[shared release workflow](https://github.com/GTNewHorizons/GTNH-Actions-Workflows/blob/042346f78918d09dce48d0185a6fd86806334886/.github/workflows/release-tags.yml),
 tags ending in `-pre` are withheld from Modrinth and CurseForge but ordinarily
 remain public GitHub releases without GitHub's prerelease flag for pack
 assembly compatibility.

@@ -37,7 +37,7 @@ RetroFuturaGradle run, open a terminal in the mod repository root containing
 On Windows PowerShell, use `.\gradlew.bat`. Use the corresponding server or
 Java-specific task for that run. Pass each extra flag through its own
 `--mcJvmArgs`; the
-[run task](https://github.com/GTNewHorizons/RetroFuturaGradle/blob/master/plugin/src/main/java/com/gtnewhorizons/retrofuturagradle/minecraft/RunMinecraftTask.java)
+[run task](https://github.com/GTNewHorizons/RetroFuturaGradle/blob/e3eaceff02413a6a5e8ac23faa604fee6c91b537/plugin/src/main/java/com/gtnewhorizons/retrofuturagradle/minecraft/RunMinecraftTask.java)
 defines this option. In an IntelliJ configuration that launches Minecraft
 directly, put the flags in **VM options**.
 

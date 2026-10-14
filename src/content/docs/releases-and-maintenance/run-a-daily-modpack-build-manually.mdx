@@ -10,8 +10,13 @@ daily build before the scheduled run. The workflow assembles and tests the
 pack, publishes downloads, updates generated repository data, and applies its
 release-retention rules.
 
+The workflow source below was checked on **2026-10-14** at revision
+[`1a49b99073ad`](https://github.com/GTNewHorizons/DreamAssemblerXXL/tree/1a49b99073ad339d72719f9397492880d3f23ab2).
+Compare the current workflow with that revision before dispatching; its
+inputs, jobs, and publication effects can change.
+
 :::caution[A new run cancels the earlier daily build]
-The [daily workflow's](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/master/.github/workflows/daily-modpack-build.yml)
+The [daily workflow's](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/1a49b99073ad339d72719f9397492880d3f23ab2/.github/workflows/daily-modpack-build.yml)
 concurrency rule cancels an earlier daily run when a new one starts.
 Inspect current runs before dispatching.
 :::
@@ -23,7 +28,7 @@ Inspect current runs before dispatching.
 1. Open [Daily modpack build](https://github.com/GTNewHorizons/DreamAssemblerXXL/actions/workflows/daily-modpack-build.yml)
    and check whether a queued or running build already covers the need.
 2. Confirm the source revision and intended build with the release coordinator.
-   The current workflow checks out `master` explicitly.
+   At the linked revision, the workflow checks out `master` explicitly.
 3. Select **Run workflow**, choose `master`, and confirm once.
 4. Open the new run and record its URL, revision, and run number.
 

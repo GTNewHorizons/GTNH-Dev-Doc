@@ -11,6 +11,10 @@ to reproduce the behavior. Record the starting result, then repeat the same
 action after each change. Follow [Build and run](/GTNH-Dev-Doc/start-here/build-and-run/)
 to prepare and launch the development environment.
 
+For tick or rendering cost, use
+[Measure a performance change](/GTNH-Dev-Doc/testing/measure-a-performance-change/)
+to keep a repeatable workload and capture the game JVM's Java work.
+
 ## Inspect items, NBT, and recipes
 
 NBT (Named Binary Tag) stores item, entity, and tile-entity data. Not Enough
@@ -20,16 +24,29 @@ Check that the listed mods are loaded in your development run. A minimal run
 may need additional development dependencies; use versions supported by your
 checkout. Check configured keybindings if a shortcut differs.
 
-| Tool | Usage | Description |
-| --- | --- | --- |
-| NBT editor | `/nbtedit item`<br />`/nbtedit` | Inspect and edit NBT with [ServerUtilities](https://github.com/GTNewHorizons/ServerUtilities/blob/master/src/main/java/serverutils/command/CmdEditNBT.java). Hold a stack for `/nbtedit item`, or aim at an entity or tile entity for `/nbtedit`. Needs the mod on both the client and server; editing requires operator permissions. Use a copy of the test world. |
-| Item in hand | `/iih` | Hold a stack to see its registry name, metadata, class, and fluid contents, and copy its script identifier with [GTNHLib](https://github.com/GTNewHorizons/GTNHLib/blob/master/src/main/java/com/gtnewhorizon/gtnhlib/commands/ItemInHandCommand.java). Runs on the client without operator permissions. |
-| Script identifier | `/mt hand` | Hold a stack to copy its script identifier and list its OreDictionary entries with [MineTweaker3](https://github.com/stanhebben/MineTweaker3/blob/master/MineTweaker3-API/src/main/java/minetweaker/MineTweakerImplementationAPI.java). Requires operator permissions on the server. |
-| Copy item name | `Ctrl+C` | Hover over an item to copy its name with [NEI](https://github.com/GTNewHorizons/NotEnoughItems/blob/master/src/main/java/codechicken/nei/api/ShortcutInputHandler.java). |
-| Copy item ID | `Ctrl+X` | Hover over an item to copy its registry identifier with [NEI](https://github.com/GTNewHorizons/NotEnoughItems/blob/master/src/main/java/codechicken/nei/api/ShortcutInputHandler.java). |
-| Copy OreDictionary entries | `Ctrl+D` | Hover over an item to copy its OreDictionary entries with [NEI](https://github.com/GTNewHorizons/NotEnoughItems/blob/master/src/main/java/codechicken/nei/api/ShortcutInputHandler.java). |
-| Recipe handler | `Shift+D` | Inspect recipe-handler layout. Enable **Inventory → Recipes GUI → Handler Info Widget** in NEI settings and open a recipe view. Follow [Inspect and reset a recipe handler](#inspect-and-reset-a-recipe-handler) for layout adjustments. |
-| Advanced item tooltips | `F3+H` | Minecraft shows extra item information in tooltips. |
+- **NBT editor:** `/nbtedit item` or `/nbtedit`.
+  Inspect and edit NBT with [ServerUtilities](https://github.com/GTNewHorizons/ServerUtilities/blob/master/src/main/java/serverutils/command/CmdEditNBT.java). Hold a stack for `/nbtedit item`, or aim at an entity or tile entity for `/nbtedit`. Needs the mod on both the client and server; editing requires operator permissions. Use a copy of the test world.
+
+- **Item in hand:** `/iih`.
+  Hold a stack to see its registry name, metadata, class, and fluid contents, and copy its script identifier with [GTNHLib](https://github.com/GTNewHorizons/GTNHLib/blob/master/src/main/java/com/gtnewhorizon/gtnhlib/commands/ItemInHandCommand.java). Runs on the client without operator permissions.
+
+- **Script identifier:** `/mt hand`.
+  Hold a stack to copy its script identifier and list its OreDictionary entries with [MineTweaker3](https://github.com/stanhebben/MineTweaker3/blob/master/MineTweaker3-API/src/main/java/minetweaker/MineTweakerImplementationAPI.java). Requires operator permissions on the server.
+
+- **Copy item name:** `Ctrl+C`.
+  Hover over an item to copy its name with [NEI](https://github.com/GTNewHorizons/NotEnoughItems/blob/master/src/main/java/codechicken/nei/api/ShortcutInputHandler.java).
+
+- **Copy item ID:** `Ctrl+X`.
+  Hover over an item to copy its registry identifier with [NEI](https://github.com/GTNewHorizons/NotEnoughItems/blob/master/src/main/java/codechicken/nei/api/ShortcutInputHandler.java).
+
+- **Copy OreDictionary entries:** `Ctrl+D`.
+  Hover over an item to copy its OreDictionary entries with [NEI](https://github.com/GTNewHorizons/NotEnoughItems/blob/master/src/main/java/codechicken/nei/api/ShortcutInputHandler.java).
+
+- **Recipe handler:** `Shift+D`.
+  Inspect recipe-handler layout. Enable **Inventory → Recipes GUI → Handler Info Widget** in NEI settings and open a recipe view. Follow [Inspect and reset a recipe handler](#inspect-and-reset-a-recipe-handler) for layout adjustments.
+
+- **Advanced item tooltips:** `F3+H`.
+  Minecraft shows extra item information in tooltips.
 
 An NBT edit can create a reproduction case; verify that ordinary gameplay also
 produces the expected state. For save-related changes, check
@@ -62,9 +79,16 @@ defines the saved settings and its reset action.
 
 HotSwap needs a debugger connection to the **game JVM**. Gradle launches
 Minecraft in a separate process, so enable debugging for that process before
-attaching IntelliJ. After completing the build setup, close your existing test
-client or stop the test server before launching a debug run. For a
-RetroFuturaGradle development client, use this procedure:
+attaching IntelliJ.
+
+The Gradle examples in this section follow **GTNHGradle 2.0.34** and
+**RetroFuturaGradle 2.0.6**, the versions selected by the
+[GT5 workspace example](/GTNH-Dev-Doc/start-here/set-up-your-workspace/#worked-example-gt5-unofficial).
+The implementation links pin those versions. Compare your checkout's selected
+plugins before applying Java-specific options to an older build.
+
+After completing the build setup, close your existing test client or stop
+the test server before launching a debug run. For an RFG development client:
 
 <Steps>
 
@@ -88,16 +112,16 @@ RetroFuturaGradle development client, use this procedure:
 
 </Steps>
 
-The [RetroFuturaGradle run task](https://github.com/GTNewHorizons/RetroFuturaGradle/blob/master/plugin/src/main/java/com/gtnewhorizons/retrofuturagradle/minecraft/RunMinecraftTask.java)
+The [RetroFuturaGradle run task](https://github.com/GTNewHorizons/RetroFuturaGradle/blob/e3eaceff02413a6a5e8ac23faa604fee6c91b537/plugin/src/main/java/com/gtnewhorizons/retrofuturagradle/minecraft/RunMinecraftTask.java)
 inherits Gradle's [JavaExec debugging options](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.JavaExec.html).
 Use `runServer` in the same procedure to debug a dedicated server.
 
 ### Use an enhanced Hotswap runtime
 
 Select the generated configuration for the game Java version you are testing.
-For example, current GTNHGradle generates **1f. Run Client (Java 25, Hotswap)**
+This GTNHGradle version generates **1f. Run Client (Java 25, Hotswap)**
 and **2f. Run Server (Java 25, Hotswap)** when modern-Java runs are enabled.
-Its [IDE integration source](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/IdeIntegrationModule.java)
+Its [IDE integration source](https://github.com/GTNewHorizons/GTNHGradle/blob/04d5d0f931b569497b00e493a0c9a9f606bd2f60/src/main/java/com/gtnewhorizons/gtnhgradle/modules/IdeIntegrationModule.java)
 defines these names.
 
 For the Java 25 client, the terminal equivalent with an explicit debugger
@@ -109,7 +133,7 @@ connection is:
 
 Attach using the remote configuration above. The `--hotswap` option enables
 enhanced class reloading; `--debug-jvm` enables the debugger connection. See
-GTNHGradle's [modern-Java run task](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/tasks/RunHotswappableMinecraftTask.java)
+GTNHGradle's [modern-Java run task](https://github.com/GTNewHorizons/GTNHGradle/blob/04d5d0f931b569497b00e493a0c9a9f606bd2f60/src/main/java/com/gtnewhorizons/gtnhgradle/tasks/RunHotswappableMinecraftTask.java)
 for the supported options. Use the corresponding supported run when testing
 another Java version.
 

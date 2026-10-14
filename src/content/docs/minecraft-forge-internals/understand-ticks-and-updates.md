@@ -65,6 +65,11 @@ time while distributing its work.
 Compare the same representative workload before and after an optimization.
 Use many loaded instances or a busy full pack rather than one machine in an
 empty world.
+Follow [Measure a performance change](/GTNH-Dev-Doc/testing/measure-a-performance-change/)
+for the workload, Forge timing command, and Java profile capture. Mean tick
+time can show lower average cost. The guide's JDK 25 method-timing example
+also measures maximum tick duration, which matters when evaluating periodic
+spikes.
 
 Check inventory and neighbor changes, mode changes, unload/reload, and the
 periodic fallback. Confirm that the result stays current and that the new

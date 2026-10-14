@@ -67,6 +67,53 @@ Use a focused packet when the audience or lifecycle does not fit those paths.
 The client's copy is for presentation. The server still owns the value used
 to run the machine.
 
+## Example: the World Accelerator's mode
+
+In [this GT5 revision](https://github.com/GTNewHorizons/GT5-Unofficial/tree/b7fc37e18719b3829cc4752542b5b298e205e457),
+the World Accelerator stores its server-owned mode in
+`MTEWorldAccelerator.mMode`. A screwdriver action changes the mode, and the
+client uses its copy to select the block's texture. Follow the value through
+these paths:
+
+1. **Change and dirty marking.**
+   The [base tile's right-click path](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/api/metatileentity/BaseMetaTileEntity.java#L1428-L1466)
+   invokes the screwdriver callback on the logical server.
+   The [machine callback](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/common/tileentities/machines/basic/MTEWorldAccelerator.java#L303-L331)
+   toggles `mMode` between `0` and `1` when the player is not sneaking, then
+   calls `markDirty()`.
+   [The metatile's method](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/api/metatileentity/MetaTileEntity.java#L609-L613)
+   delegates to [the owning tile](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/api/metatileentity/BaseTileEntity.java#L560-L570),
+   which marks the chunk modified.
+2. **Save and load.**
+   The machine's [`saveNBTData` and `loadNBTData` hooks](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/common/tileentities/machines/basic/MTEWorldAccelerator.java#L215-L244)
+   write and read `mMode` as a byte under `mAccelMode`.
+   The [owning base tile](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/api/metatileentity/CommonBaseMetaTileEntity.java#L315-L368)
+   invokes those hooks.
+3. **Initial client state.**
+   [`getUpdateData()`](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/common/tileentities/machines/basic/MTEWorldAccelerator.java#L120-L128)
+   returns `mMode` as the machine's custom byte.
+   [`BaseMetaTileEntity.tileWriteToStream`](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/api/metatileentity/BaseMetaTileEntity.java#L677-L697)
+   puts that byte in the description payload, and
+   [`CommonBaseMetaTileEntity`](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/api/metatileentity/CommonBaseMetaTileEntity.java#L489-L532)
+   owns the description packet and its receive path.
+4. **Later changes.**
+   Server ticks [detect custom-byte changes](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/api/metatileentity/CommonBaseMetaTileEntity.java#L292-L298)
+   and emit a `CHANGE_CUSTOM_DATA` event.
+   At this revision, [the event tracker](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/common/data/GTBlockEventTracker.java#L38-L57)
+   batches later events at server tick END, and
+   [`GTNetwork.sendToWorld`](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/common/GTNetwork.java#L143-L150)
+   broadcasts them to players in that world/dimension.
+5. **Client presentation.**
+   [The client's base-tile callback](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/api/metatileentity/BaseMetaTileEntity.java#L724-L727)
+   calls `onValueUpdate(byte)`, which assigns the client's copy of `mMode`.
+   [`getTexture`](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/common/tileentities/machines/basic/MTEWorldAccelerator.java#L192-L200)
+   uses that copy to select the mode's texture.
+
+The World Accelerator's load hook reads a raw byte. When you add or change
+persistent fields, follow the
+[NBT schema guidance](/GTNH-Dev-Doc/minecraft-forge-internals/treat-nbt-as-a-persistent-schema/)
+for defaults and validation.
+
 ## Use symptoms to find the missing boundary
 
 | Observation | Investigate |

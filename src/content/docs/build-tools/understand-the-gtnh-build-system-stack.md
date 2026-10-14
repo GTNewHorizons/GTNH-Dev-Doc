@@ -67,7 +67,7 @@ After development setup and IDE import, use **Navigate → Class** to open the
 Minecraft or Forge class named by an internals guide. Confirm the checkout's
 Minecraft and Forge versions before comparing it with newer documentation.
 
-RFG's [source-preparation tasks](https://github.com/GTNewHorizons/RetroFuturaGradle/blob/master/docs/mcp-forge.md)
+RFG's [source-preparation tasks](https://github.com/GTNewHorizons/RetroFuturaGradle/blob/e3eaceff02413a6a5e8ac23faa604fee6c91b537/docs/mcp-forge.md)
 decompile, patch, and remap the game sources. The standard output is
 `build/rfg/mcp_patched_minecraft-sources.jar`. If the IDE cannot resolve those
 sources, follow [IntelliJ problems](/GTNH-Dev-Doc/troubleshooting/intellij-problems/)

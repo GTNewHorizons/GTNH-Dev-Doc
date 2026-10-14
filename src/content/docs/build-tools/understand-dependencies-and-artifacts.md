@@ -9,6 +9,10 @@ an inspection mod is useful only in its development environment. The
 configuration also determines which dependencies other projects inherit when
 they depend on your published mod.
 
+The GTNH-specific configurations and jar names below follow GTNHGradle
+**2.0.34** with RetroFuturaGradle (RFG) **2.0.6**. Check your checkout's selected
+plugin versions when comparing another build.
+
 ## Choose the required visibility
 
 | Configuration | Your main code | A normal Gradle consumer |
@@ -24,7 +28,7 @@ they depend on your published mod.
 The last two are GTNH conventions, not universal Gradle configurations.
 The [ExampleMod declarations](https://github.com/GTNewHorizons/ExampleMod1.7.10/blob/master/dependencies.gradle)
 describe their intended uses; GTNHGradle's
-[toolchain module](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/ToolchainModule.java)
+[toolchain module](https://github.com/GTNewHorizons/GTNHGradle/blob/04d5d0f931b569497b00e493a0c9a9f606bd2f60/src/main/java/com/gtnewhorizons/gtnhgradle/modules/ToolchainModule.java)
 wires them into the classpaths.
 
 Use `api` when consumers need dependency types exposed by your public API.
@@ -53,7 +57,7 @@ A coordinate refers to a published file, not the source checkout next to yours.
 
 In standard RFG packaging, the `-dev` jar uses development names and the
 unclassified reobfuscated jar is the pack runtime artifact. The
-[RFG task reference](https://github.com/GTNewHorizons/RetroFuturaGradle/blob/master/docs/mcp-forge.md)
+[RFG task reference](https://github.com/GTNewHorizons/RetroFuturaGradle/blob/e3eaceff02413a6a5e8ac23faa604fee6c91b537/docs/mcp-forge.md)
 describes those tasks. Custom shaded, API, or runtime layouts need their own
 repository instructions.
 
@@ -66,6 +70,10 @@ build doesn't change the version the addon selects.
 
 Use [Maven Local](/GTNH-Dev-Doc/testing/test-cross-repository-changes/)
 for unpublished local work and `dependencyInsight` to verify selection.
-For CI and reviewers, publish an online pre-release through the authorized
-release process. Then
+For CI, the artifact must also be available online and pass the consumer's
+dependency checks. The standard shared workflow rejects declarations containing
+`-pre`, except `-preshadow`; an online prerelease can resolve successfully and
+still fail CI. Follow the
+[producer-to-consumer handoff](/GTNH-Dev-Doc/testing/test-cross-repository-changes/#prepare-the-submitted-changes)
+to arrange publication of an accepted version and update the consumer. Then
 [test the coordinated runtime jars in the pack](/GTNH-Dev-Doc/testing/test-a-change-in-the-full-pack/).

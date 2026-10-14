@@ -25,6 +25,39 @@ A cache hit must leave the same caller-visible state as the uncached path.
 Cache calculated geometry or immutable data instead of a renderer whose
 current fields belong to a draw.
 
+### Example: restore a texture override
+
+For a standard block draw in a Minecraft 1.7.10 client renderer, preserve the
+caller's `RenderBlocks.overrideBlockTexture`. Clearing it unconditionally
+would discard an override supplied by an outer rendering operation.
+
+This helper uses `net.minecraft.client.renderer.RenderBlocks`,
+`net.minecraft.block.Block`, and `net.minecraft.util.IIcon`. Call it where the
+renderer already has the correct world access and block bounds:
+
+```java
+private static boolean renderWithTexture(
+    RenderBlocks renderer, Block block, int x, int y, int z, IIcon icon) {
+    IIcon previousOverride = renderer.overrideBlockTexture;
+    try {
+        renderer.setOverrideBlockTexture(icon);
+        return renderer.renderStandardBlock(block, x, y, z);
+    } finally {
+        renderer.setOverrideBlockTexture(previousOverride);
+    }
+}
+```
+
+The `finally` block restores either the previous icon or `null`, including
+when the draw returns early or throws. In the generated 1.7.10 `RenderBlocks`,
+`setOverrideBlockTexture` assigns that field directly. This guard covers the
+texture override; matrix, OpenGL, and bounds changes still need their own
+matching restoration.
+
+Check the helper with both a null starting override and a different starting
+icon. After drawing, the field should hold the original reference in each
+case. Also render an unrelated block afterward to check for a visible leak.
+
 ## Block bounds belong to the shared block instance
 
 A registered `Block` instance represents every position using that block.
@@ -57,6 +90,8 @@ Measure the view that makes the renderer expensive, such as many visible
 machines or a large recipe page. Include cache construction, misses, and
 resource reloads in the comparison. Avoid rebuilding unchanged geometry or
 resolving the same resources on every frame.
+Use [Measure a performance change](/GTNH-Dev-Doc/testing/measure-a-performance-change/)
+to compare the client view and record the Java work behind it.
 
 ## Check interactions, not only the isolated object
 

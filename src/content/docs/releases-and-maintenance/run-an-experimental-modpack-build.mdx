@@ -10,10 +10,11 @@ packages, runs pack tests, uploads artifacts, and commits generated metadata
 to DreamAssemblerXXL's `master` branch. Run it only with authorization for
 that build.
 
-Inspect the
-[current workflow](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/master/.github/workflows/experimental-modpack-build.yml)
-and recent runs first. It updates available mod data while generating the
-experimental release; identify which versions you expect it to select.
+The [workflow source](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/1a49b99073ad339d72719f9397492880d3f23ab2/.github/workflows/experimental-modpack-build.yml)
+was checked on **2026-10-14** at revision `1a49b99073ad`. Compare it with the
+current workflow and recent runs before dispatching. It updates available
+mod data while generating the experimental release; identify which versions
+you expect it to select.
 
 ## Dispatch and follow the run
 
@@ -21,7 +22,7 @@ experimental release; identify which versions you expect it to select.
 
 1. Open [Experimental modpack build](https://github.com/GTNewHorizons/DreamAssemblerXXL/actions/workflows/experimental-modpack-build.yml).
 2. Check for an existing run and confirm the intended source revision.
-   The current workflow explicitly checks out `master`.
+   At the linked revision, the workflow explicitly checks out `master`.
 3. Select **Run workflow**, choose `master`, and confirm once.
 4. Open the queued run and record its URL and run number.
 5. Follow its build, pack-test, and upload jobs.

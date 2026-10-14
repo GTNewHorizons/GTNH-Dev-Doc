@@ -40,6 +40,7 @@ export default defineConfig({
             { slug: 'start-here/choose-a-repository' },
             { slug: 'start-here/set-up-your-workspace' },
             { slug: 'start-here/build-and-run' },
+            { slug: 'start-here/make-your-first-gt5-change' },
             { slug: 'start-here/make-your-first-pull-request' },
           ],
         },
@@ -70,6 +71,7 @@ export default defineConfig({
           items: [
             { slug: 'testing/testing-expectations' },
             { slug: 'testing/in-game-testing-tools-and-tricks' },
+            { slug: 'testing/measure-a-performance-change' },
             { slug: 'testing/test-a-change-in-the-full-pack' },
             { slug: 'testing/test-cross-repository-changes' },
             { slug: 'testing/use-horizon-qa-gametests' },

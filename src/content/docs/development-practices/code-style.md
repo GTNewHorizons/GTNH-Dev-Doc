@@ -11,7 +11,7 @@ submitting so reviewers can see what behavior changed.
 
 From the repository root containing `gradlew`, run the build or check command
 required by its README. Many GTNHGradle mods use Spotless; the
-[code-style module](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/CodeStyleModule.java)
+[code-style module](https://github.com/GTNewHorizons/GTNHGradle/blob/04d5d0f931b569497b00e493a0c9a9f606bd2f60/src/main/java/com/gtnewhorizons/gtnhgradle/modules/CodeStyleModule.java)
 applies the shared formatting configuration when enabled.
 
 When a Spotless check fails and the project provides the task, run:

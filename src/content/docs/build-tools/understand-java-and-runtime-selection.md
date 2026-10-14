@@ -35,8 +35,8 @@ configuration determines that transformation. Installing a newer JDK doesn't
 add it.
 
 GTNHGradle's
-[toolchain module](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/ToolchainModule.java)
-and [modern-Java runs](https://github.com/GTNewHorizons/GTNHGradle/blob/master/src/main/java/com/gtnewhorizons/gtnhgradle/modules/ModernJavaModule.java)
+[toolchain module](https://github.com/GTNewHorizons/GTNHGradle/blob/04d5d0f931b569497b00e493a0c9a9f606bd2f60/src/main/java/com/gtnewhorizons/gtnhgradle/modules/ToolchainModule.java)
+and [modern-Java runs](https://github.com/GTNewHorizons/GTNHGradle/blob/04d5d0f931b569497b00e493a0c9a9f606bd2f60/src/main/java/com/gtnewhorizons/gtnhgradle/modules/ModernJavaModule.java)
 configure these roles separately. Follow your checkout's selected versions
 and enabled modules.
 

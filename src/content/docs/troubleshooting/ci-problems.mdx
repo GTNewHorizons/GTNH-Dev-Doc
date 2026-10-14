@@ -21,7 +21,7 @@ job failed, and a local compilation may cover less than the failed job.
    with the base branch.
 2. **Read the workflow used by that run.** Follow any reusable workflow's
    `uses:` reference and inputs. GTNH's shared
-   [build-and-test workflow](https://github.com/GTNewHorizons/GTNH-Actions-Workflows/blob/master/.github/workflows/build-and-test.yml)
+   [build-and-test workflow](https://github.com/GTNewHorizons/GTNH-Actions-Workflows/blob/042346f78918d09dce48d0185a6fd86806334886/.github/workflows/build-and-test.yml)
    separates workspace setup, assembly, build checks, and server checks. Use
    the run's workflow revision and logs if a referenced branch has since changed.
 3. **Repeat the failed operation in a separate clean checkout.** Include the
@@ -74,7 +74,8 @@ excluding `-preshadow`. A published artifact can resolve successfully and
 still fail that check.
 Replace the temporary declaration with the intended release version, or ask
 a maintainer how this repository tests changes that depend on another pull
-request. For a failed download, use
+request. The [publication and merge handoff](/GTNH-Dev-Doc/testing/test-cross-repository-changes/#prepare-the-submitted-changes)
+shows the producer and consumer order for the standard gate. For a failed download, use
 [dependency diagnostics](/GTNH-Dev-Doc/troubleshooting/gradle-problems/#a-dependency-or-plugin-cannot-be-resolved).
 
 ## A server check fails

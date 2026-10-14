@@ -32,7 +32,7 @@ inspection.
 | Saved state | Change the value, unload/reload its owner, and restart the world. Load data written by the previous version when compatibility is affected. |
 | Optional-mod integration | Start with the mod absent and present; exercise supported API versions and the unsupported-version behavior. |
 | Cross-mod behavior, recipes, or startup order | Test coordinated artifacts in a full development pack with the relevant configuration. |
-| Tick or rendering performance | Repeat the same workload and compare measurements before and after the change. |
+| Tick or rendering performance | [Measure the same workload](/GTNH-Dev-Doc/testing/measure-a-performance-change/) before and after the change, and keep the profiles and functional checks. |
 
 Several rows can apply to one change. A machine-mode fix, for example, may
 need both a connected-client check and a saved-world check. Singleplayer does
