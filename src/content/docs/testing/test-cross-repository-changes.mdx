@@ -6,9 +6,13 @@ description: Publish an unpublished dependency locally and confirm that its cons
 import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
 Use Maven Local when one mod needs an unpublished change from another.
-Publish the producer, point the consumer at that version, then verify both
-dependency selection and behavior. These instructions cover GTNHGradle mods
-with Maven publishing enabled.
+For example, a library may add a method that an addon needs to call. Here,
+the library is the **producer**: it publishes the dependency. The addon is
+the **consumer**: it selects and uses that dependency.
+
+Publish the producer locally, point the consumer at that version, then check
+which artifact Gradle selected and test the behavior. These instructions cover
+GTNHGradle mods with Maven publishing enabled.
 
 Run commands in the named producer or consumer checkout root.
 The temporary version `99.99.99` is an example: choose a test version you can
@@ -104,8 +108,8 @@ producer change, then restart the consumer so it loads the new jar.
 Use a fresh temporary version to distinguish iterations. If reusing a version,
 resolve again with `--refresh-dependencies`.
 
-A development-classpath test uses the development artifact. For an assembled
-pack, install the coordinated runtime jars with
+A development run uses the dependency artifact selected for that classpath.
+For an assembled pack, install the coordinated runtime jars with
 [full-pack testing](/GTNH-Dev-Doc/testing/test-a-change-in-the-full-pack/).
 
 ## Prepare the submitted changes

@@ -46,10 +46,10 @@ classpaths. Its [jar-task reference](https://github.com/GTNewHorizons/RetroFutur
 describes that distinction. Check custom packaging at the owning repository.
 
 Open the test instance's game directory in Prism. Move the packaged mod out
-of each relevant `mods/` directory and copy in the built runtime jar.
-Keep exactly one version of that mod in each directory. Install client-only
-mods on the client, and install common/server changes on the sides their
-dependency contract requires.
+of the game directory and copy in the built runtime jar. Check both `mods/`
+and `mods/1.7.10/`: Forge scans both, so keep only one version of the mod in
+each client or server instance. Install client-only mods on the client, and
+install common/server changes on the sides their dependencies require.
 
 If another unpublished mod is required, first
 [build against its intended API](/GTNH-Dev-Doc/testing/test-cross-repository-changes/),
@@ -81,6 +81,5 @@ baseline and modified results. Say which important cases you didn't test.
 If the test fails, keep the first useful exception using
 [Locate logs](/GTNH-Dev-Doc/troubleshooting/locate-logs-and-useful-errors/).
 
-A completed test shows that the intended files loaded and the chosen
-scenario behaved as expected. Restore the original files or discard the
-instance before another unrelated test.
+Restore the original files or discard the instance before another unrelated
+test.

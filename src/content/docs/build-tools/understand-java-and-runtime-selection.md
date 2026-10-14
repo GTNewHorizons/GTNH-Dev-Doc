@@ -3,9 +3,10 @@ title: Understand Java and runtime selection
 description: Distinguish the Gradle launcher, daemon, compiler, and Minecraft runtime.
 ---
 
-A successful build can use several Java installations. The Java version that
-starts Gradle does not by itself identify the compiler's target or the runtime
-used by Minecraft.
+One build can use several Java installations. If compilation succeeds but
+Minecraft rejects a class's bytecode, check the game's JVM as well as the build
+JDK. Changing the Java version that starts Gradle may leave the game's runtime
+unchanged.
 
 ## Identify the four roles
 
@@ -41,9 +42,9 @@ and enabled modules.
 
 For example, the
 [GT5 workspace example](/GTNH-Dev-Doc/start-here/set-up-your-workspace/#worked-example-gt5-unofficial)
-pins its daemon to Java 25. That pin doesn't tell you which Java-specific
-client or server run you tested, or whether every installed pack artifact
-supports the same runtime.
+pins its daemon to Java 25. You still need to select the intended Java-specific
+client or server run and check that the installed mod artifacts support it.
+The daemon pin is not a requirement to run every game instance on Java 25.
 
 ## Diagnose and report the relevant selection
 
@@ -52,7 +53,7 @@ wrapper/daemon context. Inspect the compile task for its toolchain and target,
 and the launch output for the Minecraft executable and version.
 
 When reporting a Java-specific failure, name the failing process and record
-both the build and game selections. An IDE import shows that the project
-model loaded. To check runtime compatibility, you need to launch the matching game.
+both the build and game selections. A successful IDE import confirms that the
+project model loaded; launch the matching game to check runtime compatibility.
 [Java problems](/GTNH-Dev-Doc/troubleshooting/java-problems/)
 provides the diagnostic checks.

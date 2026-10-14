@@ -36,16 +36,18 @@ a summary.
    ```
 
    Your IDE's **Find in Files** is another way to search. If the match is a
-   language-file value, find its key's Java references. If it is configuration,
-   find the code that reads the key.
+   language-file value, search for its key and follow the usages in code or
+   data. If it is configuration, find the code that reads the key.
 2. Follow the matching registration, caller, or consumer to the behavior.
    A wrapper or addon may delegate to another mod. Search pack scripts and
    configuration when the behavior differs from the mod's default.
 3. If the implementation comes from a dependency, inspect the dependency
    declaration and imports. Confirm the matching source repository and version
    before editing a similarly named local class.
-4. Read nearby tests, history, and linked issues to understand the contract.
-   Use blame to find that context. Code isn't wrong merely because it's old.
+4. Read nearby tests, history, and linked issues to understand why the code
+   behaves this way and what other callers rely on. Blame can lead you to the
+   commits that last changed the relevant lines. Their discussions may explain
+   a constraint that still matters.
 
 </Steps>
 

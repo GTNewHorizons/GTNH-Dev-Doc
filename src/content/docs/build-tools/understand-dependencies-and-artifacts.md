@@ -4,9 +4,10 @@ description: Choose dependency visibility and distinguish a development jar from
 ---
 
 A dependency declaration chooses an artifact and the classpaths that can use
-it. When you publish the mod, you also decide which dependencies a consumer
-inherits. Adding a jar to a development run doesn't necessarily publish it as
-part of your mod's dependency contract.
+it. For example, an addon may need a library both to compile and to run, while
+an inspection mod is useful only in its development environment. The
+configuration also determines which dependencies other projects inherit when
+they depend on your published mod.
 
 ## Choose the required visibility
 
@@ -27,11 +28,17 @@ describe their intended uses; GTNHGradle's
 wires them into the classpaths.
 
 Use `api` when consumers need dependency types exposed by your public API.
-Use `implementation` for an internal dependency that is still needed at
-runtime. A development-only inspection mod or test framework often belongs
-in a non-published configuration. `compileOnly` requires another source for
-the dependency at runtime, or an
+For example, if a public method returns a library's type, callers need that
+library on their compile classpath. Use `implementation` when the library
+stays inside your implementation but is still needed at runtime.
+
+A development-only inspection mod or test framework often belongs in a
+non-published configuration. `compileOnly` requires another source for the
+dependency at runtime, or an
 [optional integration boundary](/GTNH-Dev-Doc/development-practices/isolate-optional-mod-integrations/).
+
+These configurations describe classpaths and published dependency metadata.
+They don't, by themselves, bundle the dependency's jar inside your mod.
 
 The [Java Library plugin](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_configurations_graph)
 defines the standard configurations. Use modern names for new declarations;

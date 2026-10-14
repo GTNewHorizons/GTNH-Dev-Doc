@@ -65,8 +65,9 @@ repositories you have checked.
 
 Being in the organization doesn't tell you a mod's support level. Check the
 [mod support spreadsheet](https://docs.google.com/spreadsheets/d/1LHd8c4FLLHiJqsuTppF2XFTE6bh-mXE7afVwGbzOKms)
-and its current legend. A consumed upstream mod may have no GTNH source fork.
-Check with maintainers who should own the fork before creating one.
+and its current legend. The pack may use an upstream mod's releases without
+maintaining a GTNH fork. If a source change needs a new fork, agree with
+maintainers where it should live before creating it.
 
 ## Check the contribution requirements
 
@@ -106,8 +107,13 @@ Mod source, a published mod jar, and an assembled pack are different outputs.
 [GTNH Maven](https://nexus.gtnewhorizons.com/) hosts dependency artifacts;
 DreamAssemblerXXL selects versions and builds pack archives.
 
-For coordinated changes, identify the producer, consumer, and pack selection.
+For example, if an addon needs a new library method, the library must publish
+an artifact containing that method, the addon must select it, and the pack must
+include compatible versions of both. Use
+[cross-repository testing](/GTNH-Dev-Doc/testing/test-cross-repository-changes/)
+to check the unpublished changes together.
+
 Plan separate, linked pull requests and their dependency order. A merge in one
 repository does not immediately update the others; the
 [release pipeline](/GTNH-Dev-Doc/releases-and-maintenance/understand-the-gtnh-release-pipeline/)
-explains the boundaries to verify.
+explains how source changes reach published jars and pack builds.

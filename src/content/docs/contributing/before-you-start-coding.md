@@ -7,8 +7,7 @@ Check whether the change fits GTNH before spending time implementing it. Read
 the [contribution guidelines](https://github.com/GTNewHorizons/.github/blob/master/CONTRIBUTING.md),
 the target repository's instructions, and the
 [Developer's Code of Conduct](https://github.com/GTNewHorizons/.github/blob/master/CODE_OF_CONDUCT.md).
-The requirements below help you plan your proposal. The linked policies
-define those requirements.
+Use those policies and the checks below to prepare your proposal.
 
 ## Discuss the design before substantial work
 
@@ -35,7 +34,8 @@ Answer the guidelines' required questions:
 
 - What goal does the change serve, and which tier does it target?
 - What are the effects on other systems and the wider game meta?
-- What measurements, diagrams, or practical setups support it?
+- If relevant, what measurements or visualizations support it? For a new
+  multiblock, include a picture and its practical setup.
 - Does it depend on another planned or unmerged change?
 
 At least two approvals are required, including one from the Balance Review
@@ -61,6 +61,5 @@ your own voice and intent. Commit messages and pull request descriptions must
 read in your own voice. The policy also covers firsthand bug reproduction,
 issues, discussions, quests, and prohibited AI-generated media.
 
-Once you understand the proposal and its requirements,
-[choose the owning repository](/GTNH-Dev-Doc/start-here/choose-a-repository/)
-and prepare the change.
+Use [Choose a repository](/GTNH-Dev-Doc/start-here/choose-a-repository/)
+to find the source and setup for your change.

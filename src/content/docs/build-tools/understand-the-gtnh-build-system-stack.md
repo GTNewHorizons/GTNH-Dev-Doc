@@ -3,25 +3,28 @@ title: Understand the GTNH build-system stack
 description: Identify which build layer owns a setting, task, or failed operation.
 ---
 
-A GTNH mod's build combines repository-specific choices with shared Gradle
-plugins and Minecraft tooling. Knowing which part controls a setting helps you
-find the supported way to change it, or the implementation to inspect when it fails.
+A GTNH mod's build combines the checkout's settings with shared Gradle plugins
+and Minecraft tooling. Follow the task through those layers to find where a
+setting comes from or which implementation to inspect when it fails.
 
 ## Follow one build from the checkout
 
-The **Gradle wrapper** starts the distribution selected by
-`gradle/wrapper/gradle-wrapper.properties`. The repository's settings and
-build files select plugins and describe the project. Properties, dependency
-declarations, and supported add-on scripts provide the inputs for that build.
+When you run `./gradlew runClient`, the **Gradle wrapper** first starts the
+distribution selected by `gradle/wrapper/gradle-wrapper.properties`. Gradle
+reads the repository's settings and build files, which select plugins and
+describe the project. Properties, dependency declarations, and supported
+add-on scripts configure the build.
 
 [GTNHGradle](https://github.com/GTNewHorizons/GTNHGradle) applies shared
 conventions through configurable modules: versioning, toolchains, formatting,
 IDE runs, and publication are examples. It builds on
 [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle),
 which prepares the legacy Minecraft/Forge development environment and the
-mapped and reobfuscated artifacts.
+mapped and reobfuscated artifacts. The configured client task can then launch
+Minecraft in its own JVM. That game's Java selection can differ from the one
+running Gradle.
 
-A repository workflow then runs those tasks in GitHub Actions. Some
+In CI, a repository workflow invokes the build's tasks in GitHub Actions. Some
 repositories call the shared
 [GTNH Actions Workflows](https://github.com/GTNewHorizons/GTNH-Actions-Workflows);
 the caller selects the revision, environment, inputs, and permissions.
@@ -52,7 +55,7 @@ personal run tweaks.
 
 A build-system update can replace shared files, so you may need to adjust
 your customizations afterward. Review the diff and rerun the repository's
-checks. Even a generated migration needs to preserve the project's behavior.
+checks to confirm that the updated build still does what the project needs.
 
 Pack assembly is a separate process:
 [DreamAssemblerXXL selects published mod artifacts](/GTNH-Dev-Doc/releases-and-maintenance/understand-the-gtnh-release-pipeline/)

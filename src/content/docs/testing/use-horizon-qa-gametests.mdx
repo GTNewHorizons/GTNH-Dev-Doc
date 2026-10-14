@@ -77,10 +77,11 @@ Passing `-Dhorizonqa.mode=ci` directly to Gradle sets it on the wrong JVM.
 For a multi-project consumer, use its qualified server task.
 
 Inspect `TEST-horizonqa.xml` and `horizonqa-result.json` in the report
-directory. The JSON distinguishes a pass, required-test failure, and
-infrastructure error; a missing or unmatched test is not a passing regression
-check. Confirm the selected test and counts, then read the failure trace or
-infrastructure issue.
+directory. Check that both belong to this run; old reports can remain after
+a launch fails before HQA writes new ones. The JSON distinguishes a pass,
+required-test failure, and infrastructure error. Confirm the selected test
+and counts, then read the failure trace or infrastructure issue. A missing
+or unmatched test is not a passing regression check.
 
 Use the [CI and report guide](https://www.gtnewhorizons.com/Horizon-QA/guide/ci/)
 for selectors, exit-code meanings, optional tests, and workflow integration.
