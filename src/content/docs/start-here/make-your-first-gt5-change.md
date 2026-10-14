@@ -9,39 +9,44 @@ next:
   label: Make your first pull request
 ---
 
-Change the order of two Programmed Circuit tooltip hints. You'll find the code
-behind displayed text, make a small Java edit, and check the result in game.
+In this exercise you'll swap the order of two lines in the Programmed
+Circuit's tooltip. Along the way you'll trace text you see in game back to
+the code that shows it, make a small Java edit, and check the result.
 
-Use this as a local practice exercise. When you have a change the project needs,
-follow [Make your first pull request](/GTNH-Dev-Doc/start-here/make-your-first-pull-request/).
+This is practice only: don't open a pull request for it. When you have a real
+change, follow [Make your first pull request](/GTNH-Dev-Doc/start-here/make-your-first-pull-request/).
 
-## Prepare your workspace
+## Before you start
 
-Complete the [GT5-Unofficial workspace example](/GTNH-Dev-Doc/start-here/set-up-your-workspace/#worked-example-gt5-unofficial)
-and [build and launch the unchanged client](/GTNH-Dev-Doc/start-here/build-and-run/).
-Use a working branch with no existing edits to
-`src/main/java/gregtech/common/items/ItemIntegratedCircuit.java`.
+You need:
 
-Run commands from the GT5 repository root containing `gradlew`. On Windows
-PowerShell, replace `./gradlew` with `.\gradlew.bat`.
+- A GT5-Unofficial checkout set up as in the
+  [workspace example](/GTNH-Dev-Doc/start-here/set-up-your-workspace/#worked-example-gt5-unofficial).
+- The unchanged client [built and launched once](/GTNH-Dev-Doc/start-here/build-and-run/).
+- No existing edits to
+  `src/main/java/gregtech/common/items/ItemIntegratedCircuit.java`.
 
-The source links below use [revision `b7fc37e18719`](https://github.com/GTNewHorizons/GT5-Unofficial/tree/b7fc37e18719b3829cc4752542b5b298e205e457),
-the same revision as the workspace example. Compare the method in your checkout
-with the linked source before editing.
+Run the commands from the GT5 repository folder. On Windows PowerShell,
+type `.\gradlew.bat` instead of `./gradlew`.
 
-## Observe the original tooltip
+The source links on this page point to
+[revision `b7fc37e18719`](https://github.com/GTNewHorizons/GT5-Unofficial/tree/b7fc37e18719b3829cc4752542b5b298e205e457).
+If your checkout is newer, the code may have moved a little; compare it with
+the linked version before editing.
 
-1. Set the client's language to English (US).
-2. Create a disposable singleplayer world with cheats enabled.
+## See the original tooltip
+
+1. Set the game language to English (US).
+2. Create a throwaway singleplayer world with cheats enabled.
 3. Open chat and enter:
 
    ```text
    /give @p gregtech:gt.integrated_circuit 1 1
    ```
 
-   This gives you one Programmed Circuit with configuration 1. Pick it up if it
-   drops beside you.
-4. Hover over it in your inventory. Look for these three lines:
+   This gives you one Programmed Circuit set to configuration 1. If your
+   inventory is full, it drops at your feet; pick it up.
+4. Open your inventory and hover over the circuit. You should see these lines:
 
    ```text
    Configuration == 1
@@ -49,31 +54,34 @@ with the linked source before editing.
    Needs a screwdriver or programming tool
    ```
 
-Keep this item and world so you can repeat the check after editing. Exit the
-game before you edit the code.
+Keep the world so you can check again after your edit, then quit the game.
 
 ## Find and change the code
 
-In IntelliJ's **Find in Files**, search for `Right click to reconfigure`.
-The [English language file](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/resources/assets/gregtech/lang/en_US.lang#L4455-L4457)
-maps that text to `GT5U.item.programmed_circuit.tooltip.1`.
+The text in game doesn't appear in the Java code directly. The code uses a
+*translation key*, and a language file maps the key to the English text. So
+you search in two steps.
 
-Search for that key in `src/main/java`. Open
-`src/main/java/gregtech/common/items/ItemIntegratedCircuit.java` and find
-[the `addAdditionalToolTips` method](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/common/items/ItemIntegratedCircuit.java#L200-L213).
-It appends the configuration first, then hint `.1`, then hint `.2`.
+1. In IntelliJ, open **Edit → Find → Find in Files** and search for
+   `Right click to reconfigure`. It's found in the
+   [English language file](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/resources/assets/gregtech/lang/en_US.lang#L4455-L4457),
+   next to the key `GT5U.item.programmed_circuit.tooltip.1`.
+2. Search for that key in `src/main/java`. It leads to
+   `src/main/java/gregtech/common/items/ItemIntegratedCircuit.java`, in the
+   [`addAdditionalToolTips` method](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/src/main/java/gregtech/common/items/ItemIntegratedCircuit.java#L200-L213).
+   The method adds the configuration line first, then hint `.1`, then hint `.2`.
 
-Swap the two hint calls so this fragment reads:
+Swap the two hint lines so they read:
 
 ```java
 aList.add(StatCollector.translateToLocal("GT5U.item.programmed_circuit.tooltip.2"));
 aList.add(StatCollector.translateToLocal("GT5U.item.programmed_circuit.tooltip.1"));
 ```
 
-Keep the configuration call above them in place. The existing translation keys
-supply the text; this edit changes the display order.
+Leave the configuration line above them alone. The text itself doesn't change;
+only the order does.
 
-## Build and verify the change
+## Build and check the result
 
 Save the file and build:
 
@@ -81,13 +89,13 @@ Save the file and build:
 ./gradlew build
 ```
 
-Wait for `BUILD SUCCESSFUL`, then launch a fresh client:
+When you see `BUILD SUCCESSFUL`, start the client:
 
 ```sh
 ./gradlew runClient
 ```
 
-Open the same world and hover over the same circuit. Expect:
+Open the same world and hover over the circuit again. You should now see:
 
 ```text
 Configuration == 1
@@ -95,27 +103,29 @@ Needs a screwdriver or programming tool
 Right click to reconfigure
 ```
 
-The two hints should have exchanged places, while the configuration stays
-`== 1`. If the old order remains, follow
+The two hints have swapped, and the configuration line is unchanged. If you
+still see the old order, see
 [The game runs, but your change is absent](/GTNH-Dev-Doc/troubleshooting/development-client-and-server-problems/#the-game-runs-but-your-change-is-absent).
 
-## Review and finish the exercise
+## Review and undo the exercise
 
-Inspect the diff:
+Look at what you changed:
 
 ```sh
 git diff -- src/main/java/gregtech/common/items/ItemIntegratedCircuit.java
 ```
 
-It should show only the two hint calls exchanging places. Record the commands
-you ran, the item you checked, and its tooltip before and after the change.
-These details let a reviewer repeat your check.
+The diff should show only the two hint lines trading places. For a real pull
+request, this is also the moment to write down what you did: the commands you
+ran, the item you checked, and the tooltip before and after. That lets a
+reviewer repeat your check.
 
-If you haven't committed the exercise and have no other edits in that file,
-you can undo it with:
+To undo the exercise, run:
 
 ```sh
 git restore -- src/main/java/gregtech/common/items/ItemIntegratedCircuit.java
 ```
 
-Build and relaunch if you want to confirm the original order again.
+This discards every uncommitted change in that file, so only run it if the
+swap is the only edit there. Rebuild and relaunch if you want to see the
+original order again.
