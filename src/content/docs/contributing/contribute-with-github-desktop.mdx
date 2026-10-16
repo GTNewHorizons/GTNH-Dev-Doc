@@ -5,10 +5,14 @@ description: Fork a GTNH project, edit and test its files, and submit a pull req
 
 import { Steps } from '@astrojs/starlight/components';
 
-Use GitHub Desktop to contribute code, textures, translations, documentation,
-or pack data through a graphical Git workflow. Edit files with your usual
+Use GitHub Desktop to contribute code, textures, documentation, or pack data
+through a graphical Git workflow. Edit files with your usual
 text, image, or other relevant editor, then use Desktop to record and publish
 the changes.
+
+For community translations, follow
+[Contribute translations](/GTNH-Dev-Doc/contributing/contribute-translations/)
+to work with your language team in ParaTranz.
 
 Before starting, [choose the owning repository](/GTNH-Dev-Doc/start-here/choose-a-repository/),
 read its contribution instructions, and note the branch it asks you to target.
@@ -118,7 +122,7 @@ image, or other relevant editor. Save the result in the clone. Desktop's
 the cloned copy and saved it, and whether the repository ignores that path.
 
 Run the repository's checks for the type of file you changed. For documentation,
-build and inspect the rendered pages. For a texture or translation, inspect
+build and inspect the rendered pages. For a texture, inspect
 the affected screen in game. For pack data, exercise the changed behavior in
 a [separate test instance](/GTNH-Dev-Doc/testing/test-a-change-in-the-full-pack/).
 If you edited a file in that instance, copy the intended change back to its
