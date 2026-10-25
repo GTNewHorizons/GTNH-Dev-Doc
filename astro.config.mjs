@@ -50,6 +50,7 @@ export default defineConfig({
           items: [
             { slug: 'contributing/before-you-start-coding' },
             { slug: 'contributing/find-where-a-change-belongs' },
+            { slug: 'contributing/contribute-translations' },
             { slug: 'contributing/contribute-with-github-desktop' },
             { slug: 'contributing/pull-request-expectations' },
             { slug: 'contributing/contribute-to-this-documentation' },

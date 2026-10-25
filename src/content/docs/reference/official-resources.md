@@ -32,6 +32,12 @@ Report pack-level symptoms through the
 [central modpack issue tracker](https://github.com/GTNewHorizons/GT-New-Horizons-Modpack/issues),
 following its template. For a confirmed project-specific bug, follow that
 repository's reporting instructions.
+
+For translation issues and suggestions, use the
+[GTNH-Translations issue chooser](https://github.com/GTNewHorizons/GTNH-Translations/issues/new/choose).
+To join or start a language team, follow
+[Contribute translations](/GTNH-Dev-Doc/contributing/contribute-translations/).
+
 [GTNH Discord](https://discord.gg/EXshrPV) provides community and developer
 discussion; bring the reproduction, source locations, or relevant logs.
 

@@ -89,7 +89,10 @@ creating your working branch and opening the pull request.
 - **Mod code:** continue to
   [Set up your workspace](/GTNH-Dev-Doc/start-here/set-up-your-workspace/),
   then [Build and run](/GTNH-Dev-Doc/start-here/build-and-run/).
-- **Documentation, translations, assets, or pack data:** fork and clone the
+- **Community translations:** follow
+  [Contribute translations](/GTNH-Dev-Doc/contributing/contribute-translations/)
+  to join your language team's ParaTranz project or organize a new team.
+- **Documentation, assets, or pack data:** fork and clone the
   repository with [GitHub Desktop](/GTNH-Dev-Doc/contributing/contribute-with-github-desktop/)
   or the [command-line Git setup](/GTNH-Dev-Doc/start-here/set-up-your-workspace/#fork-and-clone).
   Follow its README for the editor, generators, and validation it needs.
