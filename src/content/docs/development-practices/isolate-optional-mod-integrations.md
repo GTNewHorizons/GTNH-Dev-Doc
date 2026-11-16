@@ -22,14 +22,14 @@ path can then choose whether to construct that implementation without requiring
 the optional API in the interface itself.
 
 Check availability before constructing or registering the integration.
-If your mod already depends on GTNHLib, use its shared
-[`Mods` list](https://github.com/GTNewHorizons/GTNHLib/blob/b04aa5287fcf2ee6da87f4acd57a79925c322255/src/main/java/com/gtnewhorizon/gtnhlib/compat/Mods.java)
-for mod-presence checks, such as `Mods.NEI`, with
-`com.gtnewhorizon.gtnhlib.compat.Mods` imported. If the mod you need to check
-is missing from that list, add an entry to GTNHLib and use a version containing
-it. This keeps the checks shared across mods that depend on the library.
+In GT5 and mods that already depend on it, use GT5's shared
+[`Mods` enum](https://github.com/GTNewHorizons/GT5-Unofficial/blob/master/src/main/java/gregtech/api/enums/Mods.java)
+for mod-presence checks, such as `Mods.Thaumcraft.isModLoaded()`, with
+`gregtech.api.enums.Mods` imported. If the mod you need to check is missing
+from the enum, add an entry to GT5 and use a version containing it. This keeps
+the checks shared across GT5 and its dependent mods.
 
-For mods without a GTNHLib dependency, FML 1.7.10 provides
+For mods without a GT5 dependency, FML 1.7.10 provides
 [Loader.isModLoaded](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/Loader.java)
 for presence. Neither approach tells you whether an API version, method, or
 capability is available.
@@ -42,7 +42,7 @@ a class that already failed to load because of its type hierarchy.
 This example uses Thaumcraft 4.2.3.5, which
 [GT5 declares as a compile-only dependency](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/dependencies.gradle#L89).
 Follow your project's dependency setup when compiling against this API.
-The example assumes your mod doesn't depend on GTNHLib, so it uses FML
+The example assumes your mod doesn't depend on GT5, so it uses FML
 directly for the presence check.
 
 The example uses three separate source files. The fragments below omit
