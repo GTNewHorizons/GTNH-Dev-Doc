@@ -22,9 +22,16 @@ path can then choose whether to construct that implementation without requiring
 the optional API in the interface itself.
 
 Check availability before constructing or registering the integration.
-FML 1.7.10 provides
+In GT5 and mods that already depend on it, use GT5's shared
+[`Mods` enum](https://github.com/GTNewHorizons/GT5-Unofficial/blob/master/src/main/java/gregtech/api/enums/Mods.java)
+for mod-presence checks, such as `Mods.Thaumcraft.isModLoaded()`, with
+`gregtech.api.enums.Mods` imported. If the mod you need to check is missing
+from the enum, add an entry to GT5 and use a version containing it. This keeps
+the checks shared across GT5 and its dependent mods.
+
+For mods without a GT5 dependency, FML 1.7.10 provides
 [Loader.isModLoaded](https://github.com/MinecraftForge/FML/blob/1.7.10/src/main/java/cpw/mods/fml/common/Loader.java)
-for presence. That check doesn't tell you whether an API version, method, or
+for presence. Neither approach tells you whether an API version, method, or
 capability is available.
 
 Catching `ClassNotFoundException` inside an integration method cannot protect
@@ -35,6 +42,8 @@ a class that already failed to load because of its type hierarchy.
 This example uses Thaumcraft 4.2.3.5, which
 [GT5 declares as a compile-only dependency](https://github.com/GTNewHorizons/GT5-Unofficial/blob/b7fc37e18719b3829cc4752542b5b298e205e457/dependencies.gradle#L89).
 Follow your project's dependency setup when compiling against this API.
+The example assumes your mod doesn't depend on GT5, so it uses FML
+directly for the presence check.
 
 The example uses three separate source files. The fragments below omit
 package declarations and the startup class's imports.
